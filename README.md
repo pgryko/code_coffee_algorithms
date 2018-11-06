@@ -4,10 +4,9 @@ A collection of small projects for self study
 
 Aim is to work through standard algorithm, data structures questions in both python and C++ (both languages due to differences in the way memory is managed).
 
--[x] Get Unit tests working
--[ ] Insert Sort
--[ ] Merge Sort
-
+- [x] Get Unit tests working
+- [ ] Insert Sort
+- [ ] Merge Sort
 # Study references:
 
 - Problem Solving with Algorithms and Data Structures using Python
