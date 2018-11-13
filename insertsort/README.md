@@ -9,13 +9,13 @@ The algorithm sorts numbers in place. Take the sequence
 A = < 5, 2, 4, 6, 1, 3 >
 
 ```
-1: for j = 2 to A.length
-2:     key = A[j]
-3:     i = j - 1
-4:     while i > 0 and A[i] > key
-5:         A[i+1] = A[i]
-6:         i = i - 1
-7:     A[i+1] = key
+1: for i = 2 to A.length
+2:     key = A[i]
+3:     j = i - 1
+4:     while j > 0 and A[j] > key
+5:         A[j+1] = A[j]
+6:         j = j - 1
+7:     A[j+1] = key
 ```
 
 Output: A' = < 1, 2, 3, 4, 5, 6 >
@@ -23,11 +23,11 @@ Output: A' = < 1, 2, 3, 4, 5, 6 >
 When working with array indexes starting at zero
 
 ```
-1: for j = 1 to A.length - 1
-2:     key = A[j]
-3:     i = j
-4:     while i > 0 and A[i - 1] > key
-5:         A[i] = A[i-1]
-6:         i = i - 1
-7:     A[i] = key
+1: for i = 1 to A.length - 1
+2:     key = A[i]
+3:     j = i - 1 
+4:     while j > 0 and A[j] > key
+5:         A[j + 1] = A[j]
+6:         j = j -1
+7:     A[j + 1] = key
 ```
