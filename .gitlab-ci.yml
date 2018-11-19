@@ -18,8 +18,9 @@ test:
     - cd build; 
     - make
     - ./unit_tests --gtest_output="xml:cpp_junit.xml
+    - ls
   artifacts:
     reports:
-      junit: build/cpp_junit.xml
+      junit: cpp_junit.xml
 
 
