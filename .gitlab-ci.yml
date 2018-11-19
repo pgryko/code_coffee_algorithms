@@ -17,6 +17,9 @@ test:
     - cmake -H. -Bbuild
     - cd build; 
     - make
-    - ./unit_tests
+    - ./unit_tests --gtest_output="xml:cpp_junit.xml
+  artifacts:
+    reports:
+      junit: build/cpp_junit.xml
 
 
