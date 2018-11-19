@@ -26,6 +26,12 @@ Aim is to work through standard algorithm, data structures questions in both pyt
 
 # Building & Run instructions:
 
+Git clone recursively
+
+$ git clone --recursive git@gitlab.com:pgryko/self_study.git
+
+This is as we use google test library as a git submodule 
+
 ## CPP
 
 $ cmake -H. -Bbuild
