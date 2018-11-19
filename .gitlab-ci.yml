@@ -16,6 +16,9 @@ test:
   script:
     - cmake -H. -Bbuild
     - cd build; make
+    - ls
+    - pwd
+    - ./unit_tests
     - ./build/unit_tests
 
 
