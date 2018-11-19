@@ -7,21 +7,16 @@ image: gcc
 before_script: 
   - apt update
   - apt -y install cmake
-
+  - git submodule update --init --recursive
 # Defines stages which are to be executed
-stages:
-  - build
-  - test
 
-build-cpp:
-  stage: build
+
+test:
+  stage: test
+  before_script:
   script:
-    - git submodule update --init --recursive
     - cmake -H. -Bbuild
     - cd build; make
-
-test-cpp:
-  stage: test
-  script:
     - ./build/unit_tests
+
 
