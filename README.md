@@ -36,3 +36,7 @@ $ ./unit_tests
 ## Python
 
 $ pytest
+
+## Docker
+
+$ sudo docker build -t self_study .
