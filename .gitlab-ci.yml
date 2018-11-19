@@ -9,7 +9,8 @@ build:
   # install the necessary build tools when needed
   # before_script: 
   #   - apt update && apt -y install make autoconf 
-  script: 
+  script:
+    - git submodule update --init --recursive
     - cmake -H. -Bbuild
     - cd build; make
   # artifacts:
