@@ -15,10 +15,8 @@ test:
   stage: test
   script:
     - cmake -H. -Bbuild
-    - cd build; make
-    - ls
-    - pwd
+    - cd build; 
+    - make
     - ./unit_tests
-    - ./build/unit_tests
 
 
