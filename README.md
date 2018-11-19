@@ -24,3 +24,15 @@ Aim is to work through standard algorithm, data structures questions in both pyt
  - Examples of algorithm implementations
   https://www.geeksforgeeks.org/
 
+# Building & Run instructions:
+
+## CPP
+
+$ cmake -H. -Bbuild
+$ cd build
+$ make
+$ ./unit_tests
+
+## Python
+
+$ pytest
