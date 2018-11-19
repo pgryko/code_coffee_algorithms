@@ -3,27 +3,25 @@
 # see https://hub.docker.com/_/gcc/
 image: gcc
 
-build:
+# Is performed before the scripts in the stages step
+before_script: 
+  - apt update
+  - apt -y install cmake
+
+# Defines stages which are to be executed
+stages:
+  - build
+  - test
+
+build-cpp:
   stage: build
-  # instead of calling g++ directly you can also use some build toolkit like make
-  # install the necessary build tools when needed
-  before_script: 
-    - apt update
-    - apt -y install cmake 
   script:
     - git submodule update --init --recursive
     - cmake -H. -Bbuild
     - cd build; make
-  # artifacts:
-  #   paths:
-  #     - mybinary
-  # depending on your build setup it's most likely a good idea to cache outputs to reduce the build time
-  # cache:
-  #   paths:
-  #     - "*.o"
 
-# run tests using the binary built before
-test:
+test-cpp:
   stage: test
   script:
     - ./build/unit_tests
+
