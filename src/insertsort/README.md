@@ -1,6 +1,7 @@
 # InsertSort
 
-Description
+
+# Description
 
 Input: A sequence of n numbers <a1, a2, a3,..., an>
 Output: A permutation (reordering) <a1', a2', a3',...,an'> of the input sequence such that a1' <= a2' <= a3' <= ... < an'
@@ -31,3 +32,9 @@ When working with array indexes starting at zero
 6:         j = j -1
 7:     A[j + 1] = key
 ```
+
+# Build
+
+$ cmake -H. -Bbuild
+$ cd build; make
+$ ./insertsort

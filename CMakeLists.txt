@@ -17,11 +17,13 @@ endif()
 include_directories(
     ${PROJECT_SOURCE_DIR}/src
     ${PROJECT_SOURCE_DIR}/src/example
+    ${PROJECT_SOURCE_DIR}/src/insertsort
     )
 
 add_library(
     example
     src/example/example.cpp
+    src/insertsort/insertsort.cpp
     )
 
 set(GOOGLETEST_ROOT external/googletest/googletest CACHE STRING "Google Test source root")
