@@ -40,3 +40,4 @@ $ pytest
 ## Docker
 
 $ sudo docker build -t self_study .
+$ sudo docker run self_study
