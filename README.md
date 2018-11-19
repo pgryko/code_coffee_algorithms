@@ -22,7 +22,10 @@ Aim is to work through standard algorithm, data structures questions in both pyt
   http://www.algorist.com/algowiki/index.php/The_Algorithms_Design_Manual_(Second_Edition)
 
  - Examples of algorithm implementations
-  https://www.geeksforgeeks.org/
+   https://www.geeksforgeeks.org/
+
+ - Suggested list of topics
+   https://medium.com/educative/3-month-coding-interview-bootcamp-904422926ce8
 
 # Building & Run instructions:
 
