@@ -13,7 +13,6 @@ before_script:
 
 test:
   stage: test
-  before_script:
   script:
     - cmake -H. -Bbuild
     - cd build; make
