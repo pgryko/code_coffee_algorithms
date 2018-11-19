@@ -6,7 +6,7 @@ image: gcc
 # Is performed before the scripts in the stages step
 before_script: 
   - apt-get update
-  - apt-get -y install cmake
+  - apt-get -y install cmake python3-pip
   - git submodule update --init --recursive
 # Defines stages which are to be executed
 
