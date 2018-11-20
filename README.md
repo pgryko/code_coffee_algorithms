@@ -36,22 +36,23 @@ $ git clone --recursive git@gitlab.com:pgryko/self_study.git
 This is as we use google test library as a git submodule 
 
 ## CPP
-
+```bash
 $ cmake -H. -Bbuild
 $ cd build
 $ make
 $ ./unit_tests
-
+```
 ## Python
-
+```bash
 $ pytest
-
+```
 ## Docker
-
+```bash
 $ sudo docker build -t self_study .
 $ sudo docker run self_study
-
+```
 This will terminate upon completion. To create an interactive session:
-
+```bash
 $ sudo docker run  --name self_study -d self_study tail -f /dev/null --stop-timeout 600
 $ sudo docker exec -it self_study /bin/bash
+```
