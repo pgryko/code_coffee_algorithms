@@ -17,5 +17,6 @@ RUN rm -rf build
 RUN mkdir build
 RUN cmake -H. -Bbuild
 RUN cd build; make
+RUN ./build/unit_tests --gtest_output="xml:cpp_junit.xml"
 
 CMD ./build/unit_tests --gtest_output="xml:cpp_junit.xml"
