@@ -27,6 +27,9 @@ Aim is to work through standard algorithm, data structures questions in both pyt
  - Suggested list of topics
    https://medium.com/educative/3-month-coding-interview-bootcamp-904422926ce8
 
+  - Practical Cryptography for developers
+    https://cryptobook.nakov.com/
+
 # Building & Run instructions:
 
 Git clone recursively

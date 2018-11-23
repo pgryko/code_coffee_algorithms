@@ -1,6 +1,5 @@
 # Use an official Python runtime as a parent image
 FROM gcc
-
 # Set the working directory to /app
 WORKDIR /app
 
@@ -19,4 +18,4 @@ RUN cmake -H. -Bbuild
 RUN cd build; make
 RUN ./build/unit_tests --gtest_output="xml:cpp_junit.xml"
 
-CMD ./build/unit_tests --gtest_output="xml:cpp_junit.xml"
+CMD ./build/unit_tests

@@ -60,8 +60,10 @@ target_link_libraries(
     pthread
     )
 
+
 include(CTest)
 enable_testing()
 
 add_test(unit ${PROJECT_BINARY_DIR}/unit_tests)
+
 

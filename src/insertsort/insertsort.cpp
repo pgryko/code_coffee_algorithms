@@ -1,6 +1,6 @@
 #include <iostream>
 #include <array>
-
+#include "insertsort.h"
 
 template<typename T, size_t N>
 void insertsort(std::array<T, N> *Array) {
