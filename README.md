@@ -10,26 +10,28 @@ Aim is to work through standard algorithm, data structures questions in both pyt
 # Study references:
 
 - Problem Solving with Algorithms and Data Structures using Python
-  http://interactivepython.org/runestone/static/pythonds/index.html
+   http://interactivepython.org/runestone/static/pythonds/index.html
 
 - Data Open structures in C++
-  http://opendatastructures.org/ods-cpp/
+   http://opendatastructures.org/ods-cpp/
 
 - The Algorithms Design Manual
 
-  http://www3.cs.stonybrook.edu/~skiena/373/videos/
+   http://www3.cs.stonybrook.edu/~skiena/373/videos/
 
-  http://www.algorist.com/algowiki/index.php/The_Algorithms_Design_Manual_(Second_Edition)
+   http://www.algorist.com/algowiki/index.php/The_Algorithms_Design_Manual_(Second_Edition)
 
- - Examples of algorithm implementations
-   https://www.geeksforgeeks.org/
+- Examples of algorithm implementations
+    https://www.geeksforgeeks.org/
 
- - Suggested list of topics
-   https://medium.com/educative/3-month-coding-interview-bootcamp-904422926ce8
+- Suggested list of topics
+    https://medium.com/educative/3-month-coding-interview-bootcamp-904422926ce8
 
-  - Practical Cryptography for developers
+- Practical Cryptography for developers
     https://cryptobook.nakov.com/
 
+- Things every software enginner should know
+    https://github.com/mtdvio/every-programmer-should-know
 # Building & Run instructions:
 
 Git clone recursively
