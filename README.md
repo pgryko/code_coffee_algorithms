@@ -32,6 +32,10 @@ Aim is to work through standard algorithm, data structures questions in both pyt
 
 - Things every software enginner should know
     https://github.com/mtdvio/every-programmer-should-know
+
+- Books
+  TCP/IP Illustrated Volume 1
+  The Design of the UNIX Operating System
 # Building & Run instructions:
 
 Git clone recursively
