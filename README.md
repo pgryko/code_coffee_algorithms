@@ -33,6 +33,9 @@ Aim is to work through standard algorithm, data structures questions in both pyt
 - Things every software enginner should know
     https://github.com/mtdvio/every-programmer-should-know
 
+- Problem Solving with Algorithms and Data Structures using Python
+    http://interactivepython.org/runestone/static/pythonds/index.html
+
 - Books
   TCP/IP Illustrated Volume 1
   The Design of the UNIX Operating System
