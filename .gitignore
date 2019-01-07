@@ -1,7 +1,7 @@
 
 # Created by https://www.gitignore.io/api/c++,cmake,clion,python,pycharm
 # Edit at https://www.gitignore.io/?templates=c++,cmake,clion,python,pycharm
-
+.idea/
 ### C++ ###
 # Prerequisites
 *.d

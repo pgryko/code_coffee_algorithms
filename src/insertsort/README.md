@@ -27,7 +27,7 @@ When working with array indexes starting at zero
 1: for i = 1 to A.length - 1
 2:     key = A[i]
 3:     j = i - 1 
-4:     while j > 0 and A[j] > key
+4:     while j != 0 and A[j] > key
 5:         A[j + 1] = A[j]
 6:         j = j -1
 7:     A[j + 1] = key
