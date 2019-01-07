@@ -30,7 +30,7 @@ Aim is to work through standard algorithm, data structures questions in both pyt
 - Practical Cryptography for developers
     https://cryptobook.nakov.com/
 
-- Things every software enginner should know
+- Things every software engineer should know
     https://github.com/mtdvio/every-programmer-should-know
 
 - Problem Solving with Algorithms and Data Structures using Python
