@@ -36,6 +36,9 @@ Aim is to work through standard algorithm, data structures questions in both pyt
 - Problem Solving with Algorithms and Data Structures using Python
     http://interactivepython.org/runestone/static/pythonds/index.html
 
+- Video lectures on 4 algorithmic journeys
+  https://www.youtube.com/user/A9Videos/playlists
+
 - Books
   TCP/IP Illustrated Volume 1
   The Design of the UNIX Operating System
