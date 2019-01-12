@@ -23,5 +23,5 @@ RUN mkdir build
 RUN cmake -H. -Bbuild
 RUN cd build; make
 RUN ./build/unit_tests --gtest_output="xml:cpp_junit.xml"
-RUN pytest --junitxml=build/pytest.xml
+RUN pytest --junitxml=build/pytest.xml --cov=src/
 CMD ./build/unit_tests && pytest
