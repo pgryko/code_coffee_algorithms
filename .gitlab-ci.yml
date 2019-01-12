@@ -20,6 +20,8 @@ test:
     - ./unit_tests --gtest_output="xml:cpp_junit.xml"
   artifacts:
     reports:
-      junit: build/cpp_junit.xml
+      junit:
+       - build/cpp_junit.xml
+       - build/pytest.xml
 
 
