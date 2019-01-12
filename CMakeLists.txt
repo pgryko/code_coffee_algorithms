@@ -23,8 +23,7 @@ include_directories(
 add_library(
     example
     src/example/example.cpp
-    src/insertsort/insertsort.cpp
-    )
+)
 
 set(GOOGLETEST_ROOT external/googletest/googletest CACHE STRING "Google Test source root")
 
@@ -49,6 +48,7 @@ add_executable(
     test/main.cpp
     test/example_add.cpp
     test/example_subtract.cpp
+    test/test_insertsort.cpp
     )
 
 add_dependencies(unit_tests googletest)
