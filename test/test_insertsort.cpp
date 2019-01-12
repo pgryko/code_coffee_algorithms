@@ -23,9 +23,3 @@ insertsort(&a1);
 EXPECT_EQ(a2, a1);
 }
 
-TEST(InsertSortTestNegative, TriggerFailure) {
-std::array<int, 7> a1{5, 4, 2, 1, -6, 3, 10};
-std::array<int, 7> a2{-6, 1, 1, 2, 3, 4, 5};
-insertsort(&a1);
-EXPECT_EQ(a2, a1);
-}
