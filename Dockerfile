@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip3 install --upgrade pip wheel setuptools
 
-COPY requirements.txt /requirements
+COPY requirements.txt /requirements/requirements.txt
 RUN pip3 install -r /requirements/requirements.txt
 
 
