@@ -1,6 +1,8 @@
 def insert_sort(array):
-    for k in range(0, len(array)):
-        print(k)
+
+    for index, item in enumerate(array):
+
+        print(item)
 
 
 if __name__ == '__main__':
