@@ -8,7 +8,7 @@ before_script:
   - apt-get update
   - apt-get -y install cmake python3-pip
   - git submodule update --init --recursive
-  - pip3 install --upgrade pip wheel setuptools
+#  - pip3 install --upgrade pip wheel setuptools
 # Defines stages which are to be executed
 
 
