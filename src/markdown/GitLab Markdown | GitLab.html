@@ -1,0 +1,2953 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="utf-8">
+
+  <title>GitLab Markdown | GitLab</title>
+
+
+  <meta name="description" content="Documentation for GitLab Community Edition, GitLab Enterprise Edition, Omnibus GitLab, and GitLab Runner.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/stylesheets/stylesheet-v57.css">
+<link rel="stylesheet" href="/assets/stylesheets/highlight-v6.css">
+<link rel="stylesheet" href="/assets/stylesheets/footer-v3.css">
+<link rel="stylesheet" href="/assets/stylesheets/docsearch.min.css">
+<link rel="stylesheet" href="/assets/stylesheets/toc-v6.css">
+<link rel="stylesheet" href="/assets/stylesheets/comments-v4.css">
+<!-- new fontawesome version 4 - via CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- end of fontawesome -->
+
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WZCXKT5');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- add cookie consent  -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="36a06ac5-ddb4-4f91-8337-067ad19ad8d5" type="text/javascript" async></script>
+
+  <!-- Google webmasters verification -->
+  <meta name="google-site-verification" content="6eFQOFLxYAer08ROqc3I-SAi44F9NmvH7PrUUBR3oCI" />
+
+
+<script async src="/assets/javascripts/classlist-polyfill-v1.js"></script>
+<!-- you don't need to keep this, but it's cool for stats! -->
+<meta name="generator" content="Nanoc 4.10.3">
+<!-- Algolia Searching from the URL bar https://www.algolia.com/doc/tutorials/search-ui/ux-patterns/search-from-the-url-bar/ -->
+<link href='/opensearch.xml' rel='search' title='Search through GitLab Docs' type='application/opensearchdescription+xml'>
+
+
+
+  
+    
+      <link rel="canonical" href="https://docs.gitlab.com/ee/user/markdown.html" />
+    
+  
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WZCXKT5"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+
+  <div class="header">
+  <div class="flex-container align-center">
+    <a class="header-link logo-container flex-container justify-center align-center" href="/">
+      <img src="/assets/images/gitlab-logo.svg" class="logo" />
+      <p>GitLab <strong>Docs</strong></p>
+    </a>
+    
+      
+      <form id="search-form" action="/search/" method="get">
+        <input type="text" name="q" class="docsearch" placeholder="Search" required/>
+        <input type="submit" style="visibility: hidden; position:absolute;" />
+      </form>
+      
+    
+    <!-- versions dropdown-->
+<div class="dropdown">
+  <a role="button" class="btn btn-versions dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="versions">
+    <!--
+      Name the label dropdown after the release version so that you know
+      which version you're browsing. For `/archives` show 'Archives' since
+      they're supposed to be versionless.
+      If we build on master and stable branches (versions), show the branch
+      name in the dropdown menu. For local development and review apps, show
+      "Versions".
+    -->
+    
+      
+        master
+      
+    
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu versions-menu" aria-labelledby="versions">
+    <li class="active">
+      <a href='/ee/user/markdown.html' class="versions-tooltip">master
+        <i class="fa fa-question-circle-o" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="The latest docs from GitLab's master branches, to which this site defaults."></i>
+      </a>
+    </li>
+    <li role="separator" class="divider"></li>
+    
+      <!--
+        If we are on the archives page, the link here is hardcoded to always
+        point to `/archives/`. If you visit https://docs.gitlab.com/archives/
+        and select a version from the dropdown, that version's archives page
+        will be shown. We want to always show the latest archives page as it
+        contains all current versions and offline archives.
+      -->
+      
+        <li>
+          <a href='/11.7/ee/user/markdown.html'>
+            11.7
+          </a>
+        </li>
+      
+    
+      <!--
+        If we are on the archives page, the link here is hardcoded to always
+        point to `/archives/`. If you visit https://docs.gitlab.com/archives/
+        and select a version from the dropdown, that version's archives page
+        will be shown. We want to always show the latest archives page as it
+        contains all current versions and offline archives.
+      -->
+      
+        <li>
+          <a href='/11.6/ee/user/markdown.html'>
+            11.6
+          </a>
+        </li>
+      
+    
+      <!--
+        If we are on the archives page, the link here is hardcoded to always
+        point to `/archives/`. If you visit https://docs.gitlab.com/archives/
+        and select a version from the dropdown, that version's archives page
+        will be shown. We want to always show the latest archives page as it
+        contains all current versions and offline archives.
+      -->
+      
+        <li>
+          <a href='/11.5/ee/user/markdown.html'>
+            11.5
+          </a>
+        </li>
+      
+    
+    <li role="separator" class="divider"></li>
+    <li><a href='/archives/'>Archives</a></li>
+  </ul>
+</div>
+<!-- versions dropdown-->
+
+  </div>
+  <div class="nav-container">
+    <a class="nav-toggle" id="docs-nav-toggle">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </a>
+    <ul class="nav">
+      
+      <li class="nav-item">
+        <form id="mobile-search-form" action="/search/" method="get">
+          <input type="text" name="q" class="docsearch docsearch-mobile" placeholder="Search" required/>
+          <input type="submit" style="visibility: hidden; position:absolute;" />
+        </form>
+      </li>
+      
+      
+        
+          
+        
+          
+            <li class="nav-item">
+              <a href="/ee/README.html">
+                GitLab
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a href="/omnibus/README.html">
+                Omnibus
+              </a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a href="/runner/">
+                Runner
+              </a>
+            </li>
+          
+        
+          
+        
+      
+    </ul>
+  </div>
+</div>
+
+  <div class="wrapper">
+    <aside id="global-nav" class="global-nav">
+    
+      
+<nav class="global-nav-content">
+  <!-- nav sections -->
+  
+    <div class="global-nav-section">
+      <span class="global-nav-block-top nav-link">
+        
+          <a class="global-nav-link level-0 " href="/ee/README.html">
+          GitLab
+          </a>
+        <!-- end of if dir -->
+      </span>
+
+      <!-- nav categories -->
+      <!-- end of if sec[:section_categories].nil? -->
+    </div><!-- end of div class="global-nav-section" -->
+  
+    <div class="global-nav-section">
+      <span class="global-nav-block-top nav-link">
+        
+          <a class="global-nav-link level-0 " href="/ee/user/">
+          User
+          </a>
+        <!-- end of if dir -->
+      </span>
+
+      <!-- nav categories -->
+      
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/user/group/">
+                  Groups
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/group/subgroups/">
+                      Subgroups
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/group/epics/">
+                      Epics
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/group/roadmap/">
+                      Roadmaps
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            <!-- end of cat[:docs] -->
+          <!-- end of if cat[:docs].nil? -->
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/user/project/">
+                  Projects
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/settings/">
+                      Settings
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/members/">
+                      Members
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/security_dashboard.html">
+                      Security Dashboard
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/cycle_analytics.html">
+                      Cycle Analytics
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/wiki/">
+                      Wikis
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/snippets.html">
+                      Snippets
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/discussions/">
+                      Discussions
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            <!-- end of cat[:docs] -->
+          <!-- end of if cat[:docs].nil? -->
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/user/project/repository/">
+                  Repositories
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/repository/branches/">
+                      Branches
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/repository/gpg_signed_commits/">
+                      Signed Commits
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/repository/web_editor.html">
+                      Web Editor
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/web_ide/">
+                      Web IDE
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/file_lock.html">
+                      Locked files
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            <!-- end of cat[:docs] -->
+          <!-- end of if cat[:docs].nil? -->
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/user/project/issues/">
+                  Issues
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/issue_board.html">
+                      Issue Boards
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/labels.html">
+                      Labels
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/milestones/">
+                      Milestones
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/service_desk.html">
+                      Service Desk
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            <!-- end of cat[:docs] -->
+          <!-- end of if cat[:docs].nil? -->
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/user/project/merge_requests/">
+                  Merge Requests
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          <!-- end of if cat[:docs].nil? -->
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/ci/README.html">
+                  GitLab CI/CD
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/ci/yaml/README.html">
+                      Configuration
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/ci/examples/README.html">
+                      Examples
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/ci/pipelines.html">
+                      Pipelines
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/pipelines/schedules.html">
+                      Schedules
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/ci/review_apps/">
+                      Review Apps
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/pages/">
+                      GitLab Pages
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/topics/autodevops/">
+                      Auto DevOps
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            <!-- end of cat[:docs] -->
+          <!-- end of if cat[:docs].nil? -->
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/user/project/integrations/prometheus_library/">
+                  Operations
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/integrations/prometheus_library/">
+                      Metrics
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/operations/tracing.html">
+                      Tracing
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/ci/environments.html">
+                      Environments
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/clusters/">
+                      Kubernetes
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/operations/feature_flags.html">
+                      Feature Flags
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            <!-- end of cat[:docs] -->
+          <!-- end of if cat[:docs].nil? -->
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/user/project/container_registry.html">
+                  Container Registry
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          <!-- end of if cat[:docs].nil? -->
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/user/profile/">
+                  Account
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/permissions.html">
+                      Permissions
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 active" href="/ee/user/markdown.html">
+                      Markdown
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            <!-- end of cat[:docs] -->
+          <!-- end of if cat[:docs].nil? -->
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/topics/authentication/">
+                  General
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/topics/authentication/">
+                      Authentication
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/ssh/README.html">
+                      SSH
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/api/README.html">
+                      API
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/integration/README.html">
+                      Integrations
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/topics/git/">
+                      Git
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            <!-- end of cat[:docs] -->
+          <!-- end of if cat[:docs].nil? -->
+        <!-- end of sec[:section_categories] -->
+      <!-- end of if sec[:section_categories].nil? -->
+    </div><!-- end of div class="global-nav-section" -->
+  
+    <div class="global-nav-section">
+      <span class="global-nav-block-top nav-link">
+        
+          <a class="global-nav-link level-0 " href="/ee/administration/">
+          Administrator
+          </a>
+        <!-- end of if dir -->
+      </span>
+
+      <!-- nav categories -->
+      
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/install/README.html">
+                  Install
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          <!-- end of if cat[:docs].nil? -->
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/update/README.html">
+                  Update
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          <!-- end of if cat[:docs].nil? -->
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/user/admin_area/settings/">
+                  Configure
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/customization/branded_login_page.html">
+                      Appearance
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/admin_area/settings/continuous_integration.html">
+                      CI/CD
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/admin_area/settings/email.html">
+                      Email
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/administration/gitaly/">
+                      Gitaly
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/administration/pages/">
+                      GitLab Pages
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/admin_area/monitoring/health_check.html">
+                      Health Check
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/admin_area/labels.html">
+                      Labels
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/administration/logs.html">
+                      Log system
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/administration/auth/README.html">
+                      OAuth applications
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/administration/integration/plantuml.html">
+                      PlantUML Integration
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/administration/repository_checks.html">
+                      Repository checks
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/administration/repository_storage_paths.html">
+                      Repository path
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/admin_area/settings/account_and_limit_settings.html">
+                      Repository size
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/ci/runners/README.html">
+                      Runner
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/project/integrations/services_templates.html">
+                      Service templates
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/system_hooks/system_hooks.html">
+                      System Hooks
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            <!-- end of cat[:docs] -->
+          <!-- end of if cat[:docs].nil? -->
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/administration/monitoring/">
+                  Metrics
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/administration/monitoring/performance/influxdb_configuration.html">
+                      Influx
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/administration/monitoring/prometheus/">
+                      Prometheus
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/administration/monitoring/performance/performance_bar.html">
+                      Performance bar
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            
+              <span class="nav-link">
+                
+                  
+                    <a class="global-nav-link level-2 " href="/ee/user/admin_area/settings/usage_statistics.html">
+                      Usage statistics
+                    </a>
+                  <!-- end of if dir != 'ce' -->
+                <!-- end of if doc[:external_url] -->
+              </span>
+            <!-- end of cat[:docs] -->
+          <!-- end of if cat[:docs].nil? -->
+        <!-- end of sec[:section_categories] -->
+      <!-- end of if sec[:section_categories].nil? -->
+    </div><!-- end of div class="global-nav-section" -->
+  
+    <div class="global-nav-section">
+      <span class="global-nav-block-top nav-link">
+        
+          <a class="global-nav-link level-0 " href="/ee/development/README.html">
+          Contributor
+          </a>
+        <!-- end of if dir -->
+      </span>
+
+      <!-- nav categories -->
+      
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/development/architecture.html#components">
+                  Architecture
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          <!-- end of if cat[:docs].nil? -->
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/development/documentation/">
+                  Documentation
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          <!-- end of if cat[:docs].nil? -->
+        
+          <span class="global-nav-cat nav-link">
+            
+              <a class="global-nav-link level-1" href="https://design.gitlab.com" target="_blank">
+                GitLab Design System
+              </a>
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          <!-- end of if cat[:docs].nil? -->
+        
+          <span class="global-nav-cat nav-link">
+            
+             
+                <a class="global-nav-link level-1 " href="/ee/development/i18n/">
+                  Translate GitLab
+                </a>
+              <!-- end of if dir != 'ce' -->
+            <!-- end of if cat[:external_url] -->
+          </span>
+
+          <!-- nav docs -->
+          <!-- end of if cat[:docs].nil? -->
+        <!-- end of sec[:section_categories] -->
+      <!-- end of if sec[:section_categories].nil? -->
+    </div><!-- end of div class="global-nav-section" -->
+  <!-- end of @items['/_data/global-nav.yaml'] -->
+</nav>
+
+    
+    </aside>
+    <div class="main class js-main-wrapper">
+      
+        
+        
+          <ul class="breadcrumbs">
+            
+              <li class="breadcrumb"><a href="/ee/README.html">GitLab Documentation</a></li>
+            
+              <li class="breadcrumb"><a href="/ee/user/">User documentation</a></li>
+            
+            <li class="breadcrumb">GitLab Markdown</li>
+          </ul>
+          <div id="doc-nav" class="doc-nav">
+            <a class="toc-collapse" data-toggle="collapse" href="#markdown-toc" aria-expanded="true" aria-controls="markdown-toc"></a>
+          </div>
+        
+      
+      
+        <h1 class="article-title" itemprop="name">
+          GitLab Markdown
+        </h1>
+      
+      
+      <div class="article-content js-article-content" role="main" itemscope itemprop="mainContentOfPage">
+        <ul id="markdown-toc">
+  <li>
+<a href="#gitlab-flavored-markdown-gfm" id="markdown-toc-gitlab-flavored-markdown-gfm">GitLab Flavored Markdown (GFM)</a>    <ul>
+      <li><a href="#transitioning-to-commonmark" id="markdown-toc-transitioning-to-commonmark">Transitioning to CommonMark</a></li>
+      <li><a href="#newlines" id="markdown-toc-newlines">Newlines</a></li>
+      <li><a href="#multiple-underscores-in-words" id="markdown-toc-multiple-underscores-in-words">Multiple underscores in words</a></li>
+      <li><a href="#url-auto-linking" id="markdown-toc-url-auto-linking">URL auto-linking</a></li>
+      <li><a href="#multiline-blockquote" id="markdown-toc-multiline-blockquote">Multiline blockquote</a></li>
+      <li><a href="#code-and-syntax-highlighting" id="markdown-toc-code-and-syntax-highlighting">Code and syntax highlighting</a></li>
+      <li><a href="#inline-diff" id="markdown-toc-inline-diff">Inline diff</a></li>
+      <li><a href="#emoji" id="markdown-toc-emoji">Emoji</a></li>
+      <li><a href="#special-gitlab-references" id="markdown-toc-special-gitlab-references">Special GitLab references</a></li>
+      <li><a href="#task-lists" id="markdown-toc-task-lists">Task lists</a></li>
+      <li><a href="#videos" id="markdown-toc-videos">Videos</a></li>
+      <li><a href="#math" id="markdown-toc-math">Math</a></li>
+      <li>
+<a href="#colors" id="markdown-toc-colors">Colors</a>        <ul>
+          <li><a href="#supported-formats" id="markdown-toc-supported-formats">Supported formats:</a></li>
+        </ul>
+      </li>
+      <li><a href="#mermaid" id="markdown-toc-mermaid">Mermaid</a></li>
+      <li><a href="#front-matter" id="markdown-toc-front-matter">Front matter</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#standard-markdown" id="markdown-toc-standard-markdown">Standard Markdown</a>    <ul>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#header-ids-and-links" id="markdown-toc-header-ids-and-links">Header IDs and links</a></li>
+      <li><a href="#emphasis" id="markdown-toc-emphasis">Emphasis</a></li>
+      <li><a href="#lists" id="markdown-toc-lists">Lists</a></li>
+      <li><a href="#links" id="markdown-toc-links">Links</a></li>
+      <li><a href="#images" id="markdown-toc-images">Images</a></li>
+      <li><a href="#blockquotes" id="markdown-toc-blockquotes">Blockquotes</a></li>
+      <li>
+<a href="#inline-html" id="markdown-toc-inline-html">Inline HTML</a>        <ul>
+          <li><a href="#details-and-summary" id="markdown-toc-details-and-summary">Details and Summary</a></li>
+        </ul>
+      </li>
+      <li><a href="#horizontal-rule" id="markdown-toc-horizontal-rule">Horizontal Rule</a></li>
+      <li><a href="#line-breaks" id="markdown-toc-line-breaks">Line Breaks</a></li>
+      <li><a href="#tables" id="markdown-toc-tables">Tables</a></li>
+      <li><a href="#footnotes" id="markdown-toc-footnotes">Footnotes</a></li>
+      <li><a href="#superscripts--subscripts" id="markdown-toc-superscripts--subscripts">Superscripts / Subscripts</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#wiki-specific-markdown" id="markdown-toc-wiki-specific-markdown">Wiki-specific Markdown</a>    <ul>
+      <li><a href="#wiki---direct-page-link" id="markdown-toc-wiki---direct-page-link">Wiki - Direct page link</a></li>
+      <li><a href="#wiki---direct-file-link" id="markdown-toc-wiki---direct-file-link">Wiki - Direct file link</a></li>
+      <li><a href="#wiki---hierarchical-link" id="markdown-toc-wiki---hierarchical-link">Wiki - Hierarchical link</a></li>
+      <li><a href="#wiki---root-link" id="markdown-toc-wiki---root-link">Wiki - Root link</a></li>
+    </ul>
+  </li>
+  <li><a href="#references" id="markdown-toc-references">References</a></li>
+</ul>
+
+<h1 id="gitlab-markdown">GitLab Markdown<a href="#gitlab-markdown" title="Permalink" class="anchor"></a>
+</h1>
+
+<p>This markdown guide is <strong>valid for GitLab’s system markdown entries and files</strong>.
+It is not valid for the <a href="https://docs.gitlab.com">GitLab documentation website</a>
+nor <a href="https://about.gitlab.com">GitLab’s main website</a>, as they both use
+<a href="https://kramdown.gettalong.org">Kramdown</a> as their markdown engine.
+The documentation website uses an extended Kramdown gem, <a href="https://gitlab.com/gitlab-org/gitlab_kramdown">GitLab Kramdown</a>.
+Consult the <a href="https://about.gitlab.com/handbook/product/technical-writing/markdown-guide/">GitLab Kramdown Guide</a> for a complete Kramdown reference.</p>
+
+<h2 id="gitlab-flavored-markdown-gfm">GitLab Flavored Markdown (GFM)<a href="#gitlab-flavored-markdown-gfm" title="Permalink" class="anchor"></a>
+</h2>
+
+<p>GitLab uses “GitLab Flavored Markdown” (GFM). It extends the <a href="https://spec.commonmark.org/current/">CommonMark specification</a> (which is based on standard Markdown) in a few significant ways to add additional useful functionality. It was inspired by <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/">GitHub Flavored Markdown</a>.</p>
+
+<p>You can use GFM in the following areas:</p>
+
+<ul>
+  <li>Comments</li>
+  <li>Issues</li>
+  <li>Merge requests</li>
+  <li>Milestones</li>
+  <li>Snippets (the snippet must be named with a <code class="highlighter-rouge">.md</code> extension)</li>
+  <li>Wiki pages</li>
+  <li>Markdown documents inside repositories</li>
+  <li>Epics</li>
+</ul>
+
+<p>You can also use other rich text files in GitLab. You might have to install a
+dependency to do so. Please see the <a href="https://github.com/gitlabhq/markup#markups"><code class="highlighter-rouge">github-markup</code> gem readme</a> for more information.</p>
+
+<blockquote>
+  <p><strong>Notes:</strong></p>
+
+  <p>We encourage you to view this document as <a href="markdown.html">rendered by GitLab itself</a>.</p>
+
+  <p>As of 11.1, GitLab uses the <a href="https://github.com/gjtorikian/commonmarker">CommonMark Ruby Library</a> for Markdown
+processing of all new issues, merge requests, comments, and other Markdown content
+in the GitLab system. As of 11.3, wiki pages and Markdown files (<code class="highlighter-rouge">.md</code>) in the
+repositories are also processed with CommonMark. Older content in issues/comments
+are still processed using the <a href="https://github.com/vmg/redcarpet" title="Redcarpet website">Redcarpet Ruby library</a>.</p>
+
+  <p>The documentation website had its <a href="https://gitlab.com/gitlab-com/gitlab-docs/merge_requests/108">markdown engine migrated from Redcarpet to Kramdown</a>
+in October 2018.</p>
+
+  <p><em>Where there are significant differences, we will try to call them out in this document.</em></p>
+</blockquote>
+
+<h3 id="transitioning-to-commonmark">Transitioning to CommonMark<a href="#transitioning-to-commonmark" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>You may have Markdown documents in your repository that were written using some
+of the nuances of RedCarpet’s version of Markdown. Since CommonMark uses a
+slightly stricter syntax, these documents may now display a little strangely
+since we’ve transitioned to CommonMark. Numbered lists with nested lists in
+particular can be displayed incorrectly.</p>
+
+<p>It is usually quite easy to fix.  In the case of a nested list such as this:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">1.</span> Chocolate
+<span class="p">  -</span> dark
+<span class="p">  -</span> milk
+</code></pre></div></div>
+
+<p>simply add a space to each nested item:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">1.</span> Chocolate
+<span class="p">   -</span> dark
+<span class="p">   -</span> milk
+</code></pre></div></div>
+
+<p>In the documentation below, we try to highlight some of the differences.</p>
+
+<p>If you have a need to view a document using RedCarpet, you can add the token
+<code class="highlighter-rouge">legacy_render=1</code> to the end of the url, like this:</p>
+
+<p><a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md?legacy_render=1">https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md?legacy_render=1</a></p>
+
+<p>If you have a large volume of Markdown files, it can be tedious to determine
+if they will be displayed correctly or not. You can use the
+<a href="https://gitlab.com/digitalmoksha/diff_redcarpet_cmark">diff_redcarpet_cmark</a>
+tool (not an officially supported product) to generate a list of files and
+differences between how RedCarpet and CommonMark render the files. It can give
+you a great idea if anything needs to be changed - many times nothing will need
+to changed.</p>
+
+<h3 id="newlines">Newlines<a href="#newlines" title="Permalink" class="anchor"></a>
+</h3>
+
+<blockquote>
+  <p>If this is not rendered correctly, see
+<a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#newlines">https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#newlines</a></p>
+</blockquote>
+
+<p>GFM honors the markdown specification in how <a href="https://spec.commonmark.org/current/">paragraphs and line breaks are handled</a>.</p>
+
+<p>A paragraph is simply one or more consecutive lines of text, separated by one or
+more blank lines.
+Line-breaks, or soft returns, are rendered if you end a line with two or more spaces:</p>
+
+<!-- (Do *NOT* remove the two ending whitespaces in the following line.) -->
+<!-- (They are needed for the Markdown text to render correctly.) -->
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Roses are red [followed by two or more spaces]  
+Violets are blue
+
+Sugar is sweet
+</code></pre></div></div>
+
+<!-- (Do *NOT* remove the two ending whitespaces in the following line.) -->
+<!-- (They are needed for the Markdown text to render correctly.) -->
+<p>Roses are red<br>
+Violets are blue</p>
+
+<p>Sugar is sweet</p>
+
+<h3 id="multiple-underscores-in-words">Multiple underscores in words<a href="#multiple-underscores-in-words" title="Permalink" class="anchor"></a>
+</h3>
+
+<blockquote>
+  <p>If this is not rendered correctly, see
+<a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#multiple-underscores-in-words">https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#multiple-underscores-in-words</a></p>
+</blockquote>
+
+<p>It is not reasonable to italicize just <em>part</em> of a word, especially when you’re
+dealing with code and names that often appear with multiple underscores.
+Therefore, GFM ignores multiple underscores in words:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>perform_complicated_task
+
+do_this_and_do_that_and_another_thing
+</code></pre></div></div>
+
+<p>perform_complicated_task</p>
+
+<p>do_this_and_do_that_and_another_thing</p>
+
+<h3 id="url-auto-linking">URL auto-linking<a href="#url-auto-linking" title="Permalink" class="anchor"></a>
+</h3>
+
+<blockquote>
+  <p>If this is not rendered correctly, see
+<a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#url-auto-linking">https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#url-auto-linking</a></p>
+</blockquote>
+
+<p>GFM will autolink almost any URL you copy and paste into your text:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* https://www.google.com
+* https://google.com/
+* ftp://ftp.us.debian.org/debian/
+* smb://foo/bar/baz
+* irc://irc.freenode.net/gitlab
+* http://localhost:3000
+</code></pre></div></div>
+
+<ul>
+  <li><a href="https://www.google.com">https://www.google.com</a></li>
+  <li><a href="https://google.com/">https://google.com/</a></li>
+  <li><a href="ftp://ftp.us.debian.org/debian/">ftp://ftp.us.debian.org/debian/</a></li>
+  <li>
+<a href="smb://foo/bar/baz"></a><a href="smb://foo/bar/baz&lt;/a">smb://foo/bar/baz&lt;/a</a>&gt;</li>
+  <li>
+<a href="irc://irc.freenode.net/gitlab"></a><a href="irc://irc.freenode.net/gitlab&lt;/a">irc://irc.freenode.net/gitlab&lt;/a</a>&gt;</li>
+  <li><a href="http://localhost:3000">http://localhost:3000</a></li>
+</ul>
+
+<h3 id="multiline-blockquote">Multiline blockquote<a href="#multiline-blockquote" title="Permalink" class="anchor"></a>
+</h3>
+
+<blockquote>
+  <p>If this is not rendered correctly, see
+<a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#multiline-blockquote">https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#multiline-blockquote</a></p>
+</blockquote>
+
+<p>On top of standard Markdown <a href="#blockquotes">blockquotes</a>, which require prepending <code class="highlighter-rouge">&gt;</code> to quoted lines,
+GFM supports multiline blockquotes fenced by <code>&gt;&gt;&gt;</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt;
+If you paste a message from somewhere else
+
+that
+
+spans
+
+multiple lines,
+
+you can quote that without having to manually prepend `&gt;` to every line!
+&gt;&gt;&gt;
+</code></pre></div></div>
+
+<blockquote dir="auto">
+<p>If you paste a message from somewhere else</p>
+<p>that</p>
+<p>spans</p>
+<p>multiple lines,</p>
+<p>you can quote that without having to manually prepend <code>&gt;</code> to every line!</p>
+</blockquote>
+
+<h3 id="code-and-syntax-highlighting">Code and syntax highlighting<a href="#code-and-syntax-highlighting" title="Permalink" class="anchor"></a>
+</h3>
+
+<blockquote>
+  <p>If this is not rendered correctly, see
+<a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#code-and-syntax-highlighting">https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#code-and-syntax-highlighting</a></p>
+</blockquote>
+
+<p><em>GitLab uses the <a href="http://rouge.jneen.net/" title="Rouge website">Rouge Ruby library</a> for syntax highlighting. For a
+list of supported languages visit the Rouge website.</em></p>
+
+<p>Blocks of code are either fenced by lines with three back-ticks <code>```</code>,
+or are indented with four spaces. Only the fenced code blocks support syntax
+highlighting:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Inline `code` has `back-ticks around` it.
+</code></pre></div></div>
+
+<p>Inline <code class="highlighter-rouge">code</code> has <code class="highlighter-rouge">back-ticks around</code> it.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```javascript
+var s = "JavaScript syntax highlighting";
+alert(s);
+```
+
+```python
+def function():
+    #indenting works just fine in the fenced code block
+    s = "Python syntax highlighting"
+    print s
+```
+
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
+
+```
+No language indicated, so no syntax highlighting.
+s = "There is no highlighting for this."
+But let's throw in a &lt;b&gt;tag&lt;/b&gt;.
+```
+</code></pre></div></div>
+
+<p>becomes:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">"JavaScript syntax highlighting"</span><span class="p">;</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">function</span><span class="p">():</span>
+    <span class="c1">#indenting works just fine in the fenced code block
+</span>    <span class="n">s</span> <span class="o">=</span> <span class="s">"Python syntax highlighting"</span>
+    <span class="k">print</span> <span class="n">s</span>
+</code></pre></div></div>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'redcarpet'</span>
+<span class="n">markdown</span> <span class="o">=</span> <span class="no">Redcarpet</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">markdown</span><span class="p">.</span><span class="nf">to_html</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>No language indicated, so no syntax highlighting.
+s = "There is no highlighting for this."
+But let's throw in a &lt;b&gt;tag&lt;/b&gt;.
+</code></pre></div></div>
+
+<h3 id="inline-diff">Inline diff<a href="#inline-diff" title="Permalink" class="anchor"></a>
+</h3>
+
+<blockquote>
+  <p>If this is not rendered correctly, see
+<a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#inline-diff">https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#inline-diff</a></p>
+</blockquote>
+
+<p>With inline diffs tags you can display {+ additions +} or [- deletions -].</p>
+
+<p>The wrapping tags can be either curly braces or square brackets: [+ additions +] or {- deletions -}.</p>
+
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- {+ additions +}
+- [+ additions +]
+- {- deletions -}
+- [- deletions -]
+</code></pre></div></div>
+
+<p>However the wrapping tags cannot be mixed as such:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- {+ additions +]
+- [+ additions +}
+- {- deletions -]
+- [- deletions -}
+</code></pre></div></div>
+
+<h3 id="emoji">Emoji<a href="#emoji" title="Permalink" class="anchor"></a>
+</h3>
+
+<blockquote>
+  <p>If this is not rendered correctly, see
+<a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#emoji">https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#emoji</a></p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sometimes you want to :monkey: around a bit and add some :star2: to your :speech_balloon:. Well we have a gift for you:
+
+:zap: You can use emoji anywhere GFM is supported. :v:
+
+You can use it to point out a :bug: or warn about :speak_no_evil: patches. And if someone improves your really :snail: code, send them some :birthday:. People will :heart: you for that.
+
+If you are new to this, don't be :fearful:. You can easily join the emoji :family:. All you need to do is to look up one of the supported codes.
+
+Consult the [Emoji Cheat Sheet](https://www.emojicopy.com) for a list of all supported emoji codes. :thumbsup:
+
+Most emoji are natively supported on macOS, Windows, iOS, Android and will fallback to image-based emoji where there is lack of support.
+
+On Linux, you can download [Noto Color Emoji](https://www.google.com/get/noto/help/emoji/) to get full native emoji support.
+
+Ubuntu 18.04 (like many modern Linux distros) has this font installed by default.
+</code></pre></div></div>
+
+<p>Sometimes you want to <img src="https://gitlab.com/gitlab-org/gitlab-ce/raw/master/app/assets/images/emoji/monkey.png" width="20px" height="20px"> around a bit and add some <img src="https://gitlab.com/gitlab-org/gitlab-ce/raw/master/app/assets/images/emoji/star2.png" width="20px" height="20px"> to your <img src="https://gitlab.com/gitlab-org/gitlab-ce/raw/master/app/assets/images/emoji/speech_balloon.png" width="20px" height="20px">. Well we have a gift for you:</p>
+
+<p><img src="https://gitlab.com/gitlab-org/gitlab-ce/raw/master/app/assets/images/emoji/zap.png" width="20px" height="20px">You can use emoji anywhere GFM is supported. <img src="https://gitlab.com/gitlab-org/gitlab-ce/raw/master/app/assets/images/emoji/v.png" width="20px" height="20px"></p>
+
+<p>You can use it to point out a <img src="https://gitlab.com/gitlab-org/gitlab-ce/raw/master/app/assets/images/emoji/bug.png" width="20px" height="20px"> or warn about <img src="https://gitlab.com/gitlab-org/gitlab-ce/raw/master/app/assets/images/emoji/speak_no_evil.png" width="20px" height="20px"> patches. And if someone improves your really <img src="https://gitlab.com/gitlab-org/gitlab-ce/raw/master/app/assets/images/emoji/snail.png" width="20px" height="20px"> code, send them some <img src="https://gitlab.com/gitlab-org/gitlab-ce/raw/master/app/assets/images/emoji/birthday.png" width="20px" height="20px">. People will <img src="https://gitlab.com/gitlab-org/gitlab-ce/raw/master/app/assets/images/emoji/heart.png" width="20px" height="20px"> you for that.</p>
+
+<p>If you are new to this, don’t be <img src="https://gitlab.com/gitlab-org/gitlab-ce/raw/master/app/assets/images/emoji/fearful.png" width="20px" height="20px">. You can easily join the emoji <img src="https://gitlab.com/gitlab-org/gitlab-ce/raw/master/app/assets/images/emoji/family.png" width="20px" height="20px">. All you need to do is to look up one of the supported codes.</p>
+
+<p>Consult the <a href="https://www.webfx.com/tools/emoji-cheat-sheet/">Emoji Cheat Sheet</a> for a list of all supported emoji codes. <img src="https://gitlab.com/gitlab-org/gitlab-ce/raw/master/app/assets/images/emoji/thumbsup.png" width="20px" height="20px"></p>
+
+<p>Most emoji are natively supported on macOS, Windows, iOS, Android and will fallback to image-based emoji where there is lack of support.</p>
+
+<p>On Linux, you can download <a href="https://www.google.com/get/noto/help/emoji/">Noto Color Emoji</a> to get full native emoji support.</p>
+
+<p>Ubuntu 18.04 (like many modern Linux distros) has this font installed by default.</p>
+
+<h3 id="special-gitlab-references">Special GitLab references<a href="#special-gitlab-references" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>GFM recognizes special references.</p>
+
+<p>You can easily reference e.g. an issue, a commit, a team member or even the whole team within a project.</p>
+
+<p>GFM will turn that reference into a link so you can navigate between them easily.</p>
+
+<p>GFM will recognize the following:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">input</th>
+      <th style="text-align: left">references</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">@user_name</code></td>
+      <td style="text-align: left">specific user</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">@group_name</code></td>
+      <td style="text-align: left">specific group</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">@all</code></td>
+      <td style="text-align: left">entire team</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">namespace/project&gt;</code></td>
+      <td style="text-align: left">project</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">#12345</code></td>
+      <td style="text-align: left">issue</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">!123</code></td>
+      <td style="text-align: left">merge request</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">$123</code></td>
+      <td style="text-align: left">snippet</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">&amp;123</code></td>
+      <td style="text-align: left">epic</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">~123</code></td>
+      <td style="text-align: left">label by ID</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">~bug</code></td>
+      <td style="text-align: left">one-word label by name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">~"feature request"</code></td>
+      <td style="text-align: left">multi-word label by name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">%123</code></td>
+      <td style="text-align: left">project milestone by ID</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">%v1.23</code></td>
+      <td style="text-align: left">one-word milestone by name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">%"release candidate"</code></td>
+      <td style="text-align: left">multi-word milestone by name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">9ba12248</code></td>
+      <td style="text-align: left">specific commit</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">9ba12248...b19a04f5</code></td>
+      <td style="text-align: left">commit range comparison</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">[README](doc/README)</code></td>
+      <td style="text-align: left">repository file references</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">[README](doc/README#L13)</code></td>
+      <td style="text-align: left">repository file line references</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>GFM also recognizes certain cross-project references:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">input</th>
+      <th style="text-align: left">references</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">namespace/project#123</code></td>
+      <td style="text-align: left">issue</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">namespace/project!123</code></td>
+      <td style="text-align: left">merge request</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">namespace/project%123</code></td>
+      <td style="text-align: left">project milestone</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">namespace/project$123</code></td>
+      <td style="text-align: left">snippet</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">namespace/project@9ba12248</code></td>
+      <td style="text-align: left">specific commit</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">group1/subgroup&amp;123</code></td>
+      <td style="text-align: left">epic</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">namespace/project@9ba12248...b19a04f5</code></td>
+      <td style="text-align: left">commit range comparison</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">namespace/project~"Some label"</code></td>
+      <td style="text-align: left">issues with given label</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>It also has a shorthand version to reference other projects from the same namespace:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">input</th>
+      <th style="text-align: left">references</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">project#123</code></td>
+      <td style="text-align: left">issue</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">project!123</code></td>
+      <td style="text-align: left">merge request</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">project%123</code></td>
+      <td style="text-align: left">project milestone</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">project$123</code></td>
+      <td style="text-align: left">snippet</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">project@9ba12248</code></td>
+      <td style="text-align: left">specific commit</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">project@9ba12248...b19a04f5</code></td>
+      <td style="text-align: left">commit range comparison</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">project~"Some label"</code></td>
+      <td style="text-align: left">issues with given label</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="task-lists">Task lists<a href="#task-lists" title="Permalink" class="anchor"></a>
+</h3>
+
+<blockquote>
+  <p>If this is not rendered correctly, see
+<a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#task-lists">https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#task-lists</a></p>
+</blockquote>
+
+<p>You can add task lists to issues, merge requests and comments. To create a task list, add a specially-formatted Markdown list, like so:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- [x] Completed task
+- [ ] Incomplete task
+    - [ ] Sub-task 1
+    - [x] Sub-task 2
+    - [ ] Sub-task 3
+</code></pre></div></div>
+
+<p><img src="img/unordered_check_list_render_gfm.png" alt="alt unordered-check-list-render-gfm"></p>
+
+<p>Tasks formatted as ordered lists are supported as well:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. [x] Completed task
+1. [ ] Incomplete task
+    1. [ ] Sub-task 1
+    1. [x] Sub-task 2
+</code></pre></div></div>
+
+<p><img src="img/task_list_ordered_render_gfm.png" alt="alt task-list-ordered-render-gfm"></p>
+
+<p>Task lists can only be created in descriptions, not in titles. Task item state can be managed by editing the description’s Markdown or by toggling the rendered check boxes.</p>
+
+<h3 id="videos">Videos<a href="#videos" title="Permalink" class="anchor"></a>
+</h3>
+
+<blockquote>
+  <p>If this is not rendered correctly, see
+<a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#videos">https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#videos</a></p>
+</blockquote>
+
+<p>Image tags with a video extension are automatically converted to a video player.</p>
+
+<p>The valid video extensions are <code class="highlighter-rouge">.mp4</code>, <code class="highlighter-rouge">.m4v</code>, <code class="highlighter-rouge">.mov</code>, <code class="highlighter-rouge">.webm</code>, and <code class="highlighter-rouge">.ogv</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Here's a sample video:
+
+![Sample Video](img/markdown_video.mp4)
+</code></pre></div></div>
+
+<p>Here’s a sample video:</p>
+
+<div class="video-container">
+   <video src="img/markdown_video.mp4" width="400" controls="true" data-setup="{}" data-title="Sample Video"></video>
+   <p><a href="img/markdown_video.mp4" target="_blank" rel="noopener noreferrer" title="Download 'Sample Video'">Sample Video</a></p>
+</div>
+
+<h3 id="math">Math<a href="#math" title="Permalink" class="anchor"></a>
+</h3>
+
+<blockquote>
+  <p>If this is not rendered correctly, see
+<a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#math">https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#math</a></p>
+</blockquote>
+
+<p>It is possible to have math written with the LaTeX syntax rendered using <a href="https://github.com/Khan/KaTeX" title="KaTeX website">KaTeX</a>.</p>
+
+<p>Math written inside <code class="highlighter-rouge">$``$</code> will be rendered inline with the text.</p>
+
+<p>Math written inside triple back quotes, with the language declared as <code class="highlighter-rouge">math</code>, will be rendered on a separate line.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This math is inline $`a^2+b^2=c^2`$.
+
+This is on a separate line
+```math
+a^2+b^2=c^2
+```
+</code></pre></div></div>
+
+<p>Becomes:</p>
+
+<p>This math is inline <img src="img/math_inline_sup_render_gfm.png" alt="alt text">.</p>
+
+<p>This is on a separate line</p>
+
+<p><img src="./img/math_inline_sup_render_gfm.png"></p>
+
+<p><em>Be advised that KaTeX only supports a <a href="https://katex.org/docs/supported.html" title="Macros supported by KaTeX">subset</a> of LaTeX.</em></p>
+
+<blockquote>
+  <p><strong>Note:</strong>
+This also works for the asciidoctor <code class="highlighter-rouge">:stem: latexmath</code>. For details see the <a href="http://asciidoctor.org/docs/user-manual/#activating-stem-support" title="Asciidoctor user manual">asciidoctor user manual</a>.</p>
+</blockquote>
+
+<h3 id="colors">Colors<a href="#colors" title="Permalink" class="anchor"></a>
+</h3>
+
+<blockquote>
+  <p>If this is not rendered correctly, see
+<a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#colors">https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#colors</a></p>
+</blockquote>
+
+<p>It is possible to have color written in HEX, RGB or HSL format rendered with a color indicator.</p>
+
+<p>Color written inside backticks will be followed by a color “chip”.</p>
+
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`#F00`  
+`#F00A`  
+`#FF0000`  
+`#FF0000AA`  
+`RGB(0,255,0)`  
+`RGB(0%,100%,0%)`  
+`RGBA(0,255,0,0.7)`  
+`HSL(540,70%,50%)`  
+`HSLA(540,70%,50%,0.7)`
+</code></pre></div></div>
+
+<p>Becomes:</p>
+
+<p><img src="img/color_inline_colorchip_render_gfm.png" alt="alt color-inline-colorchip-render-gfm"></p>
+
+<h4 id="supported-formats">Supported formats:<a href="#supported-formats" title="Permalink" class="anchor"></a>
+</h4>
+
+<ul>
+  <li>HEX: <code class="highlighter-rouge">`#RGB[A]`</code> or <code class="highlighter-rouge">`#RRGGBB[AA]`</code>
+</li>
+  <li>RGB: <code class="highlighter-rouge">`RGB[A](R, G, B[, A])`</code>
+</li>
+  <li>HSL: <code class="highlighter-rouge">`HSL[A](H, S, L[, A])`</code>
+</li>
+</ul>
+
+<h3 id="mermaid">Mermaid<a href="#mermaid" title="Permalink" class="anchor"></a>
+</h3>
+
+<blockquote>
+  <p><a href="https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/15107">Introduced</a> in
+GitLab 10.3.</p>
+
+  <p>If this is not rendered correctly, see
+<a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#mermaid">https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#mermaid</a></p>
+</blockquote>
+
+<p>It is possible to generate diagrams and flowcharts from text using <a href="https://mermaidjs.github.io/" title="Mermaid website">Mermaid</a>.</p>
+
+<p>In order to generate a diagram or flowchart, you should write your text inside the <code class="highlighter-rouge">mermaid</code> block.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```mermaid
+graph TD;
+  A--&gt;B;
+  A--&gt;C;
+  B--&gt;D;
+  C--&gt;D;
+```
+</code></pre></div></div>
+
+<p>Becomes:</p>
+
+<p><img src="./img/mermaid_diagram_render_gfm.png" width="200px" height="400px"></p>
+
+<p>For details see the <a href="https://mermaidjs.github.io/" title="Mermaid website">Mermaid official page</a>.</p>
+
+<h3 id="front-matter">Front matter<a href="#front-matter" title="Permalink" class="anchor"></a>
+</h3>
+
+<blockquote>
+  <p><a href="https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/23331">Introduced</a>
+  in GitLab 11.6.</p>
+</blockquote>
+
+<p>Front matter is metadata included at the beginning of a markdown document, preceding
+its content. This data can be used by static site generators such as <a href="https://jekyllrb.com/docs/front-matter/">Jekyll</a> and <a href="https://gohugo.io/content-management/front-matter/">Hugo</a>,
+and many other applications.</p>
+
+<p>In GitLab, front matter is only used in Markdown files and wiki pages, not the other places where Markdown formatting is supported.
+When you view a Markdown file rendered by GitLab, any front matter is displayed as-is, in a box at the top of the document, before the rendered HTML content.
+To view an example, you can toggle between the source and rendered version of a <a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/README.md">GitLab documentation file</a>.</p>
+
+<p>The following delimeters are supported:</p>
+
+<ul>
+  <li>
+    <p>YAML (<code class="highlighter-rouge">---</code>):</p>
+
+    <div class="highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>---
+title: About Front Matter
+example:
+  language: yaml
+---
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>TOML (<code class="highlighter-rouge">+++</code>):</p>
+
+    <div class="highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>+++
+title = "About Front Matter"
+[example]
+language = "toml"
++++
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>JSON (<code class="highlighter-rouge">;;;</code>):</p>
+
+    <div class="highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>;;;
+{
+  "title": "About Front Matter"
+  "example": {
+    "language": "json"
+  }
+}
+;;;
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Other languages are supported by adding a specifier to any of the existing
+delimiters. For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---php
+$title = "About Front Matter";
+$example = array(
+  'language' =&gt; "php",
+);
+---
+</code></pre></div></div>
+
+<h2 id="standard-markdown">Standard Markdown<a href="#standard-markdown" title="Permalink" class="anchor"></a>
+</h2>
+
+<h3 id="headers">Headers<a href="#headers" title="Permalink" class="anchor"></a>
+</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+Alternatively, for H1 and H2, an underline-ish style:
+
+Alt-H1
+======
+
+Alt-H2
+------
+</code></pre></div></div>
+
+<h3 id="header-ids-and-links">Header IDs and links<a href="#header-ids-and-links" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>All Markdown-rendered headers automatically get IDs, except in comments.</p>
+
+<p>On hover, a link to those IDs becomes visible to make it easier to copy the link to the header to give it to someone else.</p>
+
+<p>The IDs are generated from the content of the header according to the following rules:</p>
+
+<ol>
+  <li>All text is converted to lowercase.</li>
+  <li>All non-word text (e.g., punctuation, HTML) is removed.</li>
+  <li>All spaces are converted to hyphens.</li>
+  <li>Two or more hyphens in a row are converted to one.</li>
+  <li>If a header with the same ID has already been generated, a unique
+incrementing number is appended, starting at 1.</li>
+</ol>
+
+<p>For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># This header has spaces in it
+## This header has a :thumbsup: in it
+# This header has Unicode in it: 한글
+## This header has spaces in it
+### This header has spaces in it
+## This header has 3.5 in it (and parentheses)
+</code></pre></div></div>
+
+<p>Would generate the following link IDs:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">this-header-has-spaces-in-it</code></li>
+  <li><code class="highlighter-rouge">this-header-has-a-in-it</code></li>
+  <li><code class="highlighter-rouge">this-header-has-unicode-in-it-한글</code></li>
+  <li><code class="highlighter-rouge">this-header-has-spaces-in-it</code></li>
+  <li><code class="highlighter-rouge">this-header-has-spaces-in-it-1</code></li>
+  <li><code class="highlighter-rouge">this-header-has-3-5-in-it-and-parentheses</code></li>
+</ol>
+
+<p>Note that the Emoji processing happens before the header IDs are generated, so the Emoji is converted to an image which then gets removed from the ID.</p>
+
+<h3 id="emphasis">Emphasis<a href="#emphasis" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Emphasis, aka italics, with *asterisks* or _underscores_.
+
+Strong emphasis, aka bold, with **asterisks** or __underscores__.
+
+Combined emphasis with **asterisks and _underscores_**.
+
+Strikethrough uses two tildes. ~~Scratch this.~~
+</code></pre></div></div>
+
+<p>Becomes:</p>
+
+<p>Emphasis, aka italics, with <em>asterisks</em> or <em>underscores</em>.</p>
+
+<p>Strong emphasis, aka bold, with <strong>asterisks</strong> or <strong>underscores</strong>.</p>
+
+<p>Combined emphasis with <strong>asterisks and <em>underscores</em></strong>.</p>
+
+<p>Strikethrough uses two tildes. ~~Scratch this.~~</p>
+
+<h3 id="lists">Lists<a href="#lists" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. First ordered list item
+2. Another item
+   * Unordered sub-list.
+1. Actual numbers don't matter, just that it's a number
+   1. Ordered sub-list
+4. And another item.
+
+* Unordered list can use asterisks
+- Or minuses
++ Or pluses
+</code></pre></div></div>
+
+<p>Becomes:</p>
+
+<ol>
+  <li>First ordered list item</li>
+  <li>Another item
+    <ul>
+      <li>Unordered sub-list.</li>
+    </ul>
+  </li>
+  <li>Actual numbers don’t matter, just that it’s a number
+    <ol>
+      <li>Ordered sub-list</li>
+    </ol>
+  </li>
+  <li>And another item.</li>
+</ol>
+
+<ul>
+  <li>Unordered list can use asterisks</li>
+  <li>Or minuses</li>
+  <li>Or pluses</li>
+</ul>
+
+<p>If a list item contains multiple paragraphs,
+each subsequent paragraph should be indented to the same level as the start of the list item text (<em>Redcarpet: paragraph should be indented with four spaces.</em>)</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. First ordered list item
+
+   Second paragraph of first item.
+
+2. Another item
+</code></pre></div></div>
+
+<p>Becomes:</p>
+
+<ol>
+  <li>
+    <p>First ordered list item</p>
+
+    <p>Paragraph of first item.</p>
+  </li>
+  <li>
+    <p>Another item</p>
+  </li>
+</ol>
+
+<p>If the paragraph of the first item is not indented with the proper number of spaces,
+the paragraph will appear outside the list, instead of properly indented under the list item.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. First ordered list item
+
+  Paragraph of first item.
+
+2. Another item
+</code></pre></div></div>
+
+<p>Becomes:</p>
+
+<ol>
+  <li>First ordered list item</li>
+</ol>
+
+<p>Paragraph of first item.</p>
+
+<ol>
+  <li>Another item</li>
+</ol>
+
+<h3 id="links">Links<a href="#links" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>There are two ways to create links, inline-style and reference-style.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[I'm an inline-style link](https://www.google.com)
+
+[I'm a reference-style link][Arbitrary case-insensitive reference text]
+
+[I'm a relative reference to a repository file](LICENSE)
+
+[I am an absolute reference within the repository](/doc/user/markdown.md)
+
+[I link to the Milestones page](/../milestones)
+
+[You can use numbers for reference-style link definitions][1]
+
+Or leave it empty and use the [link text itself][]
+
+Some text to show that the reference links can follow later.
+
+[arbitrary case-insensitive reference text]: https://www.mozilla.org
+[1]: http://slashdot.org
+[link text itself]: https://www.reddit.com
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>Note:</strong>
+Relative links do not allow referencing project files in a wiki page or wiki
+page in a project file. The reason for this is that, in GitLab, wiki is always
+a separate Git repository. For example, <code class="highlighter-rouge">[I'm a reference-style link](style)</code>
+will point the link to <code class="highlighter-rouge">wikis/style</code> when the link is inside of a wiki markdown file.</p>
+</blockquote>
+
+<h3 id="images">Images<a href="#images" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Here's our logo (hover to see the title text):
+
+Inline-style:
+![alt text](img/markdown_logo.png)
+
+Reference-style:
+![alt text1][logo]
+
+[logo]: img/markdown_logo.png
+</code></pre></div></div>
+
+<p>Becomes:</p>
+
+<p>Here’s our logo:</p>
+
+<p>Inline-style:</p>
+
+<p><img src="img/markdown_logo.png" alt="alt text"></p>
+
+<p>Reference-style:</p>
+
+<p><img src="img/markdown_logo.png" alt="alt text"></p>
+
+<h3 id="blockquotes">Blockquotes<a href="#blockquotes" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; Blockquotes are very handy in email to emulate reply text.
+&gt; This line is part of the same quote.
+
+Quote break.
+
+&gt; This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote.
+</code></pre></div></div>
+
+<p>Becomes:</p>
+
+<blockquote>
+  <p>Blockquotes are very handy in email to emulate reply text.
+This line is part of the same quote.</p>
+</blockquote>
+
+<p>Quote break.</p>
+
+<blockquote>
+  <p>This is a very long line that will still be quoted properly when it wraps. Oh boy let’s keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can <em>put</em> <strong>Markdown</strong> into a blockquote.</p>
+</blockquote>
+
+<h3 id="inline-html">Inline HTML<a href="#inline-html" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>You can also use raw HTML in your Markdown, and it’ll mostly work pretty well.</p>
+
+<p>See the documentation for HTML::Pipeline’s <a href="http://www.rubydoc.info/gems/html-pipeline/1.11.0/HTML/Pipeline/SanitizationFilter#WHITELIST-constant">SanitizationFilter</a> class for the list of allowed HTML tags and attributes.  In addition to the default <code class="highlighter-rouge">SanitizationFilter</code> whitelist, GitLab allows <code class="highlighter-rouge">span</code>, <code class="highlighter-rouge">abbr</code>, <code class="highlighter-rouge">details</code> and <code class="highlighter-rouge">summary</code> elements.</p>
+
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;dl&gt;
+  &lt;dt&gt;Definition list&lt;/dt&gt;
+  &lt;dd&gt;Is something people use sometimes.&lt;/dd&gt;
+
+  &lt;dt&gt;Markdown in HTML&lt;/dt&gt;
+  &lt;dd&gt;Does *not* work **very** well. Use HTML &lt;em&gt;tags&lt;/em&gt;.&lt;/dd&gt;
+&lt;/dl&gt;
+</code></pre></div></div>
+
+<p>Becomes:</p>
+
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>Markdown in HTML</dt>
+  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
+
+<h4 id="details-and-summary">Details and Summary<a href="#details-and-summary" title="Permalink" class="anchor"></a>
+</h4>
+
+<p>Content can be collapsed using HTML’s <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details"><code class="highlighter-rouge">&lt;details&gt;</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary"><code class="highlighter-rouge">&lt;summary&gt;</code></a> tags. This is especially useful for collapsing long logs so they take up less screen space.</p>
+
+<p>
+<details>
+<summary>Click me to collapse/fold.</summary>
+
+These details <em>will</em> remain <strong>hidden</strong> until expanded.
+
+<pre><code>PASTE LOGS HERE</code></pre>
+
+</details>
+</p>
+
+<p><strong>Note:</strong> Markdown inside these tags is supported, as long as you have a blank line after the <code class="highlighter-rouge">&lt;/summary&gt;</code> tag and before the <code class="highlighter-rouge">&lt;/details&gt;</code> tag, as shown in the example.  <em>Redcarpet does not support Markdown inside these tags.  You can work around this by using HTML, for example you can use <code class="highlighter-rouge">&lt;pre&gt;&lt;code&gt;</code> tags instead of <a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md#code-and-syntax-highlighting">code fences</a>.</em></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;details&gt;</span>
+<span class="nt">&lt;summary&gt;</span>Click me to collapse/fold.<span class="nt">&lt;/summary&gt;</span>
+
+These details _will_ remain **hidden** until expanded.
+
+    PASTE LOGS HERE
+
+<span class="nt">&lt;/details&gt;</span>
+</code></pre></div></div>
+
+<h3 id="horizontal-rule">Horizontal Rule<a href="#horizontal-rule" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Three or more...
+
+---
+
+Hyphens
+
+***
+
+Asterisks
+
+___
+
+Underscores
+</code></pre></div></div>
+
+<p>Becomes:</p>
+
+<p>Three or more…</p>
+
+<hr>
+
+<p>Hyphens</p>
+
+<hr>
+
+<p>Asterisks</p>
+
+<hr>
+
+<p>Underscores</p>
+
+<h3 id="line-breaks">Line Breaks<a href="#line-breaks" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>A good way to learn how line breaks work is to experiment and discover – hit <kbd>Enter</kbd> once (i.e., insert one newline), then hit it twice (i.e., insert two newlines), see what happens. You’ll soon learn to get what you want. The “Preview” tab is your friend.</p>
+
+<p>Here are some things to try out:</p>
+
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Here's a line for us to start with.
+
+This line is separated from the one above by two newlines, so it will be a *separate paragraph*.
+
+This line is also a separate paragraph, but...
+This line is only separated by a single newline, so it *does not break* and just follows the previous line in the *same paragraph*.
+
+This line is also a separate paragraph, and...  
+This line is *on its own line*, because the previous line ends with two spaces. (but still in the *same paragraph*)
+
+spaces.
+</code></pre></div></div>
+
+<p>Becomes:</p>
+
+<p>Here’s a line for us to start with.</p>
+
+<p>This line is separated from the one above by two newlines, so it will be a <em>separate paragraph</em>.</p>
+
+<p>This line is also a separate paragraph, but…
+This line is only separated by a single newline, so it <em>does not break</em> and just follows the previous line in the <em>same paragraph</em>.</p>
+
+<p>This line is also a separate paragraph, and…<br>
+This line is <em>on its own line</em>, because the previous line ends with two spaces. (but still in the <em>same paragraph</em>)</p>
+
+<p>spaces.</p>
+
+<h3 id="tables">Tables<a href="#tables" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>Tables aren’t part of the core Markdown spec, but they are part of GFM.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| header 1 | header 2 |
+| -------- | -------- |
+| cell 1   | cell 2   |
+| cell 3   | cell 4   |
+</code></pre></div></div>
+
+<p>Becomes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>header 1</th>
+      <th>header 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cell 1</td>
+      <td>cell 2</td>
+    </tr>
+    <tr>
+      <td>cell 3</td>
+      <td>cell 4</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> The row of dashes between the table header and body must have at least three dashes in each column.</p>
+
+<p>By including colons in the header row, you can align the text within that column.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Left Aligned | Centered | Right Aligned | Left Aligned | Centered | Right Aligned |
+| :----------- | :------: | ------------: | :----------- | :------: | ------------: |
+| Cell 1       | Cell 2   | Cell 3        | Cell 4       | Cell 5   | Cell 6        |
+| Cell 7       | Cell 8   | Cell 9        | Cell 10      | Cell 11  | Cell 12       |
+</code></pre></div></div>
+
+<p>Becomes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Left Aligned</th>
+      <th style="text-align: center">Centered</th>
+      <th style="text-align: right">Right Aligned</th>
+      <th style="text-align: left">Left Aligned</th>
+      <th style="text-align: center">Centered</th>
+      <th style="text-align: right">Right Aligned</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Cell 1</td>
+      <td style="text-align: center">Cell 2</td>
+      <td style="text-align: right">Cell 3</td>
+      <td style="text-align: left">Cell 4</td>
+      <td style="text-align: center">Cell 5</td>
+      <td style="text-align: right">Cell 6</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Cell 7</td>
+      <td style="text-align: center">Cell 8</td>
+      <td style="text-align: right">Cell 9</td>
+      <td style="text-align: left">Cell 10</td>
+      <td style="text-align: center">Cell 11</td>
+      <td style="text-align: right">Cell 12</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="footnotes">Footnotes<a href="#footnotes" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You can add footnotes to your text as follows.[^2]
+[^2]: This is my awesome footnote.
+</code></pre></div></div>
+
+<p>Becomes:</p>
+
+<p>You can add footnotes to your text as follows.<sup id="fnref:2"><a href="#fn:2" class="footnote">1</a></sup></p>
+
+<h3 id="superscripts--subscripts">Superscripts / Subscripts<a href="#superscripts--subscripts" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>CommonMark and GFM currently do not support the superscript syntax ( <code class="highlighter-rouge">x^2</code> ) that Redcarpet does.  You can use the standard HTML syntax for superscripts and subscripts.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The formula for water is H&lt;sub&gt;2&lt;/sub&gt;O
+while the equation for the theory of relativity is E = mc&lt;sup&gt;2&lt;/sup&gt;.
+</code></pre></div></div>
+
+<p>The formula for water is H<sub>2</sub>O while the equation for the theory of relativity is E = mc<sup>2</sup>.</p>
+
+<h2 id="wiki-specific-markdown">Wiki-specific Markdown<a href="#wiki-specific-markdown" title="Permalink" class="anchor"></a>
+</h2>
+
+<p>The following examples show how links inside wikis behave.</p>
+
+<h3 id="wiki---direct-page-link">Wiki - Direct page link<a href="#wiki---direct-page-link" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>A link which just includes the slug for a page will point to that page,
+<em>at the base level of the wiki</em>.</p>
+
+<p>This snippet would link to a <code class="highlighter-rouge">documentation</code> page at the root of your wiki:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nv">Link to Documentation</span><span class="p">](</span><span class="sx">documentation</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="wiki---direct-file-link">Wiki - Direct file link<a href="#wiki---direct-file-link" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>Links with a file extension point to that file, <em>relative to the current page</em>.</p>
+
+<p>If this snippet was placed on a page at <code class="highlighter-rouge">&lt;your_wiki&gt;/documentation/related</code>,
+it would link to <code class="highlighter-rouge">&lt;your_wiki&gt;/documentation/file.md</code>:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nv">Link to File</span><span class="p">](</span><span class="sx">file.md</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="wiki---hierarchical-link">Wiki - Hierarchical link<a href="#wiki---hierarchical-link" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>A link can be constructed relative to the current wiki page using <code class="highlighter-rouge">./&lt;page&gt;</code>,
+<code class="highlighter-rouge">../&lt;page&gt;</code>, etc.</p>
+
+<ul>
+  <li>
+    <p>If this snippet was placed on a page at <code class="highlighter-rouge">&lt;your_wiki&gt;/documentation/main</code>,
+it would link to <code class="highlighter-rouge">&lt;your_wiki&gt;/documentation/related</code>:</p>
+
+    <div class="language-markdown highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="p">[</span><span class="nv">Link to Related Page</span><span class="p">](</span><span class="sx">./related</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>If this snippet was placed on a page at <code class="highlighter-rouge">&lt;your_wiki&gt;/documentation/related/content</code>,
+it would link to <code class="highlighter-rouge">&lt;your_wiki&gt;/documentation/main</code>:</p>
+
+    <div class="language-markdown highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="p">[</span><span class="nv">Link to Related Page</span><span class="p">](</span><span class="sx">../main</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>If this snippet was placed on a page at <code class="highlighter-rouge">&lt;your_wiki&gt;/documentation/main</code>,
+it would link to <code class="highlighter-rouge">&lt;your_wiki&gt;/documentation/related.md</code>:</p>
+
+    <div class="language-markdown highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="p">[</span><span class="nv">Link to Related Page</span><span class="p">](</span><span class="sx">./related.md</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>If this snippet was placed on a page at <code class="highlighter-rouge">&lt;your_wiki&gt;/documentation/related/content</code>,
+it would link to <code class="highlighter-rouge">&lt;your_wiki&gt;/documentation/main.md</code>:</p>
+
+    <div class="language-markdown highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="p">[</span><span class="nv">Link to Related Page</span><span class="p">](</span><span class="sx">../main.md</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="wiki---root-link">Wiki - Root link<a href="#wiki---root-link" title="Permalink" class="anchor"></a>
+</h3>
+
+<p>A link starting with a <code class="highlighter-rouge">/</code> is relative to the wiki root.</p>
+
+<ul>
+  <li>
+    <p>This snippet links to <code class="highlighter-rouge">&lt;wiki_root&gt;/documentation</code>:</p>
+
+    <div class="language-markdown highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="p">[</span><span class="nv">Link to Related Page</span><span class="p">](</span><span class="sx">/documentation</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>This snippet links to <code class="highlighter-rouge">&lt;wiki_root&gt;/miscellaneous.md</code>:</p>
+
+    <div class="language-markdown highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="p">[</span><span class="nv">Link to Related Page</span><span class="p">](</span><span class="sx">/miscellaneous.md</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="references">References<a href="#references" title="Permalink" class="anchor"></a>
+</h2>
+
+<ul>
+  <li>This document leveraged heavily from the <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown-Cheatsheet</a>.</li>
+  <li>The original <a href="https://daringfireball.net/projects/markdown/syntax">Markdown Syntax Guide</a> at Daring Fireball is an excellent resource for a detailed explanation of standard markdown.</li>
+  <li>The detailed specification for CommonMark can be found in the <a href="https://spec.commonmark.org/current/">CommonMark Spec</a>
+</li>
+  <li>The <a href="http://try.commonmark.org">CommonMark Dingus</a> is a handy tool for testing CommonMark syntax.</li>
+</ul>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:2">
+      <p>This is my awesome footnote. <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+      </div>
+      
+      
+  <div class="comments">
+    <div class="comments-filter">
+      <h2 id="help-and-feedback">
+        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+        Help and feedback
+        <a class="anchor" href="#help-and-feedback"></a>
+      </h2>
+      <div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#docs-feedback" aria-controls="docs-feedback" role="tab" data-toggle="tab">
+            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+             <strong>DOCS</strong> FEEDBACK</a>
+          </li>
+          <li role="presentation"><a href="#product-feedback" aria-controls="product-feedback" role="tab" data-toggle="tab">
+            <i class="fa fa-gitlab" aria-hidden="true"></i>
+            <strong>PRODUCT</strong> FEEDBACK</a>
+          </li>
+          <li role="presentation"><a href="#get-help" aria-controls="get-help" role="tab" data-toggle="tab">
+            <i class="fa fa-question-circle" aria-hidden="true"></i>
+            GET <strong>HELP</strong></a>
+          </li>
+          <li role="presentation"><a href="#get-more-features" aria-controls="get-more-features" role="tab" data-toggle="tab">
+            <i class="fa fa-line-chart" aria-hidden="true"></i>
+            GET MORE <strong>FEATURES</strong></a>
+          </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane" id="product-feedback"><!-- product-feedback tab -->
+            <div class="row" id="issue-row"><!-- issue-row -->
+              <div class="col-md-8 col-sm-12">
+                <p>If there's something <strong>you don't like</strong> about <strong>this feature</strong>
+                  <i class="fa fa-arrow-right black-icon" aria-hidden="true"></i>
+                </p>
+              </div>
+              <div class="col-md-4 col-sm-12">
+                <a role="button" class="comments-holder btn btn-default" href="https://gitlab.com/gitlab-org/gitlab-ce/issues/new?issue[title]=Docs%20-%20product%20feedback:%20Write%20your%20title&issue[description]=Describe%20what%20you%20would%20like%20to%20see%20improved.%0A%0A%3C!--%20Don%27t%20edit%20below%20this%20line%20--%3E%0A%0A%2Flabel%20~%22docs%5C-comments%22%20" target="_blank">
+                  <i class="fa fa-info-circle" aria-hidden="true"></i>
+                  CREATE AN ISSUE
+                </a>
+              </div>
+            </div> <!-- issue-row -->
+            <div class="row" id="feature-proposal-row"><!-- feature-proposal-row -->
+              <div class="col-md-8 col-sm-12">
+                <p>If you want something that <strong>GitLab does not support</strong>
+                  <i class="fa fa-arrow-right black-icon" aria-hidden="true"></i>
+                </p>
+              </div>
+              <div class="col-md-4 col-sm-12">
+                <a role="button" class="comments-holder btn btn-default" href="https://gitlab.com/gitlab-org/gitlab-ce/issues/new?issuable_template=Feature%20proposal&issue[title]=Docs%20feedback%20-%20feature%20proposal:%20Write%20your%20title" target="_blank">
+                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                  SUBMIT FEATURE PROPOSAL
+                </a>
+              </div>
+            </div><!-- feature-proposal-row -->
+          </div><!-- product-feedback tab -->
+
+          <div role="tabpanel" class="tab-pane" id="get-help"><!-- get-help tab -->
+            <div class="row" id="search-row"><!-- search-row -->
+              <div class="col-md-8 col-sm-12">
+                <p>If you <strong>didn't find</strong> what you were looking for
+                  <i class="fa fa-arrow-right black-icon" aria-hidden="true"></i>
+                </p>
+              </div>
+              <div class="col-md-4 col-sm-12">
+                <a role="button" class="comments-holder btn btn-default" href="/search/" target="_blank">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                  SEARCH THE DOCS
+                </a>
+              </div>
+            </div><!-- search-row -->
+
+            <div class="row" id="forum-row"><!-- forum-row -->
+              <div class="col-md-8 col-sm-12">
+                <p>If you want help with something very <strong>specific to your use case</strong>,
+                  and can use some community support
+                  <i class="fa fa-arrow-right black-icon" aria-hidden="true"></i>
+                </p>
+              </div>
+              <div class="col-md-4 col-sm-12">
+                <p>
+                  <a role="button" class="comments-holder btn btn-default" href="https://forum.gitlab.com/" target="_blank">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    POST ON GITLAB FORUM
+                  </a>
+                </p>
+              </div>
+            </div><!-- forum-row -->
+
+            <div class="row" id="support-row"><!-- support-row -->
+              <div class="col-md-8 col-sm-12">
+                <p>If you <strong>have problems</strong> setting up or using this feature (depending on your GitLab subscription)
+                  <i class="fa fa-arrow-right black-icon" aria-hidden="true"></i>
+                </p>
+              </div>
+              <div class="col-md-4 col-sm-12">
+                <p>
+                  <a role="button" class="comments-holder btn btn-default" href="https://about.gitlab.com/support/" target="_blank">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    REQUEST SUPPORT
+                  </a>
+                </p>
+              </div>
+            </div><!-- support-row -->
+          </div><!-- get-help tab -->
+
+          <div role="tabpanel" class="tab-pane" id="get-more-features"><!-- get-more-features tab -->
+            <div class="row" id="sales-row"><!-- gitlab-pricing-row -->
+              <div class="col-md-8 col-sm-12">
+                <p>To view <strong>all GitLab tiers</strong> and features or to upgrade
+                  <i class="fa fa-arrow-right black-icon" aria-hidden="true"></i>
+                </p>
+              </div>
+              <div class="col-md-4 col-sm-12">
+                <a role="button" class="comments-holder btn btn-default" href="https://about.gitlab.com/pricing/" target="_blank">
+                  <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                  VIEW PRICING PAGE
+                </a>
+              </div>
+            </div><!-- gitlab-pricing-row -->
+
+            <div class="row" id="sales-row"><!-- gitlab-gold-row -->
+              <div class="col-md-8 col-sm-12">
+                <p>If you want to try all features available in <strong>GitLab.com</strong>
+                  <i class="fa fa-arrow-right black-icon" aria-hidden="true"></i>
+                </p>
+              </div>
+              <div class="col-md-4 col-sm-12">
+                <a role="button" class="comments-holder btn btn-default" href="https://customers.gitlab.com/trials/new?gl_com=true" target="_blank">
+                  <i class="fa fa-cloud" aria-hidden="true"></i>
+                  GITLAB GOLD FREE-TRIAL
+                </a>
+              </div>
+            </div><!-- gitlab-gold-row -->
+
+            <div class="row" id="sales-row"><!-- gitlab-ultimate-row -->
+              <div class="col-md-8 col-sm-12">
+                <p>If you want to try all features available in <strong>GitLab self-managed</strong>
+                  <i class="fa fa-arrow-right black-icon" aria-hidden="true"></i>
+                </p>
+              </div>
+              <div class="col-md-4 col-sm-12">
+                <a role="button" class="comments-holder btn btn-default" href="https://about.gitlab.com/free-trial/" target="_blank">
+                  <i class="fa fa-server" aria-hidden="true"></i>
+                  GITLAB ULTIMATE FREE-TRIAL
+                </a>
+              </div>
+            </div><!-- gitlab-ultimate-row -->
+          </div><!-- get-more-features tab -->
+
+          <div role="tabpanel" class="tab-pane active" id="docs-feedback"><!-- docs-feedback tab -->
+            <div class="row" id="edit-page-row"><!-- edit-page-row -->
+              <div class="col-md-8 col-sm-12">
+                <p>If you <strong>spot an error or a need for improvement</strong> and would like to <strong>fix it yourself</strong> in a merge request
+                  <i class="fa fa-arrow-right black-icon" aria-hidden="true"></i>
+                </p>
+              </div>
+              <div class="col-md-4 col-sm-12">
+                <p>
+                  <a role="button" class="comments-holder btn btn-default" href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md" target="_blank">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    EDIT THIS PAGE
+                  </a>
+                </p>
+              </div>
+            </div><!-- edit-page-row -->
+
+            <div class="row" id="doc-issue-row"><!-- doc-issue-row -->
+              <div class="col-md-8 col-sm-12">
+                <p>If you would like to <strong>suggest an improvement to this doc</strong>
+                  <i class="fa fa-arrow-right black-icon" aria-hidden="true"></i>
+                </p>
+              </div>
+              <div class="col-md-4 col-sm-12">
+                <a role="button" class="comments-holder btn btn-default" href="https://gitlab.com/gitlab-org/gitlab-ce/issues/new?issue[title]=Docs%20feedback:%20Write%20your%20title&issue[description]=Link%20the%20doc%20and%20describe%20what%20is%20wrong%20with%20it.%0A%0A%3C!--%20Don%27t%20edit%20below%20this%20line%20--%3E%0A%0A%2Flabel%20~Documentation%20~%22docs%5C-comments%22%20" target="_blank">
+                  <i class="fa fa-info-circle" aria-hidden="true"></i>
+                  CREATE AN ISSUE
+                </a>
+              </div>
+            </div><!-- doc-issue-row -->
+            
+            
+              
+                <div class="row" id="disqus-row"><!-- disqus-row-->
+                  <div class="col-md-8 col-sm-12">
+                    <p>If you want to give <strong>quick and simple feedback</strong> on this doc
+                      <i class="fa fa-arrow-right black-icon" aria-hidden="true"></i>
+                    </p>
+                  </div>
+                  <div id="disqus_thread" class="disqus-comments-gitlab">
+                    <div class="col-md-4 col-sm-12">
+                      <a href="#" role="button" class="comments-holder btn btn-default" onclick="loadDisqus();return false;">
+                        <i class="fa fa-comments-o" aria-hidden="true"></i>
+                        SHOW AND POST COMMENTS
+                      </a>
+                    </div>
+                  </div>
+                </div><!-- disqus-row-->
+              
+            
+          </div><!-- docs-feedback tab -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'https://docs.gitlab.com/ee/user/markdown.html';
+      this.page.title = 'GitLab Markdown - GitLab Documentation';
+    
+      this.page.identifier = 'https://docs.gitlab.com/ee/user/markdown.html';
+    
+    };
+
+    var is_disqus_loaded = false;
+    function loadDisqus() {
+      if (!is_disqus_loaded){
+        is_disqus_loaded = true;
+        var d = document, s = d.createElement('script');
+        s.src = 'https://gitlab-docs.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+    </div>
+    <div class="clear"></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+  <script type="application/javascript" src="/assets/javascripts/clipboardjs-v1.js"></script>
+  <script type="application/javascript" src="/assets/javascripts/badges-v1.js"></script>
+  <!-- Algolia docsearch https://community.algolia.com/docsearch/ -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+var search = docsearch({
+  apiKey: 'ce1690e1421303458a1fcbea0cc4a927',
+  indexName: 'gitlab',
+  inputSelector: '.docsearch',
+  algoliaOptions: {
+    // Filter by tags as described in https://github.com/algolia/docsearch-configs/blob/master/configs/gitlab.json
+    'filters': "tags:gitlab<score=3> OR tags:omnibus<score=2> OR tags:runner<score=1>",
+    // Number of results shown in the search dropdown
+    'hitsPerPage': 10
+  },
+  debug: false, // Set debug to true if you want to inspect the dropdown
+  autocompleteOptions: {
+      'autoselect': false
+    }
+});
+
+var mobileSearch = docsearch({
+  apiKey: 'ce1690e1421303458a1fcbea0cc4a927',
+  indexName: 'gitlab',
+  inputSelector: '.docsearch-mobile',
+  algoliaOptions: {
+    // Filter by tags as described in https://github.com/algolia/docsearch-configs/blob/master/configs/gitlab.json
+    'filters': "tags:gitlab<score=3> OR tags:omnibus<score=2> OR tags:runner<score=1>",
+    // Number of results shown in the search dropdown
+    'hitsPerPage': 10
+  },
+  debug: false, // Set debug to true if you want to inspect the dropdown
+  autocompleteOptions: {
+      'autoselect': false
+    }
+});
+</script>
+
+  
+<script type="text/javascript">
+  // Redirect to https with javascript
+  var host = "docs.gitlab.com";
+  if ((host == window.location.host) && (window.location.protocol != 'https:')) {
+    window.location = window.location.toString().replace(/^http:/, "https:");
+  }
+</script>
+
+
+  
+  
+    <!-- Facebook -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '1689559637958103');
+  fbq('track', "PageView");
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1689559637958103&ev=PageView&noscript=1"
+/></noscript>
+
+<!-- Marketo -->
+<script type="text/javascript">
+  (function() {
+    var didInit = false;
+    function initMunchkin() {
+      if(didInit === false) {
+        didInit = true;
+        Munchkin.init('194-VVC-221');
+      }
+    }
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+      if (this.readyState == 'complete' || this.readyState == 'loaded') {
+        initMunchkin();
+      }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+  })();
+</script>
+
+<!-- Bizible -->
+<script type="text/javascript" src="//cdn.bizible.com/scripts/bizible.js" async=""></script>
+
+  
+  
+  <footer class=footer>
+    <svg width=65 height=60 viewBox="0 0 210 194" class=footer-logo> <path d="M105.0614,193.655 L105.0614,193.655 L143.7014,74.734 L66.4214,74.734 L105.0614,193.655 L105.0614,193.655 Z" fill="#E24329" class="logo-svg-shape logo-dark-orange-shape"/> <path d="M105.0614,193.6548 L66.4214,74.7338 L12.2684,74.7338 L105.0614,193.6548 Z" fill="#FC6D26" class="logo-svg-shape logo-orange-shape"/> <path d="M12.2685,74.7341 L12.2685,74.7341 L0.5265,110.8731 C-0.5445,114.1691 0.6285,117.7801 3.4325,119.8171 L105.0615,193.6551 L12.2685,74.7341 Z" fill="#FCA326" class="logo-svg-shape logo-light-orange-shape"/> <path d="M12.2685,74.7342 L66.4215,74.7342 L43.1485,3.1092 C41.9515,-0.5768 36.7375,-0.5758 35.5405,3.1092 L12.2685,74.7342 Z" fill="#E24329" class="logo-svg-shape logo-dark-orange-shape"/> <path d="M105.0614,193.6548 L143.7014,74.7338 L197.8544,74.7338 L105.0614,193.6548 Z" fill="#FC6D26" class="logo-svg-shape logo-orange-shape"/> <path d="M197.8544,74.7341 L197.8544,74.7341 L209.5964,110.8731 C210.6674,114.1691 209.4944,117.7801 206.6904,119.8171 L105.0614,193.6551 L197.8544,74.7341 Z" fill="#FCA326" class="logo-svg-shape logo-light-orange-shape"/> <path d="M197.8544,74.7342 L143.7014,74.7342 L166.9744,3.1092 C168.1714,-0.5768 173.3854,-0.5758 174.5824,3.1092 L197.8544,74.7342 Z" fill="#E24329" class="logo-svg-shape logo-dark-orange-shape"/> </svg>
+
+  <div class='animated container'>
+    <ul class='text-center footer-social'>
+      <li> <a href="https://twitter.com/gitlab" target="_blank"><i class='fa fa-twitter'></i> <span class=sr-only>Twitter</span></a></li>
+      <li> <a href="https://www.facebook.com/gitlab" target="_blank"><i class='fa fa-facebook'></i> <span class=sr-only>Facebook</span> </a></li>
+      <li> <a href="https://www.youtube.com/channel/UCnMGQ8QHMAnVIsI3xJrihhg" target="_blank"><i class='fa fa-youtube'></i> <span class=sr-only>YouTube</span> </a></li>
+      <li> <a href="https://www.linkedin.com/company/gitlab-com" target="_blank"><i class='fa fa-linkedin'></i> <span class=sr-only>LinkedIn</span> </a></li>
+    </ul>
+    <div class=row>
+      <div class='col-sm-6 col-md-3 col-lg-2 col-lg-offset-2 footer-link-holder'>
+        <h3 class=footer-link-title>Products</h3>
+        <ul class='animated footer-links'>
+          <li><a href="https://about.gitlab.com/features" target="_blank">Features</a></li>
+          <li><a href="https://about.gitlab.com/installation" target="_blank">Installation</a></li>
+          <li><a href="https://about.gitlab.com/gitlab-com/" target="_blank">GitLab.com</a></li>
+          <li><a href="https://about.gitlab.com/pricing/" target="_blank">Pricing</a></li>
+          <li><a href="https://about.gitlab.com/releases/" target="_blank">Releases</a></li>
+        </ul>
+      </div>
+      <div class='col-sm-6 col-md-3 col-lg-2 footer-link-holder'>
+        <h3 class=footer-link-title>Services</h3>
+        <ul class='animated footer-links'>
+          <li><a href="https://about.gitlab.com/resellers/" target="_blank">Resellers</a></li>
+          <li><a href="https://about.gitlab.com/services/" target="_blank">Services</a></li>
+        </ul>
+      </div>
+      <div class='col-sm-6 col-md-3 col-lg-2 footer-link-holder'>
+        <h3 class=footer-link-title>Community</h3>
+        <ul class='animated footer-links'>
+          <li><a href="https://about.gitlab.com/resources/" target="_blank">Resources</a></li>
+          <li><a href="https://about.gitlab.com/events/" target="_blank">Events</a></li>
+          <li><a href="https://about.gitlab.com/core-team/" target="_blank">Core Team</a></li>
+          <li><a href="http://contributors.gitlab.com/" target="_blank">Contributors</a></li>
+          <li><a href="https://about.gitlab.com/find-a-speaker/" target="_blank">Find a Speaker</a></li>
+          <li><a href="/">Documentation</a></li>
+          <li><a href="https://about.gitlab.com/getting-help/" target="_blank">Getting Help</a></li>
+          <li><a href="https://about.gitlab.com/contributing/" target="_blank">Contributing</a></li>
+          <li><a href="https://about.gitlab.com/applications/" target="_blank">Applications</a></li>
+          <li><a href="https://about.gitlab.com/mvp/" target="_blank">Hall of Fame</a></li>
+        </ul>
+      </div>
+      <div class='col-sm-6 col-md-3 col-lg-2 footer-link-holder'>
+        <h3 class=footer-link-title>Company</h3>
+        <ul class='animated footer-links'>
+          <li><a href="https://gitlab.com/groups/gitlab-org" target="_blank">Source Code</a></li>
+          <li><a href="https://about.gitlab.com/blog/" target="_blank">Blog</a></li>
+          <li><a href="https://about.gitlab.com/customers/" target="_blank">Customers</a></li>
+          <li><a href="https://about.gitlab.com/press/" target="_blank">Press and Logos</a></li>
+          <li><a href="https://shop.gitlab.com/" target="_blank">Shop</a></li>
+          <li><a href="https://about.gitlab.com/about/" target="_blank">About Us</a></li>
+          <li><a href="https://about.gitlab.com/team/" target="_blank">Team</a></li>
+          <li><a href="https://about.gitlab.com/direction/" target="_blank">Direction</a></li>
+          <li><a href="https://about.gitlab.com/handbook/" target="_blank">Handbook</a></li>
+          <li><a href="https://about.gitlab.com/jobs/" target="_blank">Jobs</a></li>
+          <li><a href="https://about.gitlab.com/terms/" target="_blank">Terms</a></li>
+          <li><a href="https://about.gitlab.com/privacy/" target="_blank">Privacy Policy</a></li>
+          <li><a href="https://about.gitlab.com/contact/" target="_blank">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class='animated text-center source-link'>
+    <a href='https://gitlab.com/gitlab-com/gitlab-docs' target='_blank'>Created</a> with Nanoc, hosted on <a href='https://about.gitlab.com/features/pages/' target='_blank'>GitLab Pages</a>
+    <a href='https://creativecommons.org/licenses/by-sa/4.0/' target='_blank' rel="license" alt="Creative Commons License"><img src='/assets/images/by-sa.svg'></a>
+    <a href='/cookies-policy/' alt='Cookies Policy'>Cookies Policy</a>
+    
+    
+    <div class="edit-on">
+      <i class="fa fa-code-fork" aria-hidden="true"></i>
+      <a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/user/markdown.md">Edit this page</a>
+    </div>
+    
+  </div>
+</footer>
+
+  <script src="/assets/javascripts/docs-v1.js"></script>
+</body>
+</html>
