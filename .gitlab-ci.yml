@@ -12,18 +12,25 @@ before_script:
 # Defines stages which are to be executed
 
 
-test:
+test cpp:
   stage: test
   script:
     - cmake -H. -Bbuild
     - cd build;
     - make
     - ./unit_tests --gtest_output="xml:cpp_junit.xml"
-    - cd ..;
+
+  artifacts:
+    reports:
+      junit:
+       - build/cpp_junit.xml
+
+test python:
+  stage: test
+  script:
     - pip3 install -r requirements.txt
     - pytest --junitxml=build/pytest.xml --cov=src/
   artifacts:
     reports:
       junit:
-       - build/cpp_junit.xml
        - build/pytest.xml
