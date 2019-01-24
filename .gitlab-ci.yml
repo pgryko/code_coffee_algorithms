@@ -13,11 +13,14 @@ before_script:
 
 
 test cpp:
-  stage: test
-  script:
+  stage: build
+    script:
     - cmake -H. -Bbuild
     - cd build;
     - make
+  stage: test
+  script:
+    - cd build;
     - ./unit_tests --gtest_output="xml:cpp_junit.xml"
 
   artifacts:
@@ -26,9 +29,11 @@ test cpp:
        - build/cpp_junit.xml
 
 test python:
+  stage: build
+    script:
+    - pip3 install -r requirements.txt
   stage: test
   script:
-    - pip3 install -r requirements.txt
     - pytest --junitxml=build/pytest.xml --cov=src/
   artifacts:
     reports:
