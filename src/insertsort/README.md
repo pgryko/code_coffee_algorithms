@@ -24,7 +24,7 @@ A = < 5, 2, 4, 6, 1, 3 >
 
 To calculate runtime T(n) we sum up the running times of cost and times.
 ```math
-T(n) = nc_1 + (n - 1)c_2 + (n - 1)c_3 + (n - 1)c_3 + \sum^n_{j=2} t_jc_4 + (t_j - 1)c_5 + (t_j - 1)c_6
+T(n) = nc_1 + (n - 1)c_2 + (n - 1)c_3 + (n - 1)c_3 + (n-1)c_7 + \sum^n_{j=2} t_jc_4 + (t_j - 1)c_5 + (t_j - 1)c_6
 ```
 
 Best case scenario - array is already sorted, $`t_j = 1`$
@@ -36,12 +36,47 @@ T(n) = n(c_1 + c_2 + c_3 + c_4 + c7) - (c_2 + c_3 + c_4 + c_7)
 
 I.e. an+b, hence liner time
 
-Worst case, reverse order
+Worst case, reverse order, we must compare each sub element i, with j, so $`t_j = j`$
 
 ```math
-
+T(n) = nc_1 + (n - 1)c_2 + (n - 1)c_3 + (n - 1)c_3 + (n-1)c_7 + \sum^n_{j=2} jc_4 + (j - 1)c_5 + (j - 1)c_6
 ```
 
+Using the sum of arithmetic series
+
+```math
+S_n = \sum^n-1_{k = 0} a + kd = a + (a + d) + (a + 2d) ... + (a + (n-1)d) 
+```
+
+Reverse order
+
+```math
+S_n = \sum^n-1_{k = 0} a + kd = (a + (n-1)d) + (a + (n-2)d) + (a + (n-3)d) ... + a 
+```
+
+Add series
+
+```math
+2S_n = n(2a + (n-1)d)
+S_n = \sum^n-1_{k = 0} a + kd = n(2a + (n-1)d)/2 = (firstterm + lastterm)n/2
+```
+
+So
+```math
+\sum^n_{j=2} j = n(1+ n)/2 - 1
+```
+and
+```math
+\sum^n_{j=2} j - 1 = n(1+ n)/2 - 1 - (n -1) = n(1 + n)/2 - n  = n(n -1)/2 
+```
+
+```math
+T(n) = nc_1 + (n - 1)c_2 + (n - 1)c_3 + (n-1)c_7 + c_4(n(1+ n)/2 - 1) + c_5n(n -1)/2  + c_6n(n -1)/2 
+
+T(n) = (c_4/2 + c_5/2 + c_6/2)n^2 + (c_1 + c_2 + c_3 + c_7 + c_4/2 - c_5/2 - c_6/2)n + (-c_2 - c_3 - c_7 - c_4) 
+```
+
+Which is a quadratic form, $`an^2 + bn + c`$
 
 Output: A' = < 1, 2, 3, 4, 5, 6 >
 
