@@ -4,7 +4,7 @@
 image: gcc
 
 # Is performed before the scripts in the stages step
-before_script: 
+before_script:
   - apt-get update
   - apt-get -y install cmake python3-pip
   - git submodule update --init --recursive
@@ -13,10 +13,10 @@ before_script:
 
 
 test:
-  stage: test CPP
+  stage: test
   script:
     - cmake -H. -Bbuild
-    - cd build; 
+    - cd build;
     - make
     - ./unit_tests --gtest_output="xml:cpp_junit.xml"
     - cd ..;
@@ -27,6 +27,3 @@ test:
       junit:
        - build/cpp_junit.xml
        - build/pytest.xml
-  
-
-
