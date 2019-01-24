@@ -22,16 +22,14 @@ A = < 5, 2, 4, 6, 1, 3 >
 
 To calculate runtime T(n) we sum up the running times of cost and times.
 ```math
-
 T(n) = nc_1 + (n - 1)c_2 + (n - 1)c_3 + (n - 1)c_3 + \sum^n_{j=2} t_jc_4 + (t_j - 1)c_5 + (t_j - 1)c_6
 ```
 
-Best case scenario - array is already sorted, t_j = 1
+Best case scenario - array is already sorted, $`t_j = 1`$
 
 ```math
-
 T(n) = nc_1 + (n - 1)c_2 + (n - 1)c_3 + (n-1)c_4 + (n-1)c_7
-T(n) = n(c_1 + c_2 + c_3 + c_4 + c7) - (c_2 + c_3 + c_4 + c7)
+T(n) = n(c_1 + c_2 + c_3 + c_4 + c7) - (c_2 + c_3 + c_4 + c_7)
 ```
 
 I.e. an+b, hence liner time
