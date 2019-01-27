@@ -18,6 +18,7 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/src
     ${PROJECT_SOURCE_DIR}/src/example
     ${PROJECT_SOURCE_DIR}/src/insertsort
+    ${PROJECT_SOURCE_DIR}/src/selectsort
     )
 
 add_library(
@@ -49,6 +50,7 @@ add_executable(
     test/example_add.cpp
     test/example_subtract.cpp
     test/test_insertsort.cpp
+    test/test_selectsort.cpp
     )
 
 add_dependencies(unit_tests googletest)

@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
     printarray(&a1);
     selectsort(&a1);
 	printarray(&a1);
-    return 0;
-    // testing::InitGoogleTest(&argc, argv);
-    // return RUN_ALL_TESTS();
+    // return 0;
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
