@@ -1,9 +1,9 @@
-#ifndef SELECTSORT_H_INCLUDED
-#define SELECTSORT_H_INCLUDED
+#ifndef MERGESORT_H_INCLUDED
+#define MERGESORT_H_INCLUDED
 
 //Sadly template definitions must always be included in the header file :(
 template<typename T, size_t N>
-void selectsort(std::array <T, N> *Array) {
+void mergesort(std::array <T, N> *Array) {
 
     T temp_value(0);
 
