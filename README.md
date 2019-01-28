@@ -90,3 +90,4 @@ This will terminate upon completion. To create an interactive session:
 $ sudo docker run  --name self_study -d self_study tail -f /dev/null --stop-timeout 600
 $ sudo docker exec -it self_study /bin/bash
 ```
+
