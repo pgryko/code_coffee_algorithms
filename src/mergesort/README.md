@@ -8,7 +8,9 @@ Takes a divide and conquer approach to sorting.
 *Sort* the two subsequences using mergesort
 *Merge*  the two sorted sequences to produce a sorted answer
 
-The merge procedure Merge(A,p,q,r), where A is the input array, p,q,r are indexes, where $'p <= q < r'$
+The merge procedure Merge(A,p,q,r), where A is the input array, p,q,r are indexes, where $'p <= q < r'$.
+
+The procedure assumes sub arrays [p..q] and [q+1...r] are correctly sorted and merges them to replace [p...r]
 
 ```
 1: for i = 0 to A.length - 1

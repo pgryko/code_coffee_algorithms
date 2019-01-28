@@ -1,6 +1,6 @@
 # self_study
 
-A collection of small projects for self study
+A collection of small projects for self study. The goal is to use these for teaching in Code & Coffee meetups
 
 Aim is to work through standard algorithm, data structures questions in both python and C++ (both languages due to differences in the way memory is managed).
 
@@ -9,9 +9,23 @@ Aim is to work through standard algorithm, data structures questions in both pyt
   - [x] Get Math rendering working
 - [ ] Math
   - [ ] Sum of finite series
-- [ ] Insert Sort
-- [ ] Select Sort
-- [ ] Merge Sort
+  
+- [ ] Algorithms
+  - [ ] Sorting
+    - [x] Insert Sort
+    - [x] Select Sort
+    - [ ] Merge Sort
+
+- [ ] Data structures
+  - [ ] Bloom filter (http://blog.amynguyen.net/?p=853)
+  - [ ] Ternary search tree
+  - [ ] Prefix trie (replaced by ternary search trees, does not require wasting memory storing 26 pointers at each node)
+  - [ ] Suffix array
+  - [ ] T/Q Digest
+  - [ ] Count-min sketch
+  - [ ] Dense/sparse matrix-matrix multiplication 
+  - [ ] Lazy/streaming algorithm
+
 # Study references:
 
 - Problem Solving with Algorithms and Data Structures using Python
