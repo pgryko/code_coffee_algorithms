@@ -16,7 +16,6 @@ void mergesort(std::array <T, N> *Array) {
             if (Array->at(j) < Array->at(min_index)) {
                 min_index = j;
             };
-
             j++;
 
         };

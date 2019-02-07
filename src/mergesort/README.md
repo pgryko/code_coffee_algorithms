@@ -11,7 +11,7 @@ Takes a divide and conquer approach to sorting.
 
 An initial call to merge sort is called with Merge-Sort(A,1,A.length)
 ```
-Merge-Sort
+Merge-Sort(A, p, r)
 
 1: if p < r
 2:    q = [(p+r)/2)]
@@ -65,4 +65,4 @@ Through analysing the recursion tree, its possible to show algorithm is O(nlogn)
 
 $ cmake -H. -Bbuild
 $ cd build; make
-$ ./selectsort
+$ ./mergesort
