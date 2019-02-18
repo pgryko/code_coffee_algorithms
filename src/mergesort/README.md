@@ -66,3 +66,6 @@ Through analysing the recursion tree, its possible to show algorithm is O(nlogn)
 $ cmake -H. -Bbuild
 $ cd build; make
 $ ./mergesort
+
+Or manually using g++
+$ g++ --std=c++1z main.cpp

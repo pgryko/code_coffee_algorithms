@@ -72,6 +72,8 @@ template <typename T, size_t N> class mergesort{
 public:
     //This kicks off the calculation
     mergesort(std::array <T, N> *Array) {
+        // Allocate once, and array to act as a buffer
+        // std::array<T, Array->size() > buffer;
         _mergesort(Array, 0, Array->size());
     };
 
