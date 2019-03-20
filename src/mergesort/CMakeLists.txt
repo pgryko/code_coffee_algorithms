@@ -9,6 +9,7 @@ include_directories(${GTEST_INCLUDE_DIRS})
 #target_link_libraries(runTests ${GTEST_LIBRARIES} pthread)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_BUILD_TYPE Debug)
 
 add_executable(mergesort main.cpp)
 

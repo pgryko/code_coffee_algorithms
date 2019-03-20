@@ -23,21 +23,51 @@ template <typename T, size_t N> class mergesort{
 
     // Assume [p..q] and [q+1...r] are two correctly sorted sub arrays
     void _merge(std::array <T, N> *Array, std::size_t p, std::size_t q, std::size_t r){
-        std::size_t n_1 = q - p;
+
+        // For arrays of length 1, return early
+        std::size_t n_1 = q - p + 1;
         std::size_t n_2 = r - q;
+
+        std::cout << "merge p = " << p << std::endl;
+        std::cout << "merge q = " << q << std::endl;
+        std::cout << "merge r = " << r << std::endl;
 
         // Be dirty and allocate two new arrays to hold lhs and rhs
 
-        std::vector<T> Left(Array->begin() + p, Array->begin() + q);
-        std::vector<T> Right(Array->begin() + q + 1,Array->begin() + r);
+        std::vector<T> Left(Array->begin() + p, Array->begin() + q + 1);
+        std::vector<T> Right(Array->begin() + q + 1,Array->begin() + r + 1);
 
-        printarray(Array);
-        std::cout << "p = " << p << std::endl;
-        std::cout << "q = " << q << std::endl;
-        std::cout << "r = " << r << std::endl;
+        auto LeftIter = Left.begin();
+        auto RightIter =  Right.begin();
 
-        printarray(&Left);
-        printarray(&Right);
+        std::cout << ' ' << (Left.size()) << ' ' << (Right.size()) << std::endl;
+
+        for (auto array_iter = Array->begin() + p; array_iter != Array->begin() + r + 1; array_iter++)
+        {
+            if (*LeftIter >= *RightIter){
+                *array_iter = *LeftIter;
+                if (LeftIter != Left.end()){
+                    LeftIter++;
+                }
+            } else {
+                *array_iter = *RightIter;
+                if (RightIter != Right.end()){
+                    RightIter++;
+                }
+
+            }
+
+        }
+
+
+
+        // printarray(Array);
+//         std::cout << "p = " << p << std::endl;
+//         std::cout << "q = " << q << std::endl;
+//         std::cout << "r = " << r << std::endl;
+
+//         printarray(&Left);
+//         printarray(&Right);
 
     }
 
@@ -46,6 +76,12 @@ template <typename T, size_t N> class mergesort{
 
         if (p < r){
             std::size_t q = (p+r)/2;
+            std::cout << "p = " << p << std::endl;
+            std::cout << "q = " << q << std::endl;
+            std::cout << "r = " << r << std::endl;
+            std::cout << "Array size is " << Array->size() << std::endl;
+            std::cout << "p+r size is " << p+r << std::endl;
+            std::cout << "(p+r)/2 size is " << (p+r)/2 << std::endl;
             _mergesort(Array,p,q);
             _mergesort(Array,q+1,r);
             _merge(Array,p,q,r);
@@ -57,7 +93,7 @@ public:
     mergesort(std::array <T, N> *Array) {
         // Allocate once, and array to act as a buffer
         // std::array<T, Array->size() > buffer;
-        _mergesort(Array, 0, Array->size());
+        _mergesort(Array, 0, Array->size() - 1);
     };
 
     ~mergesort(){
@@ -94,7 +130,7 @@ int main(int argc, char *argv[]) {
     // printarray(&a1);
 
     mergesort{&a1};
-	// printarray(&a1);
+//	 printarray(&a1);
      return 0;
 //    testing::InitGoogleTest(&argc, argv);
 //    return RUN_ALL_TESTS();

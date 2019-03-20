@@ -76,6 +76,26 @@ $ cd build
 $ make
 $ ./unit_tests
 ```
+
+Or manually using g++
+```bash
+$ g++ --std=c++1z main.cpp
+```
+
+### Debugging
+
+Core dumps need to be enabled via
+```shell
+$ ulimit -c unlimited
+```
+
+g++ debugging symbols also need to be enabled. This can be done via either adding in '-g' when calling gcc or adding set(CMAKE_BUILD_TYPE Debug) to cmake
+
+It should then be possible to debug your executable using gdb
+
+```shell
+$ gdb binary core
+```
 ## Python
 ```bash
 $ pytest
