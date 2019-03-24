@@ -42,7 +42,7 @@ template <typename T, size_t N> class mergesort{
 
         std::cout << ' ' << (Left.size()) << ' ' << (Right.size()) << std::endl;
 
-        for (auto array_iter = Array->begin() + p; array_iter != Array->begin() + r + 1; array_iter++)
+        for (auto array_iter = Array->begin() + p; array_iter != Array->begin() + r; array_iter++)
         {
             if (*LeftIter >= *RightIter){
                 *array_iter = *LeftIter;
@@ -60,15 +60,6 @@ template <typename T, size_t N> class mergesort{
         }
 
 
-
-        // printarray(Array);
-//         std::cout << "p = " << p << std::endl;
-//         std::cout << "q = " << q << std::endl;
-//         std::cout << "r = " << r << std::endl;
-
-//         printarray(&Left);
-//         printarray(&Right);
-
     }
 
     // Where A is the input array, p,q,r are indexes, where $'p <= q < r'$
@@ -76,12 +67,6 @@ template <typename T, size_t N> class mergesort{
 
         if (p < r){
             std::size_t q = (p+r)/2;
-            std::cout << "p = " << p << std::endl;
-            std::cout << "q = " << q << std::endl;
-            std::cout << "r = " << r << std::endl;
-            std::cout << "Array size is " << Array->size() << std::endl;
-            std::cout << "p+r size is " << p+r << std::endl;
-            std::cout << "(p+r)/2 size is " << (p+r)/2 << std::endl;
             _mergesort(Array,p,q);
             _mergesort(Array,q+1,r);
             _merge(Array,p,q,r);
@@ -101,29 +86,28 @@ public:
     };
 };
 
-//mergesort::mergesort()
 
-//TEST(mergesortTest, SortArray1) {
-//std::array<int, 7> a1{5, 4, 2, 1, 6, 3, 1};
-//std::array<int, 7> a2{1, 1, 2, 3, 4, 5, 6};
-//mergesort(&a1);
-//EXPECT_EQ(a2, a1);
-//}
-//
-//TEST(mergesortTestZero, SortArray1) {
-//std::array<int, 8> a1{5, 4, 2, 0, 1, 6, 3, 1};
-//std::array<int, 8> a2{0, 1, 1, 2, 3, 4, 5, 6};
-//mergesort(&a1);
-//EXPECT_EQ(a2, a1);
-//}
-//
-//
-//TEST(mergesortTestNegative, SortArray2) {
-//std::array<int, 7> a1{5, 4, 2, 1, -6, 3, 1};
-//std::array<int, 7> a2{-6, 1, 1, 2, 3, 4, 5};
-//mergesort(&a1);
-//EXPECT_EQ(a2, a1);
-//}
+TEST(mergesortTest, SortArray1) {
+std::array<int, 7> a1{5, 4, 2, 1, 6, 3, 1};
+std::array<int, 7> a2{1, 1, 2, 3, 4, 5, 6};
+mergesort{&a1};
+EXPECT_EQ(a2, a1);
+}
+
+TEST(mergesortTestZero, SortArray1) {
+std::array<int, 8> a1{5, 4, 2, 0, 1, 6, 3, 1};
+std::array<int, 8> a2{0, 1, 1, 2, 3, 4, 5, 6};
+mergesort{&a1};
+EXPECT_EQ(a2, a1);
+}
+
+
+TEST(mergesortTestNegative, SortArray2) {
+std::array<int, 7> a1{5, 4, 2, 1, -6, 3, 1};
+std::array<int, 7> a2{-6, 1, 1, 2, 3, 4, 5};
+mergesort{&a1};
+EXPECT_EQ(a2, a1);
+}
 
 int main(int argc, char *argv[]) {
     std::array<int, 7> a1{5, 4, 2, 1, 6, 3, 1};
@@ -131,7 +115,7 @@ int main(int argc, char *argv[]) {
 
     mergesort{&a1};
 //	 printarray(&a1);
-     return 0;
-//    testing::InitGoogleTest(&argc, argv);
-//    return RUN_ALL_TESTS();
+//     return 0;
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
