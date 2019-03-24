@@ -35,30 +35,32 @@ template <typename T, size_t N> class mergesort{
         // Be dirty and allocate two new arrays to hold lhs and rhs
 
         std::vector<T> Left(Array->begin() + p, Array->begin() + q + 1);
-        std::vector<T> Right(Array->begin() + q + 1,Array->begin() + r + 1);
+        std::vector<T> Right(Array->begin() + q + 1, Array->begin() + r + 1);
+
+        printarray(&Left);
+        printarray(&Right);
 
         auto LeftIter = Left.begin();
         auto RightIter =  Right.begin();
 
-        std::cout << ' ' << (Left.size()) << ' ' << (Right.size()) << std::endl;
+        std::cout << "Left size " << (Left.size()) << " Right size " << (Right.size()) << std::endl;
 
-        for (auto array_iter = Array->begin() + p; array_iter != Array->begin() + r; array_iter++)
+        for (auto array_iter = Array->begin() + p; array_iter != Array->begin() + r + 1; array_iter++)
         {
-            if (*LeftIter >= *RightIter){
+            if (*LeftIter <= *RightIter && LeftIter != Left.end()){
                 *array_iter = *LeftIter;
-                if (LeftIter != Left.end()){
-                    LeftIter++;
-                }
-            } else {
+                LeftIter++;
+            } else if (RightIter != Right.end()) {
                 *array_iter = *RightIter;
-                if (RightIter != Right.end()){
-                    RightIter++;
-                }
-
+                RightIter++;
+            } else {
+                *array_iter = *LeftIter;
             }
+            std::cout << *array_iter;
 
         }
 
+        std::cout << std::endl;
 
     }
 
@@ -66,7 +68,7 @@ template <typename T, size_t N> class mergesort{
     void _mergesort(std::array <T, N> *Array, std::size_t p, std::size_t r){
 
         if (p < r){
-            std::size_t q = (p+r)/2;
+            std::size_t q = (p + r)/2;
             _mergesort(Array,p,q);
             _mergesort(Array,q+1,r);
             _merge(Array,p,q,r);
@@ -111,11 +113,13 @@ EXPECT_EQ(a2, a1);
 
 int main(int argc, char *argv[]) {
     std::array<int, 7> a1{5, 4, 2, 1, 6, 3, 1};
-    // printarray(&a1);
+     printarray(&a1);
 
     mergesort{&a1};
-//	 printarray(&a1);
-//     return 0;
+
+    printarray(&a1);
+
+     return 0;
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
