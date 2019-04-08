@@ -18,61 +18,63 @@ void printarray(const Container& cont) {
 
 }
 
+// Assume [low..mid] and [mid+1...high] are two correctly sorted sub arrays
+template <typename T, std::size_t  N> void merge(std::array <T, N> *Array, std::size_t low, std::size_t mid, std::size_t high){
 
-template <typename T, size_t N> class mergesort{
+    // For arrays of length 1, return early
+    std::size_t n_1 = mid - low + 1;
+    std::size_t n_2 = high - mid;
 
-    // Assume [p..q] and [q+1...r] are two correctly sorted sub arrays
-    void _merge(std::array <T, N> *Array, std::size_t p, std::size_t q, std::size_t r){
+    std::cout << "merge low = " << low << std::endl;
+    std::cout << "merge mid = " << mid << std::endl;
+    std::cout << "merge high = " << high << std::endl;
 
-        // For arrays of length 1, return early
-        std::size_t n_1 = q - p + 1;
-        std::size_t n_2 = r - q;
+    // Be dirty and allocate two new arrays to hold lhs and rhs
 
-        std::cout << "merge p = " << p << std::endl;
-        std::cout << "merge q = " << q << std::endl;
-        std::cout << "merge r = " << r << std::endl;
+    std::vector<T> Left(Array->begin() + low, Array->begin() + mid + 1);
+    std::vector<T> Right(Array->begin() + mid + 1, Array->begin() + high + 1);
 
-        // Be dirty and allocate two new arrays to hold lhs and rhs
+    printarray(&Left);
+    printarray(&Right);
 
-        std::vector<T> Left(Array->begin() + p, Array->begin() + q + 1);
-        std::vector<T> Right(Array->begin() + q + 1, Array->begin() + r + 1);
+    auto LeftIter = Left.begin();
+    auto RightIter =  Right.begin();
 
-        printarray(&Left);
-        printarray(&Right);
+    std::cout << "Left size " << (Left.size()) << " Right size " << (Right.size()) << std::endl;
 
-        auto LeftIter = Left.begin();
-        auto RightIter =  Right.begin();
-
-        std::cout << "Left size " << (Left.size()) << " Right size " << (Right.size()) << std::endl;
-
-        for (auto array_iter = Array->begin() + p; array_iter != Array->begin() + r + 1; array_iter++)
-        {
-            if (*LeftIter <= *RightIter && LeftIter != Left.end()){
-                *array_iter = *LeftIter;
-                LeftIter++;
-            } else if (RightIter != Right.end()) {
-                *array_iter = *RightIter;
-                RightIter++;
-            } else {
-                *array_iter = *LeftIter;
-            }
-            std::cout << *array_iter;
-
+    for (auto array_iter = Array->begin() + low; array_iter != Array->begin() + high + 1; array_iter++)
+    {
+        if (*LeftIter <= *RightIter && LeftIter != Left.end()){
+            *array_iter = *LeftIter;
+            LeftIter++;
+        } else if (RightIter != Right.end()) {
+            *array_iter = *RightIter;
+            RightIter++;
+        } else {
+            *array_iter = *LeftIter;
         }
-
-        std::cout << std::endl;
+        std::cout << *array_iter;
 
     }
 
-    // Where A is the input array, p,q,r are indexes, where $'p <= q < r'$
-    void _mergesort(std::array <T, N> *Array, std::size_t p, std::size_t r){
+    std::cout << std::endl;
 
-        if (p < r){
-            std::size_t q = (p + r)/2;
-            _mergesort(Array,p,q);
-            _mergesort(Array,q+1,r);
-            _merge(Array,p,q,r);
-        };
+}
+
+
+template <typename T, size_t N> class mergesort{
+
+
+
+    // Where A is the input array, p,q,r are indexes, where $'p <= q < r'$
+    void _mergesort(std::array <T, N> *Array, std::size_t low, std::size_t high){
+
+        if (low < high){
+            std::size_t mid = (low + high)/2;
+            _mergesort(Array,low,mid);
+            _mergesort(Array,mid+1,high);
+            merge(Array,low,mid,high);
+        }
     };
 
 public:
@@ -89,37 +91,79 @@ public:
 };
 
 
-TEST(mergesortTest, SortArray1) {
-std::array<int, 7> a1{5, 4, 2, 1, 6, 3, 1};
-std::array<int, 7> a2{1, 1, 2, 3, 4, 5, 6};
-mergesort{&a1};
-EXPECT_EQ(a2, a1);
+TEST(mergeTest, MergeArray1) {
+    std::array<int, 2> a1{5,1};
+    std::array<int, 2> a2{1,5};
+    merge(&a1, 0,0,1);
+    EXPECT_EQ(a1, a2);
 }
 
-TEST(mergesortTestZero, SortArray1) {
-std::array<int, 8> a1{5, 4, 2, 0, 1, 6, 3, 1};
-std::array<int, 8> a2{0, 1, 1, 2, 3, 4, 5, 6};
-mergesort{&a1};
-EXPECT_EQ(a2, a1);
+TEST(mergeTest, MergeArray2) {
+    std::array<int, 2> a1{1,5};
+    std::array<int, 2> a2{1,5};
+    merge(&a1, 0,0,1);
+    EXPECT_EQ(a1, a2);
 }
 
-
-TEST(mergesortTestNegative, SortArray2) {
-std::array<int, 7> a1{5, 4, 2, 1, -6, 3, 1};
-std::array<int, 7> a2{-6, 1, 1, 2, 3, 4, 5};
-mergesort{&a1};
-EXPECT_EQ(a2, a1);
+TEST(mergeTest, MergeArray3) {
+    std::array<int, 3> a1{5,1,2};
+    std::array<int, 3> a2{1,2,5};
+    merge(&a1, 0,1,2);
+    EXPECT_EQ(a1, a2);
 }
+
+TEST(mergeTest, MergeArray4) {
+    std::array<int, 3> a1{1,2,5};
+    std::array<int, 3> a2{1,2,5};
+    merge(&a1, 0,1,2);
+    EXPECT_EQ(a1, a2);
+}
+
+TEST(mergeTest, MergeArray5) {
+    std::array<int, 4> a1{5,1,2,1};
+    std::array<int, 4> a2{1,1,2,5};
+    merge(&a1, 0,2,3);
+    EXPECT_EQ(a1, a2);
+}
+
+TEST(mergeTest, MergeArray6) {
+    std::array<int, 4> a1{1,1,2,5};
+    std::array<int, 4> a2{1,1,2,5};
+    merge(&a1, 0,2,3);
+    EXPECT_EQ(a1, a2);
+}
+
+//TEST(mergesortTest, SortArray1) {
+//std::array<int, 7> a1{5, 4, 2, 1, 6, 3, 1};
+//std::array<int, 7> a2{1, 1, 2, 3, 4, 5, 6};
+//mergesort{&a1};
+//EXPECT_EQ(a2, a1);
+//}
+//
+//TEST(mergesortTestZero, SortArray1) {
+//std::array<int, 8> a1{5, 4, 2, 0, 1, 6, 3, 1};
+//std::array<int, 8> a2{0, 1, 1, 2, 3, 4, 5, 6};
+//mergesort{&a1};
+//EXPECT_EQ(a2, a1);
+//}
+//
+//
+//TEST(mergesortTestNegative, SortArray2) {
+//std::array<int, 7> a1{5, 4, 2, 1, -6, 3, 1};
+//std::array<int, 7> a2{-6, 1, 1, 2, 3, 4, 5};
+//mergesort{&a1};
+//EXPECT_EQ(a2, a1);
+//}
 
 int main(int argc, char *argv[]) {
-    std::array<int, 7> a1{5, 4, 2, 1, 6, 3, 1};
-     printarray(&a1);
+//    std::array<int, 7> a1{5, 4, 2, 1, 6, 3, 1};
+//     printarray(&a1);
 
-    mergesort{&a1};
+//    mergesort{&a1};
 
-    printarray(&a1);
+//    printarray(&a1);
 
-     return 0;
+//     return 0;
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
