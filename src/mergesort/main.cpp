@@ -52,6 +52,7 @@ template <typename T, std::size_t  N> void merge(std::array <T, N> *Array, std::
             RightIter++;
         } else {
             *array_iter = *LeftIter;
+            LeftIter++;
         }
         std::cout << *array_iter;
 
@@ -106,7 +107,7 @@ TEST(mergeTest, MergeArray2) {
 }
 
 TEST(mergeTest, MergeArray3) {
-    std::array<int, 3> a1{5,1,2};
+    std::array<int, 3> a1{1,5,2};
     std::array<int, 3> a2{1,2,5};
     merge(&a1, 0,1,2);
     EXPECT_EQ(a1, a2);
@@ -120,50 +121,50 @@ TEST(mergeTest, MergeArray4) {
 }
 
 TEST(mergeTest, MergeArray5) {
-    std::array<int, 4> a1{5,1,2,1};
+    std::array<int, 4> a1{1,5,1,2};
     std::array<int, 4> a2{1,1,2,5};
-    merge(&a1, 0,2,3);
+    merge(&a1, 0,1,3);
     EXPECT_EQ(a1, a2);
 }
 
 TEST(mergeTest, MergeArray6) {
     std::array<int, 4> a1{1,1,2,5};
     std::array<int, 4> a2{1,1,2,5};
-    merge(&a1, 0,2,3);
+    merge(&a1, 0,1,3);
     EXPECT_EQ(a1, a2);
 }
 
-//TEST(mergesortTest, SortArray1) {
-//std::array<int, 7> a1{5, 4, 2, 1, 6, 3, 1};
-//std::array<int, 7> a2{1, 1, 2, 3, 4, 5, 6};
-//mergesort{&a1};
-//EXPECT_EQ(a2, a1);
-//}
-//
-//TEST(mergesortTestZero, SortArray1) {
-//std::array<int, 8> a1{5, 4, 2, 0, 1, 6, 3, 1};
-//std::array<int, 8> a2{0, 1, 1, 2, 3, 4, 5, 6};
-//mergesort{&a1};
-//EXPECT_EQ(a2, a1);
-//}
-//
-//
-//TEST(mergesortTestNegative, SortArray2) {
-//std::array<int, 7> a1{5, 4, 2, 1, -6, 3, 1};
-//std::array<int, 7> a2{-6, 1, 1, 2, 3, 4, 5};
-//mergesort{&a1};
-//EXPECT_EQ(a2, a1);
-//}
+TEST(mergeTest, MergeArray7) {
+    std::array<int, 4> a1{4,5,1,2};
+    std::array<int, 4> a2{1,2,4,5};
+    merge(&a1, 0,1,3);
+    EXPECT_EQ(a1, a2);
+}
+
+TEST(mergesortTest, SortArray1) {
+std::array<int, 7> a1{5, 4, 2, 1, 6, 3, 1};
+std::array<int, 7> a2{1, 1, 2, 3, 4, 5, 6};
+mergesort{&a1};
+EXPECT_EQ(a2, a1);
+}
+
+TEST(mergesortTestZero, SortArray1) {
+std::array<int, 8> a1{5, 4, 2, 0, 1, 6, 3, 1};
+std::array<int, 8> a2{0, 1, 1, 2, 3, 4, 5, 6};
+mergesort{&a1};
+EXPECT_EQ(a2, a1);
+}
+
+
+TEST(mergesortTestNegative, SortArray2) {
+std::array<int, 7> a1{5, 4, 2, 1, -6, 3, 1};
+std::array<int, 7> a2{-6, 1, 1, 2, 3, 4, 5};
+mergesort{&a1};
+EXPECT_EQ(a2, a1);
+}
 
 int main(int argc, char *argv[]) {
-//    std::array<int, 7> a1{5, 4, 2, 1, 6, 3, 1};
-//     printarray(&a1);
 
-//    mergesort{&a1};
-
-//    printarray(&a1);
-
-//     return 0;
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
