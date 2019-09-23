@@ -70,6 +70,14 @@ $ git clone --recursive git@gitlab.com:pgryko/self_study.git
 This is as we use google test library as a git submodule 
 
 ## CPP
+
+Dependencies:
+
+```bash
+
+$ sudo apt install gcc cmake googletest
+```
+
 ```bash
 $ cmake -H. -Bbuild
 $ cd build
@@ -97,6 +105,13 @@ It should then be possible to debug your executable using gdb
 $ gdb binary core
 ```
 ## Python
+Dependencies:
+
+```bash
+
+$ sudo apt install python3-pip python3-venv
+```
+
 ```bash
 $ pytest
 ```
