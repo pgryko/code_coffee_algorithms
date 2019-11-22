@@ -4,8 +4,8 @@
 
 Takes a divide and conquer approach to sorting.
 
-*Divide* the n-elements into subarrays of n/2
-*Sort* the two subsequences using mergesort
+*Divide* the n-elements into sub-arrays of n/2
+*Sort* the two sub-sequences using merge-sort
 *Merge*  the two sorted sequences to produce a sorted answer
 
 
@@ -49,7 +49,7 @@ Merge(A,p,q,r)
 
 In detail, Line 1 computes the length $`n_1`$ of the sub array A[p..q], and line 2 the length $`n_2`$ of the sub array A[q+1..r]. We create subarrays of lengths $`n_1 + 1`$ and $`n_2 + 1`$ respectively. The extra position holds a 'sentinel' marker.
 
-The for loops of lines 4-5 copies the sub-array A[p..q] into $`L[1..n_1]`$, and lines 6-7 copies the sub-array A[q + 1..r] into $`R[1..n_2]`$. Lines 8 & 9 put sentinals into the ends of the sub arrays.
+The for loops of lines 4-5 copies the sub-array A[p..q] into $`L[1..n_1]`$, and lines 6-7 copies the sub-array A[q + 1..r] into $`R[1..n_2]`$. Lines 8 & 9 put sentinels into the ends of the sub arrays.
 
 In the for loops for lines 12-17, the subarray, 
 
