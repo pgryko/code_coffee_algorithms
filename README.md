@@ -78,6 +78,15 @@ Dependencies:
 $ sudo apt install gcc cmake googletest
 ```
 
+For Ubuntu you need to install and compile the libs yourself
+```bash
+$ sudo apt install libgtest-dev
+$ cd /usr/src/gtest
+$ sudo cmake CMakeLists.txt
+$ sudo make
+$ sudo cp *.a /usr/lib
+```
+
 ```bash
 $ cmake -H. -Bbuild
 $ cd build
