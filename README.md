@@ -14,7 +14,8 @@ Aim is to work through standard algorithm, data structures questions in both pyt
   - [ ] Sorting
     - [x] Insert Sort
     - [x] Select Sort
-    - [ ] Merge Sort
+    - [x] Merge Sort (nlogn)
+    - [ ] Heap Sort (nlogn) sorts in place
 
 - [ ] Data structures
   - [ ] Bloom filter (http://blog.amynguyen.net/?p=853)
