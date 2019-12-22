@@ -43,13 +43,10 @@ template <typename T, std::size_t  N> void merge(std::array <T, N> *Array, std::
 
 }
 
-
-template <typename T, size_t N> class mergesort{
-
-
+template <typename T, std::size_t  N> void _mergesort(std::array <T, N> *Array, std::size_t low, std::size_t high){
 
     // Where A is the input array, p,q,r are indexes, where $'p <= q < r'$
-    void _mergesort(std::array <T, N> *Array, std::size_t low, std::size_t high){
+
 
         if (low < high){
             std::size_t mid = (low + high)/2;
@@ -59,13 +56,12 @@ template <typename T, size_t N> class mergesort{
         }
     };
 
-public:
-    //This kicks off the calculation
-    mergesort(std::array <T, N> *Array) {
+template <typename T, size_t N> void mergesort(std::array <T, N> *Array) 
+    {
+        // This kicks off the calculation
         _mergesort(Array, 0, Array->size() - 1);
     };
 
-};
 
 
 #endif /* EXAMPLE_H_INCLUDED */
