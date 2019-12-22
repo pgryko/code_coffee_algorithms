@@ -1,30 +1,71 @@
 #ifndef MERGESORT_H_INCLUDED
 #define MERGESORT_H_INCLUDED
 
+// template<typename Container>
+// void printarray(const Container& cont) {
+//     for (const auto &s: *cont) {
+//         std::cout << " " << s << ", ";
+//     }
+//     std::cout << std::endl;
+// }
+
 //Sadly template definitions must always be included in the header file :(
-template<typename T, size_t N>
-void mergesort(std::array <T, N> *Array) {
+// Assume [low..mid] and [mid+1...high] are two correctly sorted sub arrays
+template <typename T, std::size_t  N> void merge(std::array <T, N> *Array, std::size_t low, std::size_t mid, std::size_t high){
 
-    T temp_value(0);
+    // For arrays of length 1, return early
+    std::size_t n_1 = mid - low + 1;
+    std::size_t n_2 = high - mid;
 
-    for (std::size_t i(0), j(1), min_index(0); i < Array->size(); i++) {
+    // Be dirty and allocate two new arrays to hold lhs and rhs
 
-        j = i + 1;
-        min_index = i;
-        while (j < Array->size()) {
+    std::vector<T> Left(Array->begin() + low, Array->begin() + mid + 1);
+    std::vector<T> Right(Array->begin() + mid + 1, Array->begin() + high + 1);
 
-            if (Array->at(j) < Array->at(min_index)) {
-                min_index = j;
-            };
-            j++;
+    auto LeftIter = Left.begin();
+    auto RightIter =  Right.begin();
 
-        };
-
-        temp_value = Array->at(i);
-        (*Array)[i] = Array->at(min_index);
-        (*Array)[min_index] = temp_value;
+    for (auto array_iter = Array->begin() + low; array_iter != Array->begin() + high + 1; array_iter++)
+    {
+        if (*LeftIter <= *RightIter && LeftIter != Left.end()){
+            *array_iter = *LeftIter;
+            LeftIter++;
+        } else if (RightIter != Right.end()) {
+            *array_iter = *RightIter;
+            RightIter++;
+        } else {
+            *array_iter = *LeftIter;
+            LeftIter++;
+        }
 
     }
+
+
 }
+
+
+template <typename T, size_t N> class mergesort{
+
+
+
+    // Where A is the input array, p,q,r are indexes, where $'p <= q < r'$
+    void _mergesort(std::array <T, N> *Array, std::size_t low, std::size_t high){
+
+        if (low < high){
+            std::size_t mid = (low + high)/2;
+            _mergesort(Array,low,mid);
+            _mergesort(Array,mid+1,high);
+            merge(Array,low,mid,high);
+        }
+    };
+
+public:
+    //This kicks off the calculation
+    mergesort(std::array <T, N> *Array) {
+        _mergesort(Array, 0, Array->size() - 1);
+    };
+
+};
+
 
 #endif /* EXAMPLE_H_INCLUDED */
