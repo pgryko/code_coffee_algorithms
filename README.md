@@ -62,6 +62,33 @@ Aim is to work through standard algorithm, data structures questions in both pyt
 - Books
   TCP/IP Illustrated Volume 1
   The Design of the UNIX Operating System
+
+- Miscellaneous blogs
+  - Overview of math in datascience
+    https://www.dataquest.io/blog/math-in-data-science/
+
+  - Short tutorials on timeseries forecasting
+    https://news.ycombinator.com/item?id=20253622
+    https://www.machinelearningplus.com/time-series/arima-model-time-series-forecasting-python/
+    https://kanoki.org/2020/04/30/time-series-analysis-and-forecasting-with-arima-python/
+
+  - Illustrated guide to Flask, Celery & Redis
+    https://ljvmiranda921.github.io/notebook/2019/11/08/flask-redis-celery-mcdo/
+
+  - Postgres internals
+    http://www.interdb.jp/pg/index.html
+    https://news.ycombinator.com/item?id=18950460
+    https://architecture-database.blogspot.com
+    https://cstack.github.io/db_tutorial/
+    https://www.youtube.com/watch?v=wTPGW1PNy_Y
+    
+  - The genius of bees https://www.epsilontheory.com/three-body-problem/
+  
+  - Object-oriented design patterns in the Linux kernel https://news.ycombinator.com/item?id=18410565 
+   
+  - Building a real-time colaborative text editor http://digitalfreepen.com/2017/10/06/simple-real-time-collaborative-text-editor.html
+   
+  - Schedualing in Golang https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html
 # Building & Run instructions:
 
 Git clone recursively
