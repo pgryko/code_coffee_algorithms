@@ -12,7 +12,7 @@ Aim is to work through standard algorithm, data structures questions in both pyt
   
 - [ ] Algorithms
   - [ ] Sorting
-    - [x] Insert Sort
+    - [x] Insert Sort (On^2)
     - [x] Select Sort
     - [x] Merge Sort (nlogn)
     - [ ] Heap Sort (nlogn) sorts in place
@@ -145,12 +145,11 @@ $ pytest
 ```
 ## Docker
 ```bash
-$ sudo docker build -t self_study .
-$ sudo docker run --rm self_study
+$ docker build -t self_study .
+$ docker run --rm self_study
 ```
 This will terminate upon completion. To create an interactive session:
 ```bash
-$ sudo docker run  --name self_study -d self_study tail -f /dev/null --stop-timeout 600
-$ sudo docker exec -it self_study /bin/bash
+$ docker run -it --rm self_study /bin/bash
 ```
 
