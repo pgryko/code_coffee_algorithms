@@ -18,9 +18,9 @@ So the totals are (N - 1) + (N - 2) + (N - 3) .. + 2 + 1 = N(N - 1)/2 ~ N/2 Comp
 1: for i = 0 to A.length - 1
 2:   min_index = i
 3:   for j = i + 1 to A.length - 1:
-4:      if a[j] < a[i]
-5:			min_index = j
-6:	 swap(a[i], a[min_index])
+4:      if a[j] < a[i]:
+5:          min_index = j
+6:   swap(a[i], a[min_index])
 
 ```
 
