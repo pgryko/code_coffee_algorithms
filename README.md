@@ -76,17 +76,35 @@ Dependencies:
 
 ```bash
 
-$ sudo apt install gcc cmake googletest
+$ sudo apt install gcc cmake libgtest-dev
 ```
 
-For Ubuntu you need to install and compile the libs yourself
+For Ubuntu you need to install and compile the libs yourself. It is not recommend to install a pre-compiled version of google test (for example into /usr/local) as [described by this note from google](https://github.com/google/googletest/blob/36066cfecf79267bdf46ff82ca6c3b052f8f633c/googletest/docs/faq.md#why-is-it-not-recommended-to-install-a-pre-compiled-copy-of-google-test-for-example-into-usrlocal)
+
 ```bash
-$ sudo apt install libgtest-dev
-$ cd /usr/src/gtest
-$ sudo cmake CMakeLists.txt
-$ sudo make
-$ sudo cp *.a /usr/lib
+$ cd external/googletest
 ```
+
+if the folder does not exist, then you did not do a "--recursive" git clone earlier, which can be fixed with:
+
+```bash
+$ git submodule update --init --recursive
+```
+
+then in the directory external/googletest, run
+
+```bash
+$ cmake CMakeLists.txt
+$ make
+$ cd ../..
+```
+
+If you want to install the google test libs into /usr/local/lib, copy the contents of
+```bash
+$ sudo cp external/googletest/lib/libgtest*.a /usr/local/lib
+``` 
+
+In the project root directory (top folder)
 
 ```bash
 $ cmake -H. -Bbuild
@@ -95,7 +113,7 @@ $ make
 $ ./unit_tests
 ```
 
-Or manually using g++
+Or manually using g++ (if you have google tests copied into /usr/local/lib)
 ```bash
 $ g++ --std=c++1z main.cpp
 ```
@@ -128,7 +146,7 @@ $ pytest
 ## Docker
 ```bash
 $ sudo docker build -t self_study .
-$ sudo docker run self_study
+$ sudo docker run --rm self_study
 ```
 This will terminate upon completion. To create an interactive session:
 ```bash
