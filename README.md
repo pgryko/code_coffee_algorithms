@@ -148,6 +148,20 @@ Or manually using g++ (if you have google tests copied into /usr/local/lib)
 $ g++ --std=c++1z main.cpp
 ```
 
+### Linting
+
+Linting and individual file can be run using
+```bash
+$  clang-format -i main.cpp --style=google
+```
+
+for all files in the src dir
+
+```bash
+$ cd src
+$ clang-format -i --style=google **/*.cpp **/*.h
+```
+
 ### Debugging
 
 Core dumps need to be enabled via
@@ -173,6 +187,17 @@ $ sudo apt install python3-pip python3-venv
 ```bash
 $ pytest
 ```
+
+Auto Lint using
+```bash
+$ autopep8 --in-place --recursive src
+```
+
+And check code quality using
+```bash
+$ pylint src
+```
+
 ## Docker
 ```bash
 $ docker build -t self_study .
