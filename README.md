@@ -39,7 +39,7 @@ Aim is to work through standard algorithm, data structures questions in both pyt
 
    http://www3.cs.stonybrook.edu/~skiena/373/videos/
 
-   http://www.algorist.com/algowiki/index.php/The_Algorithms_Design_Manual_(Second_Edition)
+   https://www.algorist.com/
 
 - Examples of algorithm implementations
     https://www.geeksforgeeks.org/
@@ -67,6 +67,7 @@ Aim is to work through standard algorithm, data structures questions in both pyt
   The Design of the UNIX Operating System
 
 - Miscellaneous blogs
+  - Reference implementation of algorithems https://jojozhuang.github.io/
   - Overview of math in datascience
     https://www.dataquest.io/blog/math-in-data-science/
 
@@ -89,7 +90,7 @@ Aim is to work through standard algorithm, data structures questions in both pyt
   
   - Object-oriented design patterns in the Linux kernel https://news.ycombinator.com/item?id=18410565 
    
-  - Building a real-time colaborative text editor http://digitalfreepen.com/2017/10/06/simple-real-time-collaborative-text-editor.html
+  - Building a real-time collaborative text editor http://digitalfreepen.com/2017/10/06/simple-real-time-collaborative-text-editor.html
    
   - Schedualing in Golang https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html
 # Building & Run instructions:
