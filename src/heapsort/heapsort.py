@@ -1,4 +1,11 @@
-def MaxHeapify(array, i: int = 0, size=None):
+'''Example of heapsort algorithem written in python
+
+Usage: $ python3 heapsort.py
+
+'''
+
+
+def max_heapify(array, i: int = 0, size=None):
     '''
     Ensure that current node at i, is a maximum value with respect
     to its left and right leaf nodes,
@@ -28,18 +35,32 @@ def MaxHeapify(array, i: int = 0, size=None):
     if largest != i:
         array[largest], array[i] = array[i], array[largest]
         # Ensure that sub tree maintains maxheap via recursive call
-        MaxHeapify(array, largest, size)
+        max_heapify(array, largest, size)
 
 
-def BuildHeap(array):
-    # Build heap (re-arrange array)
-    # range(start, stop, step)
+def build_heap(array):
+    '''
+    Re-arrange an existing array/list into a maxheap
+    Note, max heaps are loosely ordered, i.e. roots nodes
+    are maximum's with respect to their leaf nodes. No other
+    ordering guarantee is provided
+    :param array:
+    :return: None. sorts in place
+    '''
+
     # operator // forces integer division (python 3)
     for i in range((len(array) - 1) // 2, -1, -1):
-        MaxHeapify(array, i)
+        max_heapify(array, i)
 
 
-def HeapSort(array):
+def heap_sort(array):
+    '''
+    Takes an existing array/list and re-arranges it into a max heap
+    From there it iterates through the array, pulling out the max value (root)
+    and running maxheapify to re-calculate the new max value
+    :param array:
+    :return: None, passed in array sorted in place
+    '''
     if len(array) < 1:
         return
 
@@ -47,7 +68,7 @@ def HeapSort(array):
     # # range(start, stop, step)
     # # operator // forces integer division (python 3)
     for i in range((len(array) - 1) // 2, -1, -1):
-        MaxHeapify(array, i)
+        max_heapify(array, i)
 
     # We now have a max heap, one by one pull out the maximum element
     # and add it to the end of the array, and sort the remainder
@@ -57,10 +78,10 @@ def HeapSort(array):
         array[0], array[i] = array[i], array[0]
 
         size = size - 1
-        MaxHeapify(array, 0, size)
+        max_heapify(array, 0, size)
 
 
 if __name__ == '__main__':
-    array_in = [8, 0, 3, 3, 5, 6, 7]
+    ARRAY_IN = [8, 0, 3, 3, 5, 6, 7]
 
-    HeapSort(array_in)
+    heap_sort(ARRAY_IN)

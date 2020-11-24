@@ -1,6 +1,6 @@
 # self_study
 
-A collection of small projects for self study. The goal is to use these for teaching in Code & Coffee meetups
+A collection of small projects for self study. The goal is to use these for teaching/demoing in Code & Coffee meetups
 
 Aim is to work through standard algorithm, data structures questions in both python and C++ (both languages due to differences in the way memory is managed).
 

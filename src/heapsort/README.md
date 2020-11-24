@@ -116,7 +116,7 @@ Build-Max-Heap(A):
 Each call of Max-heap costs O(lg n), and is called n/2 -1 times,
 giving O(n lg n).
 
-The heapsort algorithem starts buy using Build-Max-Heap to build a max-heap from an input array
+The heapsort algorithm starts buy using Build-Max-Heap to build a max-heap from an input array
 
 ```
 HEAPSORT(A):
