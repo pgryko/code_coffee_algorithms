@@ -59,22 +59,46 @@ Seven functions are required for sorting:
 * Max-Heap-Insert, Heap-Extract-Max, Heap-Increase-Key and Heap-Maxiumum functions  O(lg n) allow the heap datastructures
 to implement a priority queue
 
-```
-Max-Heapify(A,size,i):
+```python
+Max-Heapify(array, i: int = 0, size=None):
+    '''
+    Ensure that current node at i, is a maximum value with respect
+    to its left and right leaf nodes,
 
-   largest = i
-   Left = 2i + 1
-   Right = 2i + 2
-   
-   if Left < size and A[Left] > A[i]:
-       largest = Left
-    
-    if Right < size and A[Right] > A[largest]:
-       largest = Right
-       
+    :param array: Array to be sorted
+    :param i: Index of node in array
+    :param size: Size of the heap to consider. We may want to mask values in the array
+    that are larger than the specified size (to perform sorting)
+    :return: None - sorts array in place
+    '''
+   # Set current index to largest by default
+    largest = i
+    left = 2 * i + 1
+    right = 2 * i + 2
+
+   # A size is needed for heapsort (but not building a max heap)
+   # Essentially, during the last stages of heapsort, the max (root) element is
+   # swapped with the end element, etc
+   # When we re-run max-heapify to left the new max float to the top of the array
+   # this size parameter, will allow Max-Heapify to ignore the previous max element,
+   # stored at the end(s) of the array
+    if size is None:
+        size = len(array)
+
+    # Compare leaf nodes with current largest index
+    if left < size and array[left] > array[i]:
+        largest = left
+
+    if right < size and array[right] > array[largest]:
+        largest = right
+
+    # If largest is not root
     if largest != i:
-       swap(A[i],A[largest])
-       Max-Heapify(A,i,0) 
+        # Swap largest and current root index
+        array[largest], array[i] = array[i], array[largest]
+        # Ensure that sub tree maintains maxheap via recursive call to 'largest'
+        # index (which is no longer largest as we swapped it)
+        MaxHeapify(array, largest, size)
 ```
 
 Max-Heapify assumes that binary trees rooted at Left and Right are max heaps, but that A[i] might be smaller than its children, violating max-heap property. Max-heap lets the value

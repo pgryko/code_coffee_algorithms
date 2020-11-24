@@ -4,6 +4,8 @@ A collection of small projects for self study. The goal is to use these for teac
 
 Aim is to work through standard algorithm, data structures questions in both python and C++ (both languages due to differences in the way memory is managed).
 
+I have worked through, written and tested all the code but I can't guarantee that the code is 100% defect free
+
 - [x] Support Tasks
   - [x] Get Unit tests working
   - [x] Get Math rendering working

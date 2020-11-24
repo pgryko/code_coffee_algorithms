@@ -1,9 +1,12 @@
 def MaxHeapify(array, i: int = 0, size=None):
     '''
+    Ensure that current node at i, is a maximum value with respect
+    to its left and right leaf nodes,
 
     :param array: Array to be sorted
-    :param size: Size of the heap
     :param i: Index of node in array
+    :param size: Size of the heap to consider. We may want to mask values in the array
+    that are larger than the specified size (to perform sorting)
     :return: None - sorts array in place
     '''
 

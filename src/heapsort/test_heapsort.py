@@ -69,27 +69,27 @@ def TestBuildHeap(self):
         self.assertEqual(array_in,[8,5,3,3,0,6,7])
 
 
-# class TestMergeSort(unittest.TestCase):
+class TestMergeSort(unittest.TestCase):
 
-#     def test_sortbasic(self):
-#         array_in = [5, 4, 2, 1, 6, 3, 1]
-#         merge_sort(array_in)
-#         self.assertEqual(array_in, [1, 1, 2, 3, 4, 5, 6])
+    def test_sortbasic(self):
+        array_in = [5, 4, 2, 1, 6, 3, 1]
+        HeapSort(array_in)
+        self.assertEqual(array_in, [1, 1, 2, 3, 4, 5, 6])
 
-#     def test_sortbasiceven(self):
-#         array_in = [5, 4, 2, 1, 6, 1]
-#         merge_sort(array_in)
-#         self.assertEqual(array_in, [1, 1, 2, 4, 5, 6])
+    def test_sortbasiceven(self):
+        array_in = [5, 4, 2, 1, 6, 1]
+        HeapSort(array_in)
+        self.assertEqual(array_in, [1, 1, 2, 4, 5, 6])
 
-#     def test_sortzero(self):
-#         array_in = [5, 4, 2, 0, 1, 6, 3, 1]
-#         merge_sort(array_in)
-#         self.assertEqual(array_in,[0, 1, 1, 2, 3, 4, 5, 6])
+    def test_sortzero(self):
+        array_in = [5, 4, 2, 0, 1, 6, 3, 1]
+        HeapSort(array_in)
+        self.assertEqual(array_in,[0, 1, 1, 2, 3, 4, 5, 6])
 
-#     def test_sortnegative(self):
-#         array_in = [5, 4, 2, 1, -6, 3, 1]
-#         merge_sort(array_in)
-#         self.assertEqual(array_in,[-6, 1, 1, 2, 3, 4, 5])
+    def test_sortnegative(self):
+        array_in = [5, 4, 2, 1, -6, 3, 1]
+        HeapSort(array_in)
+        self.assertEqual(array_in,[-6, 1, 1, 2, 3, 4, 5])
 
-# if __name__ == '__main__':
-#     unittest.main()
+if __name__ == '__main__':
+    unittest.main()
