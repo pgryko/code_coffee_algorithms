@@ -61,7 +61,7 @@ def heap_sort(array):
     :param array:
     :return: None, passed in array sorted in place
     '''
-    if len(array) < 1:
+    if len(array) < 2:
         return
 
     # # Build heap (re-arrange array)

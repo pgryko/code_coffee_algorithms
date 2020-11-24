@@ -131,7 +131,7 @@ HEAPSORT(A):
 
 $ cmake -H. -Bbuild
 $ cd build; make
-$ ./mergesort
+$ ./heapsort
 
 Or manually using g++
 $ g++ --std=c++1z main.cpp

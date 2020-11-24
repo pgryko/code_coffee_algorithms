@@ -1,29 +1,55 @@
 #ifndef HEAPSORT_H_INCLUDED
 #define HEAPESORT_H_INCLUDED
 
-// Sadly template definitions must always be included in the header file :(
+using std::size_t;
+
+template <typename T, size_t N>
+void maxheapify(std::array<T,N> *Array, size_t i, size_t size){
+//    if (size == 0){
+//        size = Array->size();
+//    }
+
+    size_t largest = i;
+    size_t left = 2*i + 1;
+    size_t right = 2*i + 2;
+
+    if ( left < size && (*Array)[left] > (*Array)[largest]) {
+        largest = left;
+    }
+
+    if (right < size && (*Array)[right] > (*Array)[largest]){
+        largest = right;
+    }
+
+    if (largest != i){
+        std::swap((*Array)[i],(*Array)[largest]);
+        maxheapify(Array,i,size);
+    }
+
+}
+
+template <typename T, size_t N>
+void buildheap(std::array<T,N> *Array){
+
+    for(size_t i = (Array->size() -1) / 2; i != std::numeric_limits<std::size_t>::max(); --i){
+        maxheapify(Array,i,Array->size());
+    }
+}
+
 template <typename T, size_t N>
 void heapsort(std::array<T, N> *Array) {
-  // T temp_value(0);
 
-  // for (std::size_t i(0), j(1), min_index(0); i < Array->size(); i++) {
+    if (Array->size() < 2) return;
 
-  //     j = i + 1;
-  //     min_index = i;
-  //     while (j < Array->size()) {
+    buildheap(Array);
 
-  //         if (Array->at(j) < Array->at(min_index)) {
-  //             min_index = j;
-  //         };
-  //         j++;
+    auto size = Array->size();
 
-  //     };
-
-  //     temp_value = Array->at(i);
-  //     (*Array)[i] = Array->at(min_index);
-  //     (*Array)[min_index] = temp_value;
-
-  // }
+    for ( size_t i = Array->size() -1; i != std::numeric_limits<std::size_t>::max(); --i ){
+        std::swap((*Array)[i],(*Array)[0]);
+        --size;
+        maxheapify(Array,i,size);
+    }
 }
 
 #endif /* EXAMPLE_H_INCLUDED */
