@@ -1,4 +1,4 @@
-# self_study
+# Self Study
 
 A collection of small projects for self study. The goal is to use these for teaching/demoing in Code & Coffee meetups
 
@@ -9,17 +9,32 @@ I have worked through, written and tested all the code but I can't guarantee tha
 - [x] Support Tasks
   - [x] Get Unit tests working
   - [x] Get Math rendering working
+
 - [ ] Math
   - [ ] Sum of finite series
+  - [ ] Sets
+  - [ ] Counting and Probability
+  - [ ] Matrices
   
 - [ ] Algorithms
   - [ ] Sorting
     - [x] Insert Sort (On^2)
     - [x] Select Sort
     - [x] Merge Sort (nlogn)
-    - [ ] Heap Sort (nlogn) sorts in place
+    - [x] Heap Sort (nlogn)
+    - [ ] Quick Sort
+    - [ ] Radix Sort
+    - [ ] Statistical Sorts
+  - [ ] Graph Algorithms
 
 - [ ] Data structures
+  - [ ] Stacks and Queues
+  - [ ] Linked Lists
+  - [ ] Priority Que
+  - [ ] Hash Tables
+  - [ ] Binary Search Trees
+  - [ ] Red-Black Trees
+  - [ ] B-Trees
   - [ ] Bloom filter (http://blog.amynguyen.net/?p=853)
   - [ ] Ternary search tree
   - [ ] Prefix trie (replaced by ternary search trees, does not require wasting memory storing 26 pointers at each node)
@@ -69,7 +84,7 @@ I have worked through, written and tested all the code but I can't guarantee tha
   The Design of the UNIX Operating System
 
 - Miscellaneous blogs
-  - Reference implementation of algorithems https://jojozhuang.github.io/
+  - Reference implementation of algorithms https://jojozhuang.github.io/
   - Overview of math in datascience
     https://www.dataquest.io/blog/math-in-data-science/
 
@@ -94,7 +109,18 @@ I have worked through, written and tested all the code but I can't guarantee tha
    
   - Building a real-time collaborative text editor http://digitalfreepen.com/2017/10/06/simple-real-time-collaborative-text-editor.html
    
-  - Schedualing in Golang https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html
+  - Scheduling in Golang https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html
+  
+# Tools
+
+Graphing and visualisation:
+
+- [Gitlab flavoured markdown](https://docs.gitlab.com/ee/user/markdown.html) is extremely flexible, supporting mermaid syntax, a subset of latex math
+
+- Writing [latex equations online](https://www.hostmath.com/)
+
+- [quiver](https://github.com/varkor/quiver) is a modern, graphical editor for commutative and pasting diagrams, capable of rendering high-quality diagrams for screen viewing, and exporting to LaTeX via tikz-cd.
+
 # Building & Run instructions:
 
 Git clone recursively
