@@ -1,28 +1,25 @@
 import copy
 
 
-class merge_sort(object):
+class MergeSort:
+    """ Sorts an array using a recursive divide and concour strategy
+
+    Technically we could write this as two nested functions, but I think its cleaner (design choice)
+    to write it as a class. Its also easier to test, as testing a nested function is tricky
+    """
 
     def __init__(self, array):
-        '''Sets off merge sort'''
-        merge_sort.__merge_sort(array, 0, len(array) - 1)
+        """Sets off merge sort"""
+        MergeSort.mergesort(array, 0, len(array) - 1)
 
     @staticmethod
     def merge(array, low, mid, high):
-        lhs = copy.deepcopy(array[low:mid+1])
+        lhs = copy.deepcopy(array[low:mid + 1])
         rhs = copy.deepcopy(array[mid + 1: high + 1])
-        print(str(low) + " " + str(mid) + " " + str(high))
-
-        print("Merging")
-
-        print("lhs")
-        print(lhs)
-        print("rhs")
-        print(rhs)
 
         i = 0
         j = 0
-        for k in range(low, high+1):
+        for k in range(low, high + 1):
             if i < len(lhs) and j < len(rhs):
 
                 if lhs[i] <= rhs[j]:
@@ -39,19 +36,20 @@ class merge_sort(object):
                 else:
                     array[k] = rhs[j]
 
-    def __merge_sort(array, low, high):
+    @staticmethod
+    def mergesort(array, low, high):
 
-        mid = int((low + high)/2)
+        mid = int((low + high) / 2)
 
         if mid < high:
-            merge_sort.__merge_sort(array, low, mid)
-            merge_sort.__merge_sort(array, mid+1, high)
-            merge_sort.merge(array, low, mid, high)
+            MergeSort.mergesort(array, low, mid)
+            MergeSort.mergesort(array, mid + 1, high)
+            MergeSort.merge(array, low, mid, high)
 
 
 if __name__ == '__main__':
-    array = [8, 0, 3, 3, 5, 6]
+    ARRAY_IN = [8, 0, 3, 3, 5, 6]
 
-    merge_sort(array)
+    MergeSort(ARRAY_IN)
 
-    print(array)
+    print(ARRAY_IN)

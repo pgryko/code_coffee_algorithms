@@ -1,55 +1,50 @@
 import unittest
-from mergesort import merge_sort
+from mergesort import MergeSort
 
 
 class TestMerge(unittest.TestCase):
 
-    def test_merge_even_A(self):
+    def test_merge_even_a(self):
         array_in = [3, 4]
-        merge_sort.merge(array_in, 0, 0, 1)
+        MergeSort.merge(array_in, 0, 0, 1)
         self.assertEqual(array_in, [3, 4])
 
-    def test_merge_even_B(self):
+    def test_merge_even_b(self):
         array_in = [4, 3]
-        merge_sort.merge(array_in, 0, 0, 1)
+        MergeSort.merge(array_in, 0, 0, 1)
         self.assertEqual(array_in, [3, 4])
 
-    def test_merge_even_B(self):
+    def test_merge_even_c(self):
         array_in = [4, 4]
-        merge_sort.merge(array_in, 0, 0, 1)
+        MergeSort.merge(array_in, 0, 0, 1)
         self.assertEqual(array_in, [4, 4])
 
-    def test_merge_odd_A(self):
+    def test_merge_odd_a(self):
         array_in = [1, 4, 2]
-        merge_sort.merge(array_in, 0, 1, 2)
+        MergeSort.merge(array_in, 0, 1, 2)
         self.assertEqual(array_in, [1, 2, 4])
 
-    def test_merge_odd_A(self):
-        array_in = [4, 4, 2]
-        merge_sort.merge(array_in, 0, 1, 2)
-        self.assertEqual(array_in, [2, 4, 4])
 
+class TestMergesort(unittest.TestCase):
 
-class TestMergeSort(unittest.TestCase):
-
-    def test_sortbasic(self):
+    def test_sort_basic(self):
         array_in = [5, 4, 2, 1, 6, 3, 1]
-        merge_sort(array_in)
+        MergeSort(array_in)
         self.assertEqual(array_in, [1, 1, 2, 3, 4, 5, 6])
 
-    def test_sortbasiceven(self):
+    def test_sort_basic_even(self):
         array_in = [5, 4, 2, 1, 6, 1]
-        merge_sort(array_in)
+        MergeSort(array_in)
         self.assertEqual(array_in, [1, 1, 2, 4, 5, 6])
 
-    def test_sortzero(self):
+    def test_sort_zero(self):
         array_in = [5, 4, 2, 0, 1, 6, 3, 1]
-        merge_sort(array_in)
+        MergeSort(array_in)
         self.assertEqual(array_in, [0, 1, 1, 2, 3, 4, 5, 6])
 
-    def test_sortnegative(self):
+    def test_sort_negative(self):
         array_in = [5, 4, 2, 1, -6, 3, 1]
-        merge_sort(array_in)
+        MergeSort(array_in)
         self.assertEqual(array_in, [-6, 1, 1, 2, 3, 4, 5])
 
 

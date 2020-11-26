@@ -122,7 +122,7 @@ The heapsort algorithm starts buy using Build-Max-Heap to build a max-heap from 
 HEAPSORT(A):
     Build-Max-Heap(A)
     capacity = A.size()
-    for i = A.size() to 2:
+    for i = A.size() - 1 to 1:
         swap(A[1],A[i])
         capacity = capacity - 1
         Max-Heap(A,1)
