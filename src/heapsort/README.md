@@ -109,7 +109,7 @@ Max-heapify can be used to build a max heap from the bottom up
 
 ```
 Build-Max-Heap(A):
-    for i = A.size()/2 -1 to i = 0:
+    for i = A.size()-1 // 2 to i = 0:
         Max-Heapify(A,i) 
 ```
 

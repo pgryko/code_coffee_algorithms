@@ -103,6 +103,8 @@ I have worked through, written and tested all the code but I can't guarantee tha
     https://cstack.github.io/db_tutorial/
     https://www.youtube.com/watch?v=wTPGW1PNy_Y
     
+   - Databases https://15445.courses.cs.cmu.edu/fall2019/schedule.html
+    
   - The genius of bees https://www.epsilontheory.com/three-body-problem/
   
   - Object-oriented design patterns in the Linux kernel https://news.ycombinator.com/item?id=18410565 

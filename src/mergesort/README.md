@@ -37,8 +37,8 @@ Merge(A,p,q,r)
 7:    R[j] = A[q + j]
 8: L[n_1 + 1] = infinity
 9: R[n_2 + 1] = infinity
-10: i = 1
-11: j = 1
+10: i = 0
+11: j = 0
 12: for k = p to r
 13:    if L[i] <= R[j]
 14:       A[k] = L[i]

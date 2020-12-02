@@ -39,7 +39,7 @@ class MergeSort:
     @staticmethod
     def mergesort(array, low, high):
 
-        mid = int((low + high) / 2)
+        mid = int((low + high) // 2)
 
         if mid < high:
             MergeSort.mergesort(array, low, mid)

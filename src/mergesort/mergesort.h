@@ -14,10 +14,6 @@
 template <typename T, std::size_t N>
 void merge(std::array<T, N> *Array, std::size_t low, std::size_t mid,
            std::size_t high) {
-  // For arrays of length 1, return early
-  std::size_t n_1 = mid - low + 1;
-  std::size_t n_2 = high - mid;
-
   // Be dirty and allocate two new arrays to hold lhs and rhs
 
   std::vector<T> Left(Array->begin() + low, Array->begin() + mid + 1);
