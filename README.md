@@ -76,6 +76,9 @@ I have worked through, written and tested all the code but I can't guarantee tha
 - Concise collection of high value information on specific application security topics
     https://cheatsheetseries.owasp.org/
 
+- Writing a spelling corrector
+    https://norvig.com/spell-correct.html
+
 - Video lectures on 4 algorithmic journeys
   https://www.youtube.com/user/A9Videos/playlists
 
