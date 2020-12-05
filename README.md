@@ -76,9 +76,6 @@ I have worked through, written and tested all the code but I can't guarantee tha
 - Concise collection of high value information on specific application security topics
     https://cheatsheetseries.owasp.org/
 
-- Writing a spelling corrector
-    https://norvig.com/spell-correct.html
-
 - Video lectures on 4 algorithmic journeys
   https://www.youtube.com/user/A9Videos/playlists
 
@@ -115,7 +112,17 @@ I have worked through, written and tested all the code but I can't guarantee tha
   - Building a real-time collaborative text editor http://digitalfreepen.com/2017/10/06/simple-real-time-collaborative-text-editor.html
    
   - Scheduling in Golang https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html
-  
+
+  - Reversing the Technical interview
+    https://aphyr.com/posts/340-reversing-the-technical-interview
+    https://aphyr.com/posts/341-hexing-the-technical-interview
+    https://aphyr.com/posts/342-typing-the-technical-interview
+    https://aphyr.com/posts/353-rewriting-the-technical-interview
+    https://aphyr.com/posts/354-unifying-the-technical-interview
+
+  - Writing a spelling corrector
+    https://norvig.com/spell-correct.html
+    
 # Tools
 
 Graphing and visualisation:
