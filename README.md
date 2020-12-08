@@ -113,15 +113,14 @@ I have worked through, written and tested all the code but I can't guarantee tha
    
   - Scheduling in Golang https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html
 
-  - Reversing the Technical interview
-    https://aphyr.com/posts/340-reversing-the-technical-interview
-    https://aphyr.com/posts/341-hexing-the-technical-interview
-    https://aphyr.com/posts/342-typing-the-technical-interview
-    https://aphyr.com/posts/353-rewriting-the-technical-interview
-    https://aphyr.com/posts/354-unifying-the-technical-interview
+  - Index 1,600,000,000 Keys with Automata and Rust
+    https://blog.burntsushi.net/transducers/
 
   - Writing a spelling corrector
     https://norvig.com/spell-correct.html
+
+  - Visulisations of RAFT consensus
+    http://thesecretlivesofdata.com/raft/
     
 # Tools
 
