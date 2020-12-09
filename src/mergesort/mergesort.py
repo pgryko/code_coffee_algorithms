@@ -35,6 +35,7 @@ class MergeSort:
                     i += 1
                 else:
                     array[k] = rhs[j]
+                    j += i
 
     @staticmethod
     def mergesort(array, low, high):
