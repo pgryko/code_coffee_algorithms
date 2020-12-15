@@ -103,7 +103,7 @@ I have worked through, written and tested all the code but I can't guarantee tha
     https://cstack.github.io/db_tutorial/
     https://www.youtube.com/watch?v=wTPGW1PNy_Y
     
-   - Databases https://15445.courses.cs.cmu.edu/fall2019/schedule.html
+  - Databases https://15445.courses.cs.cmu.edu/fall2019/schedule.html
     
   - The genius of bees https://www.epsilontheory.com/three-body-problem/
   
@@ -121,6 +121,9 @@ I have worked through, written and tested all the code but I can't guarantee tha
 
   - Visulisations of RAFT consensus
     http://thesecretlivesofdata.com/raft/
+
+  - Keytap2 - acoustic keyboard eavesdropping based on language n-gram frequencies
+    https://github.com/ggerganov/kbd-audio/discussions/31
     
 # Tools
 
