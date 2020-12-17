@@ -26,9 +26,15 @@ I have worked through, written and tested all the code but I can't guarantee tha
     - [ ] Radix Sort
     - [ ] Statistical Sorts
   - [ ] Graph Algorithms
+  - [ ] Computational
+    - [ ] Strassen Matrix Multiplication
+    - [ ] Dense/sparse matrix-matrix multiplication
+  - [ ] Ancillary
+    - [ ] Lazy/streaming algorithm
 
 - [ ] Data structures
   - [ ] Stacks and Queues
+    - [ ] Priority Que
   - [ ] Linked Lists
   - [ ] Priority Que
   - [ ] Hash Tables
@@ -41,8 +47,6 @@ I have worked through, written and tested all the code but I can't guarantee tha
   - [ ] Suffix array
   - [ ] T/Q Digest
   - [ ] Count-min sketch
-  - [ ] Dense/sparse matrix-matrix multiplication 
-  - [ ] Lazy/streaming algorithm
 
 # Study references:
 

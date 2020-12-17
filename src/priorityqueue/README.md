@@ -26,6 +26,8 @@ Max-Heapify(A,0,heapsize)
 return max
 ```
 
+Runtime of Heap-Extract-Max is O(lg n), since it Max-heapify is run only once.
+
 ```
 Heap-Increase-Key(A,i,key):
 if key < A[i]:
