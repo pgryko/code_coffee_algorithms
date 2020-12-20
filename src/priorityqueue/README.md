@@ -41,5 +41,6 @@ while i > 1 and A[Parent(i)] < A[i]
 ```
 Max-Heap-Insert(A,key)
 heapsize = heapsize + 1
+A[A.heapsize -1 ] = null 
 Heap-Increase-Key(A,heapsize,key)
 ```
