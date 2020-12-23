@@ -20,8 +20,8 @@ The Partition function sorts the array in place:
 Partition(A,low,high):
     key = A[high]
     i = low - 1
-    for j = low to high:
-        if A[j] <= x
+    for j = low to high -1:
+        if A[j] <= key
             i = i + 1
             swap(A[i],A[j])
     swap (A[i+1],A[high])
