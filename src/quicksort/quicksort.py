@@ -1,7 +1,22 @@
+# -*- coding: utf-8 -*-
+"""Quicksort implementation in python
+
+Sorts an array type object in place, in approx time O(nlgn)
+
+Example usage:
+    QuickSort(ARRAY_IN)
+
+"""
 class QuickSort:
+    """Class that initialises and wraps functions that perform quicksort in approx O(nlgn)
+
+    """
 
     def __init__(self, array):
-        """Kicks off QuickSort"""
+        """Kicks off QuickSort
+        Args:
+            array (:obj:`list` of int): array to be sorted
+        """
         self._quicksort(array, 0, len(array) - 1)
 
     @staticmethod
@@ -30,12 +45,21 @@ class QuickSort:
 
     @staticmethod
     def _quicksort(array, low, high):
+        """Private static member function that performs quicksort in a recursive manner
+
+        :param array:
+        :param low:
+        :param high:
+        :return:
+        """
         if len(array) == 1:
             return array
         if low < high:
             partition = QuickSort._partition(array, low, high)
             QuickSort._quicksort(array, low, partition-1)
             QuickSort._quicksort(array, partition + 1, high)
+
+        return array
 
 
 if __name__ == '__main__':
