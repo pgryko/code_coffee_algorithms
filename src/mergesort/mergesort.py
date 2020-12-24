@@ -23,19 +23,17 @@ class MergeSort:
             if i < len(lhs) and j < len(rhs):
 
                 if lhs[i] <= rhs[j]:
-
                     array[k] = lhs[i]
                     i += 1
                 else:
                     array[k] = rhs[j]
                     j += 1
+            elif i < len(lhs):
+                array[k] = lhs[i]
+                i += 1
             else:
-                if i < len(lhs):
-                    array[k] = lhs[i]
-                    i += 1
-                else:
-                    array[k] = rhs[j]
-                    j += i
+                array[k] = rhs[j]
+                j += 1
 
     @staticmethod
     def mergesort(array, low, high):

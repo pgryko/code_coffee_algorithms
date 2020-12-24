@@ -1,9 +1,4 @@
 def select_sort(array):
-    def swap_values(array, index, min_index):
-
-        temp_val = array[min_index]
-        array[min_index] = array[index]
-        array[index] = temp_val
 
     for i in range(0, len(array)):
         j = i + 1
@@ -15,8 +10,7 @@ def select_sort(array):
                 min_index = j
             j = j + 1
 
-        swap_values(array, i, min_index)
-
+        array[i], array[min_index] = array[min_index], array[i]
 
 if __name__ == '__main__':
     array = [8, 0, 3, 3, 5, 6]

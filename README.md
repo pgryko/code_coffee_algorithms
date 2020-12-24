@@ -31,6 +31,7 @@ I have worked through, written and tested all the code but I can't guarantee tha
     - [ ] Dense/sparse matrix-matrix multiplication
   - [ ] Ancillary
     - [ ] Lazy/streaming algorithm
+    - [ ] Execution of programs (stack & heap)
 
 - [ ] Data structures
   - [ ] Stacks and Queues

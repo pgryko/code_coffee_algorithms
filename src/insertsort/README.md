@@ -11,10 +11,10 @@ A = < 5, 2, 4, 6, 1, 3 >
 
 ```
                                     cost    times
-1: for i = 2 to A.length            c_1     n
+1: for i = 1 to A.length -1            c_1     n
 2:     key = A[i]                   c_2     n - 1
 3:     j = i - 1                    c_3     n - 1
-4:     while j > 0 and A[j] > key   c_4     \sum^n_i=2 t_i
+4:     while j > -1 and A[j] > key   c_4     \sum^n_i=2 t_i
 5:         A[j+1] = A[j]            c_5     \sum^n_i=2 t_i - 1
 6:         j = j - 1                c_6     \sum^n_i=2 t_i - 1
 7:     A[j+1] = key                 c_7     n - 1
