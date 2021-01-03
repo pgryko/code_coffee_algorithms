@@ -12,6 +12,7 @@ def select_sort(array):
 
         array[i], array[min_index] = array[min_index], array[i]
 
+
 if __name__ == '__main__':
     array = [8, 0, 3, 3, 5, 6]
 

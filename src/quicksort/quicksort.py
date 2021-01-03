@@ -7,6 +7,8 @@ Example usage:
     QuickSort(ARRAY_IN)
 
 """
+
+
 class QuickSort:
     """Class that initialises and wraps functions that perform quicksort in approx O(nlgn)
 
@@ -52,8 +54,7 @@ class QuickSort:
         :param high:
         :return:
         """
-        if len(array) == 1:
-            return array
+
         if low < high:
             partition = QuickSort._partition(array, low, high)
             QuickSort._quicksort(array, low, partition-1)
@@ -63,7 +64,7 @@ class QuickSort:
 
 
 if __name__ == '__main__':
-    ARRAY_IN = [8, 0, 3, 3, 5, 6]
+    ARRAY_IN = [5, 4, 2, 1, -6, 3, 1]
 
     QuickSort(ARRAY_IN)
 
