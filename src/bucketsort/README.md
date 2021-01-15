@@ -4,4 +4,18 @@ Makes assumptions that underlying dataset is a uniform distribution and has an a
 
 Bucket sort divided the interval [0,1) into n equal sized subintervals or buckets and then distributes the n input numbers into the buckets. The numbers in each buckets are sorted and then the buckets are joined in order.
 
-For each element A[i], where $` 0 \leq A[i] < 1  `$
+For an n-element array A where each element A[i], where $` 0 \leq A[i] < 1 `$. An auxillary array B[0,..n-1] of linked lists (buckets) are needed.
+
+```al
+Bucket-Sort(A):
+
+let B[0...n-1] be a new array
+n = A.length
+for i = 0 to n - 1:
+    make B[i] and empty list
+for i = 1 to n:
+    insert A[i] into list B[⌊nA[i⌋]
+for i = 0 to n - 1:
+    sort list B[i] with insert sort
+concatenate lists B[0], B[1], ..., B[n-1] in order
+```
