@@ -5,23 +5,23 @@ $`O(n \lg n)`$. In certain cases, such as working with integers, it is possible 
 
 Counting sort takes an array of integers and returns a new array in $`O(n)`$.
 
-```
+```al
 Counting-Sort(InArray, OutArray):
 
 if OutArray.size != InArray:
    return error
 
-# Find maximum integer value in Array
+// Find maximum integer value in Array
 max_value  = findMaxValue(Array)
 
-# Create comparison array of size max_value + 1
+// Create comparison array of size max_value + 1
 C = newArray[0...max_value]
 
-# C contains a reference of the elements equal to i
+// C contains a reference of the elements equal to i
 for i = 0 to InArray.size - 1:
     C[Array[i]] = C[Array[i]]   
 
-# C contains elemens less than or equal to i
+// C contains elemens less than or equal to i
 for i = 1 to k:
     C[i] = C[i] + C[i-1]
     
