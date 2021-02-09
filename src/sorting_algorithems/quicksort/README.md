@@ -2,6 +2,7 @@ Quicksort has a worst case running time of $`O(n^2)`$, but average $`O(nlgn)`$, 
 
 ```
 QuickSort(A,low,high)
+    // Optional add in check that high !=  numeric lits
     if low < high:
         p = Partition(A,low,high)
         QuickSort(A,low,p-1)
