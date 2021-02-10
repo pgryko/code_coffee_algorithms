@@ -111,6 +111,8 @@ I have worked through, written and tested all the code but I can't guarantee tha
   - Databases https://15445.courses.cs.cmu.edu/fall2019/schedule.html
     
   - The genius of bees https://www.epsilontheory.com/three-body-problem/
+
+  - Python Internals, Behind the scenes https://tenthousandmeters.com/
   
   - Object-oriented design patterns in the Linux kernel https://news.ycombinator.com/item?id=18410565 
    
