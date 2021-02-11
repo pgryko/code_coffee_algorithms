@@ -10,10 +10,32 @@ class LinkedListSingleArray:
     '''
 
     def __init__(self, no_of_elements: int = 20):
-        # Create an empty buffer (malloc)
-        self._buffer = [None]*no_of_elements*3
-        # Enter free element index
-        #
+        # Create an empty buffer (malloc), and populate 'pointer' to free elements
+        self._buffer = [x + 2 if ( (x + 1) % 3 == 0) else 0 for x in range(0, no_of_elements*3)]
+        self._free_index = 1
+        self._current = None
+        self._count = 0
+
+    def __next__(self, index):
+
+        if self._current is None:
+            return None
+        elif self._current + 1 is not None:
+            return self._buffer[self._current + 1]
+        else:
+            return None
+
+    def __len__(self):
+        return self._count
+
+    # def __getitem__(self, item):
+    # def __current
+    # def __iter
+    # def __prev
+    # def __add
+    # def __remove
+    # def __contains
+
 
 
 
