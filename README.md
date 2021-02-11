@@ -4,7 +4,7 @@ A collection of small projects for self study. The goal is to use these for teac
 
 Aim is to work through standard algorithm, data structures questions in both python and C++ (both languages due to differences in the way memory is managed).
 
-I have worked through, written and tested all the code but I can't guarantee that the code is 100% defect free
+I have worked through, written and tested all the code, but I can't guarantee that the code is 100% defect free
 
 - [x] Support Tasks
   - [x] Get Unit tests working
@@ -126,7 +126,7 @@ I have worked through, written and tested all the code but I can't guarantee tha
   - Writing a spelling corrector
     https://norvig.com/spell-correct.html
 
-  - Visulisations of RAFT consensus
+  - Visualisations of RAFT consensus
     http://thesecretlivesofdata.com/raft/
 
   - Keytap2 - acoustic keyboard eavesdropping based on language n-gram frequencies
