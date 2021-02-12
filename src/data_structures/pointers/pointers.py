@@ -30,11 +30,11 @@ class LinkedListSingleArray:
 
     # def __getitem__(self, item):
     # def __current
-    # def __iter
+    # def __iter__
     # def __prev
     # def __add
     # def __remove
-    # def __contains
+    # def __contains__
 
 
 
