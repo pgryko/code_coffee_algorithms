@@ -4,9 +4,14 @@ Usage: $ python3 pointers.py
 
 '''
 
+class Node:
+    '''DataStructure Node element for a linked list'''
+    def __init__(self, data):
+        self.data = data
 
+# https://omkarpathak.in/2018/04/11/python-getitem-and-setitem/
 class LinkedListSingleArray:
-    ''' A linked list implemented using a single array, with a custom pointer implementation
+    ''' A doubly linked list implemented using a single array, with a custom pointer implementation
     '''
 
     def __init__(self, no_of_elements: int = 20):
@@ -15,6 +20,8 @@ class LinkedListSingleArray:
         self._free_index = 1
         self._current = None
         self._count = 0
+        self._head = None
+        self._tail = None
 
     def __next__(self, index):
 
@@ -28,6 +35,29 @@ class LinkedListSingleArray:
     def __len__(self):
         return self._count
 
+
+    def insert(self,index):
+        '''Insert an element at a specific location
+        in the list
+        '''
+        pass
+
+    def append(self):
+        '''Insert an element at the end of the list
+        '''
+        pass
+
+
+    def remove(self, index):
+        '''Remove an element at a specific location'''
+        pass
+
+
+    def pop(self):
+        '''Return element located at end/tail of list, removing it from the list'''
+        pass
+
+
     # def __getitem__(self, item):
     # def __current
     # def __iter__
@@ -35,10 +65,6 @@ class LinkedListSingleArray:
     # def __add
     # def __remove
     # def __contains__
-
-
-
-
 
     def __add__(self, other):
         self._buffer
