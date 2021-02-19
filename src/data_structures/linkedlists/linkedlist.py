@@ -72,6 +72,10 @@ class LinkedList:
             self.append(node)
             return
 
+        if index == 0:
+            self.push(node)
+            return
+
         # We will cheat and grab the ith index, as its a faster lookup
         # than iterating through the list
         ith_node = self.nodes[index]
@@ -79,6 +83,12 @@ class LinkedList:
         node.next = ith_node
         self.nodes.insert(index, node)
         ith_node.prev = node
+        if index == 0:
+            self.head = node
+        if len(self.nodes) == 1:
+            self.tail = node
+
+
 
     def pop(self):
         """Remove and return the element at the head of the list
