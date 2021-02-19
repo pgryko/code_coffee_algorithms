@@ -1,13 +1,13 @@
-'''Example implementation of doubly linked list
+"""Example implementation of doubly linked list
 
-'''
+"""
 
 from typing import Union
 
 
 class Node:
-    '''DataStructure Node element for a linked list
-    '''
+    """DataStructure Node element for a linked list
+    """
 
     def __init__(self, data, prev=None, next=None):
         self.data = data
@@ -19,8 +19,8 @@ class Node:
 
 
 class LinkedList:
-    '''Double linked list, which keeps track of tail
-    '''
+    """Double linked list, which keeps track of tail
+    """
 
     def __init__(self, node: Node = None):
         self.nodes = []
@@ -31,9 +31,15 @@ class LinkedList:
             self.head = node
             self.tail = node
 
+    def __len__(self):
+        return len(self.nodes)
+
+    def __str__(self):
+        return str(self.nodes)
+
     def append(self, node: Node):
-        '''Insert element at end of list
-        '''
+        """Insert element at end of list
+        """
         self.nodes.append(node)
         if self.tail:
             self.tail.next = node
@@ -42,12 +48,26 @@ class LinkedList:
             self.head = node
         self.tail = node
 
+    def push(self, node: Node):
+        """Insert element at head of list"""
+        self.nodes.insert(0, node)
+
+        if self.head:
+            self.head.prev = node
+            node.next = self.head
+
+        self.head = node
+        node.prev = None
+
+        if self.tail is None:
+            self.tail = node
+
     def insert(self, index: int, node: Node):
-        '''Insert element at specific index.
+        """Insert element at specific index.
         If index is greater than list size, or
         if list is empty
         then append to the end.
-        '''
+        """
         if index >= len(self.nodes):
             self.append(node)
             return
@@ -61,24 +81,30 @@ class LinkedList:
         ith_node.prev = node
 
     def pop(self):
-        '''Remove and return the element at the head of the list
-        '''
+        """Remove and return the element at the head of the list
+        """
 
-        if self.head:
-            elem = self.head
+        # Technically un-needed, as attempting to pop from an
+        # empty list already creates this error
+        if len(self.nodes) == 0:
+            raise IndexError('pop from empty list')
 
-            new_head = elem.next
-            self.head = new_head
+        elem = self.head
 
-            if new_head:
-                new_head.prev = None
+        new_head = elem.next
+        self.head = new_head
 
-            return self.nodes.pop(0)
+        if new_head:
+            new_head.prev = None
+        else:
+            self.tail = None
+
+        return self.nodes.pop(0)
 
     def _remove_node(self, index: int) -> Union[Node, None]:
-        '''Private member function to handle correct pointer updates,
+        """Private member function to handle correct pointer updates,
         when removing a node
-        '''
+        """
         cur_node = self.nodes.pop(index)
 
         prev_node = cur_node.prev
@@ -95,7 +121,7 @@ class LinkedList:
         return cur_node
 
     def remove(self, arg: Union[int, Node]) -> Union[Node, None]:
-        '''Remove either an element from a list, and return it.
+        """Remove either an element from a list, and return it.
 
         Can either pass in:
         * An index describing the location of the Node,
@@ -104,7 +130,7 @@ class LinkedList:
 
         :param arg: int (index of element to remove), Node element to search for and remove
         :return: Node or None
-        '''
+        """
 
         if not isinstance(arg, int) or not isinstance(arg, Node):
             raise ValueError("Expect arg to be of either int or Node type, received: "
@@ -115,12 +141,12 @@ class LinkedList:
                 raise ValueError("Arg must be a positive integer, received: " + str(int))
             # Just return, if we try this on an empty list
             if len(self.nodes) == 0:
-                return None
+                raise IndexError('pop from empty list')
             # If index is outside list length just return
             if arg >= len(self.nodes):
-                return None
+                raise IndexError('Outside array index')
 
-            return _remove_node(arg)
+            return self._remove_node(arg)
 
         if isinstance(arg, Node):
             # Normally if we where passed a node, which had its prev/next
@@ -132,10 +158,7 @@ class LinkedList:
             index = next((i for i, node in enumerate(self.nodes) if node.data == arg.data), None)
 
             if index:
-                return _remove_node(arg)
-
-    def __str__(self):
-        return str(self.nodes)
+                return self._remove_node(arg)
 
 
 if __name__ == '__main__':
