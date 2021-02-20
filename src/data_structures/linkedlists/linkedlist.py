@@ -9,13 +9,16 @@ class Node:
     """DataStructure Node element for a linked list
     """
 
-    def __init__(self, data, prev=None, next=None):
+    def __init__(self, data):
         self.data = data
-        self.prev = prev
-        self.next = next
+        self.prev = None
+        self.next = None
 
     def __str__(self):
         return str(self.data)
+
+    def __repr__(self):
+        return "Node(data=" + str(self.data) + ")"
 
 
 class LinkedList:
@@ -33,6 +36,18 @@ class LinkedList:
 
     def __len__(self):
         return len(self.nodes)
+
+    def __iter__(self):
+        node = self.head
+        while node is not None:
+            # When yield statement is hit, program suspends execution
+            # and returns yielded value to caller
+            # When a function is suspended, the state of that function is saved.
+            # This includes any variable bindings local to the generator, the instruction pointer,
+            # the internal stack, and any exception handling.
+            # This allows you to resume function execution whenever you call one of the generator’s methods
+            yield node
+            node = node.next
 
     def __str__(self):
         return str(self.nodes)
@@ -87,8 +102,6 @@ class LinkedList:
             self.head = node
         if len(self.nodes) == 1:
             self.tail = node
-
-
 
     def pop(self):
         """Remove and return the element at the head of the list
@@ -183,8 +196,4 @@ if __name__ == '__main__':
     mylist.insert(1, Node(17))
 
     print(mylist)
-    print(mylist.pop())
-    print(mylist)
-    print(mylist.pop())
-    print(mylist)
-    print(mylist.pop())
+

@@ -13,6 +13,7 @@ class TestNode(unittest.TestCase):
 
         self.assertEqual(new_node.data, "Arbitrary string")
 
+
 class TestLinkedList(unittest.TestCase):
     '''Test behaviour of linked list
     '''
@@ -59,7 +60,18 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(mylist.tail.prev.prev.data, 6)
         self.assertEqual(mylist.tail.prev.prev.prev, None)
 
-        # Todo, add iterator and next
+    def test_iterator(self):
+        mylist = LinkedList()
+        mylist.push(Node(1))
+        mylist.push(Node(5))
+        mylist.push(Node(6))
+
+        iterator = iter(mylist)
+        self.assertEqual(next(iterator).data, 6)
+        self.assertEqual(next(iterator).data, 5)
+        self.assertEqual(next(iterator).data, 1)
+        self.assertRaises(StopIteration, iterator.__next__)
+
 
     def test_insert(self):
         mylist = LinkedList()
