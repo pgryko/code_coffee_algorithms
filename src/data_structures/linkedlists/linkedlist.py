@@ -83,21 +83,26 @@ class LinkedList:
         if list is empty
         then append to the end.
         """
+
+        if index <= 0:
+            self.push(node)
+            return
+
         if index >= len(self.nodes):
             self.append(node)
             return
 
-        if index == 0:
-            self.push(node)
-            return
 
         # We will cheat and grab the ith index, as its a faster lookup
         # than iterating through the list
         ith_node = self.nodes[index]
+        i_minus1_node = ith_node.prev
+        self.nodes.insert(index, node)
         node.prev = ith_node.prev
         node.next = ith_node
-        self.nodes.insert(index, node)
         ith_node.prev = node
+        if i_minus1_node:
+            i_minus1_node.next = node
         if index == 0:
             self.head = node
         if len(self.nodes) == 1:
@@ -187,13 +192,11 @@ class LinkedList:
 if __name__ == '__main__':
     mylist = LinkedList()
 
-    mylist.append(Node(1))
-    mylist.append(Node(5))
-    mylist.append(Node(6))
+    mylist.insert(0, Node(1))
+    mylist.insert(0, Node(5))
+    mylist.insert(0, Node(6))
+    mylist.insert(1, Node(2))
 
     print(mylist)
 
-    mylist.insert(1, Node(17))
-
-    print(mylist)
 
