@@ -1,8 +1,7 @@
 """Example implementation of doubly linked list
 
 """
-
-from typing import Union
+from typing import Union, List
 
 
 class Node:
@@ -25,14 +24,20 @@ class LinkedList:
     """Double linked list, which keeps track of tail
     """
 
-    def __init__(self, node: Node = None):
+    def __init__(self, nodes: List[Node] = None):
         self.nodes = []
         self.head = None
         self.tail = None
-        if node is not None:
-            self.nodes.append(node)
+        if nodes is not None:
+            # Hmm, not necessarily happy about mutating object
+            node = Node(data=nodes.pop(0))
             self.head = node
             self.tail = node
+            for elem in nodes:
+                node.next = Node(data=elem.data)
+                self.nodes.append(node.next)
+                self.tail = node.next
+                node = node.next
 
     def __len__(self):
         return len(self.nodes)
@@ -92,7 +97,6 @@ class LinkedList:
             self.append(node)
             return
 
-
         # We will cheat and grab the ith index, as its a faster lookup
         # than iterating through the list
         ith_node = self.nodes[index]
@@ -127,6 +131,10 @@ class LinkedList:
         else:
             self.tail = None
 
+        # Update node's pointers to None
+        elem.next = None
+        elem.prev = None
+
         return self.nodes.pop(0)
 
     def _remove_node(self, index: int) -> Union[Node, None]:
@@ -143,8 +151,17 @@ class LinkedList:
             next_node.prev = prev_node
         elif prev_node:
             prev_node.next = None
-        else:
+            self.tail = prev_node
+        elif next_node:
             next_node.prev = None
+            self.head = next_node
+        else:
+            self.head = None
+            self.tail = None
+
+        # Update node's pointers to None
+        cur_node.next = None
+        cur_node.prev = None
 
         return cur_node
 
@@ -160,13 +177,13 @@ class LinkedList:
         :return: Node or None
         """
 
-        if not isinstance(arg, int) or not isinstance(arg, Node):
-            raise ValueError("Expect arg to be of either int or Node type, received: "
+        if not (isinstance(arg, int) or isinstance(arg, Node)):
+            raise TypeError("Expect arg to be of either int or Node type, received: "
                              + str(type(arg)))
 
         if isinstance(arg, int):
             if arg < 0:
-                raise ValueError("Arg must be a positive integer, received: " + str(int))
+                raise IndexError("Arg must be a positive integer, received: " + str(int))
             # Just return, if we try this on an empty list
             if len(self.nodes) == 0:
                 raise IndexError('pop from empty list')
@@ -184,9 +201,8 @@ class LinkedList:
             # so we still need to perform a search to find the index of the node
 
             index = next((i for i, node in enumerate(self.nodes) if node.data == arg.data), None)
-
-            if index:
-                return self._remove_node(arg)
+            if index is not None:
+                return self._remove_node(index)
 
 
 if __name__ == '__main__':

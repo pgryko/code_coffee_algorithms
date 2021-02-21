@@ -19,120 +19,252 @@ class TestLinkedList(unittest.TestCase):
     '''
 
     def test_initialisation(self):
-        mylist = LinkedList()
-        self.assertEqual(len(mylist), 0)
+        my_list = LinkedList()
+        self.assertEqual(len(my_list), 0)
 
     def test_append(self):
-        mylist = LinkedList()
-        mylist.append(Node(1))
-        mylist.append(Node(5))
-        mylist.append(Node(6))
+        my_list = LinkedList()
+        my_list.append(Node(1))
+        my_list.append(Node(5))
+        my_list.append(Node(6))
 
         # Check iterating forwards from head
-        self.assertEqual(mylist.head.data, 1)
-        self.assertEqual(mylist.head.next.data, 5)
-        self.assertEqual(mylist.head.next.next.data, 6)
-        self.assertEqual(mylist.head.next.next.next, None)
+        self.assertEqual(my_list.head.data, 1)
+        self.assertEqual(my_list.head.next.data, 5)
+        self.assertEqual(my_list.head.next.next.data, 6)
+        self.assertEqual(my_list.head.next.next.next, None)
 
         # Check iterating backwards from tail
-        self.assertEqual(mylist.tail.data, 6)
-        self.assertEqual(mylist.tail.prev.data, 5)
-        self.assertEqual(mylist.tail.prev.prev.data, 1)
-        self.assertEqual(mylist.tail.prev.prev.prev, None)
+        self.assertEqual(my_list.tail.data, 6)
+        self.assertEqual(my_list.tail.prev.data, 5)
+        self.assertEqual(my_list.tail.prev.prev.data, 1)
+        self.assertEqual(my_list.tail.prev.prev.prev, None)
 
     def test_pop(self):
-        mylist = LinkedList()
-        mylist.append(Node(1))
-        mylist.append(Node(5))
-        mylist.append(Node(6))
+        my_list = LinkedList()
+        my_list.append(Node(1))
+        my_list.append(Node(5))
+        my_list.append(Node(6))
 
-        self.assertEqual(mylist.pop().data, 1)
+        self.assertEqual(my_list.pop().data, 1)
 
         # Check iterating forwards from head
-        self.assertEqual(mylist.head.data, 5)
-        self.assertEqual(mylist.head.next.data, 6)
-        self.assertEqual(mylist.head.next.next, None)
+        self.assertEqual(my_list.head.data, 5)
+        self.assertEqual(my_list.head.next.data, 6)
+        self.assertEqual(my_list.head.next.next, None)
 
         # Check iterating backwards from tail
-        self.assertEqual(mylist.tail.data, 6)
-        self.assertEqual(mylist.tail.prev.data, 5)
-        self.assertEqual(mylist.tail.prev.prev, None)
+        self.assertEqual(my_list.tail.data, 6)
+        self.assertEqual(my_list.tail.prev.data, 5)
+        self.assertEqual(my_list.tail.prev.prev, None)
 
-        self.assertEqual(mylist.pop().data, 5)
+        self.assertEqual(my_list.pop().data, 5)
 
-        self.assertEqual(mylist.head.data, 6)
-        self.assertEqual(mylist.tail.data, 6)
+        self.assertEqual(my_list.head.data, 6)
+        self.assertEqual(my_list.tail.data, 6)
 
-        self.assertEqual(mylist.head.prev, None)
-        self.assertEqual(mylist.head.next, None)
+        self.assertEqual(my_list.head.prev, None)
+        self.assertEqual(my_list.head.next, None)
 
-        self.assertEqual(mylist.pop().data, 6)
+        self.assertEqual(my_list.pop().data, 6)
 
-        self.assertEqual(mylist.head, None)
-        self.assertEqual(mylist.tail, None)
+        self.assertEqual(my_list.head, None)
+        self.assertEqual(my_list.tail, None)
 
-        self.assertRaises(IndexError, mylist.pop)
+        self.assertRaises(IndexError, my_list.pop)
 
     def test_push(self):
-        mylist = LinkedList()
+        my_list = LinkedList()
 
-        mylist.push(Node(1))
-        mylist.push(Node(5))
-        mylist.push(Node(6))
+        my_list.push(Node(1))
+        my_list.push(Node(5))
+        my_list.push(Node(6))
 
-        self.assertEqual(mylist.head.data, 6)
-        self.assertEqual(mylist.tail.data, 1)
+        self.assertEqual(my_list.head.data, 6)
+        self.assertEqual(my_list.tail.data, 1)
 
         # Check iterating forwards from head
-        self.assertEqual(mylist.head.next.data, 5)
-        self.assertEqual(mylist.head.next.next.data, 1)
-        self.assertEqual(mylist.head.next.next.next, None)
+        self.assertEqual(my_list.head.next.data, 5)
+        self.assertEqual(my_list.head.next.next.data, 1)
+        self.assertEqual(my_list.head.next.next.next, None)
 
         # Check iterating backwards from tail
-        self.assertEqual(mylist.tail.prev.data, 5)
-        self.assertEqual(mylist.tail.prev.prev.data, 6)
-        self.assertEqual(mylist.tail.prev.prev.prev, None)
+        self.assertEqual(my_list.tail.prev.data, 5)
+        self.assertEqual(my_list.tail.prev.prev.data, 6)
+        self.assertEqual(my_list.tail.prev.prev.prev, None)
 
     def test_iterator(self):
-        mylist = LinkedList()
-        mylist.push(Node(1))
-        mylist.push(Node(5))
-        mylist.push(Node(6))
+        my_list = LinkedList()
+        my_list.push(Node(1))
+        my_list.push(Node(5))
+        my_list.push(Node(6))
 
-        iterator = iter(mylist)
+        iterator = iter(my_list)
         self.assertEqual(next(iterator).data, 6)
         self.assertEqual(next(iterator).data, 5)
         self.assertEqual(next(iterator).data, 1)
         self.assertRaises(StopIteration, iterator.__next__)
 
-
     def test_insert(self):
-        mylist = LinkedList()
-        mylist.insert(0, Node(1))
-        mylist.insert(0, Node(5))
-        mylist.insert(0, Node(6))
+        my_list = LinkedList()
+        my_list.insert(0, Node(1))
+        my_list.insert(0, Node(5))
+        my_list.insert(0, Node(6))
 
-        self.assertEqual(mylist.head.data, 6)
-        self.assertEqual(mylist.tail.data, 1)
+        self.assertEqual(my_list.head.data, 6)
+        self.assertEqual(my_list.tail.data, 1)
 
         # Insert node between 1 & 5
-        mylist.insert(1, Node(2))
-        self.assertEqual(mylist.head.data, 6)
-        self.assertEqual(mylist.tail.data, 1)
+        my_list.insert(1, Node(2))
+        self.assertEqual(my_list.head.data, 6)
+        self.assertEqual(my_list.tail.data, 1)
 
         # Check iterating forwards from head
-        self.assertEqual(mylist.head.data, 6)
-        self.assertEqual(mylist.head.next.data, 2)
-        self.assertEqual(mylist.head.next.next.data, 5)
-        self.assertEqual(mylist.head.next.next.next.data, 1)
-        self.assertEqual(mylist.head.next.next.next.next, None)
+        self.assertEqual(my_list.head.data, 6)
+        self.assertEqual(my_list.head.next.data, 2)
+        self.assertEqual(my_list.head.next.next.data, 5)
+        self.assertEqual(my_list.head.next.next.next.data, 1)
+        self.assertEqual(my_list.head.next.next.next.next, None)
 
         # Check iterating backwards from tail
-        self.assertEqual(mylist.tail.data, 1)
-        self.assertEqual(mylist.tail.prev.data, 5)
-        self.assertEqual(mylist.tail.prev.prev.data, 2)
-        self.assertEqual(mylist.tail.prev.prev.prev.data, 6)
-        self.assertEqual(mylist.tail.prev.prev.prev.prev, None)
+        self.assertEqual(my_list.tail.data, 1)
+        self.assertEqual(my_list.tail.prev.data, 5)
+        self.assertEqual(my_list.tail.prev.prev.data, 2)
+        self.assertEqual(my_list.tail.prev.prev.prev.data, 6)
+        self.assertEqual(my_list.tail.prev.prev.prev.prev, None)
+
+    def test_remove_node(self):
+        """Test removal of a specific node"""
+
+        my_list = LinkedList()
+
+        with self.assertRaises(IndexError):
+            my_list.remove(0)
+
+        node_1 = Node(1)
+        node_2 = Node(2)
+        node_3 = Node(3)
+        node_4 = Node(4)
+        node_5 = Node(5)
+
+        my_list.append(node_1)
+        my_list.append(node_2)
+        my_list.append(node_3)
+        my_list.append(node_4)
+        my_list.append(node_5)
+
+        with self.assertRaises(TypeError):
+            my_list.remove('a')
+
+        with self.assertRaises(IndexError):
+            my_list.remove(-1)
+
+        removed_node = my_list.remove(Node(2))
+
+        self.assertEqual(node_2, removed_node)
+
+        # Check iterating forwards from head
+        self.assertEqual(my_list.head.data, 1)
+        self.assertEqual(my_list.head.next.data, 3)
+        self.assertEqual(my_list.head.next.next.data, 4)
+        self.assertEqual(my_list.head.next.next.next.data, 5)
+        self.assertEqual(my_list.head.next.next.next.next, None)
+
+        # Check iterating backwards from tail
+        self.assertEqual(my_list.tail.data, 5)
+        self.assertEqual(my_list.tail.prev.data, 4)
+        self.assertEqual(my_list.tail.prev.prev.data, 3)
+        self.assertEqual(my_list.tail.prev.prev.prev.data, 1)
+        self.assertEqual(my_list.tail.prev.prev.prev.prev, None)
+
+        my_list.remove(node_1)
+
+        # Check iterating forwards from head
+        self.assertEqual(my_list.head.data, 3)
+        self.assertEqual(my_list.head.next.data, 4)
+        self.assertEqual(my_list.head.next.next.data, 5)
+        self.assertEqual(my_list.head.next.next.next, None)
+
+        # Check iterating backwards from tail
+        self.assertEqual(my_list.tail.data, 5)
+        self.assertEqual(my_list.tail.prev.data, 4)
+        self.assertEqual(my_list.tail.prev.prev.data, 3)
+        self.assertEqual(my_list.tail.prev.prev.prev, None)
+
+        my_list.remove(node_5)
+
+        # Check iterating forwards from head
+        self.assertEqual(my_list.head.data, 3)
+        self.assertEqual(my_list.head.next.data, 4)
+        self.assertEqual(my_list.head.next.next, None)
+
+        # Check iterating backwards from tail
+        self.assertEqual(my_list.tail.data, 4)
+        self.assertEqual(my_list.tail.prev.data, 3)
+        self.assertEqual(my_list.tail.prev.prev, None)
+
+    def test_remove_index(self):
+        my_list = LinkedList()
+
+        with self.assertRaises(IndexError):
+            my_list.remove(0)
+
+        node_1 = Node(1)
+        node_2 = Node(2)
+        node_3 = Node(3)
+        node_4 = Node(4)
+        node_5 = Node(5)
+
+        my_list.append(node_1)
+        my_list.append(node_2)
+        my_list.append(node_3)
+        my_list.append(node_4)
+        my_list.append(node_5)
+
+        removed_node = my_list.remove(1)
+
+        self.assertEqual(node_2, removed_node)
+
+        # Check iterating forwards from head
+        self.assertEqual(my_list.head.data, 1)
+        self.assertEqual(my_list.head.next.data, 3)
+        self.assertEqual(my_list.head.next.next.data, 4)
+        self.assertEqual(my_list.head.next.next.next.data, 5)
+        self.assertEqual(my_list.head.next.next.next.next, None)
+
+        # Check iterating backwards from tail
+        self.assertEqual(my_list.tail.data, 5)
+        self.assertEqual(my_list.tail.prev.data, 4)
+        self.assertEqual(my_list.tail.prev.prev.data, 3)
+        self.assertEqual(my_list.tail.prev.prev.prev.data, 1)
+        self.assertEqual(my_list.tail.prev.prev.prev.prev, None)
+
+        my_list.remove(0)
+
+        # Check iterating forwards from head
+        self.assertEqual(my_list.head.data, 3)
+        self.assertEqual(my_list.head.next.data, 4)
+        self.assertEqual(my_list.head.next.next.data, 5)
+        self.assertEqual(my_list.head.next.next.next, None)
+
+        # Check iterating backwards from tail
+        self.assertEqual(my_list.tail.data, 5)
+        self.assertEqual(my_list.tail.prev.data, 4)
+        self.assertEqual(my_list.tail.prev.prev.data, 3)
+        self.assertEqual(my_list.tail.prev.prev.prev, None)
+
+        my_list.remove(2)
+
+        # Check iterating forwards from head
+        self.assertEqual(my_list.head.data, 3)
+        self.assertEqual(my_list.head.next.data, 4)
+        self.assertEqual(my_list.head.next.next, None)
+
+        # Check iterating backwards from tail
+        self.assertEqual(my_list.tail.data, 4)
+        self.assertEqual(my_list.tail.prev.data, 3)
+        self.assertEqual(my_list.tail.prev.prev, None)
+
 
 if __name__ == '__main__':
     unittest.main()
