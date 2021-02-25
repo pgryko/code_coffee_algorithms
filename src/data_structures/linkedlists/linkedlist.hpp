@@ -1,5 +1,6 @@
 // Custom example of implementing a linked list using C++
 //https://www.geeksforgeeks.org/implementing-iterator-pattern-of-a-single-linked-list/
+//https://gist.github.com/jeetsukumaran/307264
 template <typename T> class Node
 {
 // We could have set LinkedList as friend class,
