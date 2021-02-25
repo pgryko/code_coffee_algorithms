@@ -7,19 +7,19 @@ template <typename T> class Node
 // they are private inside Linked list
     public:
     T data;
-    Node* pNext
+    Node* pNext;
 
     Node(T data){
     data = data;
-    pNext = nullprt;
+    pNext(nullptr);
     }
 
     Node(T data, Node* pNext){
     data = data;
-    pNext = nullprt;
+    pNext = pNext;
     }
 
-}
+};
 
 template <typename T> class LinkedList
 {
@@ -31,29 +31,40 @@ template <typename T> class LinkedList
 //    Function should not throw
     LinkedList<T>() noexcept {
 
-    head_prt = nullprt;
+    Node* head_prt(nullptr);
 
     }
 
-    class Iterator;
 
-    Iterator begin(){
-    return Iterator(head_prt);
-    }
+// std::iterator is being depreciated https://stackoverflow.com/questions/37031805/preparation-for-stditerator-being-deprecated/38103394
+//    class Iterator;
+//
+//    Iterator begin(){
+//    return Iterator(head_prt);
+//    }
+//
+//    Iterator end(){
+//    return Iterator(nullprt);
+//    }
 
-    Iterator end(){
-    return Iterator(nullprt);
-    }
+//    void push_back(T data);
 
-    void push_back(T data);
-
-    void Transverse();
+    void PrintList();
 
     // Return by reference so that it can be used in
     // left hand side of the assignment expression
     Node*& GetHeadNode()
     {
-        return head_prt;
+        return this->head_prt;
     }
 
+};
+
+template <typename T> void LinkedList<T>::PrintList() {
+    Node* pCrawler = GetHeadNode();
+
+    while (pCrawler){
+        std::cout << pCrawler->data << " ";
+        pCrawler = pCrawler->pNext;
+    }
 }

@@ -8,7 +8,6 @@ include_directories(${GTEST_INCLUDE_DIRS})
 
 # Link runTests with what we want to test and the GTest and pthread library
 #target_link_libraries(runTests ${GTEST_LIBRARIES} pthread)
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_BUILD_TYPE Debug)
 

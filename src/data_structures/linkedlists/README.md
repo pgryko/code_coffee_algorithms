@@ -14,3 +14,13 @@ return x
 List-Insert(L,X)
 
 ```
+
+
+## Build
+
+$ cmake -H. -Bbuild
+$ cd build; make
+$ ./mergesort
+
+Or manually using g++
+$ g++ --std=c++1z main.cpp

@@ -1,6 +1,11 @@
 #include <gtest/gtest.h>
 
-#include <array>
 #include <iostream>
 
-#include "linkedlist.h"
+#include "linkedlist.hpp"
+
+int main(int argc, char *argv[]) {
+
+    return 0;
+//    return RUN_ALL_TESTS();
+}
