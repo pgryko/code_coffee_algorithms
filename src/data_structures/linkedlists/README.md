@@ -20,7 +20,7 @@ List-Insert(L,X)
 
 $ cmake -H. -Bbuild
 $ cd build; make
-$ ./mergesort
+$ ./linkedlist
 
 Or manually using g++
 $ g++ --std=c++1z main.cpp
