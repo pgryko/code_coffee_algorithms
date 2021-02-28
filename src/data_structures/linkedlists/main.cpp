@@ -25,10 +25,16 @@ int main(int argc, char *argv[]) {
 
     Node mynode1("60", &mynode2 );
     cout << &mynode1 << endl;
-    cout << mynode1.getNext() << endl;
-    cout << nullptr << endl;
-    cout << &mynode2 << endl;
-    cout << mynode2.getNext() << endl;
+
+    //    cout << nullptr << endl;
+    cout << "Node 2 ptr is " << &mynode2 << endl;
+    cout << "Node 2 value is " << mynode2.getData() << endl;
+    cout << "Fetch node 2 ptr " << mynode1.getNext() << endl;
+
+    Node nextNode = mynode1.getNext();
+
+    cout << "nextNode " << nextNode << endl;
+
 
     return 0;
 //    testing::InitGoogleTest(&argc, argv);

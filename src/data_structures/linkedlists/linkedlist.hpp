@@ -4,89 +4,95 @@
 #include <iostream>
 #include <sstream>
 
-template <typename T>
+template<typename T>
 class Node {
-  // We could have set LinkedList as friend class,
-  // but as we don't expect to access the nodes directly
-  // they are private inside Linked list
-  Node* pNext;
+    // We could have set LinkedList as friend class,
+    // but as we don't expect to access the nodes directly
+    // they are private inside Linked list
+    Node* pNext;
 
-  // Forward declaration
-  class LinkedList;
-  // Allow likedlist direct access to node *pNext pointer
-  friend class LinkedList;
+    // Forward declaration
+    class LinkedList;
 
-  template <class U>
-  friend std::ostream& operator<<(std::ostream& out, const Node<T>& node);
-  template <class U>
-  friend std::istream& operator>>(std::istream& in, Node<T>& node);
+    // Allow likedlist direct access to node *pNext pointer
+    friend class LinkedList;
 
- public:
-  T data;
+    template<class U>
+    friend std::ostream &operator<<(std::ostream &out, const Node<T> &node);
 
-  Node(T data) : data(data), pNext(nullptr) {}
+    template<class U>
+    friend std::istream &operator>>(std::istream &in, Node<T> &node);
 
-  Node(T data, Node* pNext) {
-    data = data;
-    pNext = pNext;
-  }
+public:
+    T data;
 
-  T getData() { return data; }
+    Node(T data) : data(data), pNext(nullptr) {}
 
-  void setData(T data) { data = data; }
+    Node(T data, std::nullptr_t) : data(data), pNext(nullptr) {}
 
-  Node* getNext() { return pNext; }
+    Node(T data, Node* pNext) {
+        data = data;
+        pNext = pNext;
+        std::cout << "next ptr is " << pNext << std::endl;
 
-  void setNext(Node* node) { pNext = node; }
+    }
+
+    T getData() { return data; }
+
+    void setData(T data) { data = data; }
+
+    Node* getNext() { return pNext; }
+
+    void setNext(Node* node) { pNext = node; }
 };
 
-template <typename T>
-std::ostream& operator<<(std::ostream& out, const Node<T>& node) {
-  return out << node.data;
+template<typename T>
+std::ostream &operator<<(std::ostream &out, const Node<T> &node) {
+    return out << node.data;
 }
 
-template <typename T>
-std::istream& operator>>(std::istream& in, Node<T>& node) {
-  return in >> node.data;
+template<typename T>
+std::istream &operator>>(std::istream &in, Node<T> &node) {
+    return in >> node.data;
 }
 
-template <typename T>
+template<typename T>
 class LinkedList {
-  // Members are private by default
-  // Forward declaration
-  class Node;
+    // Members are private by default
+    // Forward declaration
+    class Node;
 
- public:
-  //    Function should not throw
-  LinkedList<T>() noexcept { Node* head_prt(nullptr); }
+public:
+    //    Function should not throw
+    LinkedList<T>() noexcept { Node* head_prt(nullptr); }
 
-  // std::iterator is being depreciated
-  // https://stackoverflow.com/questions/37031805/preparation-for-stditerator-being-deprecated/38103394
-  //    class Iterator;
-  //
-  //    Iterator begin(){
-  //    return Iterator(head_prt);
-  //    }
-  //
-  //    Iterator end(){
-  //    return Iterator(nullprt);
-  //    }
+    // std::iterator is being depreciated
+    // https://stackoverflow.com/questions/37031805/preparation-for-stditerator-being-deprecated/38103394
+    //    class Iterator;
+    //
+    //    Iterator begin(){
+    //    return Iterator(head_prt);
+    //    }
+    //
+    //    Iterator end(){
+    //    return Iterator(nullprt);
+    //    }
 
-  //    void push_back(T data);
+    //    void push_back(T data);
 
-  void PrintList();
+    void PrintList();
 
-  // Return by reference so that it can be used in
-  // left hand side of the assignment expression
-  Node*& GetHeadNode() { return this->head_prt; }
+    // Return by reference so that it can be used in
+    // left hand side of the assignment expression
+    Node *&GetHeadNode() { return this->head_prt; }
 };
 
-template <typename T>
+template<typename T>
 void LinkedList<T>::PrintList() {
-  Node* pCrawler = GetHeadNode();
+    Node *pCrawler = GetHeadNode();
 
-  while (pCrawler) {
-    std::cout << pCrawler->data << " ";
-    pCrawler = pCrawler->pNext;
-  }
+    while (pCrawler) {
+        std::cout << pCrawler->data << " ";
+        pCrawler = pCrawler->pNext;
+    }
 }
