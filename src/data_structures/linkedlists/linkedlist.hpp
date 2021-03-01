@@ -7,45 +7,10 @@
 #include <sstream>
 
 template<typename T>
-class Node {
-    // We could have set LinkedList as friend class,
-    // but as we don't expect to access the nodes directly
-    // they are private inside Linked list
-    Node* pNext;
-
-    // Forward declaration
-    class LinkedList;
-
-    // Allow likedlist direct access to node *pNext pointer
-    friend class LinkedList;
-
-    template<class U>
-    friend std::ostream &operator<<(std::ostream &out, const Node<T> &node);
-
-    template<class U>
-    friend std::istream &operator>>(std::istream &in, Node<T> &node);
-
-public:
+struct Node {
     T data;
+    Node * pNext;
 
-    Node(T data) : data(data), pNext(nullptr) {}
-
-    Node(T data, std::nullptr_t) : data(data), pNext(nullptr) {}
-
-    Node(T data, Node* pNext) {
-        data = data;
-        this->pNext = pNext;
-        std::cout << "next ptr is " << pNext << std::endl;
-
-    }
-
-    T getData() { return data; }
-
-    void setData(T data) { data = data; }
-
-    Node* getNext() { return pNext; }
-
-    void setNext(Node* node) { pNext = node; }
 };
 
 template<typename T>
