@@ -1,6 +1,8 @@
 // Custom example of implementing a linked list using C++
 // https://www.geeksforgeeks.org/implementing-iterator-pattern-of-a-single-linked-list/
 // https://gist.github.com/jeetsukumaran/307264
+// https://www3.ntu.edu.sg/home/ehchua/programming/cpp/cp4_PointerReference.html
+// https://www3.ntu.edu.sg/home/ehchua/programming/cpp/cp8_Template.html
 #include <iostream>
 #include <sstream>
 
@@ -32,7 +34,7 @@ public:
 
     Node(T data, Node* pNext) {
         data = data;
-        pNext = pNext;
+        this->pNext = pNext;
         std::cout << "next ptr is " << pNext << std::endl;
 
     }
