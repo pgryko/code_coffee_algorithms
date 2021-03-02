@@ -9,7 +9,11 @@
 template<typename T>
 struct Node {
     T data;
-    Node * pNext;
+    std::shared_ptr<Node<T>> pNext;
+
+    // Constructors are needed for std::make_shared to work
+    Node(T data) : data(data), pNext(nullptr) {};
+    Node(T data, std::shared_ptr<Node<T>> pNext) : data(data), pNext(pNext) {};
 
 };
 
@@ -27,11 +31,14 @@ template<typename T>
 class LinkedList {
     // Members are private by default
     // Forward declaration
-    class Node;
+
+    // Useful to keep track of listsize
+    std::size_t count;
+    std::shared_ptr<Node<T>> head_prt;
 
 public:
     //    Function should not throw
-    LinkedList<T>() noexcept { Node* head_prt(nullptr); }
+    LinkedList<T>() noexcept: head_prt(nullptr), count(0) {};
 
     // std::iterator is being depreciated
     // https://stackoverflow.com/questions/37031805/preparation-for-stditerator-being-deprecated/38103394
@@ -45,18 +52,38 @@ public:
     //    return Iterator(nullprt);
     //    }
 
-    //    void push_back(T data);
+    void Push(T data);
 
     void PrintList();
 
+    std::size_t Size(){ return count;};
+
     // Return by reference so that it can be used in
     // left hand side of the assignment expression
-    Node *&GetHeadNode() { return this->head_prt; }
+    std::shared_ptr<Node<T>> &GetHeadNode() { return this->head_prt; }
+};
+
+template<typename T>
+void LinkedList<T>::Push(T data) {
+
+    // Check if element exists
+    if (this->head_prt) {
+
+        auto new_node = std::make_shared<Node<T>>(data, this->head_prt);
+        this->head_prt = new_node;
+        this->count++;
+
+    } else {
+        auto new_node = std::make_shared<Node<T>>(data, nullptr);
+        this->head_prt = new_node;
+        this->count++;
+    }
+
 };
 
 template<typename T>
 void LinkedList<T>::PrintList() {
-    Node *pCrawler = GetHeadNode();
+    std::shared_ptr<Node<T>> *pCrawler = GetHeadNode();
 
     while (pCrawler) {
         std::cout << pCrawler->data << " ";
