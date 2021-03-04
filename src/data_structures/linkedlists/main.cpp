@@ -49,14 +49,19 @@ TEST(LinkedList, TestPush) {
     auto my_linked_list = LinkedList<std::string>();
     EXPECT_EQ(nullptr, my_linked_list.GetHeadNode());
 
-    my_linked_list.Push("1");
-    my_linked_list.Push("2");
-    my_linked_list.Push("3");
-    my_linked_list.Push("4");
+    auto elements = std::array{"1","2","3","4"};
 
-    EXPECT_EQ("4", my_linked_list.GetHeadNode()->data);
+    for (const auto& elem : elements){
+        my_linked_list.Push(elem);
+    }
     EXPECT_EQ(4, my_linked_list.Size());
 
+    std::reverse(elements.begin(),elements.end());
+    auto pCrawler = my_linked_list.GetHeadNode();
+    for (const auto& elem : elements){
+        EXPECT_EQ(elem, pCrawler->data);
+        pCrawler = pCrawler->pNext;
+    }
 }
 
 int main(int argc, char *argv[]) {

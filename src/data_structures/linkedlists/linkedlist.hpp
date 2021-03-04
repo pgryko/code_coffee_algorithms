@@ -83,7 +83,7 @@ void LinkedList<T>::Push(T data) {
 
 template<typename T>
 void LinkedList<T>::PrintList() {
-    std::shared_ptr<Node<T>> *pCrawler = GetHeadNode();
+    std::shared_ptr<Node<T>> pCrawler = GetHeadNode();
 
     while (pCrawler) {
         std::cout << pCrawler->data << " ";
