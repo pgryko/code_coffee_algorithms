@@ -13,6 +13,7 @@ struct Node {
 
     // Constructors are needed for std::make_shared to work
     Node(T data) : data(data), pNext(nullptr) {};
+
     Node(T data, std::shared_ptr<Node<T>> pNext) : data(data), pNext(pNext) {};
 
 };
@@ -42,22 +43,22 @@ public:
 
     // std::iterator is being depreciated
     // https://stackoverflow.com/questions/37031805/preparation-for-stditerator-being-deprecated/38103394
-    //    class Iterator;
-    //
-    //    Iterator begin(){
-    //    return Iterator(head_prt);
-    //    }
-    //
-    //    Iterator end(){
-    //    return Iterator(nullprt);
-    //    }
+    class Iterator;
+
+    Iterator begin() {
+        return Iterator(head_prt);
+    }
+
+    Iterator end() {
+        return Iterator(nullptr);
+    }
 
     void Push(T data);
 
     void PrintList();
 
-    bool Empty(){
-        if(head_prt){
+    bool Empty() {
+        if (head_prt) {
             return false;
         };
         return true;
@@ -65,7 +66,7 @@ public:
 
     T Pop();
 
-    std::size_t Size(){ return count;};
+    std::size_t Size() { return count; };
 
     // Return by reference so that it can be used in
     // left hand side of the assignment expression
@@ -107,11 +108,55 @@ T LinkedList<T>::Pop() {
 
     auto head = GetHeadNode();
 
-    if (head){
+    if (head) {
         head_prt = head->pNext;
         count--;
         return head->data;
     }
-    throw std::out_of_range ("List is empty");
+    throw std::out_of_range("List is empty");
 
 }
+
+// Iterator class to sequentially access nodes of linked list
+template<typename T>
+class LinkedList<T>::Iterator {
+
+    const std::shared_ptr<Node<T>> pCurrentNode;
+
+public:
+    Iterator(std::shared_ptr<Node<T>> head_prt) noexcept: pCurrentNode(head_prt) {};
+
+    Iterator &operator=(std::shared_ptr<Node<T>> pNode) {
+        this->pCurrentNode = pNode;
+        return *this;
+    }
+
+    // Prefix ++ Overload
+    Iterator &operator++() {
+        if (pCurrentNode) {
+            pCurrentNode = pCurrentNode->pNext;
+        }
+        return *this;
+    }
+
+//    // Postfix ++ overload
+//    Iterator &operator++(int) {
+//        Iterator iterator = *this;
+//        ++*this;
+//        return iterator;
+//    }
+
+    bool operator!=(const Iterator& iterator){
+        return pCurrentNode != iterator.pCurrentNode;
+    }
+
+    bool operator==(const Iterator& iterator){
+        return pCurrentNode == iterator.pCurrentNode;
+    }
+
+    int operator*()
+    {
+        return pCurrentNode->data;
+    }
+
+};

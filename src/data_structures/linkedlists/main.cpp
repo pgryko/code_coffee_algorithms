@@ -84,6 +84,28 @@ TEST(LinkedList, TestPop) {
     }
 }
 
+TEST(LinkedList, TestIterator) {
+
+    auto my_linked_list = LinkedList<std::string>();
+    EXPECT_EQ(nullptr, my_linked_list.GetHeadNode());
+
+    auto elements = std::array{"1", "2", "3", "4"};
+
+    for (const auto &elem : elements) {
+        my_linked_list.Push(elem);
+    }
+    EXPECT_EQ(4, my_linked_list.Size());
+
+    std::reverse(elements.begin(), elements.end());
+
+    for (auto iter = my_linked_list.begin(); iter != my_linked_list.end(); ++iter){
+        cout << *iter << " ";
+    };
+//    for (const auto &elem : elements) {
+//        EXPECT_EQ(elem, my_linked_list.Pop());
+//    }
+}
+
 
 int main(int argc, char *argv[]) {
     testing::InitGoogleTest(&argc, argv);
