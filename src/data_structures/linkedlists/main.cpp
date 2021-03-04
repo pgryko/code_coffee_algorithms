@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 
 #include <iostream>
+#include <stack>
 
 #include "linkedlist.hpp"
 
@@ -41,6 +42,7 @@ TEST(LinkedList, TestConstructor) {
 
     EXPECT_EQ(nullptr, my_linked_list.GetHeadNode());
     EXPECT_EQ(0, my_linked_list.Size());
+    EXPECT_EQ(true, my_linked_list.Empty());
 
 }
 
@@ -49,25 +51,41 @@ TEST(LinkedList, TestPush) {
     auto my_linked_list = LinkedList<std::string>();
     EXPECT_EQ(nullptr, my_linked_list.GetHeadNode());
 
-    auto elements = std::array{"1","2","3","4"};
+    auto elements = std::array{"1", "2", "3", "4"};
 
-    for (const auto& elem : elements){
+    for (const auto &elem : elements) {
         my_linked_list.Push(elem);
     }
     EXPECT_EQ(4, my_linked_list.Size());
 
-    std::reverse(elements.begin(),elements.end());
+    std::reverse(elements.begin(), elements.end());
     auto pCrawler = my_linked_list.GetHeadNode();
-    for (const auto& elem : elements){
+    for (const auto &elem : elements) {
         EXPECT_EQ(elem, pCrawler->data);
         pCrawler = pCrawler->pNext;
     }
 }
 
+TEST(LinkedList, TestPop) {
+
+    auto my_linked_list = LinkedList<std::string>();
+    EXPECT_EQ(nullptr, my_linked_list.GetHeadNode());
+
+    auto elements = std::array{"1", "2", "3", "4"};
+
+    for (const auto &elem : elements) {
+        my_linked_list.Push(elem);
+    }
+    EXPECT_EQ(4, my_linked_list.Size());
+
+    std::reverse(elements.begin(), elements.end());
+    for (const auto &elem : elements) {
+        EXPECT_EQ(elem, my_linked_list.Pop());
+    }
+}
+
+
 int main(int argc, char *argv[]) {
-
-
-//    return 0;
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

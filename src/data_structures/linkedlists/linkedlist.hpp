@@ -56,10 +56,21 @@ public:
 
     void PrintList();
 
+    bool Empty(){
+        if(head_prt){
+            return false;
+        };
+        return true;
+    }
+
+    T Pop();
+
     std::size_t Size(){ return count;};
 
     // Return by reference so that it can be used in
     // left hand side of the assignment expression
+    // This should really be a private members, as we really should not be exposing the underlying
+    // Node
     std::shared_ptr<Node<T>> &GetHeadNode() { return this->head_prt; }
 };
 
@@ -89,4 +100,18 @@ void LinkedList<T>::PrintList() {
         std::cout << pCrawler->data << " ";
         pCrawler = pCrawler->pNext;
     }
+}
+
+template<typename T>
+T LinkedList<T>::Pop() {
+
+    auto head = GetHeadNode();
+
+    if (head){
+        head_prt = head->pNext;
+        count--;
+        return head->data;
+    }
+    throw std::out_of_range ("List is empty");
+
 }
