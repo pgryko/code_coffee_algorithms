@@ -17,11 +17,12 @@ endif()
 include_directories(
     ${PROJECT_SOURCE_DIR}/src
     ${PROJECT_SOURCE_DIR}/src/example
-    ${PROJECT_SOURCE_DIR}/src/sorting_algorithems/insertsort
-    ${PROJECT_SOURCE_DIR}/src/sorting_algorithems/selectsort
-    ${PROJECT_SOURCE_DIR}/src/sorting_algorithems/mergesort
-    ${PROJECT_SOURCE_DIR}/src/sorting_algorithems/heapsort
-    ${PROJECT_SOURCE_DIR}/src/sorting_algorithems/quicksort
+        ${PROJECT_SOURCE_DIR}/src/sorting_algorithms/insertsort
+        ${PROJECT_SOURCE_DIR}/src/sorting_algorithms/selectsort
+        ${PROJECT_SOURCE_DIR}/src/sorting_algorithms/mergesort
+        ${PROJECT_SOURCE_DIR}/src/sorting_algorithms/heapsort
+        ${PROJECT_SOURCE_DIR}/src/sorting_algorithms/quicksort
+    ${PROJECT_SOURCE_DIR}/src/data_structures/linkedlist
 )
 
 add_library(
@@ -57,7 +58,8 @@ add_executable(
     test/test_mergesort.cpp
     test/test_heapsort.cpp
     test/test_quicksort.cpp
-    )
+    test/test_linkedlist.cpp
+)
 
 add_dependencies(unit_tests googletest)
 

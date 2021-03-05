@@ -209,7 +209,7 @@ for all files in the src dir
 
 ```bash
 $ cd src
-$ clang-format -i --style=google **/*.cpp **/*.h
+$ clang-format -i --style=google **/*.cpp **/*.h **/*.hpp
 ```
 
 ### Debugging
