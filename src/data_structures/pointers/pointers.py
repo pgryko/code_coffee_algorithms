@@ -4,19 +4,22 @@ Usage: $ python3 pointers.py
 
 '''
 
-class Node:
-    '''DataStructure Node element for a linked list'''
-    def __init__(self, data):
-        self.data = data
 
 # https://omkarpathak.in/2018/04/11/python-getitem-and-setitem/
 class LinkedListSingleArray:
     ''' A doubly linked list implemented using a single array, with a custom pointer implementation
     '''
 
-    def __init__(self, no_of_elements: int = 20):
+    def __init__(self, capacity: int = 20):
         # Create an empty buffer (malloc), and populate 'pointer' to free elements
-        self._buffer = [x + 2 if ( (x + 1) % 3 == 0) else 0 for x in range(0, no_of_elements*3)]
+        # Buffer array is partitioned into blocks of 3, with |prev, key, next|
+        # e.g.
+        # [|prev,key,next|, |prev, key, next|, |prev, key, next| ]
+        # where the 'pointers', point to the next/prev key
+        # e.g for an empty array [0, 0, 4, 0, 0, 7, 0, 0, None]
+        self._buffer = [x + 2 if ((x + 1) % 3 == 0) else 0 for x in range(0, capacity * 3)]
+        # Set end element to None
+        self._buffer[-1] = None
         self._free_index = 1
         self._current = None
         self._count = 0
@@ -35,28 +38,44 @@ class LinkedListSingleArray:
     def __len__(self):
         return self._count
 
+    def capacity(self):
+        return len(self._buffer) // 3
 
-    def insert(self,index):
-        '''Insert an element at a specific location
-        in the list
+    def _resize(self):
+        '''Increase the size of the array buffer and
+        update free list. Different implementations have a different scalar factors,
+        either 2x or 1.5 based on assumptions made in amortized analysis.
+        Here we just double the size of the buffer
         '''
-        pass
+        init_size = len(self._buffer)
+        self._buffer.extend([x + 2 if ((x + 1) % 3 == 0) else 0 for x in range(init_size, init_size*2)])
+        self._buffer[-1] = None
+        # Two cases, either there is no more free space, so we just update the free index
+        if self._free_index is None:
+            self._free_index = init_size + 1
+        else:
+            # we need to iterate through the free array stack and update it's next
+            current_free = self._free_index
+            while self._buffer[current_free + 1] is not None:
+                current_free = self._buffer[current_free + 1]
 
-    def append(self):
-        '''Insert an element at the end of the list
+            self._buffer[current_free + 1] = init_size + 1
+
+    def push(self, index):
+        '''Insert an element into the list
         '''
-        pass
 
+        # check to make sure array is not at max capacity
+        # else resize
+        pass
 
     def remove(self, index):
         '''Remove an element at a specific location'''
         pass
 
-
     def pop(self):
         '''Return element located at end/tail of list, removing it from the list'''
         pass
-
 
     # def __getitem__(self, item):
     # def __current
@@ -67,13 +86,8 @@ class LinkedListSingleArray:
     # def __contains__
 
     def __add__(self, other):
-        self._buffer
-
-
-
+        pass
 
 
 if __name__ == '__main__':
-    ARRAY_IN = [8, 0, 3, 3, 5, 6, 7]
-
-    # heap_sort(ARRAY_IN)
+    pass
