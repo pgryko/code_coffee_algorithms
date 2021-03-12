@@ -163,17 +163,6 @@ class LinkedListSingleArray:
             yield self._buffer[node_index]
             node_index = self._buffer[node_index+1]
 
-    # def __getitem__(self, item):
-    # def __current
-    # def __iter__
-    # def __prev
-    # def __add
-    # def __remove
-    # def __contains__
-
-    def __add__(self, other):
-        pass
-
 
 if __name__ == '__main__':
     pass
