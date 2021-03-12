@@ -35,14 +35,27 @@ class LinkedListSingleArray:
         self._head = None
         self._tail = None
 
-    def __next__(self, index):
+    # Todo fix index so that index points to data element
+    def __next__(self, index=None):
 
-        if self._current is None:
-            return None
-        elif self._current + 1 is not None:
-            return self._buffer[self._current + 1]
-        else:
-            return None
+        if index:
+            self._current = index
+        elif self._current is None:
+            self._current = self._head
+
+        if self._current:
+            data = self._buffer[self._current]
+            self._current = self._buffer[self._current + 1]
+
+            return data
+
+    # Todo implement prev
+    def __prev__(self, index=None):
+        pass
+
+    # Todo implement reverse
+    def reverse(self):
+        pass
 
     def __len__(self):
         return self._count
@@ -58,7 +71,8 @@ class LinkedListSingleArray:
         '''
         init_size = len(self._buffer)
 
-        self._buffer.extend([x + 2 if ((x + 1) % 3 == 0) else 0 if ((x + 2) % 3 == 0) else None for x in range(init_size, init_size*2)])
+        self._buffer.extend([x + 2 if ((x + 1) % 3 == 0) else 0 if ((x + 2) % 3 == 0) else None for x in
+                             range(init_size, init_size * 2)])
         self._buffer[-1] = None
         # Two cases, either there is no more free space, so we just update the free index
         if self._free_index is None:
@@ -71,7 +85,7 @@ class LinkedListSingleArray:
 
             self._buffer[current_free + 1] = init_size + 1
 
-    def _get_next_index(self,current_index):
+    def _get_next_index(self, current_index):
         '''Helper function to get index of next element
         '''
 
@@ -80,7 +94,7 @@ class LinkedListSingleArray:
 
         return self._buffer[current_index + 1]
 
-    def _get_prev_index(self,current_index):
+    def _get_prev_index(self, current_index):
         '''Helper function to get index of prev element
         '''
 
@@ -88,7 +102,6 @@ class LinkedListSingleArray:
             raise IndexError('Index does not appear to be valid')
 
         return self._buffer[current_index - 1]
-
 
     def push(self, element):
         '''Insert an element into the list
@@ -115,10 +128,6 @@ class LinkedListSingleArray:
         else:
             self._buffer[insert_index + 1] = self._head
             self._head = insert_index
-
-    def remove(self, index):
-        '''Remove an element at a specific location'''
-        pass
 
     def pop(self):
         '''Return element located at head of list, removing it from the list'''
@@ -161,7 +170,7 @@ class LinkedListSingleArray:
             # the internal stack, and any exception handling.
             # This allows you to resume function execution whenever you call one of the generator’s methods
             yield self._buffer[node_index]
-            node_index = self._buffer[node_index+1]
+            node_index = self._buffer[node_index + 1]
 
 
 if __name__ == '__main__':
