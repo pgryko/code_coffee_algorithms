@@ -1,4 +1,5 @@
 import unittest
+import copy
 
 from pointers import LinkedListSingleArray
 
@@ -12,7 +13,6 @@ class TestLinkedListSingleArray(unittest.TestCase):
         '''
 
         list_1 = LinkedListSingleArray()
-
 
         self.assertListEqual(list_1._buffer,
                              [None, 0, 4, None, 0, 7, None, 0, 10, None, 0, 13, None, 0, 16, None, 0, 19, None, 0, 22,
@@ -44,7 +44,8 @@ class TestLinkedListSingleArray(unittest.TestCase):
         list_1._resize()
 
         self.assertListEqual(list_1._buffer,
-                 [None, 0, 4, None, 0, 7, None, 0, 10, None, 0, 13, None, 0, 16, None, 0, 19, None, 0, 22, None, 0, None])
+                             [None, 0, 4, None, 0, 7, None, 0, 10, None, 0, 13, None, 0, 16, None, 0, 19, None, 0, 22,
+                              None, 0, None])
 
         self.assertEqual(list_1.capacity(), 8)
 
@@ -53,12 +54,93 @@ class TestLinkedListSingleArray(unittest.TestCase):
         self.assertListEqual(list_1._buffer,
                              [None, 0, 4, None, 0, 7, None, 0, None])
 
+        self.assertEqual(len(list_1), 0)
+
         list_1.push('A')
 
         self.assertListEqual(list_1._buffer,
                              [None, 'A', None, None, 0, 7, None, 0, None])
 
+        self.assertEqual(len(list_1), 1)
+
         list_1.push('B')
+
+        self.assertListEqual(list_1._buffer,
+                             [None, 'A', None, None, 'B', 1, None, 0, None])
+        self.assertEqual(len(list_1), 2)
+
+        list_1.push('C')
+
+        self.assertListEqual(list_1._buffer,
+                             [None, 'A', None, None, 'B', 1, None, 'C', 4])
+
+        self.assertEqual(len(list_1), 3)
+        self.assertEqual(list_1.capacity(), 3)
+
+        # List should be at max capacity, so check that free index is zero
+        self.assertEqual(list_1._free_index, None)
+
+        list_1.push('D')
+
+        # This should resize the list, doubling the capacity
+        self.assertEqual(list_1.capacity(), 6)
+
+        self.assertEqual(len(list_1), 4)
+
+        self.assertListEqual(list_1._buffer,
+                             [None, 'A', None, None, 'B', 1, None, 'C', 4, None, 'D', 7, None, 0, 16, None, 0, None])
+
+    def test_pop(self):
+        list_1 = LinkedListSingleArray(capacity=3)
+        list_1.push('A')
+        list_1.push('B')
+        list_1.push('C')
+        list_1.push('D')
+
+        self.assertListEqual(list_1._buffer,
+                             [None, 'A', None, None, 'B', 1, None, 'C', 4, None, 'D', 7, None, 0, 16, None, 0, None])
+
+        self.assertEqual(list_1.capacity(), 6)
+        self.assertEqual(len(list_1), 4)
+
+        self.assertEqual(list_1.pop(),'D')
+        self.assertEqual(list_1.capacity(), 6)
+        self.assertEqual(len(list_1), 3)
+
+        self.assertListEqual(list_1._buffer,
+                             [None, 'A', None, None, 'B', 1, None, 'C', 4, None, 0, 13, None, 0, 16, None, 0, None])
+
+        self.assertEqual(list_1.pop(),'C')
+        self.assertEqual(len(list_1), 2)
+
+        self.assertEqual(list_1.pop(), 'B')
+        self.assertEqual(len(list_1), 1)
+
+        # We want to test behaviour of pushing after pop
+        list_2 = copy.deepcopy(list_1)
+
+        self.assertEqual(list_1.pop(), 'A')
+        self.assertEqual(len(list_1), 0)
+
+        with self.assertRaises(IndexError):
+            list_1.pop()
+
+        self.assertListEqual(list_1._buffer, [None, 0, 4, None, 0, 7, None, 0, 10, None, 0, 13, None, 0, 16, None, 0, None])
+
+        list_1.push('A')
+
+        self.assertListEqual(list_1._buffer,
+                             [None, 'A', None, None, 0, 7, None, 0, 10, None, 0, 13, None, 0, 16, None, 0, None])
+
+
+        list_1.push('B')
+        list_2.push('B')
+
+        self.assertListEqual(list_1._buffer,
+                             list_2._buffer)
+
+        self.assertEqual(list_1,
+                         [None, 'A', None, None, 'B', 1, None, 0, 10, None, 0, 13, None, 0, 16, None, 0, None])
 
 
 if __name__ == '__main__':

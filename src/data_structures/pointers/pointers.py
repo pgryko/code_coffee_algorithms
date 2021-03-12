@@ -103,6 +103,7 @@ class LinkedListSingleArray:
         # Insert element into location of current free element
 
         self._buffer[insert_index] = element
+        self._count += 1
         # As element is set to head of list, set next to None
         self._buffer[insert_index - 1] = None
         # Update free list
@@ -120,8 +121,47 @@ class LinkedListSingleArray:
         pass
 
     def pop(self):
-        '''Return element located at end/tail of list, removing it from the list'''
-        pass
+        '''Return element located at head of list, removing it from the list'''
+
+        if self._head is None:
+            raise IndexError('pop from empty list')
+
+        cur_index = self._head
+
+        data = self._buffer[self._head]
+
+        if self._buffer[cur_index + 1]:
+            self._head = self._buffer[cur_index + 1]
+        else:
+            self._head = None
+
+        # allocate empty node to free stack
+        if self._free_index:
+            self._buffer[cur_index + 1] = self._free_index
+
+        self._free_index = cur_index
+
+        # Overwriting new free space not strictly needed, but useful for readability
+        # Ensure prev is empty
+        self._buffer[cur_index - 1] = None
+        # Ensure value is empty
+        self._buffer[cur_index] = 0
+
+        self._count -= 1
+
+        return data
+
+    def __iter__(self):
+        node_index = self._head
+        while node_index is not None:
+            # When yield statement is hit, program suspends execution
+            # and returns yielded value to caller
+            # When a function is suspended, the state of that function is saved.
+            # This includes any variable bindings local to the generator, the instruction pointer,
+            # the internal stack, and any exception handling.
+            # This allows you to resume function execution whenever you call one of the generator’s methods
+            yield self._buffer[node_index]
+            node_index = self._buffer[node_index+1]
 
     # def __getitem__(self, item):
     # def __current
