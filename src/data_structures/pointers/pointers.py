@@ -35,23 +35,45 @@ class LinkedListSingleArray:
         self._head = None
         self._tail = None
 
-    # Todo fix index so that index points to data element
     def __next__(self, index=None):
 
         if index:
+            if (index + 2) % 3 != 0:
+                raise IndexError('Index does not appear to be valid')
             self._current = index
         elif self._current is None:
             self._current = self._head
 
+        # Only return data if _current element is not None
         if self._current:
             data = self._buffer[self._current]
             self._current = self._buffer[self._current + 1]
 
             return data
+        # Implicit empty return terminates next
 
     # Todo implement prev
     def __prev__(self, index=None):
-        pass
+        ''' Function to iterate backwards.
+
+        Not a standard python magic function, but implemented here,
+        as this is a doubly liked list
+
+        '''
+
+        if index:
+            if (index + 2) % 3 != 0:
+                raise IndexError('Index does not appear to be valid')
+            self._current = index
+        elif self._current is None:
+            # By default set current to tail, so we can iterate backwards
+            self._current = self._tail
+
+        if self._current:
+            data = self._buffer[self._current]
+            self._current = self._buffer[self._current - 1]
+
+            return data
 
     # Todo implement reverse
     def reverse(self):
@@ -117,16 +139,27 @@ class LinkedListSingleArray:
 
         self._buffer[insert_index] = element
         self._count += 1
-        # As element is set to head of list, set next to None
+        # As element is set to head of list, set prev to None
         self._buffer[insert_index - 1] = None
         # Update free list
         self._free_index = next_free
 
         if self._head is None:
             self._head = insert_index
+            # Set next to None
             self._buffer[insert_index + 1] = None
+            # If done correctly prev, should already be None
+            self._buffer[insert_index - 1] = None
+            # Update tail to also point to current element (at this point
+            # we have only one element)
+            self._tail = insert_index
+
         else:
+            # Updated prev, on old head to point to new head
+            self._buffer[self._head - 1] = insert_index
+            # Set next on inserted element to point to old head
             self._buffer[insert_index + 1] = self._head
+            # Update head to point to inserted element
             self._head = insert_index
 
     def pop(self):
@@ -143,6 +176,7 @@ class LinkedListSingleArray:
             self._head = self._buffer[cur_index + 1]
         else:
             self._head = None
+            self._tail = None
 
         # allocate empty node to free stack
         if self._free_index:
