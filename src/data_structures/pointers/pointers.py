@@ -13,12 +13,16 @@ class LinkedListSingleArray:
     Buffer is doubled in size of element is pushed beyond container capacity
     '''
 
-    def __init__(self, capacity: int = 20):
+    def __init__(self, data: list = None, capacity: int = 20):
 
         # Make sure capacity is greater than 1, otherwise
         # resize function will fail
         if capacity < 1:
             capacity = 2
+
+        # If initial data is supplied, make sure that capacity is greater than origianl list size
+        if data:
+            capacity = max(capacity, len(data))
         # Create an empty buffer (malloc), and populate 'pointer' to free elements
         # Buffer array is partitioned into blocks of 3, with |prev, key, next|
         # e.g.
@@ -33,6 +37,10 @@ class LinkedListSingleArray:
         self._count = 0
         self._head = None
         self._tail = None
+
+        if data:
+            for elem in data:
+                self.push(elem)
 
     def __next__(self, index=None):
 
@@ -69,9 +77,39 @@ class LinkedListSingleArray:
             yield data
             current_index = self._buffer[current_index - 1]
 
+    def _get_next_index(self, current_index):
+        '''Helper function to get index of next element
+        '''
+
+        if (current_index + 2) % 3 != 0:
+            raise IndexError('Index does not appear to be valid')
+
+        return self._buffer[current_index + 1]
+
+    def _get_prev_index(self, current_index):
+        '''Helper function to get index of prev element
+        '''
+
+        if (current_index + 2) % 3 != 0:
+            raise IndexError('Index does not appear to be valid')
+
+        return self._buffer[current_index - 1]
+
     # Todo implement reverse
     def reverse(self):
-        pass
+        '''Reverses the linked list in place
+
+        '''
+
+        prev = None
+        curr = self._head
+
+        while curr:
+            _next = self._get_next_index(curr)
+
+            self._buffer[curr + 1] = prev
+            prev = curr
+            curr = _next
 
     def __len__(self):
         return self._count
@@ -100,24 +138,6 @@ class LinkedListSingleArray:
                 current_free = self._buffer[current_free + 1]
 
             self._buffer[current_free + 1] = init_size + 1
-
-    def _get_next_index(self, current_index):
-        '''Helper function to get index of next element
-        '''
-
-        if (current_index + 2) % 3 != 0:
-            raise IndexError('Index does not appear to be valid')
-
-        return self._buffer[current_index + 1]
-
-    def _get_prev_index(self, current_index):
-        '''Helper function to get index of prev element
-        '''
-
-        if (current_index + 2) % 3 != 0:
-            raise IndexError('Index does not appear to be valid')
-
-        return self._buffer[current_index - 1]
 
     def push(self, element):
         '''Insert an element into the list

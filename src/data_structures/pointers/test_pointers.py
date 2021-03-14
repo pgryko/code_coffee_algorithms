@@ -90,6 +90,26 @@ class TestLinkedListSingleArray(unittest.TestCase):
         self.assertListEqual(list_1._buffer,
                              [4, 'A', None, 7, 'B', 1, 10, 'C', 4, None, 'D', 7, None, 0, 16, None, 0, None])
 
+    def test_initialise_from_list(self):
+        data = ['A', 'B', 'C', 'D']
+        list_1 = LinkedListSingleArray(data)
+
+        self.assertListEqual(list_1._buffer,
+                             [4, 'A', None, 7, 'B', 1, 10, 'C', 4, None, 'D', 7, None, 0, 16, None, 0, 19, None, 0, 22,
+                              None, 0, 25, None, 0, 28, None, 0, 31, None, 0, 34, None, 0, 37, None, 0, 40, None, 0, 43,
+                              None, 0, 46, None, 0, 49, None, 0, 52, None, 0, 55, None, 0, 58, None, 0, None])
+
+        for element in reversed(data):
+            self.assertEqual(element, list_1.pop())
+
+        list_1 = LinkedListSingleArray(data=data, capacity=4)
+
+        self.assertListEqual(list_1._buffer,
+                             [4, 'A', None, 7, 'B', 1, 10, 'C', 4, None, 'D', 7])
+
+        for element in reversed(data):
+            self.assertEqual(element, list_1.pop())
+
     def test_pop(self):
         list_1 = LinkedListSingleArray(capacity=3)
         list_1.push('A')
