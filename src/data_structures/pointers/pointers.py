@@ -95,7 +95,6 @@ class LinkedListSingleArray:
 
         return self._buffer[current_index - 1]
 
-    # Todo implement reverse
     def reverse(self):
         '''Reverses the linked list in place
 
@@ -108,8 +107,12 @@ class LinkedListSingleArray:
             _next = self._get_next_index(curr)
 
             self._buffer[curr + 1] = prev
+            self._buffer[curr - 1] = _next
+
             prev = curr
             curr = _next
+
+        self._head, self._tail = self._tail, self._head
 
     def __len__(self):
         return self._count

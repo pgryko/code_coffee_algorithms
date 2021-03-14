@@ -207,6 +207,23 @@ class TestLinkedListSingleArray(unittest.TestCase):
         self.assertEqual(next(reverse_iterator), 'D')
         self.assertRaises(StopIteration, reverse_iterator.__next__)
 
+    def test_reverse(self):
+        list_1 = LinkedListSingleArray(data=['A', 'B', 'C', 'D'], capacity=4)
+
+        self.assertEqual(list_1._buffer, [4, 'A', None, 7, 'B', 1, 10, 'C', 4, None, 'D', 7])
+
+        list_1.reverse()
+
+        self.assertEqual(list_1._buffer, [None, 'A', 4, 1, 'B', 7, 4, 'C', 10, 7, 'D', None])
+
+        forward_iterator = list_1.__next__()
+        for element in ['A', 'B', 'C', 'D']:
+            self.assertEqual(next(forward_iterator), element)
+
+        reverse_iterator = list_1.__prev__()
+        for element in ['D', 'C', 'B', 'A']:
+            self.assertEqual(next(reverse_iterator), element)
+
 
 if __name__ == '__main__':
     unittest.main()
