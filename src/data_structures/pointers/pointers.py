@@ -30,7 +30,6 @@ class LinkedListSingleArray:
         # Set end element to None
         self._buffer[-1] = None
         self._free_index = 1
-        self._current = None
         self._count = 0
         self._head = None
         self._tail = None
@@ -40,19 +39,15 @@ class LinkedListSingleArray:
         if index:
             if (index + 2) % 3 != 0:
                 raise IndexError('Index does not appear to be valid')
-            self._current = index
-        elif self._current is None:
-            self._current = self._head
+            current_index = index
+        else:
+            current_index = self._head
 
-        # Only return data if _current element is not None
-        if self._current:
-            data = self._buffer[self._current]
-            self._current = self._buffer[self._current + 1]
+        while current_index:
+            data = self._buffer[current_index]
+            yield data
+            current_index = self._buffer[current_index + 1]
 
-            return data
-        # Implicit empty return terminates next
-
-    # Todo implement prev
     def __prev__(self, index=None):
         ''' Function to iterate backwards.
 
@@ -64,16 +59,15 @@ class LinkedListSingleArray:
         if index:
             if (index + 2) % 3 != 0:
                 raise IndexError('Index does not appear to be valid')
-            self._current = index
-        elif self._current is None:
+            current_index = index
+        else:
             # By default set current to tail, so we can iterate backwards
-            self._current = self._tail
+            current_index = self._tail
 
-        if self._current:
-            data = self._buffer[self._current]
-            self._current = self._buffer[self._current - 1]
-
-            return data
+        while current_index:
+            data = self._buffer[current_index]
+            yield data
+            current_index = self._buffer[current_index - 1]
 
     # Todo implement reverse
     def reverse(self):

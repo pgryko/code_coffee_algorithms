@@ -129,33 +129,63 @@ class TestLinkedListSingleArray(unittest.TestCase):
                              [None, 0, 4, None, 0, 7, None, 0, 10, None, 0, 13, None, 0, 16, None, 0, None]
                              )
 
-        # list_1.push('A')
-        #
-        # self.assertListEqual(list_1._buffer,
-        #                      [None, 'A', None, None, 0, 7, None, 0, 10, None, 0, 13, None, 0, 16, None, 0, None])
-        #
-        # list_1.push('B')
-        # list_2.push('B')
-        #
-        # self.assertListEqual(list_1._buffer,
-        #                      list_2._buffer)
-        #
-        # self.assertEqual(list_1._buffer,
-        #                  [None, 'A', None, None, 'B', 1, None, 0, 10, None, 0, 13, None, 0, 16, None, 0, None])
-    #
-    # def test_iterator(self):
-    #     list_1 = LinkedListSingleArray(capacity=3)
-    #     list_1.push('A')
-    #     list_1.push('B')
-    #     list_1.push('C')
-    #     list_1.push('D')
-    #
-    #     iterator = iter(list_1)
-    #     self.assertEqual(next(iterator), 'D')
-    #     self.assertEqual(next(iterator), 'C')
-    #     self.assertEqual(next(iterator), 'B')
-    #     self.assertEqual(next(iterator), 'A')
-    #     self.assertRaises(StopIteration, iterator.__next__)
+        list_1.push('A')
+
+        self.assertListEqual(list_1._buffer,
+                             [None, 'A', None, None, 0, 7, None, 0, 10, None, 0, 13, None, 0, 16, None, 0, None])
+
+        list_1.push('B')
+        list_2.push('B')
+
+        self.assertListEqual(list_1._buffer,
+                             list_2._buffer)
+
+        self.assertEqual(list_1._buffer,
+                         [4, 'A', None, None, 'B', 1, None, 0, 10, None, 0, 13, None, 0, 16, None, 0, None])
+
+    def test_next(self):
+        list_1 = LinkedListSingleArray(capacity=3)
+        list_1.push('A')
+        list_1.push('B')
+        list_1.push('C')
+        list_1.push('D')
+
+        forward_iterator = list_1.__next__()
+
+        self.assertEqual(next(forward_iterator), 'D')
+        self.assertEqual(next(forward_iterator), 'C')
+        self.assertEqual(next(forward_iterator), 'B')
+        self.assertEqual(next(forward_iterator), 'A')
+        self.assertRaises(StopIteration, forward_iterator.__next__)
+
+    def test_iterator(self):
+        list_1 = LinkedListSingleArray(capacity=3)
+        list_1.push('A')
+        list_1.push('B')
+        list_1.push('C')
+        list_1.push('D')
+
+        iterator = iter(list_1)
+        self.assertEqual(next(iterator), 'D')
+        self.assertEqual(next(iterator), 'C')
+        self.assertEqual(next(iterator), 'B')
+        self.assertEqual(next(iterator), 'A')
+        self.assertRaises(StopIteration, iterator.__next__)
+
+    def test_prev(self):
+        list_1 = LinkedListSingleArray(capacity=3)
+        list_1.push('A')
+        list_1.push('B')
+        list_1.push('C')
+        list_1.push('D')
+
+        reverse_iterator = list_1.__prev__()
+
+        self.assertEqual(next(reverse_iterator), 'A')
+        self.assertEqual(next(reverse_iterator), 'B')
+        self.assertEqual(next(reverse_iterator), 'C')
+        self.assertEqual(next(reverse_iterator), 'D')
+        self.assertRaises(StopIteration, reverse_iterator.__next__)
 
 
 if __name__ == '__main__':
