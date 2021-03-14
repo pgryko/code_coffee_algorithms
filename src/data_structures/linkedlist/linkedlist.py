@@ -33,6 +33,7 @@ class LinkedList:
             node = Node(data=nodes.pop(0))
             self.head = node
             self.tail = node
+            self.nodes.append(node)
             for elem in nodes:
                 node.next = Node(data=elem.data)
                 self.nodes.append(node.next)
@@ -53,6 +54,21 @@ class LinkedList:
             # This allows you to resume function execution whenever you call one of the generator’s methods
             yield node
             node = node.next
+
+    def reverse(self):
+
+        prev = None
+        current = self.head
+
+        while current:
+            _next = current.next
+            current.next = prev
+            current.prev = _next
+
+            prev = current
+            current = _next
+
+        self.head, self.tail = self.tail, self.head
 
     def __str__(self):
         return str(self.nodes)
