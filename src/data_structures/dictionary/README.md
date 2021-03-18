@@ -2,6 +2,9 @@
 
 Dictionaries are dynamic sets, which support element insertion, deletion and querying.
 
+A hash function h(k) is used to map a key k to a location in a data structure.
+Hash collisions, where $ k_1 \neq k_2 $ but $ h(k_1) = h(k_2) $, are delt with by entering the keys into a linked list. This is called chasing with chainging. For n keys and m slots, the probability of a colision under the assumption of uniform hashing is $ n/m =  \alpha$, where $\alpha$ is known as the load function. The complexity is $O(1 + \alpha)$, where an $O(1)$ is always performed as part of the pre-hashing.
+
 ## Hashing functions
 
 https://www.youtube.com/watch?v=0M_kIqhwbFo
@@ -34,8 +37,23 @@ For a key k that is $\omega$ bits long, we restrict A to be a fraction, in the f
 h(k) = [ (a.k) \mod 2^w]
 ```
 
+A should be odd, and
+
 We perform a binary multiplication of $k \times A \cdot 2^\omega$ , resulting in a value $r_12^\omega + r_0$ which has length $2 \omega$. Knuth suggests the constant of  
 
 ```math
 A \approx (\sqrt5 -1)/2 \approx 0.618 
 ```
+
+Universal Hasing:
+
+```math
+h(k) = [(ak + b) \mod p] mod m
+```
+
+mod m at end, division methond to make sure that result is between zero and m -1.
+A and b are random numbers between {0...,p-1}, where p is prime >|U|. 
+
+for worst case keys $ k_1 \neq k_2 $, Probability{$h(k_1) = h(k_2)$} = 1/m
+
+Probability arrises from $P(a \cap b)$
