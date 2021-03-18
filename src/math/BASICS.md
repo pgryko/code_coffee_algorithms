@@ -1,3 +1,13 @@
+# Tools
+
+Graphing and visualisation:
+
+- [Gitlab flavoured markdown](https://docs.gitlab.com/ee/user/markdown.html) is extremely flexible, supporting mermaid syntax, a subset of latex math
+
+- Writing [latex equations online](https://www.hostmath.com/)
+
+- Vscode plugin for renderding markdown with digrams and latex math [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
+
 # Sum of finite arithmetic series
 
 ```math
