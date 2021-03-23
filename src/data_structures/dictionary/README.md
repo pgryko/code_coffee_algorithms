@@ -8,6 +8,7 @@ Hash collisions, where $ k_1 \neq k_2 $ but $ h(k_1) = h(k_2) $, are delt with b
 ## Hashing functions
 
 https://www.youtube.com/watch?v=0M_kIqhwbFo
+https://www.youtube.com/watch?v=BRO7mVIFt08
 
 1 Division method:
 
@@ -45,7 +46,7 @@ We perform a binary multiplication of $k \times A \cdot 2^\omega$ , resulting in
 A \approx (\sqrt5 -1)/2 \approx 0.618 
 ```
 
-Universal Hasing:
+3. Universal Hasing:
 
 ```math
 h(k) = [(ak + b) \mod p] mod m
@@ -57,3 +58,15 @@ A and b are random numbers between {0...,p-1}, where p is prime >|U|.
 for worst case keys $ k_1 \neq k_2 $, Probability{$h(k_1) = h(k_2)$} = 1/m
 
 Probability arrises from $P(a \cap b)$
+
+4. Rolling hash ADT, Karp-Rabin Algorithem
+
+Used in Substring search problem. Possible to use division methon
+
+```math
+h(k) = k \mod m
+```
+
+provided m is a random prime number greater than string S
+
+treat string s as a multidigit number U in base a (which the size of your alphabet)
