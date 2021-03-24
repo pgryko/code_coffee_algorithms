@@ -22,8 +22,8 @@ I have worked through, written and tested all the code, but I can't guarantee th
     - [x] Select Sort
     - [x] Merge Sort (nlogn)
     - [x] Heap Sort (nlogn)
-    - [ ] Quick Sort
-    - [ ] Radix Sort
+    - [x] Quick Sort
+    - [x] Radix Sort
     - [ ] Statistical Sorts
   - [ ] Graph Algorithms
   - [ ] Computational
@@ -126,7 +126,7 @@ I have worked through, written and tested all the code, but I can't guarantee th
   - Writing a spelling corrector
     https://norvig.com/spell-correct.html
 
-  - Visualisations of RAFT consensus
+  - Visualizations of RAFT consensus
     http://thesecretlivesofdata.com/raft/
 
   - Keytap2 - acoustic keyboard eavesdropping based on language n-gram frequencies
@@ -134,13 +134,13 @@ I have worked through, written and tested all the code, but I can't guarantee th
     
 # Tools
 
-Graphing and visualisation:
+Graphing and visualization:
 
 - [Gitlab flavoured markdown](https://docs.gitlab.com/ee/user/markdown.html) is extremely flexible, supporting mermaid syntax, a subset of latex math
 
 - Writing [latex equations online](https://www.hostmath.com/)
 
-- Vscode plugin for renderding markdown with digrams and latex math [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
+- Vscode plugin for rendering markdown with diagrams and latex math [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
 
 - [quiver](https://github.com/varkor/quiver) is a modern, graphical editor for commutative and pasting diagrams, capable of rendering high-quality diagrams for screen viewing, and exporting to LaTeX via tikz-cd.
 
