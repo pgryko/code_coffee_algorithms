@@ -25,6 +25,14 @@ I have worked through, written and tested all the code, but I can't guarantee th
     - [x] Quick Sort
     - [x] Radix Sort
     - [ ] Statistical Sorts
+  - [ ] Hash
+    - [ ] HashCode (string hash)
+    - [ ] Multiplication
+    - [ ] Division
+    - [ ] Universal hashing
+    - [ ] Perfect hashing
+    - [ ] MD5
+    - [ ] SHA256
   - [ ] Graph Algorithms
   - [ ] Computational
     - [ ] Strassen Matrix Multiplication
