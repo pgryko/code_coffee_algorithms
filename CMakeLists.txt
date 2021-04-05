@@ -17,11 +17,11 @@ endif()
 include_directories(
     ${PROJECT_SOURCE_DIR}/src
     ${PROJECT_SOURCE_DIR}/src/example
-        ${PROJECT_SOURCE_DIR}/src/sorting_algorithms/insertsort
-        ${PROJECT_SOURCE_DIR}/src/sorting_algorithms/selectsort
-        ${PROJECT_SOURCE_DIR}/src/sorting_algorithms/mergesort
-        ${PROJECT_SOURCE_DIR}/src/sorting_algorithms/heapsort
-        ${PROJECT_SOURCE_DIR}/src/sorting_algorithms/quicksort
+        ${PROJECT_SOURCE_DIR}/src/algorithms/sorting/insertsort
+        ${PROJECT_SOURCE_DIR}/src/algorithms/sorting/selectsort
+        ${PROJECT_SOURCE_DIR}/src/algorithms/sorting/mergesort
+        ${PROJECT_SOURCE_DIR}/src/algorithms/sorting/heapsort
+        ${PROJECT_SOURCE_DIR}/src/algorithms/sorting/quicksort
     ${PROJECT_SOURCE_DIR}/src/data_structures/linkedlist
 )
 
