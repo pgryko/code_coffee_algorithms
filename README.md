@@ -65,6 +65,9 @@ I have worked through, written and tested all the code, but I can't guarantee th
 - Data Open structures in C++
    http://opendatastructures.org/ods-cpp/
 
+- Princeton Algorithms
+  https://algs4.cs.princeton.edu/home/
+  
 - The Algorithms Design Manual
 
    http://www3.cs.stonybrook.edu/~skiena/373/videos/
