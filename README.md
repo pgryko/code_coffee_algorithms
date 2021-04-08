@@ -50,7 +50,7 @@ I have worked through, written and tested all the code, but I can't guarantee th
   - [ ] Binary Search Trees
   - [ ] Red-Black Trees
   - [ ] B-Trees
-  - [ ] Bloom filter (http://blog.amynguyen.net/?p=853)
+  - [ ] Bloom filter (http://blog.amynguyen.net/?p=853, https://github.com/jaybaird/python-bloomfilter/)
   - [ ] Ternary search tree
   - [ ] Prefix trie (replaced by ternary search trees, does not require wasting memory storing 26 pointers at each node)
   - [ ] Suffix array
