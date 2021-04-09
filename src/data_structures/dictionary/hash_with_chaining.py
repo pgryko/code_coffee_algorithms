@@ -56,5 +56,10 @@ class HashChaining:
         base should ideally be a large prime number and,
         should avoid common bases, such as powers of 2 and 10.
 
+        For signed ints, a trick is to use bit masking to
+        mask out the signed bit (turn 32-bit signed int into 31-bit unsigned)
+        key.hashCode() & 0x7fffffff
+
+        For python, we'll just use an abs function
         """
         return abs(self.string_to_int(message)) % self.modulus
