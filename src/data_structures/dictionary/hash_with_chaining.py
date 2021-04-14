@@ -21,11 +21,14 @@
 class HashChaining:
 
     def __init__(self):
-        self.data = []
-        self.size = 0
-        self.modulus = 31
+        self.data = [None for _ in range(7)]
+        self.capacity = 7
+        self.count = 0
 
-    def string_to_int(string: str) -> int:
+    def __len__(self):
+        return self.count
+
+    def string_to_int(self, string: str) -> int:
         """Converts a string into a large integer
 
         Method is based off java's hashcode function.
@@ -60,6 +63,35 @@ class HashChaining:
         mask out the signed bit (turn 32-bit signed int into 31-bit unsigned)
         key.hashCode() & 0x7fffffff
 
-        For python, we'll just use an abs function
+        For python, the % operator always returns a positive number
+        regardless
         """
-        return abs(self.string_to_int(message)) % self.modulus
+        return self.string_to_int(message) % self.capacity
+
+    def put(self, message: str):
+        index = self.hash(message)
+
+        if self.data[index] is None or self.data[index] is []:
+            self.data[index] = [message]
+        else:
+            # Perform a linear search to see if element is in list
+            if message not in self.data[index]:
+                self.data[index].append(message)
+
+    def exists(self, message: str):
+        index = self.hash(message)
+
+        if self.data[index] is None or self.data[index] is []:
+            return False
+
+        if message in self.data[index]:
+            return True
+        else:
+            return False
+
+    def delete(self, message: str):
+        index = self.hash(message)
+
+        if self.data[index] is None or self.data[index] is []:
+            raise IndexError
+
