@@ -40,6 +40,13 @@ class TestHashChaining(unittest.TestCase):
         with self.assertRaises(IndexError):
             hash_map.delete('AAA')
 
+        for i in range(20):
+            hash_map.put(chr(i+65))
+
+        self.assertTrue(hash_map.exists('A'))
+        hash_map.delete('A')
+        self.assertFalse(hash_map.exists('A'))
+
 
 
 

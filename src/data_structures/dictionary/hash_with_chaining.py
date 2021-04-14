@@ -16,6 +16,7 @@
  https://softwareengineering.stackexchange.com/questions/49550/which-hashing-algorithm-is-best-for-uniqueness-and-speed
 
 """
+import copy
 
 
 class HashChaining:
@@ -68,6 +69,26 @@ class HashChaining:
         """
         return self.string_to_int(message) % self.capacity
 
+    def _resize(self):
+        """Resize data array
+
+        Once data array becomes more than half full, change of collisions increases, so double + 1 size
+        of underlying array
+        """
+
+        old_data = copy.deepcopy(self.data)
+
+        # keep capacity odd to avoid powers of 2
+        self.capacity = self.capacity * 2 + 1
+        self.data = [None for _ in range(self.capacity)]
+
+        for element in old_data:
+            if element is not None or element is not []:
+                for elem in element:
+                    self.put(elem)
+
+
+
     def put(self, message: str):
         index = self.hash(message)
 
@@ -90,8 +111,15 @@ class HashChaining:
             return False
 
     def delete(self, message: str):
+
+        if not self.exists(message):
+            raise IndexError
+
         index = self.hash(message)
 
-        if self.data[index] is None or self.data[index] is []:
-            raise IndexError
+        self.data[index].remove(message)
+
+
+
+
 
