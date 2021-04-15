@@ -81,23 +81,12 @@ class HashChaining:
         # keep capacity odd to avoid powers of 2
         self.capacity = self.capacity * 2 + 1
         self.data = [None for _ in range(self.capacity)]
+        self.count = 0
 
         for element in old_data:
-            if element is not None or element is not []:
+            if element and len(element) > 0:
                 for elem in element:
                     self.put(elem)
-
-
-
-    def put(self, message: str):
-        index = self.hash(message)
-
-        if self.data[index] is None or self.data[index] is []:
-            self.data[index] = [message]
-        else:
-            # Perform a linear search to see if element is in list
-            if message not in self.data[index]:
-                self.data[index].append(message)
 
     def exists(self, message: str):
         index = self.hash(message)
@@ -110,6 +99,27 @@ class HashChaining:
         else:
             return False
 
+    def put(self, message: str):
+
+        if self.exists(message):
+            return
+
+        # Re-size the underlying array if count becomes
+        # larger than half the capacity
+        if self.count > self.capacity // 2:
+            self._resize()
+
+        index = self.hash(message)
+
+        if self.data[index] is None or self.data[index] is []:
+            self.data[index] = [message]
+        else:
+            # Perform a linear search to see if element is in list
+            if message not in self.data[index]:
+
+                self.data[index].append(message)
+                self.count += 1
+
     def delete(self, message: str):
 
         if not self.exists(message):
@@ -118,6 +128,8 @@ class HashChaining:
         index = self.hash(message)
 
         self.data[index].remove(message)
+        self.count -= 1
+
 
 
 
