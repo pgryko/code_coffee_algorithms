@@ -115,16 +115,11 @@ States each key is equally likely to have any one of the $m!$ permutations (rand
 
 if the load factor $`\alpha = \frac{n}{m}`$, cost of operations insert/search/delete $`\leq \frac{1}{1- \alpha}`$. You'll need to resize your table once $`\alpha > 0.5`$
 
-### Cryptographic hashing
+## Build
 
-One way hash. Given
+$ cmake -H. -Bbuild
+$ cd build; make
+$ ./hash_with_chaining
 
-```math
-h(x) = Q
-```
-
-it is very hard to find the inverse
-
-```math
-h'(Q) = x
-```
+Or manually using g++
+$ g++ --std=c++1z main.cpp

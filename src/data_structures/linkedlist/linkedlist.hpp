@@ -109,7 +109,7 @@ T LinkedList<T>::Pop() {
 }
 
 // Iterator class to sequentially access nodes of linked list
-// mutable forward itterator
+// mutable forward iterator
 template <typename T>
 class LinkedList<T>::Iterator {
   std::shared_ptr<Node<T>> pCurrentNode;

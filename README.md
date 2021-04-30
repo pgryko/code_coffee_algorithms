@@ -26,7 +26,7 @@ I have worked through, written and tested all the code, but I can't guarantee th
     - [x] Radix Sort
     - [ ] Statistical Sorts
   - [ ] Hash
-    - [ ] HashCode (string hash)
+    - [x] HashCode (string hash)
     - [ ] Multiplication
     - [ ] Division
     - [ ] Universal hashing
@@ -44,9 +44,9 @@ I have worked through, written and tested all the code, but I can't guarantee th
 - [ ] Data structures
   - [ ] Stacks and Queues
     - [ ] Priority Que
-  - [ ] Linked Lists
+  - [x] Linked Lists
   - [ ] Priority Que
-  - [ ] Hash Tables
+  - [x] Hash Tables
   - [ ] Binary Search Trees
   - [ ] Red-Black Trees
   - [ ] B-Trees

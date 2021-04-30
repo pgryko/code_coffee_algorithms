@@ -1,4 +1,5 @@
-"""A simple hashmap, with collisions handled via a linked list
+"""A simple example hashing with chaining, with collisions handled via a linked list.
+ This is equivalent to unordered sets rather than dicts, as we are not storing key value pairs
  Note: the python hash function salts the input before hashing.
  Hence hash(k) is deterministic only with the same process
 

@@ -22,7 +22,9 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/src/algorithms/sorting/mergesort
         ${PROJECT_SOURCE_DIR}/src/algorithms/sorting/heapsort
         ${PROJECT_SOURCE_DIR}/src/algorithms/sorting/quicksort
-    ${PROJECT_SOURCE_DIR}/src/data_structures/linkedlist
+        ${PROJECT_SOURCE_DIR}/src/data_structures/linkedlist
+        ${PROJECT_SOURCE_DIR}/src/data_structures/dictionary
+
 )
 
 add_library(
@@ -59,6 +61,7 @@ add_executable(
     test/test_heapsort.cpp
     test/test_quicksort.cpp
     test/test_linkedlist.cpp
+    test/test_hashchaining.cpp
 )
 
 add_dependencies(unit_tests googletest)

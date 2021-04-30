@@ -1,15 +1,15 @@
 # Radix Sort
 
-Radix sort is a non comparitive sort, that sorts based of a number position (radix or base).
-It avoids comparison by creating and distributing elements accroding to their radix.
+Radix sort is a non comparative sort, that sorts based of a number position (radix or base).
+It avoids comparison by creating and distributing elements according to their radix.
 
 Radix sort can be applied to data that can be sorted lexicograpically (e.g. integers, words, punch cards, playing cards, mail)
 
 Complexity is `$O(nw)$` where n is number of keys and k is the key length.
 
-Radix sort can start from the least significatn digit (LSD) or most significant digit (MSD).
+Radix sort can start from the least significant digit (LSD) or most significant digit (MSD).
 
-The LSD algorithem sorts by the least significant digit while preserving relative order, then the next significant digit. LSD requires the use of a stable sort (one that maintains relative order for same keys), the MSD does not (but itself is not a stable sort).
+The LSD algorithm sorts by the least significant digit while preserving relative order, then the next significant digit. LSD requires the use of a stable sort (one that maintains relative order for same keys), the MSD does not (but itself is not a stable sort).
 
 Counting sort is commonly used as the internal stable sort used by radix. Hybrid approaches, that use insert sort for small bins, improve performance significantly
 
