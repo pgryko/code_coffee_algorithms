@@ -11,6 +11,6 @@ include_directories(${GTEST_INCLUDE_DIRS})
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_BUILD_TYPE Debug)
 
-add_executable(hash_with_chaining main.cpp)
+add_executable(binarysearchtrees main.cpp)
 
-target_link_libraries(hash_with_chaining ${GTEST_LIBRARIES} pthread)
+target_link_libraries(binarysearchtrees ${GTEST_LIBRARIES} pthread)
