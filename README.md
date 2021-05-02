@@ -1,10 +1,10 @@
 # Self Study
 
-A collection of small projects for self study. The goal is to use these for teaching/demoing in Code & Coffee meetups
+A collection of small projects for self study. The goal is to use these for teaching/demoing in Code & Coffee meetups, and generally as a reference (especially when it comes to tooling & config).
 
 Aim is to work through standard algorithm, data structures questions in both python and C++ (both languages due to differences in the way memory is managed).
 
-I have worked through, written and tested all the code, but I can't guarantee that the code is 100% defect free
+I have worked through, written and tested all the code, but I can't guarantee that the code is 100% defect free (aka don't use in production)
 
 - [x] Support Tasks
   - [x] Get Unit tests working
@@ -22,7 +22,7 @@ I have worked through, written and tested all the code, but I can't guarantee th
     - [x] Select Sort
     - [x] Merge Sort (nlogn)
     - [x] Heap Sort (nlogn)
-    - [x] Quick Sort
+    - [x] Quick Sort (nlogn)
     - [x] Radix Sort
     - [ ] Statistical Sorts
   - [ ] Hash
@@ -58,6 +58,10 @@ I have worked through, written and tested all the code, but I can't guarantee th
   - [ ] Count-min sketch
 
 # Study references:
+
+Primarily I recommend watching MITx [introduction to data structures and algorithms videos](https://www.youtube.com/watch?v=Zc54gFhdpLA) (they are excellent!) while working through Introduction to Algorithms (Cormen, Leiserson, Rivest, Stein). Recommended further reading [Design and Analysis of Algorithms](https://www.youtube.com/watch?v=2P-yW7LQr08&list=PLUl4u3cNGP6317WaSNfmCvGym2ucw3oGp), [Mathematics for Computer Science](https://www.youtube.com/watch?v=L3LMbpZIKhQ&list=PLB7540DEDD482705B), [Databases](https://15445.courses.cs.cmu.edu/fall2019/schedule.html),  machine learning [fast.ai](https://www.fast.ai/).
+
+Additional references, I recommend:
 
 - Problem Solving with Algorithms and Data Structures using Python
    http://interactivepython.org/runestone/static/pythonds/index.html

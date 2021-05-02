@@ -22,8 +22,8 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/src/algorithms/sorting/mergesort
         ${PROJECT_SOURCE_DIR}/src/algorithms/sorting/heapsort
         ${PROJECT_SOURCE_DIR}/src/algorithms/sorting/quicksort
-        ${PROJECT_SOURCE_DIR}/src/data_structures/linkedlist
-        ${PROJECT_SOURCE_DIR}/src/data_structures/dictionary
+        ${PROJECT_SOURCE_DIR}/src/datastructures/linkedlist
+        ${PROJECT_SOURCE_DIR}/src/datastructures/dictionary
 
 )
 
