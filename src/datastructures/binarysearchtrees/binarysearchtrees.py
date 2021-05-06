@@ -1,52 +1,70 @@
-"""A simple example hashing with chaining, with collisions handled via a linked list.
- This is equivalent to unordered sets rather than dicts, as we are not storing key value pairs
- Note: the python hash function salts the input before hashing.
- Hence hash(k) is deterministic only with the same process
-
- https://docs.python.org/3.9/reference/datamodel.html#object.__hash__
-
- For more deterministic hashing, cryptographic hash functions are available here
-
- https://docs.python.org/3.9/library/hashlib.html
-
- For this exercise, we will use a simple custom hash function, as we want some collisions to occur
- to demonstrate chaining
-
- References:
- https://algs4.cs.princeton.edu/34hash/
- https://softwareengineering.stackexchange.com/questions/49550/which-hashing-algorithm-is-best-for-uniqueness-and-speed
-
+"""A simple example of a Binary search tree
 """
 import copy
 
 
+class Node:
+    def __init__(self, value, parent=None, left=None, right=None):
+        self.key = value
+        self.parent = parent
+        self.left = left
+        self.right = right
+
+
 class BinarySearchTree:
 
-    def __init__(self):
-        self.data = [None for _ in range(7)]
-        self.capacity = 7
-        self.count = 0
+    def __init__(self, value=None):
+        if value:
+            self.root = Node(value)
+            self.count = 1
+        else:
+            self.root = None
+            self.count = 0
 
     def __len__(self):
         return self.count
 
-    def search(self,value):
+    def search(self, value):
         pass
 
     def minimum(self):
         pass
 
-    def predecessor(self,value):
+    def predecessor(self, value):
         pass
 
-    def successor(self,value);
+    def successor(self, value):
         pass
 
-    def insert(self,value):
-        pass
+    def _insert(self, node, value):
+        """Given a node, transverse it until you find a node to insert into
+
+        Update associated node links
+        """
+
+        if value < node.value:
+
+            if node.left:
+                self._insert(node.left, value)
+            else:
+                # Insert here and update
+                pass
+
+        if value >= node.value:
+            if node.right:
+                self._insert(node.right, value)
+            else:
+                # Insert here and update
+                pass
+
+    def insert(self, value):
+        # Check to see if root is empty
+        if not self.root:
+            self.root = Node(value)
+            self.count += 1
+            return
+
+        self._insert(self.root, value)
 
     def delete(self, value):
         pass
-
-
-
