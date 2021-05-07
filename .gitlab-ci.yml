@@ -6,7 +6,7 @@ image: gcc
 # Is performed before the scripts in the stages step
 before_script:
   - apt-get update
-  - apt-get -y install cmake python3-pip py3-scipy
+  - apt-get -y install cmake python3-pip python3-scipy
   - git submodule update --init --recursive
 #  - pip3 install --upgrade pip wheel setuptools
 # Defines stages which are to be executed
