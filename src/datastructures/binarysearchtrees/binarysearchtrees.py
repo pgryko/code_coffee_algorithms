@@ -36,7 +36,7 @@ class BinarySearchTree:
     def successor(self, value):
         pass
 
-    def _insert(self, node, value):
+    def _insert(self, node: Node, value):
         """Given a node, transverse it until you find a node to insert into
 
         Update associated node links
@@ -48,14 +48,17 @@ class BinarySearchTree:
                 self._insert(node.left, value)
             else:
                 # Insert here and update
-                pass
+                node.left = Node(value)
+                node.left.parent = node
+                self.count += 1
 
         if value >= node.value:
             if node.right:
                 self._insert(node.right, value)
             else:
-                # Insert here and update
-                pass
+                node.right = Node(value)
+                node.right.parent = node
+                self.count += 1
 
     def insert(self, value):
         # Check to see if root is empty
