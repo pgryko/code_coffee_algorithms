@@ -63,6 +63,10 @@ Primarily I recommend watching MITx [introduction to data structures and algorit
 
 Additional references, I recommend:
 
+- Computational probability & statistics
+  https://www.edx.org/course/computational-probability-and-inference
+  https://ggcarvalho.dev/posts/montecarlo/
+
 - Problem Solving with Algorithms and Data Structures using Python
    http://interactivepython.org/runestone/static/pythonds/index.html
 
@@ -158,6 +162,8 @@ Graphing and visualization:
 - Vscode plugin for rendering markdown with diagrams and latex math [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
 
 - [quiver](https://github.com/varkor/quiver) is a modern, graphical editor for commutative and pasting diagrams, capable of rendering high-quality diagrams for screen viewing, and exporting to LaTeX via tikz-cd.
+
+- [excalidraw](https://excalidraw.com/) Virtual whiteboard app for sketching hand-drawn like diagrams
 
 # Building & Run instructions:
 
