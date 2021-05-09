@@ -121,6 +121,7 @@ class BinarySearchTree:
             return None
         return self._maximum(self.root)
 
+    # Todo: replace as generator - return yield
     def predecessor(self, value):
 
         node = self._search(self.root, value)
@@ -136,6 +137,7 @@ class BinarySearchTree:
 
         return None
 
+    # Todo: replace as generator - return yield
     def successor(self, value):
         """Find next element in sorted order"""
 
@@ -192,8 +194,46 @@ class BinarySearchTree:
 
         self._insert(self.root, value)
 
+    # WIP
     def delete(self, value):
-        pass
+
+        node = self._search(self.root, value)
+
+        if node is None:
+            return None
+
+        # If node has no children, simply remove it and update the parent
+        if node.left is None and node.right is None:
+
+            if node.parent.right == node:
+                node.parent.right = None
+            else:
+                node.parent.left = None
+
+            node.parent = None
+            self.count = self.count - 1
+            return node.value
+
+        # If node has only one child
+        if bool(node.left) != bool(node.right):
+            # Check to see if its left node that exists
+            if node.left:
+                # Set the replacement node to point to
+                # the correct grand-parent (now parent)
+                node.left.parent = node.parent
+                # Update the grand-parent's reference
+                if node.parent.left == node:
+                    node.parent.left = node.left
+                else:
+                    node.parent.right = node.left
+            # Otherwise right node exists
+            else:
+                node.right.parent = node.right
+                # Update the grand-parent's reference
+                if node.parent.left == node:
+                    node.parent.left = node.right
+                else:
+                    node.parent.right = node.right
 
 
 if __name__ == '__main__':
