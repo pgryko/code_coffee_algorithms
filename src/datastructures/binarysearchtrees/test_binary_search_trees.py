@@ -48,3 +48,28 @@ class TestBinarySearchTree(unittest.TestCase):
 
         self.assertEqual(tree.minimum(), -10)
         self.assertEqual(tree.maximum(), 9)
+
+    def test_successor(self):
+        tree = BinarySearchTree(value=0)
+        for i in range(-10, 10):
+            tree.insert(i)
+        for i in range(-10, 0):
+            self.assertEqual(tree.successor(i), i + 1)
+
+        # We are not enforcing a uniqueness constraint, so there are two entries for
+        # zero
+        self.assertEqual(tree.successor(0), 0)
+
+        for i in range(1, 9):
+            self.assertEqual(tree.successor(i), i + 1)
+
+    def test_predecessor(self):
+        tree = BinarySearchTree(value=0)
+        for i in range(-10, 10):
+            tree.insert(i)
+
+        for i in range(-9, 0):
+            self.assertEqual(tree.predecessor(i), i - 1)
+
+        for i in range(1, 10):
+            self.assertEqual(tree.predecessor(i), i - 1)

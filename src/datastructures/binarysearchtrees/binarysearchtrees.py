@@ -28,10 +28,10 @@ class BinarySearchTree:
         return self.count
 
     def _search(self, node: Node, value) -> Union[Node, None]:
-        '''Recursively search binary tree
+        """Recursively search binary tree
 
         return Node or None
-        '''
+        """
 
         if node is None:
             return None
@@ -45,8 +45,8 @@ class BinarySearchTree:
             return self._search(node.right, value)
 
     def exists(self, value):
-        '''Kicks off recursive search subroutine
-        '''
+        """Kicks off recursive search subroutine
+        """
 
         if not self.root:
             return False
@@ -57,31 +57,28 @@ class BinarySearchTree:
         return False
 
     def _inorder_walk(self, node: Node):
-        '''Walks through the binary tree from smallest to largest
+        """Walks through the binary tree from smallest to largest
 
-        '''
+        """
         if self.node:
             self._inorder_walk(node.left)
             print(self.value)
             self._inorder_walk(node.right)
 
-
     def inorder_walk(self):
-        '''Kicks off inorder walk'''
+        """Kicks off inorder walk"""
         self._inorder_walk(self.root)
 
-
-    def minimum(self):
+    @staticmethod
+    def _minimum(node):
         """Return the minimum value
 
-        This could be done recursively, but for simplicities sake,
+        This could be done recursively, but for simplicity,
         use a while loop
         """
-        # Exit early if tree is empty
-        if not self.root:
-            return None
-
-        cur_node = self.root
+        # Make a new reference, not strictly needed,
+        # but we are updating references here
+        cur_node = node
 
         while cur_node:
             if cur_node.left:
@@ -89,17 +86,27 @@ class BinarySearchTree:
             else:
                 return cur_node.value
 
-    def maximum(self):
-        """Return the maximum value
+    def minimum(self):
+        """Initialises the subroutine for finding the minimum value in the tree
 
-        This could be done recursively, but for simplicities sake,
-        use a while loop
         """
         # Exit early if tree is empty
         if not self.root:
             return None
 
-        cur_node = self.root
+        return self._minimum(self.root)
+
+    @staticmethod
+    def _maximum(node):
+        """Return the maximum value
+
+        This could be done recursively, but for simplicities sake,
+        use a while loop
+        """
+
+        # Make a new reference, not strictly needed,
+        # but we are updating references here
+        cur_node = node
 
         while cur_node:
             if cur_node.right:
@@ -107,13 +114,50 @@ class BinarySearchTree:
             else:
                 return cur_node.value
 
-    def predecessor(self, value):
-        pass
+    def maximum(self):
+        """Kicks off subroutine to find maximum value"""
+        # Exit early if tree is empty
+        if not self.root:
+            return None
+        return self._maximum(self.root)
 
+    def predecessor(self, value):
+
+        node = self._search(self.root, value)
+
+        if not node:
+            return None
+
+        if node.parent:
+            return node.parent.value
+
+        elif node.left:
+            return node.left.value
+
+        return None
 
     def successor(self, value):
-        pass
+        """Find next element in sorted order"""
 
+        node = self._search(self.root, value)
+
+        # Handle case where value does not exist
+        if not node:
+            return None
+
+        if node.right:
+            return self._minimum(node.right)
+
+        # Handle case where there is no node.right
+        # We want to go up the tree and try to find the first left value
+
+        parent = node.parent
+
+        while parent and node == parent.right:
+            node = parent
+            parent = node.parent
+
+        return parent.value
 
     def _insert(self, node: Node, value):
         """Given a node, transverse it until you find a node to insert into
@@ -147,7 +191,6 @@ class BinarySearchTree:
             return
 
         self._insert(self.root, value)
-
 
     def delete(self, value):
         pass
