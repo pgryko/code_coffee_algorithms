@@ -2,6 +2,8 @@
 
 A dynamic set, where a balanced tree with n nodes have operations that take $`\Theta \left(\lg n\right)`$.
 
+They can be used both as dictionaries and as priority ques.
+
 They satisfy the property that, for node x in a binary search tree, node y is in the left subtree of x when $`y.key \leq x.key`$, and on the right when $`y.key \geq x.key`$.
 
 An inorder tree walk, prints all the elements in a binary tree, in order $`\Theta \left(n\right)`$.

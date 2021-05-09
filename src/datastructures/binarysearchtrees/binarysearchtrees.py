@@ -3,6 +3,7 @@
 import copy
 from typing import Union
 
+
 class Node:
     def __init__(self, value, parent=None, left=None, right=None):
         self.value = value
@@ -26,7 +27,7 @@ class BinarySearchTree:
     def __len__(self):
         return self.count
 
-    def _search(self, node: Node, value) -> Union[Node,None]:
+    def _search(self, node: Node, value) -> Union[Node, None]:
         '''Recursively search binary tree
 
         return Node or None
@@ -55,14 +56,64 @@ class BinarySearchTree:
 
         return False
 
+    def _inorder_walk(self, node: Node):
+        '''Walks through the binary tree from smallest to largest
+
+        '''
+        if self.node:
+            self._inorder_walk(node.left)
+            print(self.value)
+            self._inorder_walk(node.right)
+
+
+    def inorder_walk(self):
+        '''Kicks off inorder walk'''
+        self._inorder_walk(self.root)
+
+
     def minimum(self):
-        pass
+        """Return the minimum value
+
+        This could be done recursively, but for simplicities sake,
+        use a while loop
+        """
+        # Exit early if tree is empty
+        if not self.root:
+            return None
+
+        cur_node = self.root
+
+        while cur_node:
+            if cur_node.left:
+                cur_node = cur_node.left
+            else:
+                return cur_node.value
+
+    def maximum(self):
+        """Return the maximum value
+
+        This could be done recursively, but for simplicities sake,
+        use a while loop
+        """
+        # Exit early if tree is empty
+        if not self.root:
+            return None
+
+        cur_node = self.root
+
+        while cur_node:
+            if cur_node.right:
+                cur_node = cur_node.right
+            else:
+                return cur_node.value
 
     def predecessor(self, value):
         pass
 
+
     def successor(self, value):
         pass
+
 
     def _insert(self, node: Node, value):
         """Given a node, transverse it until you find a node to insert into
@@ -97,5 +148,14 @@ class BinarySearchTree:
 
         self._insert(self.root, value)
 
+
     def delete(self, value):
         pass
+
+
+if __name__ == '__main__':
+    tree = BinarySearchTree(value=0)
+    for i in range(-10, 10):
+        tree.insert(i)
+
+    tree.inorder_walk()

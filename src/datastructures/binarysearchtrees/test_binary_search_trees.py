@@ -38,5 +38,13 @@ class TestBinarySearchTree(unittest.TestCase):
         for i in range(-10, 10):
             self.assertTrue(tree3.exists(i))
 
+    def test_find_minimum_maximum(self):
+        self.assertIsNone(BinarySearchTree().minimum())
+        self.assertIsNone(BinarySearchTree().maximum())
+        tree = BinarySearchTree(value=0)
+        self.assertEqual(len(tree), 1)
+        for i in range(-10, 10):
+            tree.insert(i)
 
-
+        self.assertEqual(tree.minimum(), -10)
+        self.assertEqual(tree.maximum(), 9)
