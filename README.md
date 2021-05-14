@@ -287,3 +287,12 @@ This will terminate upon completion. To create an interactive session:
 $ docker run -it --rm self_study /bin/bash
 ```
 
+## Testing gitlab pipeline on localmachine
+
+Its possible to install gitlab runner on your local machine and test the .gitlab-ci.yaml
+
+```bash
+$ gitlab-runner exec docker test\ cpp
+$ gitlab-runner exec docker test\ python
+```
+

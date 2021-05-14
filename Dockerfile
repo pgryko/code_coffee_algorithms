@@ -1,9 +1,10 @@
 # Use an official Python runtime as a parent image
-FROM gcc
+FROM python:latest
 # Set the working directory to /app
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
+    build-essential gcc \
     cmake \
     python3-pip \
     python3-scipy \
