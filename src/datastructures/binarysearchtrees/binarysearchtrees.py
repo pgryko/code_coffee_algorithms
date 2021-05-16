@@ -194,6 +194,8 @@ class BinarySearchTree:
 
         self._insert(self.root, value)
 
+    # def _transplant(self):
+
     # WIP
     def delete(self, value):
 
@@ -205,35 +207,67 @@ class BinarySearchTree:
         # If node has no children, simply remove it and update the parent
         if node.left is None and node.right is None:
 
-            if node.parent.right == node:
-                node.parent.right = None
-            else:
-                node.parent.left = None
-
-            node.parent = None
-            self.count = self.count - 1
-            return node.value
+            # First case: node is root node:
+            if self.root == node:
+                self.root = None
+                self.count = self.count - 1
+                return node.value
 
         # If node has only one child
+        # Perform exclusive or
         if bool(node.left) != bool(node.right):
             # Check to see if its left node that exists
             if node.left:
                 # Set the replacement node to point to
                 # the correct grand-parent (now parent)
+                # If root node, then node.parent will automatically be none
                 node.left.parent = node.parent
-                # Update the grand-parent's reference
-                if node.parent.left == node:
-                    node.parent.left = node.left
+                if node.parent:
+                    # Update the grand-parent's reference
+                    if node.parent.left == node:
+                        node.parent.left = node.left
+                    else:
+                        node.parent.right = node.left
                 else:
-                    node.parent.right = node.left
+                    self.root = node.left
+                self.count = self.count - 1
+                return node.value
+
             # Otherwise right node exists
             else:
-                node.right.parent = node.right
+                node.right.parent = node.parent
                 # Update the grand-parent's reference
+
+                if node.parent:
+                    if node.parent.left == node:
+                        node.parent.left = node.right
+                    else:
+                        node.parent.right = node.right
+                else:
+                    self.root = node.parent
+                self.count = self.count - 1
+                return node.value
+
+        # If node has two children, then we want to replace the node, with the smallest value in the right
+        # chain
+        # If the right node, as no left child, it is the smallest element in the subtree
+        if node.right.left is None:
+            node.right.parent = node.right
+            # Update the grand-parent's reference
+
+            if node.parent:
                 if node.parent.left == node:
                     node.parent.left = node.right
                 else:
                     node.parent.right = node.right
+            else:
+                self.root = node.parent
+            self.count = self.count - 1
+            return node.value
+
+
+
+        # transplant it and then update the nodes
 
 
 if __name__ == '__main__':
