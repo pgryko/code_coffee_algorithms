@@ -73,3 +73,16 @@ class TestBinarySearchTree(unittest.TestCase):
 
         for i in range(1, 10):
             self.assertEqual(tree.predecessor(i), i - 1)
+
+    def test_delete_root(self):
+        # Test inserting and deleting the root node
+        tree = BinarySearchTree(value=0)
+        self.assertTrue(tree.exists(0))
+        # Check root node is assigned
+        self.assertTrue(bool(tree.root))
+        self.assertEqual(len(tree), 1)
+        self.assertEqual(tree.delete(0), 0)
+        self.assertFalse(tree.exists(0))
+        self.assertEqual(len(tree), 0)
+        # Check root node is deleted
+        self.assertIsNone(tree.root)

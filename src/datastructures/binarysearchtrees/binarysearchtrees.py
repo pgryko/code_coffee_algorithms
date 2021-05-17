@@ -194,9 +194,16 @@ class BinarySearchTree:
 
         self._insert(self.root, value)
 
-    # def _transplant(self):
+    def _transplant(self, parent, child):
+        if parent.parent is None:
+            self.root = child
+        elif child == child.parent.left:
+            child.parent.left = child
+        else:
+            child.parent.right = child
+        if child is not None:
+            child.parent = parent.child
 
-    # WIP
     def delete(self, value):
 
         node = self._search(self.root, value)
@@ -204,71 +211,27 @@ class BinarySearchTree:
         if node is None:
             return None
 
-        # If node has no children, simply remove it and update the parent
-        if node.left is None and node.right is None:
+        if node.left is None:
+            self._transplant(node, node.right)
+        elif node.right is None:
+            self._transplant(node, node.left)
+        else:
+            # If node has two children, then we want to replace the node, with the smallest value in the right
+            # chain
+            # If the right node, as no left child, it is the smallest element in the subtree
 
-            # First case: node is root node:
-            if self.root == node:
-                self.root = None
-                self.count = self.count - 1
-                return node.value
+            min_child = self._minimum(node.right)
+            if min_child.parent != node:
+                # Min child's right value can be none
+                self._transplant(min_child, min_child.right)
+                min_child.right = node.right
+                min_child.right.parent = min_child
+            self._transplant(node, min_child)
+            min_child.left = node.left
+            min_child.left.parent = min_child
 
-        # If node has only one child
-        # Perform exclusive or
-        if bool(node.left) != bool(node.right):
-            # Check to see if its left node that exists
-            if node.left:
-                # Set the replacement node to point to
-                # the correct grand-parent (now parent)
-                # If root node, then node.parent will automatically be none
-                node.left.parent = node.parent
-                if node.parent:
-                    # Update the grand-parent's reference
-                    if node.parent.left == node:
-                        node.parent.left = node.left
-                    else:
-                        node.parent.right = node.left
-                else:
-                    self.root = node.left
-                self.count = self.count - 1
-                return node.value
-
-            # Otherwise right node exists
-            else:
-                node.right.parent = node.parent
-                # Update the grand-parent's reference
-
-                if node.parent:
-                    if node.parent.left == node:
-                        node.parent.left = node.right
-                    else:
-                        node.parent.right = node.right
-                else:
-                    self.root = node.parent
-                self.count = self.count - 1
-                return node.value
-
-        # If node has two children, then we want to replace the node, with the smallest value in the right
-        # chain
-        # If the right node, as no left child, it is the smallest element in the subtree
-        if node.right.left is None:
-            node.right.parent = node.right
-            # Update the grand-parent's reference
-
-            if node.parent:
-                if node.parent.left == node:
-                    node.parent.left = node.right
-                else:
-                    node.parent.right = node.right
-            else:
-                self.root = node.parent
-            self.count = self.count - 1
-            return node.value
-
-
-
-        # transplant it and then update the nodes
-
+        self.count -= 1
+        return node.value
 
 if __name__ == '__main__':
     tree = BinarySearchTree(value=0)
