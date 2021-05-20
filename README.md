@@ -249,6 +249,10 @@ It should then be possible to debug your executable using gdb
 ```shell
 $ gdb binary core
 ```
+
+A tutorial on debugging with gdb can be found [here](https://jvns.ca/blog/2021/05/17/how-to-look-at-the-stack-in-gdb/)
+
+
 ## Python
 Dependencies:
 
