@@ -1,6 +1,5 @@
 """A simple example of a Binary search tree
 """
-import copy
 from typing import Union
 
 
@@ -11,6 +10,12 @@ class Node:
         self.left = left
         self.right = right
 
+    def __str__(self):
+        return str(self.value)
+
+    def __repr__(self):
+        return "Node(value=" + str(self.value) + " parent=" + str(self.parent) + \
+               " left=" + str(self.left) + " right=" + str(self.right) + ")"
 
 class BinarySearchTree:
 
@@ -186,6 +191,12 @@ class BinarySearchTree:
                 self.count += 1
 
     def insert(self, value):
+
+        # Handle passing in a list
+        if isinstance(value, list):
+            for element in value:
+                self.insert(element)
+            return
         # Check to see if root is empty
         if not self.root:
             self.root = Node(value)
