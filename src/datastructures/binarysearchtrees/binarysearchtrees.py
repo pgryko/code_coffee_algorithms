@@ -76,7 +76,7 @@ class BinarySearchTree:
 
     @staticmethod
     def _minimum(node):
-        """Return the minimum value
+        """Return the minimum node
 
         This could be done recursively, but for simplicity,
         use a while loop
@@ -89,7 +89,7 @@ class BinarySearchTree:
             if cur_node.left:
                 cur_node = cur_node.left
             else:
-                return cur_node.value
+                return cur_node
 
     def minimum(self):
         """Initialises the subroutine for finding the minimum value in the tree
@@ -99,7 +99,7 @@ class BinarySearchTree:
         if not self.root:
             return None
 
-        return self._minimum(self.root)
+        return self._minimum(self.root).value
 
     @staticmethod
     def _maximum(node):
@@ -117,14 +117,14 @@ class BinarySearchTree:
             if cur_node.right:
                 cur_node = cur_node.right
             else:
-                return cur_node.value
+                return cur_node
 
     def maximum(self):
         """Kicks off subroutine to find maximum value"""
         # Exit early if tree is empty
         if not self.root:
             return None
-        return self._maximum(self.root)
+        return self._maximum(self.root).value
 
     # Todo: replace as generator - return yield
     def predecessor(self, value):
@@ -164,7 +164,7 @@ class BinarySearchTree:
             node = parent
             parent = node.parent
 
-        return parent.value
+        return parent
 
     def _insert(self, node: Node, value):
         """Given a node, transverse it until you find a node to insert into
@@ -208,12 +208,12 @@ class BinarySearchTree:
     def _transplant(self, parent, child):
         if parent.parent is None:
             self.root = child
-        elif child == child.parent.left:
-            child.parent.left = child
+        elif parent == parent.parent.left:
+            parent.parent.left = child
         else:
-            child.parent.right = child
+            parent.parent.right = child
         if child is not None:
-            child.parent = parent.child
+            child.parent = parent.parent
 
     def delete(self, value):
 

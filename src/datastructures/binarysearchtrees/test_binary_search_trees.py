@@ -63,7 +63,7 @@ class TestBinarySearchTree(unittest.TestCase):
 
         for value in expected_values:
             self.assertTrue(tree.exists(value))
-        self.assertEqual(len(tree),len(expected_values))
+        self.assertEqual(len(tree), len(expected_values))
 
     def test_find_minimum_maximum(self):
         tree, expected_values = gen_balanced_tree()
@@ -76,14 +76,14 @@ class TestBinarySearchTree(unittest.TestCase):
         for i in range(-10, 10):
             tree.insert(i)
         for i in range(-10, 0):
-            self.assertEqual(tree.successor(i), i + 1)
+            self.assertEqual(tree.successor(i).value, i + 1)
 
         # We are not enforcing a uniqueness constraint, so there are two entries for
         # zero
-        self.assertEqual(tree.successor(0), 0)
+        self.assertEqual(tree.successor(0).value, 0)
 
         for i in range(1, 9):
-            self.assertEqual(tree.successor(i), i + 1)
+            self.assertEqual(tree.successor(i).value, i + 1)
 
     def test_predecessor(self):
         tree = BinarySearchTree(value=0)
@@ -110,7 +110,6 @@ class TestBinarySearchTree(unittest.TestCase):
         self.assertIsNone(tree.root)
 
     def test_delete_unbalanced_tree(self):
-        # Test a more general case of deleting a node in a binary tree
         tree = BinarySearchTree(value=0)
         self.assertEqual(len(tree), 1)
         for i in range(-10, 10):
@@ -121,9 +120,34 @@ class TestBinarySearchTree(unittest.TestCase):
         for i in range(-10, 10):
             self.assertTrue(tree.exists(i))
 
-        # for i in range(-10, 10):
-        #     try:
-        #         self.assertTrue(tree.delete(i))
-        #     except:
-        #         import ipdb
-        #         ipdb.set_trace()
+        for i in range(-10, 0):
+            self.assertEqual(tree.delete(i), i)
+            self.assertFalse(tree.exists(i))
+            self.assertEqual(len(tree), 10 - i)
+
+        # There are two instances of zero (we initialize with value=0
+        # and push and additional zero with range function
+        tree.delete(0)
+        self.assertTrue(tree.exists(0))
+
+        for i in range(0, 10):
+            self.assertEqual(tree.delete(i), i)
+            self.assertFalse(tree.exists(i))
+            self.assertEqual(len(tree), 9 - i)
+
+        self.assertEqual(len(tree), 0)
+
+    def test_delete_balanced_tree(self):
+        # Test a more general case of deleting a node in a binary tree
+        tree, expected_values = gen_balanced_tree()
+        self.assertEqual(len(tree), len(expected_values))
+
+
+        for i in expected_values:
+            self.assertTrue(tree.exists(i))
+
+        for i in expected_values:
+            self.assertEqual(tree.delete(i), i)
+            self.assertFalse(tree.exists(i))
+
+        self.assertEqual(len(tree), 0)
