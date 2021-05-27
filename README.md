@@ -67,6 +67,9 @@ Additional references, I recommend:
   https://www.edx.org/course/computational-probability-and-inference
   https://ggcarvalho.dev/posts/montecarlo/
 
+- Screencasts on sysadmin and computation
+  https://www.destroyallsoftware.com/screencasts/catalog
+
 - Problem Solving with Algorithms and Data Structures using Python
    http://interactivepython.org/runestone/static/pythonds/index.html
 
