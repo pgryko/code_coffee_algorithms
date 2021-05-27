@@ -142,12 +142,14 @@ class BinarySearchTree:
 
         return None
 
-    # Todo: replace as generator - return yield
-    def successor(self, value):
-        """Find next element in sorted order"""
+    def _successor(self,node):
+        """ Given a node find its successor
 
-        node = self._search(self.root, value)
-
+        Separated out into private function so that it can also be used
+        in __iter__
+        :param node:
+        :return:
+        """
         # Handle case where value does not exist
         if not node:
             return None
@@ -165,6 +167,24 @@ class BinarySearchTree:
             parent = node.parent
 
         return parent
+
+    def successor(self, value):
+        """Find next element in sorted order
+        """
+
+        node = self._search(self.root, value)
+        return self._successor(node)
+
+    def __iter__(self, node: Node = None):
+
+        if node is None:
+            node = self._minimum(self.root)
+
+        while node:
+            yield node
+            node = self._successor(node)
+
+
 
     def _insert(self, node: Node, value):
         """Given a node, transverse it until you find a node to insert into

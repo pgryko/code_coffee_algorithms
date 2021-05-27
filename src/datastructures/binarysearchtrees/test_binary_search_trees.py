@@ -85,6 +85,40 @@ class TestBinarySearchTree(unittest.TestCase):
         for i in range(1, 9):
             self.assertEqual(tree.successor(i).value, i + 1)
 
+        # Now test a balanced tree
+        balanced_tree, expected = gen_balanced_tree()
+
+        for i in range(0, len(expected) - 2):
+            self.assertEqual(balanced_tree.successor(expected[i]).value, expected[i + 1])
+
+        self.assertIsNone(balanced_tree.successor(expected[-1]))
+
+    def test_iterator(self):
+        tree = BinarySearchTree(value=0)
+        for i in range(-10, 10):
+            tree.insert(i)
+
+        iterator = iter(tree)
+        for i in range(-10, 0):
+            self.assertEqual(next(iterator).value, i)
+
+        # We are not enforcing a uniqueness constraint, so there are two entries for
+        # zero
+        self.assertEqual(next(iterator).value, 0)
+
+        for i in range(0, 9):
+            self.assertEqual(next(iterator).value, i)
+
+        # Now test a balanced tree
+        balanced_tree, expected = gen_balanced_tree()
+
+        iterator = iter(balanced_tree)
+
+        for i in range(0, len(expected)):
+            self.assertEqual(next(iterator).value, expected[i])
+
+        self.assertRaises(StopIteration, iterator.__next__)
+
     def test_predecessor(self):
         tree = BinarySearchTree(value=0)
         for i in range(-10, 10):
@@ -141,7 +175,6 @@ class TestBinarySearchTree(unittest.TestCase):
         # Test a more general case of deleting a node in a binary tree
         tree, expected_values = gen_balanced_tree()
         self.assertEqual(len(tree), len(expected_values))
-
 
         for i in expected_values:
             self.assertTrue(tree.exists(i))
