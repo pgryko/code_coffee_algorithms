@@ -61,19 +61,6 @@ class BinarySearchTree:
 
         return False
 
-    def _inorder_walk(self, node: Node):
-        """Walks through the binary tree from smallest to largest
-
-        """
-        if self.node:
-            self._inorder_walk(node.left)
-            print(self.value)
-            self._inorder_walk(node.right)
-
-    def inorder_walk(self):
-        """Kicks off inorder walk"""
-        self._inorder_walk(self.root)
-
     @staticmethod
     def _minimum(node):
         """Return the minimum node
@@ -269,4 +256,10 @@ if __name__ == '__main__':
     for i in range(-10, 10):
         tree.insert(i)
 
-    tree.inorder_walk()
+    iterator = iter(tree)
+
+    while iterator:
+        try:
+            print(next(iterator))
+        except StopIteration:
+            break

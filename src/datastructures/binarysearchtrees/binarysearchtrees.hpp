@@ -8,6 +8,16 @@
 #include <string>
 #include <algorithm> //std::find
 
+template<typename Key, typename Value> struct Node {
+Value v;
+Key k;
+
+std::size_t i
+
+
+
+};
+
 
 template<typename Key, typename Value>
 class BinarySearchTree {
