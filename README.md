@@ -1,6 +1,6 @@
-# Self Study
+# Code & Coffee: Datastructures and Algorithms
 
-A collection of small projects for self study. The goal is to use these for teaching/demoing in Code & Coffee meetups, and generally as a reference (especially when it comes to tooling & config).
+A collection of small projects demonstrating computer science concepts. The goal is to use these for teaching/demoing in Code & Coffee meetups, and generally as a reference (especially when it comes to tooling & config).
 
 Aim is to work through standard algorithm, data structures questions in both python and C++ (both languages due to differences in the way memory is managed).
 
