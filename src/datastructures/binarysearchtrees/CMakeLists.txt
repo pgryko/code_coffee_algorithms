@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-project(hash_with_chaining)
+project(binary_search_tree)
 
 # Locate GTest
 find_package(GTest REQUIRED)

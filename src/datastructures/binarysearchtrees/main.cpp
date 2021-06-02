@@ -14,6 +14,8 @@
 
 int main(int argc, char *argv[]) {
 
+    auto tree = BinarySearchTree<std::string, std::string>();
+
 //    testing::InitGoogleTest(&argc, argv);
 //    return RUN_ALL_TESTS();
 
