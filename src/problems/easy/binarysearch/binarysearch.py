@@ -34,6 +34,7 @@ def search_recursive(nums: List[int], target: int) -> int:
                 return _recursive(nums, target, low=mid + 1, high=high)
 
             if nums[mid] > target:
-                _recursive(nums, target, low=low, high=mid - 1)
+                return _recursive(nums, target, low=low, high=mid - 1)
 
     return _recursive(nums=nums, target=target, low=0, high=len(nums) - 1)
+
