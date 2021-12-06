@@ -182,7 +182,7 @@ Dependencies:
 
 ```bash
 
-$ sudo apt install gcc cmake libgtest-dev
+$ sudo apt install gcc cmake libgtest-dev clang-format
 ```
 
 For Ubuntu you need to install and compile the libs yourself. It is not recommend to install a pre-compiled version of google test (for example into /usr/local) as [described by this note from google](https://github.com/google/googletest/blob/36066cfecf79267bdf46ff82ca6c3b052f8f633c/googletest/docs/faq.md#why-is-it-not-recommended-to-install-a-pre-compiled-copy-of-google-test-for-example-into-usrlocal)
@@ -205,7 +205,7 @@ $ make
 $ cd ../..
 ```
 
-If you want to install the google test libs into /usr/local/lib, copy the contents of
+If you want to install the google test libs into /usr/local/lib (NOT RECOMMENDED), copy the contents of
 ```bash
 $ sudo cp external/googletest/lib/libgtest*.a /usr/local/lib
 ``` 
