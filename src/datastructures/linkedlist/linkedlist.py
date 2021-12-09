@@ -195,11 +195,12 @@ class LinkedList:
 
         if not (isinstance(arg, int) or isinstance(arg, Node)):
             raise TypeError("Expect arg to be of either int or Node type, received: "
-                             + str(type(arg)))
+                            + str(type(arg)))
 
         if isinstance(arg, int):
             if arg < 0:
-                raise IndexError("Arg must be a positive integer, received: " + str(int))
+                raise IndexError(
+                    "Arg must be a positive integer, received: " + str(int))
             # Just return, if we try this on an empty list
             if len(self.nodes) == 0:
                 raise IndexError('pop from empty list')
@@ -216,7 +217,8 @@ class LinkedList:
             # we don't have access to malloc type behaviour
             # so we still need to perform a search to find the index of the node
 
-            index = next((i for i, node in enumerate(self.nodes) if node.data == arg.data), None)
+            index = next((i for i, node in enumerate(
+                self.nodes) if node.data == arg.data), None)
             if index is not None:
                 return self._remove_node(index)
 
@@ -230,5 +232,3 @@ if __name__ == '__main__':
     mylist.insert(1, Node(2))
 
     print(mylist)
-
-

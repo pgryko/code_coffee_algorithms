@@ -5,6 +5,22 @@ Given an array of integers nums which is sorted in ascending order, and an integ
 
 You must write an algorithm with O(log n) runtime complexity.
 
+```
+PROGRAM BinarySearch(Array,Target):
+    L := 0
+    R := Array.size() - 1
+    
+    while L <= R do :
+        mid = floor( (L + R) / 2 )
+        if Array[mid] < T:
+            L = mid + 1
+        else if Array[mid] > T:
+            R = mid - 1
+        else:
+            return mid
+    return unsuccessful
+END
+```
  
 
 Example 1:
@@ -25,3 +41,18 @@ Constraints:
 -104 < nums[i], target < 104
 All the integers in nums are unique.
 nums is sorted in ascending order.
+
+### Building
+```bash
+$ cmake -H. -Bbuild
+$ cd build
+$ make
+$ ./binarysearch
+```
+
+### Linting
+
+Linting and individual file can be run using
+```bash
+$  clang-format -i main.cpp --style=google
+```

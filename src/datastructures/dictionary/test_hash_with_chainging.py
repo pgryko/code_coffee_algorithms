@@ -46,11 +46,3 @@ class TestHashChaining(unittest.TestCase):
         self.assertTrue(hash_map.exists('A'))
         hash_map.delete('A')
         self.assertFalse(hash_map.exists('A'))
-
-
-
-
-
-
-
-

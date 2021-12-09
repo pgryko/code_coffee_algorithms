@@ -266,7 +266,8 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(my_list.tail.prev.prev, None)
 
     def test_reverse(self):
-        my_list = LinkedList(nodes=[Node('A'), Node('B'), Node('C'), Node('D')])
+        my_list = LinkedList(
+            nodes=[Node('A'), Node('B'), Node('C'), Node('D')])
 
         my_list.reverse()
 

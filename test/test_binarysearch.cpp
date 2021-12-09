@@ -11,10 +11,10 @@
 
 template <typename T, size_t N>
 void printarray(const std::array<T, N> *Array) {
-  for (const auto &s : *Array) {
-    std::cout << " " << s << ", ";
-  }
-  std::cout << std::endl;
+    for (const auto &s : *Array) {
+        std::cout << " " << s << ", ";
+    }
+    std::cout << std::endl;
 }
 // Test Iterative form
 TEST(BinarySearchIterativeTest, TestExistsArray) {
@@ -143,9 +143,4 @@ TEST(BinarySearchRecursiveTest, TestNotExistVector) {
     std::vector<int> a1{-1, 0, 3, 4, 5, 9, 12};
     auto iter_rtn = binarysearchiterative(a1.begin(), a1.end(), 2);
     EXPECT_EQ(a1.end(), iter_rtn);
-}
-
-int main(int argc, char *argv[]) {
-  testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
 }

@@ -24,6 +24,7 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/src/algorithms/sorting/quicksort
         ${PROJECT_SOURCE_DIR}/src/datastructures/linkedlist
         ${PROJECT_SOURCE_DIR}/src/datastructures/dictionary
+        ${PROJECT_SOURCE_DIR}/src/problems/easy/binarysearch
 
 )
 
@@ -62,6 +63,7 @@ add_executable(
     test/test_quicksort.cpp
     test/test_linkedlist.cpp
     test/test_hashchaining.cpp
+    test/test_binarysearch.cpp
 )
 
 add_dependencies(unit_tests googletest)
