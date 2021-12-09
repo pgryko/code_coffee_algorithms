@@ -23,6 +23,7 @@ class TestBinarySearchIterative(unittest.TestCase):
         # Test the case where target exists in array
         self.assertEqual(search_iterative([-1, 0, 3, 5, 9, 12], 2), None)
 
+
 class TestBinarySearchRecursive(unittest.TestCase):
 
     def test_exists(self):

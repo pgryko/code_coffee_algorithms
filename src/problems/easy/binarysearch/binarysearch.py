@@ -22,6 +22,7 @@ def search_iterative(nums: List[int], target: int) -> int:
 
     # If nothing is found python will by default return None
 
+
 def search_recursive(nums: List[int], target: int) -> int:
     def _recursive(nums: List[int], target: int, low, high):
         if low <= high:
@@ -37,4 +38,3 @@ def search_recursive(nums: List[int], target: int) -> int:
                 return _recursive(nums, target, low=low, high=mid - 1)
 
     return _recursive(nums=nums, target=target, low=0, high=len(nums) - 1)
-

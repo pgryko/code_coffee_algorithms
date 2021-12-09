@@ -30,7 +30,7 @@ class LinkedListSingleArray:
         # where the 'pointers', point to the next/prev key
         # e.g for an empty array [None, 0, 4, None, 0, 7, None, 0, None]
         self._buffer = [x + 2 if ((x + 1) % 3 == 0) else 0 if ((x + 2) % 3 == 0)
-        else None for x in range(0, capacity * 3)]
+                        else None for x in range(0, capacity * 3)]
         # Set end element to None
         self._buffer[-1] = None
         self._free_index = 1

@@ -146,7 +146,8 @@ class TestLinkedListSingleArray(unittest.TestCase):
             list_1.pop()
 
         self.assertListEqual(list_1._buffer,
-                             [None, 0, 4, None, 0, 7, None, 0, 10, None, 0, 13, None, 0, 16, None, 0, None]
+                             [None, 0, 4, None, 0, 7, None, 0, 10, None,
+                                 0, 13, None, 0, 16, None, 0, None]
                              )
 
         list_1.push('A')
@@ -210,11 +211,13 @@ class TestLinkedListSingleArray(unittest.TestCase):
     def test_reverse(self):
         list_1 = LinkedListSingleArray(data=['A', 'B', 'C', 'D'], capacity=4)
 
-        self.assertEqual(list_1._buffer, [4, 'A', None, 7, 'B', 1, 10, 'C', 4, None, 'D', 7])
+        self.assertEqual(list_1._buffer, [
+                         4, 'A', None, 7, 'B', 1, 10, 'C', 4, None, 'D', 7])
 
         list_1.reverse()
 
-        self.assertEqual(list_1._buffer, [None, 'A', 4, 1, 'B', 7, 4, 'C', 10, 7, 'D', None])
+        self.assertEqual(list_1._buffer, [
+                         None, 'A', 4, 1, 'B', 7, 4, 'C', 10, 7, 'D', None])
 
         forward_iterator = list_1.__next__()
         for element in ['A', 'B', 'C', 'D']:

@@ -89,7 +89,8 @@ class TestBinarySearchTree(unittest.TestCase):
         balanced_tree, expected = gen_balanced_tree()
 
         for i in range(0, len(expected) - 2):
-            self.assertEqual(balanced_tree.successor(expected[i]).value, expected[i + 1])
+            self.assertEqual(balanced_tree.successor(
+                expected[i]).value, expected[i + 1])
 
         self.assertIsNone(balanced_tree.successor(expected[-1]))
 

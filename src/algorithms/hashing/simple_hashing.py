@@ -5,7 +5,7 @@ Examples of simple hashing techniques that can be used for hash tables
 
 def hashcode(string: str):
     '''Converts a string into a large integer
-    
+
     both the name and method is based off java's
     hashcode function.
 
@@ -47,6 +47,7 @@ def SHA256(message: str) -> int:
     '''
 
     return 0
+
 
 def md5(message):
     '''MD5 processes a variable length message into an output of 128 bits.

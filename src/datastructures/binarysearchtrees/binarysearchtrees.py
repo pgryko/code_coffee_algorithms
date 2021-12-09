@@ -17,6 +17,7 @@ class Node:
         return "Node(value=" + str(self.value) + " parent=" + str(self.parent) + \
                " left=" + str(self.left) + " right=" + str(self.right) + ")"
 
+
 class BinarySearchTree:
 
     def __init__(self, value=None):
@@ -129,7 +130,7 @@ class BinarySearchTree:
 
         return None
 
-    def _successor(self,node):
+    def _successor(self, node):
         """ Given a node find its successor
 
         Separated out into private function so that it can also be used
@@ -170,8 +171,6 @@ class BinarySearchTree:
         while node:
             yield node
             node = self._successor(node)
-
-
 
     def _insert(self, node: Node, value):
         """Given a node, transverse it until you find a node to insert into
@@ -250,6 +249,7 @@ class BinarySearchTree:
 
         self.count -= 1
         return node.value
+
 
 if __name__ == '__main__':
     tree = BinarySearchTree(value=0)

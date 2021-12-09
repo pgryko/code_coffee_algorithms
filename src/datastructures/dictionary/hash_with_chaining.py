@@ -130,9 +130,3 @@ class HashChaining:
 
         self.data[index].remove(message)
         self.count -= 1
-
-
-
-
-
-

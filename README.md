@@ -57,6 +57,10 @@ I have worked through, written and tested all the code, but I can't guarantee th
   - [ ] T/Q Digest
   - [ ] Count-min sketch
 
+- [ ] Problem Questions
+  - [ ] Easy
+    - [x] Binary Search
+
 # Study references:
 
 Primarily I recommend watching MITx [introduction to data structures and algorithms videos](https://www.youtube.com/watch?v=Zc54gFhdpLA) (they are excellent!) while working through Introduction to Algorithms (Cormen, Leiserson, Rivest, Stein). Recommended further reading [Design and Analysis of Algorithms](https://www.youtube.com/watch?v=2P-yW7LQr08&list=PLUl4u3cNGP6317WaSNfmCvGym2ucw3oGp), [Mathematics for Computer Science](https://www.youtube.com/watch?v=L3LMbpZIKhQ&list=PLB7540DEDD482705B), [Databases](https://15445.courses.cs.cmu.edu/fall2019/schedule.html),  machine learning [fast.ai](https://www.fast.ai/).
@@ -110,10 +114,22 @@ Additional references, I recommend:
   TCP/IP Illustrated Volume 1
   The Design of the UNIX Operating System
 
+- Statistical
+  - Statistical Rethinking Bayesian Course with Examples 
+    https://xcelab.net/rm/statistical-rethinking/
+    https://github.com/rmcelreath/stat_rethinking_2022
+  - Bayesian Optimization Book
+    https://bayesoptbook.com/
+  - Model based machine learning
+    https://mbmlbook.com/
+
 - Miscellaneous blogs
   - Reference implementation of algorithms https://jojozhuang.github.io/
   - Overview of math in datascience
     https://www.dataquest.io/blog/math-in-data-science/
+
+  - Practical machine learning to estimate traffic flow in San Juan, Puerto Rico
+    https://santurcesoftware.com/machine-learning-san-juan-traffic
 
   - Short tutorials on timeseries forecasting
     https://news.ycombinator.com/item?id=20253622
