@@ -26,6 +26,7 @@ def hashcode(string: str):
 
     large_int = 0
     for index, char in enumerate(string):
+        # ord() returns an integer representing a unicode character
         large_int += ord(char) * 31 ^ index
     return large_int
 
