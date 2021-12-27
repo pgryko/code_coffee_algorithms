@@ -117,9 +117,9 @@ if the load factor $`\alpha = \frac{n}{m}`$, cost of operations insert/search/de
 
 ## Build
 
-$ cmake -H. -Bbuild
-$ cd build; make
-$ ./hash_with_chaining
+```$ cmake -H. -Bbuild```
+```$ cd build; make```
+```$ ./hash_with_chaining```
 
-Or manually using g++
-$ g++ --std=c++1z main.cpp
+Or *manually* using g++
+```$ g++ --std=c++1z main.cpp```
