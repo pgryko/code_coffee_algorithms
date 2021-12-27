@@ -1,4 +1,10 @@
-Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
+Design a data structure that follows the constraints of Least Recently Used (LRU) cache.
+
+For python, can be implemented using an ordered dict
+
+For other languages, use two datastructures, a double linked
+list (as a queue) and a hashmap with page address (index or ptr) as key and 
+address of node as value
 
 Implement the LRUCache class:
 
@@ -31,3 +37,12 @@ Constraints:
 0 <= key <= 104
 0 <= value <= 105
 At most 2 * 105 calls will be made to get and put.
+
+## Build
+
+$ cmake -H. -Bbuild
+$ cd build; make
+$ ./lrucache
+
+Or manually using g++
+$ g++ --std=c++1z main.cpp
