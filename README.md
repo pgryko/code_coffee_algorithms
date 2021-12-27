@@ -60,6 +60,8 @@ I have worked through, written and tested all the code, but I can't guarantee th
 - [ ] Problem Questions
   - [ ] Easy
     - [x] Binary Search
+  - [ ] Medium
+    - [x] LRU Cache
 
 # Study references:
 
