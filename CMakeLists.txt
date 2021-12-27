@@ -25,7 +25,7 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/src/datastructures/linkedlist
         ${PROJECT_SOURCE_DIR}/src/datastructures/dictionary
         ${PROJECT_SOURCE_DIR}/src/problems/easy/binarysearch
-
+        ${PROJECT_SOURCE_DIR}/src/problems/medium/lrucache
 )
 
 add_library(
@@ -62,6 +62,7 @@ add_executable(
     test/test_heapsort.cpp
     test/test_quicksort.cpp
     test/test_linkedlist.cpp
+    test/test_lrucache.cpp
     test/test_hashchaining.cpp
     test/test_binarysearch.cpp
 )
