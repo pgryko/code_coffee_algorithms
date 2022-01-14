@@ -60,6 +60,7 @@ I have worked through, written and tested all the code, but I can't guarantee th
 - [ ] Problem Questions
   - [ ] Easy
     - [x] Binary Search
+    - [ ] Invert a Binary tree
   - [ ] Medium
     - [x] LRU Cache
 
@@ -124,6 +125,12 @@ Additional references, I recommend:
     https://bayesoptbook.com/
   - Model based machine learning
     https://mbmlbook.com/
+
+- Machine learning
+  - Fast AI 
+    https://fast.ai
+  - Deep Learning Interviews book: Hundreds of fully solved job interview questions from a wide range of key topics in AI.
+    https://github.com/BoltzmannEntropy/interviews.ai
 
 - Miscellaneous blogs
   - Reference implementation of algorithms https://jojozhuang.github.io/
