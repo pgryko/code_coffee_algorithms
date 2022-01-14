@@ -76,21 +76,21 @@ class TestBinarySearchTree(unittest.TestCase):
         for i in range(-10, 10):
             tree.insert(i)
         for i in range(-10, 0):
-            self.assertEqual(tree.successor(i).value, i + 1)
+            self.assertEqual(tree.successor(i), i + 1)
 
         # We are not enforcing a uniqueness constraint, so there are two entries for
         # zero
-        self.assertEqual(tree.successor(0).value, 0)
+        self.assertEqual(tree.successor(0), 0)
 
         for i in range(1, 9):
-            self.assertEqual(tree.successor(i).value, i + 1)
+            self.assertEqual(tree.successor(i), i + 1)
 
         # Now test a balanced tree
         balanced_tree, expected = gen_balanced_tree()
 
         for i in range(0, len(expected) - 2):
             self.assertEqual(balanced_tree.successor(
-                expected[i]).value, expected[i + 1])
+                expected[i]), expected[i + 1])
 
         self.assertIsNone(balanced_tree.successor(expected[-1]))
 

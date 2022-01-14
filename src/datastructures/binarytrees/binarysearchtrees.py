@@ -1,6 +1,21 @@
 """A simple example of a Binary search tree
 """
+# Future import need for using self in typehints
+from __future__ import annotations
 from typing import Union
+
+
+# Used to specialised subtype of Node class that's passed into Binary Tree
+# Essentially Binary tree contains some methods that we want to keep for all tree types
+# such as search, iter, predecessor, etc
+# but we want to modify the node class used as red-black tree keeps track of additional param color
+# and AVL trees keep track of additional param height
+
+class MetaNode:
+
+    def __init_subclass__(cls, node_cls, **kwargs):
+        super().__init_subclass__(**kwargs)
+        cls.node_cls = node_cls
 
 
 class Node:
@@ -18,13 +33,13 @@ class Node:
                " left=" + str(self.left) + " right=" + str(self.right) + ")"
 
 
-class BinarySearchTree:
+class BinarySearchTree(MetaNode, node_cls=Node):
 
     def __init__(self, value=None):
         # Need to check explicitly against None, as passing in value of 0
         # would cause bug
         if value is not None:
-            self.root = Node(value)
+            self.root = self.node_cls(value)
             self.count = 1
         else:
             self.root = None
@@ -33,7 +48,7 @@ class BinarySearchTree:
     def __len__(self):
         return self.count
 
-    def _search(self, node: Node, value) -> Union[Node, None]:
+    def _search(self, node: self.node_cls, value) -> Union[self.node_cls, None]:
         """Recursively search binary tree
 
         return Node or None
@@ -161,9 +176,13 @@ class BinarySearchTree:
         """
 
         node = self._search(self.root, value)
-        return self._successor(node)
 
-    def __iter__(self, node: Node = None):
+        succ = self._successor(node)
+        if succ:
+            return succ.value
+        # implicit return of none
+
+    def __iter__(self, node: self.node_cls = None):
 
         if node is None:
             node = self._minimum(self.root)
@@ -172,7 +191,7 @@ class BinarySearchTree:
             yield node
             node = self._successor(node)
 
-    def _insert(self, node: Node, value):
+    def _insert(self, node: self.node_cls, value):
         """Given a node, transverse it until you find a node to insert into
 
         Update associated node links
@@ -184,7 +203,7 @@ class BinarySearchTree:
                 self._insert(node.left, value)
             else:
                 # Insert here and update
-                node.left = Node(value)
+                node.left = self.node_cls(value)
                 node.left.parent = node
                 self.count += 1
 
@@ -192,7 +211,7 @@ class BinarySearchTree:
             if node.right:
                 self._insert(node.right, value)
             else:
-                node.right = Node(value)
+                node.right = self.node_cls(value)
                 node.right.parent = node
                 self.count += 1
 
@@ -205,13 +224,16 @@ class BinarySearchTree:
             return
         # Check to see if root is empty
         if not self.root:
-            self.root = Node(value)
+            self.root = self.node_cls(value)
             self.count += 1
             return
 
         self._insert(self.root, value)
 
     def _transplant(self, parent, child):
+        """Transplants the child into the parents position
+
+        does not handle updating child left & right pointers"""
         if parent.parent is None:
             self.root = child
         elif parent == parent.parent.left:
@@ -238,12 +260,18 @@ class BinarySearchTree:
             # If the right node, as no left child, it is the smallest element in the subtree
 
             min_child = self._minimum(node.right)
-            if min_child.parent != node:
+            # To ways of writing this if statement
+            # if min_child.parent != node:
+            # or
+            # if min_child != node.right
+            if min_child != node.right:
                 # Min child's right value can be none
                 self._transplant(min_child, min_child.right)
+                # Preserve what is from the right of the deleted
                 min_child.right = node.right
                 min_child.right.parent = min_child
             self._transplant(node, min_child)
+            # Preserve what is from the left of the deleted
             min_child.left = node.left
             min_child.left.parent = min_child
 
