@@ -19,7 +19,7 @@ def string_to_int(string: str) -> int:
 
     large_int = 0
     for index, char in enumerate(string):
-        large_int += ord(char) * 2 ^ index
+        large_int += ord(char) * 31 ^ index
     return large_int
 
 
