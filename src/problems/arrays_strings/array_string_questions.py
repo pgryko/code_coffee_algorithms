@@ -1,0 +1,123 @@
+# Implement an algorithm to determine if a string as all unique characters
+
+# There is a difference between Unicode and ASCII characters. By default python3 uses unicode utf-8
+# https://docs.python.org/3/howto/unicode.html
+# Unicode allows for a max of 1,114,112 characters
+
+def isunique(my_string: str):
+    # Allocate bit array to keep track of whether we've seen
+    # this is very memory in-efficient (around 8.5 MB)
+    # A more memory efficient way would be to use a set()
+    # Or copy and sort the string
+    bit_array = [0] * 1114112
+    for char in my_string:
+        char_val = ord(char)
+        if not bit_array[char_val]:
+            bit_array[char_val] = 1
+        else:
+            return False
+    return True
+
+
+# Given two strings, write a method to check if one is a permutaiton of another
+# Ask whether it should be case sensitive
+# two ways to approach this:
+# Either sort the arrays and then compare
+# Use an int vector and compare the count of each letter
+
+def ispermutation(string1: str, string2: str):
+    if len(string1) != len(string2):
+        return False
+
+    if sorted(string1) == sorted(string2):
+        return True
+    return False
+
+
+# Palindrome Permutation: Given a string write a function which checks if it is a permutation of a palindrome
+# A palindrome is a word or phrase that is the same forwards as it is backwards
+# Example input: Tact Coa
+# Output (permutations: 'taco cat', 'atco cta', etc)
+# the trick is that for an odd length string, at most one character is allowed to be odd
+# otherwise chars need to be even
+# this can be said that no more than one char can be odd for both cases
+
+def ispalindromepermutation(my_string: str):
+    if len(my_string) < 1:
+        return False
+
+    storage_dict = {}
+    for char in my_string:
+        if char not in storage_dict:
+            storage_dict[char] = 1
+        # Toggle value
+        else:
+            storage_dict[char] = not storage_dict[char]
+
+    # There's a bit trick that can be done here, where if you subtract one and then 'AND' it
+    # with the new number you get zero
+    # 00010000 - 1 = 00001111
+    # 00010000 & 00001111 = 0
+    # This would work nicely with a C like language, but for python
+    count = 0
+    for values in storage_dict.values():
+        count += values
+    if count > 1:
+        return False
+    return True
+
+
+# There are 3 types of edits that can be done on a string, insertion, replacement and deletion.
+# Given a string, write a function that checks if they are one edit (or zero edits) away
+# Example
+# pale, ple -> true
+# pales, pale -> true
+# pale, bale -> true
+# pale, bake -> false
+
+
+def isoneaway(string1: str, string2: str):
+    def _singleinsert(longstring: str, shortstring: str):
+        # check whether a single insert has occurred
+        # by default if longstring == shortstring + 1
+        # at least they diff by one char, so check they only diff by one char
+        index_long = 0
+        b_diff = False
+        # import ipdb
+        # ipdb.set_trace()
+        for index_short in range(0, len(shortstring)):
+            if shortstring[index_short] != longstring[index_long]:
+                if b_diff:
+                    return False
+                b_diff = True
+                index_long += 1
+
+            index_long += 1
+
+        return True
+
+    # check for 3 cases
+    if len(string1) == len(string2):
+        # replacement
+        bool_diff = False
+        # As both strings are the same length, move between them comparing them
+        for index in range(0, len(string1)):
+            if string1[index] != string2[index]:
+                # we want to track that ONLY one diff has changed
+                if bool_diff:
+                    # If boolean has previously been flipped false to true
+                    # it means we've seen a diff before, so return false
+                    return False
+                bool_diff = True
+        # return result (i.e. we've seen a diff (true), or not (false)
+        return bool_diff
+
+    if len(string1) == len(string2) + 1:
+        # deletion
+        return _singleinsert(longstring=string1, shortstring=string2)
+    elif len(string2) == len(string1) + 1:
+        # insertion, note we've switched the string params
+        return _singleinsert(longstring=string2, shortstring=string1)
+    # Else Strings differ by more than 1
+    else:
+        return False
