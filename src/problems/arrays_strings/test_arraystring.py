@@ -1,6 +1,6 @@
 import unittest
 
-from array_string_questions import isunique, ispermutation, ispalindromepermutation, isoneaway
+from array_string_questions import isunique, ispermutation, ispalindromepermutation, isoneaway, stringcompress
 
 
 class TestIsUnique(unittest.TestCase):
@@ -54,3 +54,8 @@ class TestIsOneAway(unittest.TestCase):
         self.assertTrue(isoneaway('ABC', 'ADBC'))
         self.assertTrue(isoneaway('ABC', 'ABDC'))
         self.assertTrue(isoneaway('ABC', 'ABCD'))
+
+class TestStringCompress(unittest.TestCase):
+
+    def test_stringcompress(self):
+        self.assertEqual(stringcompress('aabccccaaa'), 'a2b1c4a3')

@@ -121,3 +121,32 @@ def isoneaway(string1: str, string2: str):
     # Else Strings differ by more than 1
     else:
         return False
+
+
+# Implement a method to perform basic string compression using counts of repeated characters.
+# E.g. aabcccccaaa -> a2b1c5a3.
+# If the compressed string would not become smaller than the original, then return original string
+# assume only uppercase and lowercase (a-z)
+
+def stringcompress(input_string: str):
+    # Appending strings is expensive. Strings are immutable so
+    # string concatenation requires all characters to be copied, this is a O(N+M)
+    # operation (where N and M are the sizes of the input strings).
+    # M appends of the same word will trend to O(M^2) time therefor.
+    buffer = []
+    consecutive = 0
+    for index in range(0, len(input_string)):
+        consecutive += 1
+
+        if index + 1 < len(input_string) and input_string[index] != input_string[index + 1]:
+            buffer.append(input_string[index] + str(consecutive))
+            consecutive = 0
+        elif index + 1 == len(input_string):
+            buffer.append(input_string[index] + str(consecutive))
+            consecutive = 0
+
+    return ''.join(buffer)
+
+#
+# def rotatematrix(matrix: list[list]):
+#     pass
