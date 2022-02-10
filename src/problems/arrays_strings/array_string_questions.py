@@ -4,6 +4,7 @@
 # https://docs.python.org/3/howto/unicode.html
 # Unicode allows for a max of 1,114,112 characters
 
+
 def isunique(my_string: str):
     # Allocate bit array to keep track of whether we've seen
     # this is very memory in-efficient (around 8.5 MB)
@@ -25,6 +26,7 @@ def isunique(my_string: str):
 # Either sort the arrays and then compare
 # Use an int vector and compare the count of each letter
 
+
 def ispermutation(string1: str, string2: str):
     if len(string1) != len(string2):
         return False
@@ -41,6 +43,7 @@ def ispermutation(string1: str, string2: str):
 # the trick is that for an odd length string, at most one character is allowed to be odd
 # otherwise chars need to be even
 # this can be said that no more than one char can be odd for both cases
+
 
 def ispalindromepermutation(my_string: str):
     if len(my_string) < 1:
@@ -128,6 +131,7 @@ def isoneaway(string1: str, string2: str):
 # If the compressed string would not become smaller than the original, then return original string
 # assume only uppercase and lowercase (a-z)
 
+
 def stringcompress(input_string: str):
     # Appending strings is expensive. Strings are immutable so
     # string concatenation requires all characters to be copied, this is a O(N+M)
@@ -138,14 +142,18 @@ def stringcompress(input_string: str):
     for index in range(0, len(input_string)):
         consecutive += 1
 
-        if index + 1 < len(input_string) and input_string[index] != input_string[index + 1]:
+        if (
+            index + 1 < len(input_string)
+            and input_string[index] != input_string[index + 1]
+        ):
             buffer.append(input_string[index] + str(consecutive))
             consecutive = 0
         elif index + 1 == len(input_string):
             buffer.append(input_string[index] + str(consecutive))
             consecutive = 0
 
-    return ''.join(buffer)
+    return "".join(buffer)
+
 
 #
 # def rotatematrix(matrix: list[list]):
