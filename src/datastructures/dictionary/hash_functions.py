@@ -1,5 +1,5 @@
 def string_to_int(string: str) -> int:
-    '''Converts a string into a large integer
+    """Converts a string into a large integer
 
     Method is based off java's hashcode function.
 
@@ -15,7 +15,7 @@ def string_to_int(string: str) -> int:
 
     31^i === (i << 5) - i
 
-    Most compilers and vms already optimise this'''
+    Most compilers and vms already optimise this"""
 
     large_int = 0
     for index, char in enumerate(string):
@@ -24,17 +24,15 @@ def string_to_int(string: str) -> int:
 
 
 def hash_division_method(number: int, base: int) -> int:
-    ''' Performs simple hashing using division (modulus)
+    """Performs simple hashing using division (modulus)
 
     h(number) = number mod base
 
     base should ideally be a large prime number and, should avoid common bases, such as powers of 2 and 10.
-    '''
+    """
 
     return number % base
 
 
 def hash_multiplication():
-    '''
-
-    '''
+    """ """

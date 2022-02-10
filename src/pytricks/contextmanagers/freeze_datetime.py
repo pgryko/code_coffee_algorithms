@@ -13,7 +13,6 @@ _fixed_datetime = []
 
 
 class _MockDateTime(_real_datetime):
-
     @classmethod
     def now(cls, tz=None):
         if len(_fixed_datetime):

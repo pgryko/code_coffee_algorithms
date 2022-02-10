@@ -3,7 +3,6 @@ from quicksort import QuickSort
 
 
 class TestQuickSort(unittest.TestCase):
-
     def test_sortbasic(self):
         array_in = [5, 4, 2, 1, 6, 3, 1]
         QuickSort(array_in)
@@ -20,5 +19,5 @@ class TestQuickSort(unittest.TestCase):
         self.assertEqual(array_in, [-6, 1, 1, 2, 3, 4, 5])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

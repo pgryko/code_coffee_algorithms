@@ -3,7 +3,6 @@ from selectsort import select_sort
 
 
 class TestSelectSort(unittest.TestCase):
-
     def test_sortbasic(self):
         array_in = [5, 4, 2, 1, 6, 3, 1]
         select_sort(array_in)
@@ -20,5 +19,5 @@ class TestSelectSort(unittest.TestCase):
         self.assertEqual(array_in, [-6, 1, 1, 2, 3, 4, 5])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

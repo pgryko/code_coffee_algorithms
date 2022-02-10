@@ -21,7 +21,6 @@ import copy
 
 
 class HashChaining:
-
     def __init__(self):
         self.data = [None for _ in range(7)]
         self.capacity = 7

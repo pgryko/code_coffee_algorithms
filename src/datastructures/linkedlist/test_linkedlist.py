@@ -4,9 +4,9 @@ from linkedlist import Node, LinkedList
 
 
 class TestNode(unittest.TestCase):
-    '''
+    """
     Test initialisation of node class
-    '''
+    """
 
     def test_initialisation(self):
         new_node = Node(data="Arbitrary string")
@@ -15,8 +15,7 @@ class TestNode(unittest.TestCase):
 
 
 class TestLinkedList(unittest.TestCase):
-    '''Test behaviour of linked list
-    '''
+    """Test behaviour of linked list"""
 
     def test_initialisation(self):
         my_list = LinkedList()
@@ -154,7 +153,7 @@ class TestLinkedList(unittest.TestCase):
         my_list.append(node_5)
 
         with self.assertRaises(TypeError):
-            my_list.remove('a')
+            my_list.remove("a")
 
         with self.assertRaises(IndexError):
             my_list.remove(-1)
@@ -266,11 +265,10 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(my_list.tail.prev.prev, None)
 
     def test_reverse(self):
-        my_list = LinkedList(
-            nodes=[Node('A'), Node('B'), Node('C'), Node('D')])
+        my_list = LinkedList(nodes=[Node("A"), Node("B"), Node("C"), Node("D")])
 
         my_list.reverse()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

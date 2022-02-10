@@ -2,7 +2,7 @@ import copy
 
 
 class MergeSort:
-    """ Sorts an array using a recursive divide and concour strategy
+    """Sorts an array using a recursive divide and concour strategy
 
     Technically we could write this as two nested functions, but I think its cleaner (design choice)
     to write it as a class. Its also easier to test, as testing a nested function is tricky
@@ -14,8 +14,8 @@ class MergeSort:
 
     @staticmethod
     def merge(array, low, mid, high):
-        lhs = copy.deepcopy(array[low:mid + 1])
-        rhs = copy.deepcopy(array[mid + 1: high + 1])
+        lhs = copy.deepcopy(array[low : mid + 1])
+        rhs = copy.deepcopy(array[mid + 1 : high + 1])
 
         i = 0
         j = 0
@@ -46,7 +46,7 @@ class MergeSort:
             MergeSort.merge(array, low, mid, high)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     ARRAY_IN = [8, 0, 3, 3, 5, 6]
 
     MergeSort(ARRAY_IN)

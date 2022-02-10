@@ -10,9 +10,7 @@ Example usage:
 
 
 class QuickSort:
-    """Class that initialises and wraps functions that perform quicksort in approx O(nlgn)
-
-    """
+    """Class that initialises and wraps functions that perform quicksort in approx O(nlgn)"""
 
     def __init__(self, array):
         """Kicks off QuickSort
@@ -57,13 +55,13 @@ class QuickSort:
 
         if low < high:
             partition = QuickSort._partition(array, low, high)
-            QuickSort._quicksort(array, low, partition-1)
+            QuickSort._quicksort(array, low, partition - 1)
             QuickSort._quicksort(array, partition + 1, high)
 
         return array
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     ARRAY_IN = [5, 4, 2, 1, -6, 3, 1]
 
     QuickSort(ARRAY_IN)

@@ -1,12 +1,12 @@
-'''Example of heapsort algorithem written in python
+"""Example of heapsort algorithem written in python
 
 Usage: $ python3 heapsort.py
 
-'''
+"""
 
 
 def max_heapify(array, i: int = 0, size=None):
-    '''
+    """
     Ensure that current node at i, is a maximum value with respect
     to its left and right leaf nodes,
 
@@ -15,7 +15,7 @@ def max_heapify(array, i: int = 0, size=None):
     :param size: Size of the heap to consider. We may want to mask values in the array
     that are larger than the specified size (to perform sorting)
     :return: None - sorts array in place
-    '''
+    """
 
     # Initialise largest as root
     largest = i
@@ -39,14 +39,14 @@ def max_heapify(array, i: int = 0, size=None):
 
 
 def build_heap(array):
-    '''
+    """
     Re-arrange an existing array/list into a maxheap
     Note, max heaps are loosely ordered, i.e. roots nodes
     are maximum's with respect to their leaf nodes. No other
     ordering guarantee is provided
     :param array:
     :return: None. sorts in place
-    '''
+    """
 
     # operator // forces integer division (python 3)
     for i in range((len(array) - 1) // 2, -1, -1):
@@ -54,13 +54,13 @@ def build_heap(array):
 
 
 def heap_sort(array):
-    '''
+    """
     Takes an existing array/list and re-arranges it into a max heap
     From there it iterates through the array, pulling out the max value (root)
     and running maxheapify to re-calculate the new max value
     :param array:
     :return: None, passed in array sorted in place
-    '''
+    """
     if len(array) < 2:
         return
 
@@ -81,7 +81,7 @@ def heap_sort(array):
         max_heapify(array, 0, size)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     ARRAY_IN = [8, 0, 3, 3, 5, 6, 7]
 
     heap_sort(ARRAY_IN)

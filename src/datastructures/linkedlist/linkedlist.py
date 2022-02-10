@@ -5,8 +5,7 @@ from typing import Union, List
 
 
 class Node:
-    """DataStructure Node element for a linked list
-    """
+    """DataStructure Node element for a linked list"""
 
     def __init__(self, data):
         self.data = data
@@ -21,8 +20,7 @@ class Node:
 
 
 class LinkedList:
-    """Double linked list, which keeps track of tail
-    """
+    """Double linked list, which keeps track of tail"""
 
     def __init__(self, nodes: List[Node] = None):
         self.nodes = []
@@ -74,8 +72,7 @@ class LinkedList:
         return str(self.nodes)
 
     def append(self, node: Node):
-        """Insert element at end of list
-        """
+        """Insert element at end of list"""
         self.nodes.append(node)
         if self.tail:
             self.tail.next = node
@@ -129,13 +126,12 @@ class LinkedList:
             self.tail = node
 
     def pop(self):
-        """Remove and return the element at the head of the list
-        """
+        """Remove and return the element at the head of the list"""
 
         # Technically un-needed, as attempting to pop from an
         # empty list already creates this error
         if len(self.nodes) == 0:
-            raise IndexError('pop from empty list')
+            raise IndexError("pop from empty list")
 
         elem = self.head
 
@@ -194,19 +190,22 @@ class LinkedList:
         """
 
         if not (isinstance(arg, int) or isinstance(arg, Node)):
-            raise TypeError("Expect arg to be of either int or Node type, received: "
-                            + str(type(arg)))
+            raise TypeError(
+                "Expect arg to be of either int or Node type, received: "
+                + str(type(arg))
+            )
 
         if isinstance(arg, int):
             if arg < 0:
                 raise IndexError(
-                    "Arg must be a positive integer, received: " + str(int))
+                    "Arg must be a positive integer, received: " + str(int)
+                )
             # Just return, if we try this on an empty list
             if len(self.nodes) == 0:
-                raise IndexError('pop from empty list')
+                raise IndexError("pop from empty list")
             # If index is outside list length just return
             if arg >= len(self.nodes):
-                raise IndexError('Outside array index')
+                raise IndexError("Outside array index")
 
             return self._remove_node(arg)
 
@@ -217,13 +216,14 @@ class LinkedList:
             # we don't have access to malloc type behaviour
             # so we still need to perform a search to find the index of the node
 
-            index = next((i for i, node in enumerate(
-                self.nodes) if node.data == arg.data), None)
+            index = next(
+                (i for i, node in enumerate(self.nodes) if node.data == arg.data), None
+            )
             if index is not None:
                 return self._remove_node(index)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     mylist = LinkedList()
 
     mylist.insert(0, Node(1))

@@ -8,24 +8,30 @@ from binarysearchtrees import Node
 # in the child class
 class RBNode(Node):
     def __init__(self, value, isred: bool = True, parent=None, left=None, right=None):
-        super(RBNode, self).__init__(
-            value, parent=parent, left=left, right=right)
+        super(RBNode, self).__init__(value, parent=parent, left=left, right=right)
         self.isRed = isred
 
     def __str__(self):
         return str(self.value) + (", red" if self.isRed else ", black")
 
     def __repr__(self):
-        return "Node(value=" + str(self.value) + \
-               ", color=" + ("red" if self.isRed else "black") + \
-               ", parent=(" + str(self.parent) + \
-               "), left=(" + str(self.left) + \
-               "), right=(" + str(self.right) + \
-               ") )"
+        return (
+            "Node(value="
+            + str(self.value)
+            + ", color="
+            + ("red" if self.isRed else "black")
+            + ", parent=("
+            + str(self.parent)
+            + "), left=("
+            + str(self.left)
+            + "), right=("
+            + str(self.right)
+            + ") )"
+        )
 
 
 class RedBlackTree:
-    '''Self-balancing binary tree where aach node has an associated colour (red or black), to ensure tree
+    """Self-balancing binary tree where aach node has an associated colour (red or black), to ensure tree
     remains balanced during insertions and deletions.
     When tree is modified the new tree is rearranged and repainted to restore coloring properties.
     Rebalancing is not perfect but guarantees searching in O(log n) time. Insertion, deletion, search, re-arrangement
@@ -42,7 +48,7 @@ class RedBlackTree:
     Note: I'd originally wanted to inherit from the Binary tree base class, however the use of a sentinal
     means overwriting most of the methods. Hence, it was decided the simplest approach was to keep re-implement
     rather than inherit
-    '''
+    """
 
     def __init__(self, value=None):
         # For RB tree, use a sentinal as nil, instead of none. This simplifies some of the error
@@ -56,7 +62,9 @@ class RedBlackTree:
         # would cause bug
         if value is not None:
             # root node is always black
-            self.root = RBNode(value=value, isred=False, left=self.nil, right=self.nil, parent=self.nil)
+            self.root = RBNode(
+                value=value, isred=False, left=self.nil, right=self.nil, parent=self.nil
+            )
             self.count = 1
         else:
             self.root = self.nil
@@ -143,10 +151,10 @@ class RedBlackTree:
             node = self._successor(node)
 
     def _right_rotate(self, x):
-        '''
+        """
         For nodes, x, y, where x = y.parent, rotate the places in the tree structure
         while keeping pointer node constraints in a correct manner
-        '''
+        """
         # Keep track of parent node y, as we will overwrite parent.y
         y = x.left
         # Update y.left, which previously pointed to x
@@ -226,20 +234,24 @@ class RedBlackTree:
             if node.left is not self.nil:
                 return self._insert(node.left, value)
             else:
-                node.left = RBNode(value, isred=True, left=self.nil, right=self.nil, parent=node)
+                node.left = RBNode(
+                    value, isred=True, left=self.nil, right=self.nil, parent=node
+                )
                 self.count += 1
                 return node.left
         else:
             if node.right is not self.nil:
                 return self._insert(node.right, value)
             else:
-                node.right = RBNode(value, isred=True, left=self.nil, right=self.nil, parent=node)
+                node.right = RBNode(
+                    value, isred=True, left=self.nil, right=self.nil, parent=node
+                )
                 self.count += 1
                 return node.right
 
     def insert(self, value):
-        '''Need to overwrite root insert, so that sentinal is set
-        rather than None'''
+        """Need to overwrite root insert, so that sentinal is set
+        rather than None"""
 
         # Handle passing in a list
         if isinstance(value, list):
@@ -248,7 +260,9 @@ class RedBlackTree:
             return
         # Check to see if root is empty
         if self.root is self.nil:
-            self.root = RBNode(value, isred=False, left=self.nil, right=self.nil, parent=self.nil)
+            self.root = RBNode(
+                value, isred=False, left=self.nil, right=self.nil, parent=self.nil
+            )
             self.count += 1
             return
 
@@ -278,12 +292,12 @@ class RedBlackTree:
 
         return self._predecessor(node).value
 
-    def transplant(self,u: RBNode,v: RBNode):
-        '''RB version differs from standard BT by
+    def transplant(self, u: RBNode, v: RBNode):
+        """RB version differs from standard BT by
 
         use of sentinal instead of nil and assignment of
         v.parent = u.parent, unconditionally
-        '''
+        """
 
         if u.parent is self.nil:
             self.root = v
@@ -359,10 +373,10 @@ class RedBlackTree:
 
         if z.left is self.nil:
             x = z.right
-            self.transplant(z,z.right)
+            self.transplant(z, z.right)
         elif z.right is self.nil:
             x = z.left
-            self.transplant(z,z.left)
+            self.transplant(z, z.left)
         else:
             # When z has two children, set y to z's successor
             # y will move into z's position in the tree
@@ -372,10 +386,10 @@ class RedBlackTree:
             if y.parent is z:
                 x.parent = y
             else:
-                self.transplant(y,y.right)
+                self.transplant(y, y.right)
                 y.right = z.right
                 y.right.parent = y
-            self.transplant(z,y)
+            self.transplant(z, y)
             y.left = z.left
             y.left.parent = y
             y.color = z.isRed
@@ -403,13 +417,14 @@ class RedBlackTree:
             node = self.root
         space += 1
         self._print_tree(node.right, string_list, space)
-        for i in range(1, space): string += "\t"
+        for i in range(1, space):
+            string += "\t"
         string += str(node.value) + ("R" if node.isRed else "B")
         string_list.append(string)
         self._print_tree(node.left, string_list, space)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     from test_redblacktree import gen_balanced_tree
 
     tree, expected_values = gen_balanced_tree()

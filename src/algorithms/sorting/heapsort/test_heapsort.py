@@ -3,12 +3,12 @@ from heapsort import max_heapify, build_heap, heap_sort
 
 
 class TestMaxHeapify(unittest.TestCase):
-    '''
+    """
     Test the building of a maxheap from an array.
     A max heap is a loosely ordered datastructure, requiring that
     the top (root) node has a higher maximum than its leaves
 
-    '''
+    """
 
     def test_2_elem(self):
 
@@ -46,8 +46,7 @@ class TestMaxHeapify(unittest.TestCase):
         self.assertEqual(array_in, [8, 5, 3, 3, 0, 6, 7])
 
     def test_size(self):
-        '''Test passing in a smaller size
-        '''
+        """Test passing in a smaller size"""
         array_in = [3, 5, 7, 3, 0, 6, 8]
         max_heapify(array_in, 2)
         self.assertEqual(array_in, [3, 5, 8, 3, 0, 6, 7])
@@ -62,7 +61,6 @@ class TestMaxHeapify(unittest.TestCase):
 
 
 class TestBuildHeap(unittest.TestCase):
-
     def test_build_heap(self):
 
         array_in = [8, 0, 3, 3, 5, 6, 7]
@@ -71,7 +69,6 @@ class TestBuildHeap(unittest.TestCase):
 
 
 class TestMergeSort(unittest.TestCase):
-
     def test_sort_basic(self):
         array_in = [5, 4, 2, 1, 6, 3, 1]
         heap_sort(array_in)
@@ -93,5 +90,5 @@ class TestMergeSort(unittest.TestCase):
         self.assertEqual(array_in, [-6, 1, 1, 2, 3, 4, 5])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

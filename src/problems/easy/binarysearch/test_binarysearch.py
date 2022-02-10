@@ -4,7 +4,6 @@ from binarysearch import search_iterative, search_recursive
 
 
 class TestBinarySearchIterative(unittest.TestCase):
-
     def test_exists(self):
         # Test the case where target exists in array
         self.assertEqual(search_iterative([-1, 0, 3, 5, 9, 12], 9), 4)
@@ -25,7 +24,6 @@ class TestBinarySearchIterative(unittest.TestCase):
 
 
 class TestBinarySearchRecursive(unittest.TestCase):
-
     def test_exists(self):
         # Test the case where target exists in array
         self.assertEqual(search_recursive([-1, 0, 3, 5, 9, 12], 9), 4)

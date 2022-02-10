@@ -299,9 +299,9 @@ If you want pytest to fall into an ipython debugger shell on first failure
 $ pytest --pdbcls=IPython.core.debugger:Pdb -s
 ```
 
-Auto Lint using
+Auto Lint using https://github.com/psf/black
 ```bash
-$ autopep8 --in-place --recursive src
+$ black src
 ```
 
 And check code quality using

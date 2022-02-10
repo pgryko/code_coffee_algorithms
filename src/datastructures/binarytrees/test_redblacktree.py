@@ -23,7 +23,6 @@ def gen_balanced_tree():
 
 
 class TestRedBlackTree(unittest.TestCase):
-
     def test_initialisation(self):
         self.assertEqual(len(RedBlackTree()), 0)
         self.assertEqual(len(RedBlackTree(value=5)), 1)
@@ -58,7 +57,7 @@ class TestRedBlackTree(unittest.TestCase):
             self.assertTrue(tree3.exists(i))
 
     def test_insert_search_balanced(self):
-        '''This also implicitly tests the list insert operation'''
+        """This also implicitly tests the list insert operation"""
         tree, expected_values = gen_balanced_tree()
 
         for value in expected_values:
@@ -82,8 +81,7 @@ class TestRedBlackTree(unittest.TestCase):
         balanced_tree, expected = gen_balanced_tree()
 
         for i in range(0, len(expected) - 2):
-            self.assertEqual(balanced_tree.successor(
-                expected[i]), expected[i + 1])
+            self.assertEqual(balanced_tree.successor(expected[i]), expected[i + 1])
 
         self.assertIsNone(balanced_tree.successor(expected[-1]))
 
@@ -182,45 +180,45 @@ class TestRedBlackTree(unittest.TestCase):
         self.assertEqual(len(tree), 0)
 
     def test_rotate(self):
-        '''Test right and left rotation
+        """Test right and left rotation
 
-        Specifically map
+                Specifically map
 
-            9R
-        8B
-            7R
-    5R
-            4R
-        3B
-            2R
-0B
-            -2R
-        -3B
-            -4R
-    -5R
-            -7R
-        -8B
-            -9R
+                    9R
+                8B
+                    7R
+            5R
+                    4R
+                3B
+                    2R
+        0B
+                    -2R
+                -3B
+                    -4R
+            -5R
+                    -7R
+                -8B
+                    -9R
 
-    to
+            to
 
-            9R
-        8B
-            7R
-    5R
-            4R
-        3B
-            2R
-0B
-                -2R
-            -3B
-                -4R
-        -5R
-            -7R
-    -8B
-        -9R
+                    9R
+                8B
+                    7R
+            5R
+                    4R
+                3B
+                    2R
+        0B
+                        -2R
+                    -3B
+                        -4R
+                -5R
+                    -7R
+            -8B
+                -9R
 
-        '''
+        """
         tree, expected_values = gen_balanced_tree()
 
         for value in expected_values:

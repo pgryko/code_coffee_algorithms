@@ -6,7 +6,6 @@ from lru_cache import LRUCache, TimeBoundedLRU
 
 
 class TestLRUCache(unittest.TestCase):
-
     def test_constructor(self):
         # Should not throw
         cache = LRUCache()
@@ -43,7 +42,6 @@ class TestLRUCache(unittest.TestCase):
 
 
 class TestTimeBoundedLRUCache(unittest.TestCase):
-
     def test_constructor(self):
         # Should not throw
         cache = TimeBoundedLRU()

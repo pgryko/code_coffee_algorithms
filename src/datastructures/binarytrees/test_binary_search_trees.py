@@ -23,7 +23,6 @@ def gen_balanced_tree():
 
 
 class TestBinarySearchTree(unittest.TestCase):
-
     def test_initialisation(self):
         self.assertEqual(len(BinarySearchTree()), 0)
         self.assertEqual(len(BinarySearchTree(value=5)), 1)
@@ -58,7 +57,7 @@ class TestBinarySearchTree(unittest.TestCase):
             self.assertTrue(tree3.exists(i))
 
     def test_insert_search_balanced(self):
-        '''This also implicitly tests the list insert operation'''
+        """This also implicitly tests the list insert operation"""
         tree, expected_values = gen_balanced_tree()
 
         for value in expected_values:
@@ -89,8 +88,7 @@ class TestBinarySearchTree(unittest.TestCase):
         balanced_tree, expected = gen_balanced_tree()
 
         for i in range(0, len(expected) - 2):
-            self.assertEqual(balanced_tree.successor(
-                expected[i]), expected[i + 1])
+            self.assertEqual(balanced_tree.successor(expected[i]), expected[i + 1])
 
         self.assertIsNone(balanced_tree.successor(expected[-1]))
 

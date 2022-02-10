@@ -11,8 +11,8 @@ from typing import Union
 # but we want to modify the node class used as red-black tree keeps track of additional param color
 # and AVL trees keep track of additional param height
 
-class MetaNode:
 
+class MetaNode:
     def __init_subclass__(cls, node_cls, **kwargs):
         super().__init_subclass__(**kwargs)
         cls.node_cls = node_cls
@@ -29,12 +29,20 @@ class Node:
         return str(self.value)
 
     def __repr__(self):
-        return "Node(value=" + str(self.value) + " parent=" + str(self.parent) + \
-               " left=" + str(self.left) + " right=" + str(self.right) + ")"
+        return (
+            "Node(value="
+            + str(self.value)
+            + " parent="
+            + str(self.parent)
+            + " left="
+            + str(self.left)
+            + " right="
+            + str(self.right)
+            + ")"
+        )
 
 
 class BinarySearchTree(MetaNode, node_cls=Node):
-
     def __init__(self, value=None):
         # Need to check explicitly against None, as passing in value of 0
         # would cause bug
@@ -66,8 +74,7 @@ class BinarySearchTree(MetaNode, node_cls=Node):
             return self._search(node.right, value)
 
     def exists(self, value):
-        """Kicks off recursive search subroutine
-        """
+        """Kicks off recursive search subroutine"""
 
         if not self.root:
             return False
@@ -95,9 +102,7 @@ class BinarySearchTree(MetaNode, node_cls=Node):
                 return cur_node
 
     def minimum(self):
-        """Initialises the subroutine for finding the minimum value in the tree
-
-        """
+        """Initialises the subroutine for finding the minimum value in the tree"""
         # Exit early if tree is empty
         if not self.root:
             return None
@@ -146,7 +151,7 @@ class BinarySearchTree(MetaNode, node_cls=Node):
         return None
 
     def _successor(self, node):
-        """ Given a node find its successor
+        """Given a node find its successor
 
         Separated out into private function so that it can also be used
         in __iter__
@@ -172,8 +177,7 @@ class BinarySearchTree(MetaNode, node_cls=Node):
         return parent
 
     def successor(self, value):
-        """Find next element in sorted order
-        """
+        """Find next element in sorted order"""
 
         node = self._search(self.root, value)
 
@@ -279,7 +283,7 @@ class BinarySearchTree(MetaNode, node_cls=Node):
         return node.value
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     tree = BinarySearchTree(value=0)
     for i in range(-10, 10):
         tree.insert(i)

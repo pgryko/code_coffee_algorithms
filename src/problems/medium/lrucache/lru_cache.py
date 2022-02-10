@@ -4,9 +4,9 @@ from typing import Hashable
 
 
 class LRUCache:
-    '''Example implementation of LRU (least recently used) cache
+    """Example implementation of LRU (least recently used) cache
     Don't use in Prod - use default library https://docs.python.org/3/library/functools.html#functools.lru_cache
-    '''
+    """
 
     def __init__(self, max_size: int = 10):
         self.cache = OrderedDict()
@@ -42,7 +42,7 @@ class LRUCache:
 
 class TimeBoundedLRU(LRUCache):
     """Time bounded LRU (least recently used) cache - removes entries that have been inserted
-     older than a specific time than a specific time"""
+    older than a specific time than a specific time"""
 
     def __init__(self, max_size=128, max_time: timedelta = timedelta(seconds=60)):
         super(TimeBoundedLRU, self).__init__(max_size)

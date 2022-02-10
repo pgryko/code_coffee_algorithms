@@ -1,17 +1,17 @@
-'''Example of implementing linked list with pointers in an array
+"""Example of implementing linked list with pointers in an array
 
 Usage: $ python3 pointers.py
 
-'''
+"""
 
 
 # https://omkarpathak.in/2018/04/11/python-getitem-and-setitem/
 class LinkedListSingleArray:
-    ''' A doubly linked list implemented using a single array, with a custom pointer implementation
+    """A doubly linked list implemented using a single array, with a custom pointer implementation
 
     A stack is used as a free list to keep track of free space in allocated buffer.
     Buffer is doubled in size of element is pushed beyond container capacity
-    '''
+    """
 
     def __init__(self, data: list = None, capacity: int = 20):
 
@@ -29,8 +29,10 @@ class LinkedListSingleArray:
         # [|prev,key,next|, |prev, key, next|, |prev, key, next| ]
         # where the 'pointers', point to the next/prev key
         # e.g for an empty array [None, 0, 4, None, 0, 7, None, 0, None]
-        self._buffer = [x + 2 if ((x + 1) % 3 == 0) else 0 if ((x + 2) % 3 == 0)
-                        else None for x in range(0, capacity * 3)]
+        self._buffer = [
+            x + 2 if ((x + 1) % 3 == 0) else 0 if ((x + 2) % 3 == 0) else None
+            for x in range(0, capacity * 3)
+        ]
         # Set end element to None
         self._buffer[-1] = None
         self._free_index = 1
@@ -46,7 +48,7 @@ class LinkedListSingleArray:
 
         if index:
             if (index + 2) % 3 != 0:
-                raise IndexError('Index does not appear to be valid')
+                raise IndexError("Index does not appear to be valid")
             current_index = index
         else:
             current_index = self._head
@@ -57,16 +59,16 @@ class LinkedListSingleArray:
             current_index = self._buffer[current_index + 1]
 
     def __prev__(self, index=None):
-        ''' Function to iterate backwards.
+        """Function to iterate backwards.
 
         Not a standard python magic function, but implemented here,
         as this is a doubly liked list
 
-        '''
+        """
 
         if index:
             if (index + 2) % 3 != 0:
-                raise IndexError('Index does not appear to be valid')
+                raise IndexError("Index does not appear to be valid")
             current_index = index
         else:
             # By default set current to tail, so we can iterate backwards
@@ -78,27 +80,23 @@ class LinkedListSingleArray:
             current_index = self._buffer[current_index - 1]
 
     def _get_next_index(self, current_index):
-        '''Helper function to get index of next element
-        '''
+        """Helper function to get index of next element"""
 
         if (current_index + 2) % 3 != 0:
-            raise IndexError('Index does not appear to be valid')
+            raise IndexError("Index does not appear to be valid")
 
         return self._buffer[current_index + 1]
 
     def _get_prev_index(self, current_index):
-        '''Helper function to get index of prev element
-        '''
+        """Helper function to get index of prev element"""
 
         if (current_index + 2) % 3 != 0:
-            raise IndexError('Index does not appear to be valid')
+            raise IndexError("Index does not appear to be valid")
 
         return self._buffer[current_index - 1]
 
     def reverse(self):
-        '''Reverses the linked list in place
-
-        '''
+        """Reverses the linked list in place"""
 
         prev = None
         curr = self._head
@@ -121,15 +119,19 @@ class LinkedListSingleArray:
         return len(self._buffer) // 3
 
     def _resize(self):
-        '''Increase the size of the array buffer and
+        """Increase the size of the array buffer and
         update free list. Different implementations have a different scalar factors,
         either 2x or 1.5 based on assumptions made in amortized analysis.
         Here we just double the size of the buffer
-        '''
+        """
         init_size = len(self._buffer)
 
-        self._buffer.extend([x + 2 if ((x + 1) % 3 == 0) else 0 if ((x + 2) % 3 == 0) else None for x in
-                             range(init_size, init_size * 2)])
+        self._buffer.extend(
+            [
+                x + 2 if ((x + 1) % 3 == 0) else 0 if ((x + 2) % 3 == 0) else None
+                for x in range(init_size, init_size * 2)
+            ]
+        )
         self._buffer[-1] = None
         # Two cases, either there is no more free space, so we just update the free index
         if self._free_index is None:
@@ -143,8 +145,7 @@ class LinkedListSingleArray:
             self._buffer[current_free + 1] = init_size + 1
 
     def push(self, element):
-        '''Insert an element into the list
-        '''
+        """Insert an element into the list"""
 
         if self._free_index is None:
             self._resize()
@@ -180,10 +181,10 @@ class LinkedListSingleArray:
             self._head = insert_index
 
     def pop(self):
-        '''Return element located at head of list, removing it from the list'''
+        """Return element located at head of list, removing it from the list"""
 
         if self._head is None:
-            raise IndexError('pop from empty list')
+            raise IndexError("pop from empty list")
 
         cur_index = self._head
 
@@ -224,5 +225,5 @@ class LinkedListSingleArray:
             node_index = self._buffer[node_index + 1]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

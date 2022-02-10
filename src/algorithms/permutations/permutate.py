@@ -31,8 +31,9 @@ def permutate(arrayin: List):
 
     yield from _permutate(len(arrayin), arrayin)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # permutate(['a','b','c','d'])
     # print('stuff')
-    for element in permutate(['a', 'b', 'c', 'd']):
+    for element in permutate(["a", "b", "c", "d"]):
         print(element)
