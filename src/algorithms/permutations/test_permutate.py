@@ -1,5 +1,5 @@
-import unittest
 import itertools
+import unittest
 from math import factorial
 
 from permutate import permutate

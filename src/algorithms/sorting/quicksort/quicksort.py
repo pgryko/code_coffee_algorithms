@@ -66,4 +66,4 @@ if __name__ == "__main__":
 
     QuickSort(ARRAY_IN)
 
-    print(ARRAY_IN)
+    print(ARRAY_IN)  # noqa

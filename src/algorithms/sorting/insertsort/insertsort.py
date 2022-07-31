@@ -10,9 +10,9 @@ def insert_sort(array):
         array[j + 1] = key
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     array = [8, 0, 3, 3, 5, 6]
 
     insert_sort(array)
 
-    print(array)
+    print(array)  # noqa

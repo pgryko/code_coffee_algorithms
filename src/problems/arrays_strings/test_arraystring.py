@@ -1,10 +1,10 @@
 import unittest
 
 from array_string_questions import (
-    isunique,
-    ispermutation,
-    ispalindromepermutation,
     isoneaway,
+    ispalindromepermutation,
+    ispermutation,
+    isunique,
     stringcompress,
 )
 

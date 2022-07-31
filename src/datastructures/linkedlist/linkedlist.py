@@ -1,7 +1,7 @@
 """Example implementation of doubly linked list
 
 """
-from typing import Union, List
+from typing import List, Union
 
 
 class Node:
@@ -231,4 +231,4 @@ if __name__ == "__main__":
     mylist.insert(0, Node(6))
     mylist.insert(1, Node(2))
 
-    print(mylist)
+    print(mylist)  # noqa

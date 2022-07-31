@@ -86,8 +86,6 @@ def isoneaway(string1: str, string2: str):
         # at least they diff by one char, so check they only diff by one char
         index_long = 0
         b_diff = False
-        # import ipdb
-        # ipdb.set_trace()
         for index_short in range(0, len(shortstring)):
             if shortstring[index_short] != longstring[index_long]:
                 if b_diff:
