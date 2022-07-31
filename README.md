@@ -9,6 +9,7 @@ I have worked through, written and tested all the code, but I can't guarantee th
 - [x] Support Tasks
   - [x] Get Unit tests working
   - [x] Get Math rendering working
+  - [x] Get githooks working
 
 - [ ] Math
   - [ ] Sum of finite series
