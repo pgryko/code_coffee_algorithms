@@ -299,15 +299,28 @@ If you want pytest to fall into an ipython debugger shell on first failure
 $ pytest --pdbcls=IPython.core.debugger:Pdb -s
 ```
 
-Auto Lint using https://github.com/psf/black
+Auto Lint using https://github.com/psf/black, isort and flake8
 ```bash
 $ black src
+$ isort src --filter-files --profile black
+$ flake8 --ignore=E501, W503, E722 --max-line-length=100 --max-complexity=10 src/
 ```
 
-And check code quality using
+
+## Pre-commit githook
+
+We have a pre-commit githook which setups up formatting of python using isort prior to commit.
+To run automatically on git commit:
+
 ```bash
-$ pylint src
+$ pre-commit install
 ```
+
+To run manually
+```bash
+pre-commit run --all-files
+```
+
 
 ## Docker
 ```bash

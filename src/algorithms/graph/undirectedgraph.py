@@ -2,14 +2,14 @@
 Generate graphs for use in algos
 """
 
-from collections import deque, OrderedDict
+from collections import OrderedDict, deque
 
 
 class Node:
     def __init__(self, value, next_node=None):
         self.value = value
         self.color = "WHITE"  # by default set color to white
-        self.prev_search = None  # reference to where node was visited from
+        self.prev_node = None  # reference to where node was visited from
         self.distance = None  # reference to where node was visited from
 
     def __repr__(self):

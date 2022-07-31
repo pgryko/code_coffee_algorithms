@@ -1,6 +1,7 @@
-import unittest
-from freeze_datetime import FreezeDateTime
 import datetime
+import unittest
+
+from freeze_datetime import FreezeDateTime
 
 
 class TestFreezeDatetime(unittest.TestCase):

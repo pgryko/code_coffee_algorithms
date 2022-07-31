@@ -1,5 +1,6 @@
 import unittest
-from heapsort import max_heapify, build_heap, heap_sort
+
+from heapsort import build_heap, heap_sort, max_heapify
 
 
 class TestMaxHeapify(unittest.TestCase):

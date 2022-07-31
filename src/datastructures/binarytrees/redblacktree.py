@@ -1,5 +1,6 @@
 # Future import need for using self in typehints
 from __future__ import annotations
+
 from binarysearchtrees import Node
 
 
@@ -45,13 +46,13 @@ class RedBlackTree:
     - Every path from a given node to a descendant NIL goes through
     the same no. of black nodes
 
-    Note: I'd originally wanted to inherit from the Binary tree base class, however the use of a sentinal
+    Note: I'd originally wanted to inherit from the Binary tree base class, however the use of a sentinel
     means overwriting most of the methods. Hence, it was decided the simplest approach was to keep re-implement
     rather than inherit
     """
 
     def __init__(self, value=None):
-        # For RB tree, use a sentinal as nil, instead of none. This simplifies some of the error
+        # For RB tree, use a sentinel as nil, instead of none. This simplifies some of the error
         # checking i.e. does node.parent exist, does node.parent.parent exist etc
         self.nil = RBNode(value=None, isred=False)
         self.nil.left = self.nil
@@ -406,7 +407,7 @@ class RedBlackTree:
         self._print_tree(self.root, string_list)
         # transposed_list = list(map(list, zip(*string_list)))
         for line in string_list:
-            print(line)
+            print(line)  # noqa
 
     def _print_tree(self, node: RBNode, string_list, space: int = 0):
         string = ""

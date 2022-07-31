@@ -2,7 +2,6 @@
 """
 # Future import need for using self in typehints
 from __future__ import annotations
-from typing import Union
 
 
 # Used to specialised subtype of Node class that's passed into Binary Tree
@@ -56,7 +55,7 @@ class BinarySearchTree(MetaNode, node_cls=Node):
     def __len__(self):
         return self.count
 
-    def _search(self, node: self.node_cls, value) -> Union[self.node_cls, None]:
+    def _search(self, node: self.node_cls, value) -> self.node_cls | None:  # noqa
         """Recursively search binary tree
 
         return Node or None
@@ -186,7 +185,7 @@ class BinarySearchTree(MetaNode, node_cls=Node):
             return succ.value
         # implicit return of none
 
-    def __iter__(self, node: self.node_cls = None):
+    def __iter__(self, node: self.node_cls = None):  # noqa
 
         if node is None:
             node = self._minimum(self.root)
@@ -195,7 +194,7 @@ class BinarySearchTree(MetaNode, node_cls=Node):
             yield node
             node = self._successor(node)
 
-    def _insert(self, node: self.node_cls, value):
+    def _insert(self, node: self.node_cls, value):  # noqa
         """Given a node, transverse it until you find a node to insert into
 
         Update associated node links
@@ -292,6 +291,6 @@ if __name__ == "__main__":
 
     while iterator:
         try:
-            print(next(iterator))
+            print(next(iterator))  # noqa
         except StopIteration:
             break

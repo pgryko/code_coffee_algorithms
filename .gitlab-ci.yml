@@ -30,6 +30,8 @@ test python:
   script:
     - pip3 install -r requirements.txt
     - pytest --junitxml=build/pytest.xml --cov=src/
+    - black src --check
+    - flake8 --ignore=E501, W503, E722, E203 --max-line-length=100 --select=src/
   artifacts:
     reports:
       junit:

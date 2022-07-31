@@ -1,5 +1,6 @@
 import unittest
-from add_two_numbers import addTwoNumbers, ListNode
+
+from add_two_numbers import ListNode, addTwoNumbers
 
 
 def gen_listnode(input_list):
@@ -17,7 +18,6 @@ def gen_listnode(input_list):
 
 
 class TestAddTwoNumber(unittest.TestCase):
-
     def test_simple(self):
         l1 = gen_listnode([2, 4, 3])
         l2 = gen_listnode([5, 6, 4])
@@ -37,5 +37,5 @@ class TestAddTwoNumber(unittest.TestCase):
         self.assertListEqual(addTwoNumbers(l1, l2).to_list(), [8, 9, 9, 9, 0, 0, 0, 1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

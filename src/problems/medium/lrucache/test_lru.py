@@ -1,14 +1,13 @@
 import unittest
 
 from freezegun import freeze_time
-
 from lru_cache import LRUCache, TimeBoundedLRU
 
 
 class TestLRUCache(unittest.TestCase):
     def test_constructor(self):
         # Should not throw
-        cache = LRUCache()
+        cache = LRUCache()  # noqa
 
     def test_simple(self):
         cache = LRUCache(max_size=2)
@@ -44,7 +43,7 @@ class TestLRUCache(unittest.TestCase):
 class TestTimeBoundedLRUCache(unittest.TestCase):
     def test_constructor(self):
         # Should not throw
-        cache = TimeBoundedLRU()
+        cache = TimeBoundedLRU()  # noqa
 
     def test_simple(self):
         cache = TimeBoundedLRU(max_size=2)
