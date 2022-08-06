@@ -27,7 +27,15 @@ S_n = \frac{n}{2}(2a + (n-1)d) \\
 # Sum of Geometric series
 
 ```math
-S_n = \sum_{n=1}^{n} ar^{n-1}
+S_n = \sum_{n=0}^{n} ar^{n} = a(\frac{1-r^{n+1}}{1-r})
+```
+
+```math
+S_n  = a + ar + ar^{2} + ar^{3} + .. + ar^{n-1} + ar^{n} \\
+rS_n = ar + ar^{2} + ar^{3} + ... + ar^{n} + ar^{n+1} \\
+S_n - rS_n = a - ar^{n+1} \\
+(1-r)S_n = a(1-r^{n+1}) \\
+S_n = a(\frac{1-r^{n+1}}{1-r})
 ```
 # Stirlings approximation
 
