@@ -5,7 +5,7 @@
 # Unicode allows for a max of 1,114,112 characters
 
 
-def isunique(my_string: str):
+def is_unique(my_string: str):
     # Allocate bit array to keep track of whether we've seen
     # this is very memory in-efficient (around 8.5 MB)
     # A more memory efficient way would be to use a set()
@@ -27,7 +27,7 @@ def isunique(my_string: str):
 # Use an int vector and compare the count of each letter
 
 
-def ispermutation(string1: str, string2: str):
+def is_permutation(string1: str, string2: str):
     if len(string1) != len(string2):
         return False
 
@@ -45,7 +45,7 @@ def ispermutation(string1: str, string2: str):
 # this can be said that no more than one char can be odd for both cases
 
 
-def ispalindromepermutation(my_string: str):
+def is_palindrome_permutation(my_string: str):
     if len(my_string) < 1:
         return False
 
@@ -79,8 +79,8 @@ def ispalindromepermutation(my_string: str):
 # pale, bake -> false
 
 
-def isoneaway(string1: str, string2: str):
-    def _singleinsert(longstring: str, shortstring: str):
+def is_oneaway(string1: str, string2: str):
+    def _single_insert(longstring: str, shortstring: str):
         # check whether a single insert has occurred
         # by default if longstring == shortstring + 1
         # at least they diff by one char, so check they only diff by one char
@@ -115,10 +115,10 @@ def isoneaway(string1: str, string2: str):
 
     if len(string1) == len(string2) + 1:
         # deletion
-        return _singleinsert(longstring=string1, shortstring=string2)
+        return _single_insert(longstring=string1, shortstring=string2)
     elif len(string2) == len(string1) + 1:
         # insertion, note we've switched the string params
-        return _singleinsert(longstring=string2, shortstring=string1)
+        return _single_insert(longstring=string2, shortstring=string1)
     # Else Strings differ by more than 1
     else:
         return False
@@ -130,7 +130,7 @@ def isoneaway(string1: str, string2: str):
 # assume only uppercase and lowercase (a-z)
 
 
-def stringcompress(input_string: str):
+def string_compress(input_string: str):
     # Appending strings is expensive. Strings are immutable so
     # string concatenation requires all characters to be copied, this is a O(N+M)
     # operation (where N and M are the sizes of the input strings).
@@ -153,6 +153,32 @@ def stringcompress(input_string: str):
     return "".join(buffer)
 
 
-#
-# def rotatematrix(matrix: list[list]):
-#     pass
+def reflect_matrix(matrix: list[list]) -> list[list]:
+    # Reflect horizontally
+
+    for n in range(0, len(matrix) // 2):
+        matrix[n], matrix[-(n + 1)] = matrix[-(n + 1)], matrix[n]
+
+    return matrix
+
+
+def transpose_matrix(matrix: list[list]) -> list[list]:
+
+    for i in range(0, len(matrix)):
+        for j in range(i + 1, len(matrix[0])):
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+
+    return matrix
+
+
+#  Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes,
+#  write a method to rotate the image by 90 degrees. Do this in place.
+#  Tip: this involves a transpose and a reflection (order doesn't matter).
+#  A reflection in the row results in a counter-clockwise transform
+#  A reflection in the column results in a clockwise transform
+def rotate_matrix(matrix: list[list]) -> list[list]:
+    """Rotate a matrix 90 in place"""
+    reflect_matrix(matrix)
+    transpose_matrix(matrix)
+
+    return matrix
