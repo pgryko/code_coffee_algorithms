@@ -25,7 +25,7 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/src/datastructures/linkedlist
         ${PROJECT_SOURCE_DIR}/src/datastructures/dictionary
         ${PROJECT_SOURCE_DIR}/src/datastructures/binarytree
-        ${PROJECT_SOURCE_DIR}/src/problems/easy/binarysearch
+        ${PROJECT_SOURCE_DIR}/src/problems/easy/binary_search
         ${PROJECT_SOURCE_DIR}/src/problems/medium/lrucache
 )
 
