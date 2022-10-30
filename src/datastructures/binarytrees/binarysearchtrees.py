@@ -3,7 +3,6 @@
 # Future import need for using self in typehints
 from __future__ import annotations
 
-
 # Used to specialised subtype of Node class that's passed into Binary Tree
 # Essentially Binary tree contains some methods that we want to keep for all tree types
 # such as search, iter, predecessor, etc

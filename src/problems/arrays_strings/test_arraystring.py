@@ -5,9 +5,9 @@ from array_string_questions import (
     is_palindrome_permutation,
     is_permutation,
     is_unique,
-    string_compress,
-    rotate_matrix,
     reflect_matrix,
+    rotate_matrix,
+    string_compress,
     transpose_matrix,
 )
 
