@@ -15,7 +15,6 @@ RUN pip3 install --upgrade pip wheel setuptools
 COPY requirements.txt /requirements/requirements.txt
 RUN pip3 install -r /requirements/requirements.txt
 
-
 # Copy the current directory contents into the container at /app
 COPY . /app
 

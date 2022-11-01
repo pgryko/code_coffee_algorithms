@@ -8,8 +8,6 @@ before_script:
   - apt-get update
   - apt-get -y install cmake python3-pip python3-scipy
   - git submodule update --init --recursive
-#  - pip3 install --upgrade pip wheel setuptools
-# Defines stages which are to be executed
 
 
 test cpp:
@@ -28,6 +26,7 @@ test cpp:
 test python:
   stage: test
   script:
+    - python3 -V # print version of python3
     - pip3 install -r requirements.txt
     - pytest --junitxml=build/pytest.xml --cov=src/
     - black src --check
