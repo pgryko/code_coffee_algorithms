@@ -1,9 +1,10 @@
 import unittest
+from typing import Tuple
 
 from binarysearchtrees import BinarySearchTree
 
 
-def gen_balanced_tree():
+def gen_balanced_tree() -> Tuple[BinarySearchTree, list]:
     """Generate a balanced tree for testing delete cases
 
                  0
