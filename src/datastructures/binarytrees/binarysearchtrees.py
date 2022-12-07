@@ -3,7 +3,7 @@
 # Future import need for using self in typehints
 from __future__ import annotations
 
-# Used to specialised subtype of Node class that's passed into Binary Tree
+# Used a specialised subtype of Node class that's passed into Binary Tree
 # Essentially Binary tree contains some methods that we want to keep for all tree types
 # such as search, iter, predecessor, etc
 # but we want to modify the node class used as red-black tree keeps track of additional param color
