@@ -2,7 +2,6 @@ import unittest
 
 from src.problems.easy.diameter_binary_tree.diameter_binary_tree import (
     diameter_binary_tree,
-    Height,
     Node,
 )
 
