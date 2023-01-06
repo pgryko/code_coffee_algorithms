@@ -23,15 +23,31 @@ Output: 23
 def max_sub_array(nums: list[int]) -> int:
 
     max_so_far = nums[0]
-    max_ending_here = 0
+
+    max_running_count = 0
 
     for i in range(0, len(nums)):
-        max_ending_here += nums[i]
 
-        if max_so_far < max_ending_here:
-            max_so_far = max_ending_here
+        max_running_count += nums[i]
 
-        if max_ending_here < 0:
-            max_ending_here = 0
+        if max_so_far < max_running_count:
+            max_so_far = max_running_count
+
+        if max_running_count < 0:
+            max_running_count = 0
 
     return max_so_far
+
+    # max_so_far = nums[0]
+    # max_ending_here = 0
+    #
+    # for i in range(0, len(nums)):
+    #     max_ending_here += nums[i]
+    #
+    #     if max_so_far < max_ending_here:
+    #         max_so_far = max_ending_here
+    #
+    #     if max_ending_here < 0:
+    #         max_ending_here = 0
+    #
+    # return max_so_far
