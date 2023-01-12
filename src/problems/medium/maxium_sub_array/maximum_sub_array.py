@@ -17,6 +17,8 @@ Example 3:
 Input: nums = [5,4,-1,7,8]
 Output: 23
 
+Linear solution involves using a sliding window
+
 """
 
 
@@ -24,30 +26,16 @@ def max_sub_array(nums: list[int]) -> int:
 
     max_so_far = nums[0]
 
-    max_running_count = 0
+    max_current_window = 0
 
     for i in range(0, len(nums)):
 
-        max_running_count += nums[i]
+        max_current_window += nums[i]
 
-        if max_so_far < max_running_count:
-            max_so_far = max_running_count
+        if max_so_far < max_current_window:
+            max_so_far = max_current_window
 
-        if max_running_count < 0:
-            max_running_count = 0
+        if max_current_window < 0:
+            max_current_window = 0
 
     return max_so_far
-
-    # max_so_far = nums[0]
-    # max_ending_here = 0
-    #
-    # for i in range(0, len(nums)):
-    #     max_ending_here += nums[i]
-    #
-    #     if max_so_far < max_ending_here:
-    #         max_so_far = max_ending_here
-    #
-    #     if max_ending_here < 0:
-    #         max_ending_here = 0
-    #
-    # return max_so_far
