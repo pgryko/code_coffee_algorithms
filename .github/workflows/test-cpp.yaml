@@ -12,14 +12,14 @@ jobs:
       steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-      run: |
-          apt-get update
-          apt-get -y install cmake
-          git submodule update --init --recursive
+        run: |
+            apt-get update
+            apt-get -y install cmake
+            git submodule update --init --recursive
 
       - name: Test
-      run: |
-          cmake -H. -Bbuild
-          cd build;
-          make
-          ./unit_tests --gtest_output="xml:cpp_junit.xml"
+        run: |
+            cmake -H. -Bbuild
+            cd build;
+            make
+            ./unit_tests --gtest_output="xml:cpp_junit.xml"
