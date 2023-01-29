@@ -1,0 +1,25 @@
+name: C++ CI
+
+on:
+  push:
+      branches: [ main ]
+  pull_request:
+      branches: [ main ]
+
+jobs:
+  build-and-test:
+      runs-on: gcc
+      steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+      run: |
+          apt-get update
+          apt-get -y install cmake
+          git submodule update --init --recursive
+
+      - name: Test
+      run: |
+          cmake -H. -Bbuild
+          cd build;
+          make
+          ./unit_tests --gtest_output="xml:cpp_junit.xml"
