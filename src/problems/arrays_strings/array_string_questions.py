@@ -3,6 +3,7 @@
 # There is a difference between Unicode and ASCII characters. By default python3 uses unicode utf-8
 # https://docs.python.org/3/howto/unicode.html
 # Unicode allows for a max of 1,114,112 characters
+from typing import List
 
 
 def is_unique(my_string: str):
@@ -162,7 +163,7 @@ def reflect_matrix(matrix: list[list]) -> list[list]:
     return matrix
 
 
-def transpose_matrix(matrix: list[list]) -> list[list]:
+def transpose_matrix(matrix: List[List]) -> List[List]:
     for i in range(0, len(matrix)):
         for j in range(i + 1, len(matrix[0])):
             matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
@@ -175,7 +176,7 @@ def transpose_matrix(matrix: list[list]) -> list[list]:
 #  Tip: this involves a transpose and a reflection (order doesn't matter).
 #  A reflection in the row results in a counter-clockwise transform
 #  A reflection in the column results in a clockwise transform
-def rotate_matrix(matrix: list[list]) -> list[list]:
+def rotate_matrix(matrix: List[List]) -> List[List]:
     """Rotate a matrix 90 in place"""
     reflect_matrix(matrix)
     transpose_matrix(matrix)
