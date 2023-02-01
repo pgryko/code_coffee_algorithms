@@ -23,13 +23,11 @@ Linear solution involves using a sliding window
 
 
 def max_sub_array(nums: list[int]) -> int:
-
     max_so_far = nums[0]
 
     max_current_window = 0
 
     for i in range(0, len(nums)):
-
         max_current_window += nums[i]
 
         if max_so_far < max_current_window:

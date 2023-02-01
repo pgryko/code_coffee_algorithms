@@ -32,7 +32,6 @@ Output: 2
 
 
 def lowest_common_ancestor_recursive(root: Node, p: Node, q: Node) -> Union[Node, None]:
-
     if root is None:
         return None
 
@@ -46,14 +45,12 @@ def lowest_common_ancestor_recursive(root: Node, p: Node, q: Node) -> Union[Node
 
 
 def lowest_common_ancestor_iterative(root: Node, p: Node, q: Node) -> Union[Node, None]:
-
     if root is None:
         return None
 
     cur_root = root
 
     while cur_root:
-
         if p.value < cur_root.value and q.value < cur_root.value:
             cur_root = cur_root.left
             continue

@@ -47,7 +47,6 @@ class AdjacencyListGraph:
         self.source_node = node_1
 
     def breath_first_search(self):
-
         # First ensure that all the nodes are colored white
         for node in self.adjacencyList.keys():
             node.color = "WHITE"

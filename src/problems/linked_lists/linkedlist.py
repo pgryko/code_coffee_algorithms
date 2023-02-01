@@ -1,5 +1,4 @@
 class Node:
-
     prev = None
     next = None
     val = None
@@ -11,7 +10,6 @@ class Node:
 
 
 class LinkedList:
-
     head = None
     tail = None
     count = 0

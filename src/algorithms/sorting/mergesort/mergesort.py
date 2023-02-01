@@ -21,7 +21,6 @@ class MergeSort:
         j = 0
         for k in range(low, high + 1):
             if i < len(lhs) and j < len(rhs):
-
                 if lhs[i] <= rhs[j]:
                     array[k] = lhs[i]
                     i += 1
@@ -37,7 +36,6 @@ class MergeSort:
 
     @staticmethod
     def mergesort(array, low, high):
-
         mid = int((low + high) // 2)
 
         if mid < high:

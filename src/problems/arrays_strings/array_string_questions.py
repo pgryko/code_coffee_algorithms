@@ -163,7 +163,6 @@ def reflect_matrix(matrix: list[list]) -> list[list]:
 
 
 def transpose_matrix(matrix: list[list]) -> list[list]:
-
     for i in range(0, len(matrix)):
         for j in range(i + 1, len(matrix[0])):
             matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]

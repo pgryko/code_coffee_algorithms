@@ -4,7 +4,6 @@ from merge_two_sorted_lists import ListNode, merge_two_lists
 
 
 def gen_list(array: list) -> ListNode:
-
     head = ListNode(val=array[0])
     prev_node = head
 
@@ -18,7 +17,6 @@ def gen_list(array: list) -> ListNode:
 
 
 def linkedlist_iter(list_node: ListNode):
-
     node = list_node
 
     while node:

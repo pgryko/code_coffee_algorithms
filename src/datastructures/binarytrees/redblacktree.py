@@ -75,14 +75,12 @@ class RedBlackTree:
         return self.count
 
     def search(self, value):
-
         if self.root is self.nil:
             return None
 
         return self._search(self.root, value)
 
     def _search(self, node, value):
-
         if node is self.nil:
             return self.nil
 
@@ -95,7 +93,6 @@ class RedBlackTree:
             return self._search(node.right, value)
 
     def exists(self, value):
-
         if self._search(self.root, value) is not self.nil:
             return True
         return False
@@ -131,7 +128,6 @@ class RedBlackTree:
         return self._successor(node).value
 
     def _successor(self, node):
-
         if node.right is not self.nil:
             return self._minimum(node.right)
 
@@ -285,7 +281,6 @@ class RedBlackTree:
 
     # Todo: replace as generator - return yield
     def predecessor(self, value):
-
         node = self._search(self.root, value)
 
         if node is self.nil:

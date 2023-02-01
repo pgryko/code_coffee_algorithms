@@ -14,7 +14,6 @@ class LinkedListSingleArray:
     """
 
     def __init__(self, data: list = None, capacity: int = 20):
-
         # Make sure capacity is greater than 1, otherwise
         # resize function will fail
         if capacity < 1:
@@ -45,7 +44,6 @@ class LinkedListSingleArray:
                 self.push(elem)
 
     def __next__(self, index=None):
-
         if index:
             if (index + 2) % 3 != 0:
                 raise IndexError("Index does not appear to be valid")

@@ -31,7 +31,6 @@ s consists of parentheses only '()[]{}'.
 
 
 def isValid(s: str) -> bool:
-
     stack = []
 
     open_bracket_set = {"(", "[", "{"}

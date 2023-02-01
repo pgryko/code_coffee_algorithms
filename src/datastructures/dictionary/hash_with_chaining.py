@@ -100,7 +100,6 @@ class HashChaining:
             return False
 
     def put(self, message: str):
-
         if self.exists(message):
             return
 
@@ -116,12 +115,10 @@ class HashChaining:
         else:
             # Perform a linear search to see if element is in list
             if message not in self.data[index]:
-
                 self.data[index].append(message)
                 self.count += 1
 
     def delete(self, message: str):
-
         if not self.exists(message):
             raise IndexError
 

@@ -2,7 +2,6 @@ from src.datastructures.binarytrees.binarysearchtrees import Node
 
 
 def invert(node: Node):
-
     if node is None:
         return
 

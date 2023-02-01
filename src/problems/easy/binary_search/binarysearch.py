@@ -6,7 +6,6 @@ def search_iterative(nums: List[int], target: int) -> int:
     high = len(nums) - 1
 
     while low <= high:
-
         # The //2 is a integer division by python
         # so 5//2 -> 2
         mid = (high + low) // 2

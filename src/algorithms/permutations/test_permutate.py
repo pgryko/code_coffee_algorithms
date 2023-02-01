@@ -7,7 +7,6 @@ from permutate import permutate
 
 class TestPermutate(unittest.TestCase):
     def test_permutate(self):
-
         map = set()
 
         count = 0

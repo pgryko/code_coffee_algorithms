@@ -54,7 +54,6 @@ class LinkedList:
             node = node.next
 
     def reverse(self):
-
         prev = None
         current = self.head
 

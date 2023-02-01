@@ -12,7 +12,6 @@ class TestMaxHeapify(unittest.TestCase):
     """
 
     def test_2_elem(self):
-
         array_in = [3, 4]
         max_heapify(array_in)
         self.assertEqual(array_in, [4, 3])
@@ -22,7 +21,6 @@ class TestMaxHeapify(unittest.TestCase):
         self.assertEqual(array_in, [4, 3])
 
     def test_3_elem(self):
-
         array_in = [3, 5, 4]
         max_heapify(array_in)
         self.assertEqual(array_in, [5, 3, 4])
@@ -32,7 +30,6 @@ class TestMaxHeapify(unittest.TestCase):
         self.assertEqual(array_in, [5, 3, 4])
 
     def test_5_elem(self):
-
         array_in = [3, 5, 4, 7, 2]
         max_heapify(array_in, 1)
         self.assertEqual(array_in, [3, 7, 4, 5, 2])
@@ -41,7 +38,6 @@ class TestMaxHeapify(unittest.TestCase):
         self.assertEqual(array_in, [7, 5, 4, 3, 2])
 
     def test_7_elem(self):
-
         array_in = [8, 0, 3, 3, 5, 6, 7]
         max_heapify(array_in, 1)
         self.assertEqual(array_in, [8, 5, 3, 3, 0, 6, 7])
@@ -63,7 +59,6 @@ class TestMaxHeapify(unittest.TestCase):
 
 class TestBuildHeap(unittest.TestCase):
     def test_build_heap(self):
-
         array_in = [8, 0, 3, 3, 5, 6, 7]
         build_heap(array_in)
         self.assertEqual(array_in, [8, 5, 7, 3, 0, 6, 3])

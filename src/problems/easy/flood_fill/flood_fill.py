@@ -50,7 +50,6 @@ def is_valid(
 
 
 def flood_fill(image: List[List[int]], row: int, col: int, color: int):
-
     prev_color = image[row][col]
 
     # Set new color
@@ -59,7 +58,6 @@ def flood_fill(image: List[List[int]], row: int, col: int, color: int):
     queue = [(row, col)]
 
     while len(queue) > 0:
-
         cur_row, cur_col = queue.pop()
 
         for per in [(0, 1), (0, -1), (1, 0), (-1, 0)]:

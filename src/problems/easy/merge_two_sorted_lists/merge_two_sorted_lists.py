@@ -5,7 +5,6 @@ class ListNode:
 
 
 def merge_two_lists(list1: ListNode, list2: ListNode) -> ListNode:
-
     head1 = list1
     head2 = list2
 

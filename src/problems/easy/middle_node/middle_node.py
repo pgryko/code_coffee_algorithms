@@ -13,7 +13,6 @@ def middle_node(head: Optional[ListNode]) -> Optional[ListNode]:
     fast_ptr = head
 
     while fast_ptr:
-
         fast_ptr = fast_ptr.next
 
         if fast_ptr:

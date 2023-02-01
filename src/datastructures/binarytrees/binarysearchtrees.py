@@ -134,7 +134,6 @@ class BinarySearchTree(MetaNode, node_cls=Node):
 
     # Todo: replace as generator - return yield
     def predecessor(self, value):
-
         node = self._search(self.root, value)
 
         if not node:
@@ -185,7 +184,6 @@ class BinarySearchTree(MetaNode, node_cls=Node):
         # implicit return of none
 
     def __iter__(self, node: self.node_cls = None):  # noqa
-
         if node is None:
             node = self._minimum(self.root)
 
@@ -200,7 +198,6 @@ class BinarySearchTree(MetaNode, node_cls=Node):
         """
 
         if value < node.value:
-
             if node.left:
                 self._insert(node.left, value)
             else:
@@ -218,7 +215,6 @@ class BinarySearchTree(MetaNode, node_cls=Node):
                 self.count += 1
 
     def insert(self, value):
-
         # Handle passing in a list
         if isinstance(value, list):
             for element in value:
@@ -246,7 +242,6 @@ class BinarySearchTree(MetaNode, node_cls=Node):
             child.parent = parent.parent
 
     def delete(self, value):
-
         node = self._search(self.root, value)
 
         if node is None:

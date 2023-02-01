@@ -1,5 +1,4 @@
 def select_sort(array):
-
     for i in range(0, len(array)):
         j = i + 1
         # Second loop to find min value

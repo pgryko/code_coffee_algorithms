@@ -26,7 +26,6 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 
 
 def optimize_buy_sell(prices: list) -> float:
-
     if len(prices) == 0:
         return 0
 
@@ -34,7 +33,6 @@ def optimize_buy_sell(prices: list) -> float:
     profit = 0
 
     for i in range(1, len(prices)):
-
         if buy > prices[i]:
             buy = prices[i]
         else:

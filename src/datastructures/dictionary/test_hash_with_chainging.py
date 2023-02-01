@@ -13,7 +13,6 @@ class TestHashChaining(unittest.TestCase):
         self.assertEqual(len(hash_map), 0)
 
     def test_put(self):
-
         hash_map = HashChaining()
 
         hash_map.put("AAA")
@@ -22,7 +21,6 @@ class TestHashChaining(unittest.TestCase):
         self.assertFalse(hash_map.exists("AAAB"))
 
     def test_chaining(self):
-
         hash_map = HashChaining()
 
         for i in range(20):
