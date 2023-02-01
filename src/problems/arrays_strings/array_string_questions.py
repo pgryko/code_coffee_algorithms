@@ -154,7 +154,7 @@ def string_compress(input_string: str):
     return "".join(buffer)
 
 
-def reflect_matrix(matrix: list[list]) -> list[list]:
+def reflect_matrix(matrix: List[List]) -> List[List]:
     # Reflect horizontally
 
     for n in range(0, len(matrix) // 2):
