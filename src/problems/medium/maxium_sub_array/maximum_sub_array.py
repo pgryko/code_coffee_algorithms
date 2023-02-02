@@ -20,9 +20,10 @@ Output: 23
 Linear solution involves using a sliding window
 
 """
+from typing import List
 
 
-def max_sub_array(nums: list[int]) -> int:
+def max_sub_array(nums: List[int]) -> int:
     max_so_far = nums[0]
 
     max_current_window = 0
