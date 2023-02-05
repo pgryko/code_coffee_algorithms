@@ -14,6 +14,7 @@ Input: mat = [[0,0,0],[0,1,0],[1,1,1]]
 Output: [[0,0,0],[0,1,0],[1,2,1]]
 """
 from typing import List, Tuple
+from collections import deque
 
 
 def is_valid(x_len: int, y_len: int, pair: Tuple):
@@ -26,7 +27,7 @@ def breath_first_search(matrix=List[List]) -> List[List]:
 
     dist = [[-1 for _ in range(0, y_len)] for _ in range(0, x_len)]
 
-    queue = []
+    queue = deque()
 
     # Loop through the matrix and find the source nodes
     # We will be searching from nodes with value zero to nodes == 1
@@ -40,7 +41,7 @@ def breath_first_search(matrix=List[List]) -> List[List]:
     y_adj = [0, -1, 0, 1]
 
     while len(queue) > 0:
-        node = queue.pop(0)
+        node = queue.popleft()
 
         for i in range(0, 4):
             adj_node = (node[0] + x_adj[i], node[1] + y_adj[i])
