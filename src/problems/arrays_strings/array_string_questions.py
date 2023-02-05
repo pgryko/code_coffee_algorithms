@@ -5,6 +5,8 @@
 # Unicode allows for a max of 1,114,112 characters
 from typing import List
 
+from collections import deque
+
 
 def is_unique(my_string: str):
     # Allocate bit array to keep track of whether we've seen
@@ -22,7 +24,7 @@ def is_unique(my_string: str):
 
 
 # Given two strings, write a method to check if one is a permutaiton of another
-# Ask whether it should be case sensitive
+# Ask whether it should be case-sensitive
 # two ways to approach this:
 # Either sort the arrays and then compare
 # Use an int vector and compare the count of each letter
@@ -136,7 +138,7 @@ def string_compress(input_string: str):
     # string concatenation requires all characters to be copied, this is a O(N+M)
     # operation (where N and M are the sizes of the input strings).
     # M appends of the same word will trend to O(M^2) time therefor.
-    buffer = []
+    buffer = deque()
     consecutive = 0
     for index in range(0, len(input_string)):
         consecutive += 1

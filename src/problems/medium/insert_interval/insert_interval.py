@@ -24,6 +24,7 @@ Output: [[1,2],[3,10],[12,16]]
 Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
 
 """
+from collections import deque
 
 
 def overlap(interval1: tuple, interval2: tuple):
@@ -44,7 +45,7 @@ def merge_interval(interval: tuple, new_interval: tuple):
 
 
 def insert_interval(intervals: List[tuple], new_interval: tuple) -> List[tuple]:
-    new_stack = []
+    new_stack = deque()
 
     if new_interval[0] <= intervals[0][0]:
         new_stack.append(new_interval)
@@ -79,4 +80,4 @@ def insert_interval(intervals: List[tuple], new_interval: tuple) -> List[tuple]:
         else:
             new_stack.append(new_interval)
 
-    return new_stack
+    return list(new_stack)

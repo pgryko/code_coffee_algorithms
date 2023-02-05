@@ -1,5 +1,6 @@
 # Definition for singly-linked list.
 from typing import Optional
+from collections import deque
 
 
 class ListNode:
@@ -8,14 +9,14 @@ class ListNode:
         self.next = next
 
     def to_list(self):
-        list_print = []
+        list_print = deque()
         list_print.append(self.val)
         next_node = self.next
         while next_node:
             list_print.append(next_node.val)
             next_node = next_node.next
 
-        return list_print
+        return list(list_print)
 
     def __str__(self):
         return str(self.to_list())

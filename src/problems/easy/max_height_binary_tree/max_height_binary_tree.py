@@ -1,4 +1,5 @@
 from typing import Optional
+from collections import deque
 
 
 class TreeNode:
@@ -23,7 +24,7 @@ def max_height_bfs(node: Optional[TreeNode]) -> int:
     # whenever it is encountered,
     # we can increment the value of variable and that level get counted.
 
-    queue = []
+    queue = deque()
     if node:
         queue.append((node, 1))
 
@@ -31,7 +32,7 @@ def max_height_bfs(node: Optional[TreeNode]) -> int:
 
     while len(queue) > 0:
         # Important to set index zero
-        cur_node, height = queue.pop(0)
+        cur_node, height = queue.popleft()
 
         max_height = max(max_height, height)
 

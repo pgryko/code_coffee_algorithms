@@ -28,10 +28,11 @@ Constraints:
 s consists of parentheses only '()[]{}'.
 
 """
+from collections import deque
 
 
 def isValid(s: str) -> bool:
-    stack = []
+    stack = deque()
 
     open_bracket_set = {"(", "[", "{"}
 
