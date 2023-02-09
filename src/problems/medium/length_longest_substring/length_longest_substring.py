@@ -32,7 +32,6 @@ s consists of English letters, digits, symbols and spaces.
 
 
 def longest_substring(string: str) -> int:
-
     max_substring = 0
     max_running_window = 0
 
