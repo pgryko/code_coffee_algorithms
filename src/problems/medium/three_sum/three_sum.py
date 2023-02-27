@@ -29,55 +29,43 @@ Explanation: The only possible triplet sums up to 0.
 from typing import List
 
 
-def _sum_append(sorted_list, three_sum_list, first_ptr, end_ptr):
-    sum_list = [
-        sorted_list[first_ptr] + sorted_list[first_ptr + 1] + sorted_list[end_ptr]
-    ]
-
-    if sum(sum_list) == 0:
-        three_sum_list.append(sum_list)
-
-    sum_list = [
-        sorted_list[-first_ptr] + sorted_list[-first_ptr - 1] + sorted_list[-end_ptr]
-    ]
-
-    if sum(sum_list) == 0:
-        three_sum_list.append(sum_list)
-
-    return three_sum_list
-
-
 def three_sum(nums: List[int]) -> List[List[int]]:
-    sorted_list = sorted([-1, 0, 1, 2, -1, -4])
+    """Given an integer array nums, return all unique triplets
 
-    # Let first ptr cover two elements
-    first_ptr = 0
-    end_ptr = len(nums) - 1
+    Args:
+        nums: Integer array
 
+    Returns: Unique triplets
+
+    a + b + c = 0
+
+    reduces the problem to two sum
+
+    -c = a + b
+
+    """
+
+    sorted_list = sorted(nums)
     three_sum_list = []
 
-    while (
-        0 <= first_ptr < len(nums) - 1
-        and 0 <= end_ptr < len(nums)
-        and first_ptr != end_ptr
-    ):
+    for i in range(0, len(sorted_list) - 1):
+        j = i + 1
+        r = len(sorted_list) - 1
 
-        sum_list = [
-            sorted_list[first_ptr] + sorted_list[first_ptr + 1] + sorted_list[end_ptr]
-        ]
-
-        if sum(sum_list) == 0:
-            three_sum_list.append(sum_list)
-
-        sum_list = [
-            sorted_list[-first_ptr]
-            + sorted_list[-first_ptr - 1]
-            + sorted_list[-end_ptr]
-        ]
-
-        if sum(sum_list) == 0:
-            three_sum_list.append(sum_list)
-
-        first_ptr += 1
+        while j < r:
+            if sorted_list[i] + sorted_list[j] + sorted_list[r] == 0:
+                if len(three_sum_list) == 0 or three_sum_list[-1] != [
+                    sorted_list[i],
+                    sorted_list[j],
+                    sorted_list[r],
+                ]:
+                    three_sum_list.append(
+                        [sorted_list[i], sorted_list[j], sorted_list[r]]
+                    )
+                j = j + 1
+            elif sorted_list[i] + sorted_list[j] + sorted_list[r] < 0:
+                j = j + 1
+            else:
+                r = r - 1
 
     return three_sum_list
