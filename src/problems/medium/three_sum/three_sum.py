@@ -27,6 +27,7 @@ Output: [[0,0,0]]
 Explanation: The only possible triplet sums up to 0.
 """
 from typing import List
+from collections import OrderedDict
 
 
 def three_sum(nums: List[int]) -> List[List[int]]:
@@ -46,7 +47,8 @@ def three_sum(nums: List[int]) -> List[List[int]]:
     """
 
     sorted_list = sorted(nums)
-    three_sum_list = []
+    # Use an ordered dict to preserve output order
+    three_sum_set = OrderedDict()
 
     for i in range(0, len(sorted_list) - 1):
         j = i + 1
@@ -54,18 +56,11 @@ def three_sum(nums: List[int]) -> List[List[int]]:
 
         while j < r:
             if sorted_list[i] + sorted_list[j] + sorted_list[r] == 0:
-                if len(three_sum_list) == 0 or three_sum_list[-1] != [
-                    sorted_list[i],
-                    sorted_list[j],
-                    sorted_list[r],
-                ]:
-                    three_sum_list.append(
-                        [sorted_list[i], sorted_list[j], sorted_list[r]]
-                    )
+                three_sum_set[(sorted_list[i], sorted_list[j], sorted_list[r])] = 0
                 j = j + 1
             elif sorted_list[i] + sorted_list[j] + sorted_list[r] < 0:
                 j = j + 1
             else:
                 r = r - 1
 
-    return three_sum_list
+    return [[x[0], x[1], x[2]] for x in three_sum_set.keys()]

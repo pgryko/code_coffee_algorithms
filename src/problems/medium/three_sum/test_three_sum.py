@@ -12,3 +12,9 @@ class TestTheeSum(unittest.TestCase):
 
     def test_example_3(self):
         self.assertEqual(three_sum([0, 0, 0]), [[0, 0, 0]])
+
+    def test_example_4(self):
+        self.assertEqual(
+            three_sum([-4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6]),
+            [[-4, -2, 6], [-4, 0, 4], [-4, 1, 3], [-4, 2, 2], [-2, -2, 4], [-2, 0, 2]],
+        )
