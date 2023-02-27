@@ -56,7 +56,7 @@ def three_sum(nums: List[int]) -> List[List[int]]:
 
         while j < r:
             if sorted_list[i] + sorted_list[j] + sorted_list[r] == 0:
-                three_sum_set[(sorted_list[i], sorted_list[j], sorted_list[r])] = 0
+                three_sum_set[(sorted_list[i], sorted_list[j], sorted_list[r])] = None
                 j = j + 1
             elif sorted_list[i] + sorted_list[j] + sorted_list[r] < 0:
                 j = j + 1
