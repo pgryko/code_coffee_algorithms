@@ -42,3 +42,8 @@ test python:
     reports:
       junit:
        - build/pytest.xml
+
+  cache:
+    paths:
+      - .cache/pip
+      - venv/
