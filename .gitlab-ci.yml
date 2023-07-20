@@ -53,7 +53,7 @@ sonarcloud-check:
     paths:
       - .sonar/cache
   script:
-    - sonar-scanner
+    - sonar-scanner -Dsonar.c.file.suffixes=- -Dsonar.cpp.file.suffixes=- -Dsonar.objc.file.suffixes=- \
   only:
     - merge_requests
     - master
