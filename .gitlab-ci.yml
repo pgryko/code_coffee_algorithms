@@ -1,16 +1,14 @@
-# use the official gcc image, based on debian
-# can use verions as well, like gcc:5.2
-# see https://hub.docker.com/_/gcc/
-image: gcc
-
-# Is performed before the scripts in the stages step
-before_script:
-  - apt-get update
-  - apt-get -y install cmake python3-pip python3-scipy
-  - git submodule update --init --recursive
-
-
 test cpp:
+  # use the official gcc image, based on debian
+  # can use verions as well, like gcc:5.2
+  # see https://hub.docker.com/_/gcc/
+  image: gcc
+
+  # Is performed before the scripts in the stages step
+  before_script:
+    - apt-get update
+    - apt-get -y install cmake python3-pip python3-scipy
+    - git submodule update --init --recursive
   stage: test
   script:
     - cmake -H. -Bbuild
@@ -24,6 +22,13 @@ test cpp:
        - build/cpp_junit.xml
 
 test python:
+  image: gcc
+
+  # Is performed before the scripts in the stages step
+  before_script:
+    - apt-get update
+    - apt-get -y install cmake python3-pip python3-scipy
+    - git submodule update --init --recursive
   stage: test
   script:
     - python3 -V # print version of python3
@@ -35,3 +40,22 @@ test python:
     reports:
       junit:
        - build/pytest.xml
+
+sonarcloud-check:
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
+    GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+  image:
+    name: sonarsource/sonar-scanner-cli:latest
+    entrypoint: [""]
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - sonar-scanner
+  only:
+    - merge_requests
+    - master
+    - develop
+
