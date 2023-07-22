@@ -1,16 +1,14 @@
-# use the official gcc image, based on debian
-# can use verions as well, like gcc:5.2
-# see https://hub.docker.com/_/gcc/
-image: gcc
-
-# Is performed before the scripts in the stages step
-before_script:
-  - apt-get update
-  - apt-get -y install cmake python3-pip python3-scipy
-  - git submodule update --init --recursive
-
-
 test cpp:
+  # use the official gcc image, based on debian
+  # can use verions as well, like gcc:5.2
+  # see https://hub.docker.com/_/gcc/
+  image: gcc
+
+  # Is performed before the scripts in the stages step
+  before_script:
+    - apt-get update
+    - apt-get -y install cmake python3-pip python3-scipy
+    - git submodule update --init --recursive
   stage: test
   script:
     - cmake -H. -Bbuild
@@ -24,9 +22,18 @@ test cpp:
        - build/cpp_junit.xml
 
 test python:
+  image: gcc
+
+  # Is performed before the scripts in the stages step
+  before_script:
+    - apt-get update
+    - apt-get -y install cmake python3-pip python3-scipy python3-venv
+    - git submodule update --init --recursive
   stage: test
   script:
     - python3 -V # print version of python3
+    - python3 -m venv venv
+    - source venv/bin/activate
     - pip3 install -r requirements.txt
     - pytest --junitxml=build/pytest.xml --cov=src/
     - black src --check
@@ -35,3 +42,8 @@ test python:
     reports:
       junit:
        - build/pytest.xml
+
+  cache:
+    paths:
+      - .cache/pip
+      - venv/
