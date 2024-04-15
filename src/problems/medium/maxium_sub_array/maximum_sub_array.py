@@ -24,17 +24,20 @@ from typing import List
 
 
 def max_sub_array(nums: List[int]) -> int:
-    max_so_far = nums[0]
+
+    current_max = nums[0]
 
     max_current_window = 0
 
-    for i in range(0, len(nums)):
+    for i in range(0,len(nums)):
         max_current_window += nums[i]
 
-        if max_so_far < max_current_window:
-            max_so_far = max_current_window
+        if max_current_window > current_max:
+            current_max = max_current_window
 
         if max_current_window < 0:
             max_current_window = 0
 
-    return max_so_far
+    return current_max
+
+

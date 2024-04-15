@@ -12,3 +12,6 @@ class TestTwoSums(unittest.TestCase):
 
     def test_c(self):
         self.assertEqual(max_sub_array([5, 4, -1, 7, 8]), 23)
+
+    def test_all_negative(self):
+        self.assertEqual(max_sub_array([-2, -3, -4, -5, -6]), -2)
