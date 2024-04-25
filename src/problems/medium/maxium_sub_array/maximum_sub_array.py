@@ -20,6 +20,7 @@ Output: 23
 Linear solution involves using a sliding window
 
 """
+
 from typing import List
 
 

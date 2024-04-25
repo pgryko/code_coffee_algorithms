@@ -1,5 +1,6 @@
 """A simple example of a Binary search tree
 """
+
 # Future import need for using self in typehints
 from __future__ import annotations
 

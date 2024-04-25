@@ -49,6 +49,7 @@ Which is equivalent to finding if a cycle exists in a directed graph. If a cycle
 then it is impossible to complete all courses.
 
 """
+
 from collections import defaultdict, deque
 from typing import List
 

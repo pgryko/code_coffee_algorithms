@@ -1,6 +1,7 @@
 """Example implementation of doubly linked list
 
 """
+
 from typing import List, Union
 
 

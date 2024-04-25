@@ -24,20 +24,11 @@ Output: [[1,2],[3,10],[12,16]]
 Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
 
 """
-from collections import deque
 
 
 def overlap(interval1: tuple, interval2: tuple):
-    def _overlap(interval_1: tuple, interval_2: tuple):
-        if interval_1[0] <= interval_2[0] <= interval_1[1]:
-            return True
 
-        if interval_1[0] <= interval_2[1] <= interval_1[1]:
-            return True
-
-        return False
-
-    return _overlap(interval1, interval2) or _overlap(interval2, interval1)
+    return interval1[0] <= interval2[1] and interval1[1] >= interval2[0]
 
 
 def merge_interval(interval: tuple, new_interval: tuple):
@@ -45,39 +36,31 @@ def merge_interval(interval: tuple, new_interval: tuple):
 
 
 def insert_interval(intervals: List[tuple], new_interval: tuple) -> List[tuple]:
-    new_stack = deque()
 
-    if new_interval[0] <= intervals[0][0]:
-        new_stack.append(new_interval)
-        new_interval = None
+    if len(intervals) == 0:
+        return [new_interval]
 
-    for i in range(0, len(intervals)):
-        tmp_tuple = intervals[i]
+    if new_interval[1] <= intervals[0][0]:
+        return [new_interval] + intervals
 
-        if new_interval and overlap(tmp_tuple, new_interval):
-            tmp_tuple = merge_interval(tmp_tuple, new_interval)
+    new_stack = []
 
-        if i < len(intervals) - 1 and overlap(intervals[i], intervals[i + 1]):
-            tmp_tuple = merge_interval(intervals[i], intervals[i + 1])
+    current_interval = new_interval
 
-        if len(new_stack) > 0 and overlap(new_stack[-1], tmp_tuple):
-            new_stack[-1] = merge_interval(new_stack[-1], tmp_tuple)
+    for i in range(len(intervals)):
+
+        if overlap(current_interval, intervals[i]):
+            current_interval = merge_interval(current_interval, intervals[i])
+
+        elif current_interval[1] < intervals[i][0]:
+            new_stack.append(current_interval)
+            new_stack += intervals[i:]
+
+            return new_stack
+
         else:
-            new_stack.append(tmp_tuple)
+            new_stack += [intervals[i]]
 
-        if (
-            new_interval
-            and i < len(intervals) - 1
-            and tmp_tuple[1] < new_interval[0] < intervals[i + 1][0]
-        ):
-            new_stack.append(new_interval)
-            new_interval = None
+    new_stack.append(current_interval)
 
-    # Handle case where we have not already inserted the interval
-    if new_interval:
-        if len(new_stack) > 0 and overlap(new_stack[-1], new_interval):
-            new_stack[-1] = merge_interval(new_stack[-1], new_interval)
-        else:
-            new_stack.append(new_interval)
-
-    return list(new_stack)
+    return new_stack
