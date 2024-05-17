@@ -5,7 +5,6 @@ description = ""
 authors = ["Piotr Gryko <piotr.gryko@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "code_coffee_algorithms"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
