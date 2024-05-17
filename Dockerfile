@@ -10,10 +10,12 @@ RUN apt-get update && apt-get install -y \
     python3-scipy \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --upgrade pip wheel setuptools
+RUN pip3 install --upgrade pip wheel setuptools poetry
 
-COPY requirements.txt /requirements/requirements.txt
-RUN pip3 install -r /requirements/requirements.txt
+COPY poetry.lock pyproject.toml /app/
+
+RUN poetry config virtualenvs.create false
+RUN poetry install
 
 # Copy the current directory contents into the container at /app
 COPY . /app

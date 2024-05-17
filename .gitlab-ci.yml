@@ -22,13 +22,13 @@ test cpp:
        - build/cpp_junit.xml
 
 test python:
-  image: gcc
+  image: python:latest
 
   # Is performed before the scripts in the stages step
-  before_script:
-    - apt-get update
-    - apt-get -y install cmake python3-pip python3-scipy python3-venv
-    - git submodule update --init --recursive
+#  before_script:
+#    - apt-get update
+#    - apt-get -y install cmake python3-pip python3-scipy python3-venv
+#    - git submodule update --init --recursive
   stage: test
   script:
     - python3 -V # print version of python3
