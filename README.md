@@ -287,17 +287,19 @@ Dependencies:
 
 ```bash
 
-$ sudo apt install python3-pip python3-venv
+$ sudo apt install python3-pip
+$ pip install poetry
+$ poetry install
 ```
 
 ```bash
-$ pytest
+$ poetry run pytest
 ```
 
 If you want pytest to fall into an ipython debugger shell on first failure
 
 ```bash
-$ pytest --pdbcls=IPython.core.debugger:Pdb -s
+$ poetry run  pytest --pdbcls=IPython.core.debugger:Pdb -s
 ```
 
 Auto Lint using https://github.com/psf/black, isort and flake8
