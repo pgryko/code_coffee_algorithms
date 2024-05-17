@@ -27,7 +27,7 @@ class TestMatrixNearestValue(unittest.TestCase):
     def test_all_one(self):
         self.assertEqual(
             breath_first_search([[1, 1, 1], [1, 1, 1], [1, 1, 1]]),
-            [[-1, -1, -1], [-1, -1, -1], [-1, -1, -1]],
+            [[9, 9, 9], [9, 9, 9], [9, 9, 9]],
         )
 
     def test_single(self):

@@ -32,12 +32,11 @@ test python:
   stage: test
   script:
     - python3 -V # print version of python3
-    - python3 -m venv venv
-    - source venv/bin/activate
-    - pip3 install -r requirements.txt
-    - pytest --junitxml=build/pytest.xml --cov=src/
-    - black src --check
-    - flake8 --ignore=E501, W503, E722, E203 --max-line-length=100 --select=src/
+    - pip install poetry
+    - poetry install
+    - poetry run pytest --junitxml=build/pytest.xml --cov=src/
+    - poetry run black src --check
+    - poetry run flake8 --ignore=E501, W503, E722, E203 --max-line-length=100 --select=src/
   artifacts:
     reports:
       junit:

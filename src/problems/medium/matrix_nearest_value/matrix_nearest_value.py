@@ -26,7 +26,7 @@ def breath_first_search(matrix=List[List]) -> List[List]:
     x_len = len(matrix)
     y_len = len(matrix[0])
 
-    dist = [[-1 for _ in range(0, y_len)] for _ in range(0, x_len)]
+    dist = [[x_len * y_len for _ in range(0, y_len)] for _ in range(0, x_len)]
 
     queue = deque()
 
@@ -48,7 +48,7 @@ def breath_first_search(matrix=List[List]) -> List[List]:
             adj_node = (node[0] + x_adj[i], node[1] + y_adj[i])
             if (
                 is_valid(x_len=x_len, y_len=y_len, pair=adj_node)
-                and dist[adj_node[0]][adj_node[1]] == -1
+                and dist[node[0]][node[1]] + 1 < dist[adj_node[0]][adj_node[1]]
             ):
                 dist[adj_node[0]][adj_node[1]] = dist[node[0]][node[1]] + 1
                 queue.append(adj_node)
