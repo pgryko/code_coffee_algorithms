@@ -2,12 +2,12 @@ test cpp:
   # use the official gcc image, based on debian
   # can use verions as well, like gcc:5.2
   # see https://hub.docker.com/_/gcc/
-  image: gcc
+  image: python:latest
 
   # Is performed before the scripts in the stages step
   before_script:
     - apt-get update
-    - apt-get -y install cmake python3-pip python3-scipy
+    - apt-get -y install cmake python3-pip python3-scipy build-essential gcc
     - git submodule update --init --recursive
   stage: test
   script:
