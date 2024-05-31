@@ -45,7 +45,6 @@ def coin_change(coins: List[int], amount: int) -> int:
                 distance_per_amount[value], distance_per_amount[value - coin] + 1
             )
 
-    print(distance_per_amount)
     if distance_per_amount[amount] == amount + 1:
         return -1
     return distance_per_amount[amount]
