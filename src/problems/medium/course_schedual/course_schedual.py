@@ -50,34 +50,31 @@ then it is impossible to complete all courses.
 
 """
 
-from collections import defaultdict, deque
+from collections import defaultdict
 from typing import List
 
 
-def canFinish(numCourses: int, prerequisites: List[List[int]]) -> bool:
-    graph = defaultdict(list)
+def can_finish(num_courses: int, prerequisites: List[List[int]]) -> bool:
+    course_prequest_list = defaultdict(list)
 
-    #  'prequisites_list' is a list where the value at each index is the number of prerequisites
-    #  for the course at that index
-    prequisites_list = [0] * numCourses
+    for prerequisite in prerequisites:
+        course_prequest_list[prerequisite[0]].append(prerequisite[1])
 
-    for x, y in prerequisites:
-        # Note we do graph 'y'
-        graph[y].append(x)
-        # Note we do prequisites_list 'x'
-        prequisites_list[x] += 1
+    visited = [0] * num_courses
 
-    # queue initially contains all the courses that have no prerequisites
-    queue = deque([i for i in range(numCourses) if prequisites_list[i] == 0])
+    def dfs(course: int):
+        if visited[course] == 1:  # cycle detected
+            return False
+        if visited[course] == 2:  # already checked this course
+            return True
+        visited[course] = 1  # mark as being visited
+        for neighbor in course_prequest_list.get(course, []):
+            if not dfs(neighbor):
+                return False
+        visited[course] = 2  # mark as fully visited
+        return True
 
-    while queue:
-        course = queue.popleft()
-        for next_course in graph[course]:
-            prequisites_list[next_course] -= 1
-            # If any dependent course's in-degree reaches zero (meaning all its prerequisites have been taken),
-            # we add it to the queue
-            if prequisites_list[next_course] == 0:
-                queue.append(next_course)
-
-    # if every course's in-degree is 0 (meaning every course can be taken), then we return True
-    return sum(prequisites_list) == 0
+    for course in range(num_courses):
+        if not dfs(course):
+            return False
+    return True
