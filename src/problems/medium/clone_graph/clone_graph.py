@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Dict
 
 
@@ -7,7 +9,7 @@ class Node:
         self.neighbors = neighbors if neighbors is not None else []
 
 
-def cloneGraph(node: Node) -> Node:
+def clone_graph(node: Node) -> Node:
     node_map: Dict[Node, Node] = {}
 
     def clone(node: Node, node_map: Dict[Node, Node]) -> Node | None:

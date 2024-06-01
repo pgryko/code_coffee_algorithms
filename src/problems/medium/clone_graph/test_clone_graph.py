@@ -1,5 +1,5 @@
 import unittest
-from src.problems.medium.clone_graph.clone_graph import Node, cloneGraph
+from src.problems.medium.clone_graph.clone_graph import Node, clone_graph
 
 
 class TestCloneGraph(unittest.TestCase):
@@ -15,7 +15,7 @@ class TestCloneGraph(unittest.TestCase):
         node3.neighbors = [node2, node4]
         node4.neighbors = [node1, node3]
 
-        cloned_node1 = cloneGraph(node1)
+        cloned_node1 = clone_graph(node1)
 
         self.assertEqual(cloned_node1.val, node1.val)
         self.assertEqual(len(cloned_node1.neighbors), len(node1.neighbors))
@@ -25,7 +25,7 @@ class TestCloneGraph(unittest.TestCase):
     def test_clone_single_node_graph(self):
         # Test case: Single node graph
         node1 = Node(1)
-        cloned_node1 = cloneGraph(node1)
+        cloned_node1 = clone_graph(node1)
 
         self.assertEqual(cloned_node1.val, node1.val)
         self.assertNotEqual(id(cloned_node1), id(node1))
@@ -33,7 +33,7 @@ class TestCloneGraph(unittest.TestCase):
     def test_clone_empty_graph(self):
         # Test case: Empty graph (None)
         node = None
-        cloned_node = cloneGraph(node)
+        cloned_node = clone_graph(node)
 
         self.assertEqual(cloned_node, None)
 
@@ -44,7 +44,7 @@ class TestCloneGraph(unittest.TestCase):
         node1.neighbors = [node2]
         node2.neighbors = [node1]
 
-        cloned_node1 = cloneGraph(node1)
+        cloned_node1 = clone_graph(node1)
 
         self.assertEqual(cloned_node1.val, node1.val)
         self.assertEqual(len(cloned_node1.neighbors), len(node1.neighbors))
