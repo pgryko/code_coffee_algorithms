@@ -15,13 +15,13 @@ _fixed_datetime = []
 class _MockDateTime(_real_datetime):
     @classmethod
     def now(cls, tz=None):
-        if len(_fixed_datetime):
+        if _fixed_datetime:
             return _fixed_datetime[0]
 
 
 class FreezeDateTime:
     def __init__(self, fixed_datetime: datetime.datetime):
-        if len(_fixed_datetime):
+        if _fixed_datetime:
             _fixed_datetime.pop()
         _fixed_datetime.append(fixed_datetime)
 
