@@ -1,4 +1,3 @@
-# import datetime as built_in_datetime
 import datetime
 
 # You can't explicitly patch datetime due to
