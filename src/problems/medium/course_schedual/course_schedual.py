@@ -50,11 +50,11 @@ then it is impossible to complete all courses.
 
 """
 
-from collections import defaultdict
+from collections import defaultdict, deque
 from typing import List
 
 
-def can_finish(num_courses: int, prerequisites: List[List[int]]) -> bool:
+def can_finish_dfs(num_courses: int, prerequisites: List[List[int]]) -> bool:
     course_prequest_list = defaultdict(list)
 
     for prerequisite in prerequisites:
@@ -68,13 +68,48 @@ def can_finish(num_courses: int, prerequisites: List[List[int]]) -> bool:
         if visited[course] == 2:  # already checked this course
             return True
         visited[course] = 1  # mark as being visited
-        for neighbor in course_prequest_list.get(course, []):
+        for neighbor in course_prequest_list[course]:
             if not dfs(neighbor):
                 return False
         visited[course] = 2  # mark as fully visited
         return True
 
     for course in range(num_courses):
-        if not dfs(course):
-            return False
+
+        if course in course_prequest_list:
+            if not dfs(course):
+                return False
     return True
+
+
+def can_finish_bfs(num_courses: int, prerequisites: List[List[int]]) -> bool:
+    # Create an adjacency list and an array to count the in-degrees of each node (course)
+    adj_list = defaultdict(list)
+    in_degree = [0] * num_courses
+
+    # Build the graph by populating the adjacency list
+    for dest, src in prerequisites:
+        adj_list[src].append(dest)
+        in_degree[dest] += 1
+
+    # Initialize a queue with nodes (courses) that have no incoming edges (in-degree 0)
+    queue = deque([i for i in range(num_courses) if in_degree[i] == 0])
+
+    # Number of courses that have no prerequisites or whose prerequisites can be met
+    num_no_prereq_courses = 0
+
+    # Process nodes with no incoming edges
+    while queue:
+        course = queue.popleft()
+        num_no_prereq_courses += 1
+
+        # Decrease the in-degree of each neighbor by 1
+        for neighbor in adj_list.get(course, []):
+            in_degree[neighbor] -= 1
+            # If in-degree of a neighbor becomes 0, add it to the queue
+            if in_degree[neighbor] == 0:
+                queue.append(neighbor)
+
+    # If the number of courses with no unmet prerequisites is equal to the total number of courses,
+    # it is possible to finish all courses
+    return num_no_prereq_courses == num_courses
