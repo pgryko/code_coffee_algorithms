@@ -30,7 +30,7 @@ class TestNodeFunctions(unittest.TestCase):
 
         head_node = gen_list(input_list)
 
-        assert input_list == [x for x in linkedlist_iter(head_node)]
+        assert input_list == list(linkedlist_iter(head_node))
 
 
 class TestMergeTwoSortedLists(unittest.TestCase):
@@ -41,7 +41,7 @@ class TestMergeTwoSortedLists(unittest.TestCase):
 
         list_3 = merge_two_lists(list_1, list_2)
 
-        self.assertEqual([x for x in linkedlist_iter(list_3)], [1, 2, 3, 4, 5, 6])
+        self.assertEqual(list(linkedlist_iter(list_3)), [1, 2, 3, 4, 5, 6])
 
     def test_linked_list_b(self):
         list_1 = gen_list([1, 3, 5])
@@ -49,7 +49,7 @@ class TestMergeTwoSortedLists(unittest.TestCase):
 
         list_3 = merge_two_lists(list_1, list_2)
 
-        self.assertEqual([x for x in linkedlist_iter(list_3)], [1, 2, 3, 4, 5, 6])
+        self.assertEqual(list(linkedlist_iter(list_3)), [1, 2, 3, 4, 5, 6])
 
     def test_linked_list_c(self):
         # All elements in list 1 > list 2
@@ -58,7 +58,7 @@ class TestMergeTwoSortedLists(unittest.TestCase):
 
         list_3 = merge_two_lists(list_1, list_2)
 
-        self.assertEqual([x for x in linkedlist_iter(list_3)], [1, 2, 3, 4, 5, 6])
+        self.assertEqual(list(linkedlist_iter(list_3)), [1, 2, 3, 4, 5, 6])
 
     def test_linked_list_equal_first_no(self):
         list_1 = gen_list([1, 2, 4])
@@ -66,4 +66,4 @@ class TestMergeTwoSortedLists(unittest.TestCase):
 
         list_3 = merge_two_lists(list_1, list_2)
 
-        self.assertEqual([x for x in linkedlist_iter(list_3)], [1, 1, 2, 3, 4, 4])
+        self.assertEqual(list(linkedlist_iter(list_3)), [1, 1, 2, 3, 4, 4])
