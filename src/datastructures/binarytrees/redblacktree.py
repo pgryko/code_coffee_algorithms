@@ -1,4 +1,3 @@
-# Future import need for using self in typehints
 from __future__ import annotations
 
 from binarysearchtrees import Node
@@ -400,7 +399,6 @@ class RedBlackTree:
     def print_tree(self):
         string_list = []
         self._print_tree(self.root, string_list)
-        # transposed_list = list(map(list, zip(*string_list)))
         for line in string_list:
             print(line)  # noqa
 

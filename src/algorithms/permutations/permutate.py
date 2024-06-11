@@ -33,7 +33,5 @@ def permutate(arrayin: List):
 
 
 if __name__ == "__main__":
-    # permutate(['a','b','c','d'])
-    # print('stuff')
     for element in permutate(["a", "b", "c", "d"]):
         print(element)  # noqa
