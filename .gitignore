@@ -1,4 +1,5 @@
 external/googletest/googletest/generated/
+.DS_Store
 
 .vscode
 # Created by https://www.gitignore.io/api/c++,cmake,clion,python,pycharm
