@@ -28,5 +28,4 @@ from typing import List
 from collections import deque
 
 
-def matrix_01_nearest_zero(mat: List[List]) -> int:
-    return -1
+def matrix_01_nearest_zero(mat: List[List]) -> List[List]: ...
