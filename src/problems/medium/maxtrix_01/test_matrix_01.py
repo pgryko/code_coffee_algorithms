@@ -12,7 +12,7 @@ def test_single_zero():
 def test_single_one():
     mat = [[1]]
     expected = [
-        [float("inf")]
+        [-1]
     ]  # Depending on the prompt this could be updated later to handle single element cases
     assert matrix_01_nearest_zero(mat) == expected
 
@@ -25,7 +25,7 @@ def test_all_zeros():
 
 def test_all_ones():
     mat = [[1, 1], [1, 1]]
-    expected = [[float("inf"), float("inf")], [float("inf"), float("inf")]]
+    expected = [[-1, -1], [-1, -1]]
     assert matrix_01_nearest_zero(mat) == expected
 
 
