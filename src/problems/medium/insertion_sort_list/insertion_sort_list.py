@@ -51,8 +51,6 @@ def insertion_sort_list(head: Optional[ListNode]) -> Optional[ListNode]:
 
         # Then you swap
 
-
-
         prev.next = cur
 
     return dummy.next
