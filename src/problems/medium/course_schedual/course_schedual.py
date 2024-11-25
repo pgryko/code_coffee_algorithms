@@ -55,6 +55,7 @@ from typing import List
 
 
 def can_finish_dfs(num_courses: int, prerequisites: List[List[int]]) -> bool:
+
     course_prequest_list = defaultdict(list)
 
     for prerequisite in prerequisites:

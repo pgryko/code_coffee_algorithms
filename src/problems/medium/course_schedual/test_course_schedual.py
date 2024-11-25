@@ -14,6 +14,11 @@ class CanFinishTestCase(unittest.TestCase):
         prerequisites = [[1, 0], [2, 0], [3, 2], [3, 1]]
         self.assertTrue(can_finish_dfs(numCourses, prerequisites))
 
+    def test_canFinish_withValidCourseOrder_shouldReturnTrue_3(self):
+        numCourses = 2
+        prerequisites = [[1, 0]]
+        self.assertTrue(can_finish_dfs(numCourses, prerequisites))
+
     def test_canFinish_withInvalidCourseOrder_shouldReturnFalse(self):
         numCourses = 4
         prerequisites = [[1, 0], [0, 1], [3, 2]]
