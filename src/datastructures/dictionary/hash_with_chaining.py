@@ -92,7 +92,7 @@ class HashChaining:
     def exists(self, message: str):
         index = self.hash(message)
 
-        if self.data[index] is None or self.data[index] is []:
+        if self.data[index] is None or self.data[index] == []:
             return False
 
         if message in self.data[index]:
@@ -111,7 +111,7 @@ class HashChaining:
 
         index = self.hash(message)
 
-        if self.data[index] is None or self.data[index] is []:
+        if self.data[index] is None or self.data[index] == []:
             self.data[index] = [message]
         else:
             # Perform a linear search to see if element is in list
