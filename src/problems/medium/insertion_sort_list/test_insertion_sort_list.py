@@ -4,16 +4,110 @@ from src.problems.medium.insertion_sort_list.insertion_sort_list import (
 )
 
 
-def test_insertionSortList():
-    # Test an empty list
-    assert insertion_sort_list(None) is None
+def test_empty_list():
+    # Given
+    head = None
 
-    # Test a single node list
-    assert insertion_sort_list(ListNode(1)) == ListNode(1)
+    # When
+    result = insertion_sort_list(head)
 
-    # Test a list with multiple nodes in random order
-    unsorted_list = ListNode(5, ListNode(2, ListNode(4, ListNode(1, ListNode(3)))))
-    sorted_list = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
-    assert insertion_sort_list(unsorted_list) == sorted_list
+    # Then
+    assert result is None
 
-    # Add more test cases to cover different scenarios and edge cases
+
+def test_single_node():
+    # Given
+    head = ListNode(5)
+
+    # When
+    result = insertion_sort_list(head)
+
+    # Then
+    assert result.val == 5
+    assert result.next is None
+
+
+def test_two_nodes_sorted():
+    # Given
+    head = ListNode(1)
+    head.next = ListNode(2)
+
+    # When
+    result = insertion_sort_list(head)
+
+    # Then
+    assert result.val == 1
+    assert result.next.val == 2
+    assert result.next.next is None
+
+
+def test_two_nodes_unsorted():
+    # Given
+    head = ListNode(2)
+    head.next = ListNode(1)
+
+    # When
+    result = insertion_sort_list(head)
+
+    # Then
+    assert result.val == 1
+    assert result.next.val == 2
+    assert result.next.next is None
+
+
+def test_multiple_nodes():
+    # Given
+    head = ListNode(4)
+    head.next = ListNode(2)
+    head.next.next = ListNode(1)
+    head.next.next.next = ListNode(3)
+
+    # When
+    result = insertion_sort_list(head)
+
+    # Then
+    assert result.val == 1
+    assert result.next.val == 2
+    assert result.next.next.val == 3
+    assert result.next.next.next.val == 4
+    assert result.next.next.next.next is None
+
+
+def test_duplicate_values():
+    # Given
+    head = ListNode(3)
+    head.next = ListNode(3)
+    head.next.next = ListNode(1)
+    head.next.next.next = ListNode(2)
+    head.next.next.next.next = ListNode(1)
+
+    # When
+    result = insertion_sort_list(head)
+
+    # Then
+    assert result.val == 1
+    assert result.next.val == 1
+    assert result.next.next.val == 2
+    assert result.next.next.next.val == 3
+    assert result.next.next.next.next.val == 3
+    assert result.next.next.next.next.next is None
+
+
+def test_negative_numbers():
+    # Given
+    head = ListNode(1)
+    head.next = ListNode(-3)
+    head.next.next = ListNode(4)
+    head.next.next.next = ListNode(-1)
+    head.next.next.next.next = ListNode(5)
+
+    # When
+    result = insertion_sort_list(head)
+
+    # Then
+    assert result.val == -3
+    assert result.next.val == -1
+    assert result.next.next.val == 1
+    assert result.next.next.next.val == 4
+    assert result.next.next.next.next.val == 5
+    assert result.next.next.next.next.next is None

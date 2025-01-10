@@ -27,30 +27,35 @@ class ListNode:
 
 
 def insertion_sort_list(head: Optional[ListNode]) -> Optional[ListNode]:
-
     if head is None or head.next is None:
         return head
 
-    cur = head
-
-    # create dummy node to keep track of head
+    # Create dummy node to handle edge cases
     dummy = ListNode(-6000)
+    dummy.next = head
+    curr = head.next
+    prev = head
 
-    while cur:
+    while curr:
+        if curr.val >= prev.val:
+            # If current node is greater than previous, just move forward
+            prev = curr
+            curr = curr.next
+        else:
+            # Need to find the correct position to insert curr
+            temp = dummy
+            # Find the position where curr should be inserted
+            while temp.next.val < curr.val:
+                temp = temp.next
 
-        prev = dummy
+            # Remove curr from its current position
+            prev.next = curr.next
 
-        if cur.next < cur:
-            cur = cur.next
-            continue
+            # Insert curr in its correct position
+            curr.next = temp.next
+            temp.next = curr
 
-        to_insert = cur.next
-        # Find the location to insert the next node
-        while to_insert < prev:
-            prev = prev.next
-
-        # Then you swap
-
-        prev.next = cur
+            # Move to next node
+            curr = prev.next
 
     return dummy.next
