@@ -1,52 +1,75 @@
-import copy
+from typing import List
 
 
-class MergeSort:
-    """Sorts an array using a recursive divide and concour strategy
-
-    Technically we could write this as two nested functions, but I think its cleaner (design choice)
-    to write it as a class. Its also easier to test, as testing a nested function is tricky
+def merge_sort(arr: List[int]) -> List[int]:
     """
+    Sorts an array using the merge sort algorithm.
 
-    def __init__(self, array):
-        """Sets off merge sort"""
-        MergeSort.mergesort(array, 0, len(array) - 1)
+    Time Complexity: O(n log n)
+    Space Complexity: O(n)
 
-    @staticmethod
-    def merge(array, low, mid, high):
-        lhs = copy.deepcopy(array[low : mid + 1])
-        rhs = copy.deepcopy(array[mid + 1 : high + 1])
+    Args:
+        arr: List of integers to be sorted
 
-        i = 0
-        j = 0
-        for k in range(low, high + 1):
-            if i < len(lhs) and j < len(rhs):
-                if lhs[i] <= rhs[j]:
-                    array[k] = lhs[i]
-                    i += 1
-                else:
-                    array[k] = rhs[j]
-                    j += 1
-            elif i < len(lhs):
-                array[k] = lhs[i]
-                i += 1
-            else:
-                array[k] = rhs[j]
-                j += 1
+    Returns:
+        Sorted list of integers
+    """
+    # Base case: arrays of length 0 or 1 are already sorted
+    if len(arr) <= 1:
+        return arr
 
-    @staticmethod
-    def mergesort(array, low, high):
-        mid = int((low + high) // 2)
+    # Find the middle point to divide array into two halves
+    mid = len(arr) // 2
 
-        if mid < high:
-            MergeSort.mergesort(array, low, mid)
-            MergeSort.mergesort(array, mid + 1, high)
-            MergeSort.merge(array, low, mid, high)
+    # Recursively sort the two halves
+    left_half = merge_sort(arr[:mid])
+    right_half = merge_sort(arr[mid:])
+
+    # Merge the sorted halves
+    return merge(left_half, right_half)
 
 
+def merge(left: List[int], right: List[int]) -> List[int]:
+    """
+    Merges two sorted arrays into a single sorted array.
+
+    Args:
+        left: First sorted array
+        right: Second sorted array
+
+    Returns:
+        Merged sorted array
+    """
+    merged = []
+    left_index = 0
+    right_index = 0
+
+    # Compare elements from both arrays and merge them in sorted order
+    while left_index < len(left) and right_index < len(right):
+        if left[left_index] <= right[right_index]:
+            merged.append(left[left_index])
+            left_index += 1
+        else:
+            merged.append(right[right_index])
+            right_index += 1
+
+    # Add remaining elements from left array, if any
+    while left_index < len(left):
+        merged.append(left[left_index])
+        left_index += 1
+
+    # Add remaining elements from right array, if any
+    while right_index < len(right):
+        merged.append(right[right_index])
+        right_index += 1
+
+    return merged
+
+
+# Example usage:
 if __name__ == "__main__":
-    ARRAY_IN = [8, 0, 3, 3, 5, 6]
-
-    MergeSort(ARRAY_IN)
-
-    print(ARRAY_IN)  # noqa
+    # Test the merge sort implementation
+    test_array = [64, 34, 25, 12, 22, 11, 90]
+    sorted_array = merge_sort(test_array)
+    print(f"Original array: {test_array}")
+    print(f"Sorted array: {sorted_array}")
