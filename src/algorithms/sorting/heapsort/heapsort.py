@@ -67,18 +67,15 @@ def heap_sort(array):
     # # Build heap (re-arrange array)
     # # range(start, stop, step)
     # # operator // forces integer division (python 3)
-    for i in range((len(array) - 1) // 2, -1, -1):
+    for i in range(len(array) // 2 - 1, -1, -1):
         max_heapify(array, i)
 
     # We now have a max heap, one by one pull out the maximum element
     # and add it to the end of the array, and sort the remainder
-    size = len(array)
-
     for i in range(len(array) - 1, 0, -1):
         array[0], array[i] = array[i], array[0]
 
-        size = size - 1
-        max_heapify(array, 0, size)
+        max_heapify(array=array, i=0, size=i)
 
 
 if __name__ == "__main__":
